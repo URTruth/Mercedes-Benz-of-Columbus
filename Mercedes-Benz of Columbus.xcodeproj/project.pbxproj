@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B64620D01A2C432400523159 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B64620CF1A2C432400523159 /* HomeViewController.m */; };
+		B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */ = {isa = PBXBuildFile; fileRef = B64620D21A2C479000523159 /* logo-tagline-white.png */; };
+		B64620DD1A2C4EF700523159 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B64620DC1A2C4EF700523159 /* launch.jpg */; };
+		B64620E11A2C5B1700523159 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = B64620E01A2C5B1700523159 /* nav.png */; };
+		B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */; };
 		B673C8731A294BFA00D3D55F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8721A294BFA00D3D55F /* main.m */; };
 		B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8751A294BFA00D3D55F /* AppDelegate.m */; };
-		B673C8791A294BFA00D3D55F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8781A294BFA00D3D55F /* ViewController.m */; };
 		B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B673C87A1A294BFA00D3D55F /* Main.storyboard */; };
 		B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B673C87D1A294BFA00D3D55F /* Images.xcassets */; };
 		B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */; };
@@ -27,13 +31,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B64620CE1A2C432400523159 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B64620CF1A2C432400523159 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B64620D21A2C479000523159 /* logo-tagline-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-tagline-white.png"; sourceTree = "<group>"; };
+		B64620DC1A2C4EF700523159 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
+		B64620E01A2C5B1700523159 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
+		B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pre-owned-special.jpeg"; sourceTree = "<group>"; };
 		B673C86D1A294BFA00D3D55F /* Mercedes-Benz of Columbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mercedes-Benz of Columbus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B673C8711A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B673C8721A294BFA00D3D55F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B673C8741A294BFA00D3D55F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B673C8751A294BFA00D3D55F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B673C8771A294BFA00D3D55F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B673C8781A294BFA00D3D55F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B673C87B1A294BFA00D3D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B673C87D1A294BFA00D3D55F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B673C8801A294BFA00D3D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +68,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B64620D11A2C475900523159 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */,
+				B64620E01A2C5B1700523159 /* nav.png */,
+				B64620DC1A2C4EF700523159 /* launch.jpg */,
+				B64620D21A2C479000523159 /* logo-tagline-white.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		B673C8641A294BFA00D3D55F = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +100,12 @@
 		B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */ = {
 			isa = PBXGroup;
 			children = (
+				B64620D11A2C475900523159 /* Images */,
 				B673C8741A294BFA00D3D55F /* AppDelegate.h */,
 				B673C8751A294BFA00D3D55F /* AppDelegate.m */,
-				B673C8771A294BFA00D3D55F /* ViewController.h */,
-				B673C8781A294BFA00D3D55F /* ViewController.m */,
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
+				B64620CE1A2C432400523159 /* HomeViewController.h */,
+				B64620CF1A2C432400523159 /* HomeViewController.m */,
 				B673C87D1A294BFA00D3D55F /* Images.xcassets */,
 				B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */,
 				B673C8701A294BFA00D3D55F /* Supporting Files */,
@@ -200,6 +220,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
+				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
+				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
+				B64620E11A2C5B1700523159 /* nav.png in Resources */,
+				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
 			);
@@ -219,9 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B673C8791A294BFA00D3D55F /* ViewController.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
+				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +438,7 @@
 				B673C8921A294BFA00D3D55F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B673C8931A294BFA00D3D55F /* Build configuration list for PBXNativeTarget "Mercedes-Benz of ColumbusTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +447,7 @@
 				B673C8951A294BFA00D3D55F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
+		2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE777A21A2D4E6F00BA926D /* homePageViewController.m */; };
+		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
+		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
+		2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A61A2D4EC200BA926D /* MercedesLogo.png */; };
+		2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A71A2D4EC200BA926D /* startBG.png */; };
 		B64620D01A2C432400523159 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B64620CF1A2C432400523159 /* HomeViewController.m */; };
 		B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */ = {isa = PBXBuildFile; fileRef = B64620D21A2C479000523159 /* logo-tagline-white.png */; };
 		B64620DD1A2C4EF700523159 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B64620DC1A2C4EF700523159 /* launch.jpg */; };
@@ -31,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
+		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
+		2AE777A11A2D4E6F00BA926D /* homePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homePageViewController.h; sourceTree = "<group>"; };
+		2AE777A21A2D4E6F00BA926D /* homePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homePageViewController.m; sourceTree = "<group>"; };
+		2AE777A41A2D4EC200BA926D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		2AE777A51A2D4EC200BA926D /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
+		2AE777A61A2D4EC200BA926D /* MercedesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MercedesLogo.png; sourceTree = "<group>"; };
+		2AE777A71A2D4EC200BA926D /* startBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBG.png; sourceTree = "<group>"; };
 		B64620CE1A2C432400523159 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B64620CF1A2C432400523159 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B64620D21A2C479000523159 /* logo-tagline-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-tagline-white.png"; sourceTree = "<group>"; };
@@ -71,6 +85,10 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2AE777A41A2D4EC200BA926D /* image.jpg */,
+				2AE777A51A2D4EC200BA926D /* logo.jpg */,
+				2AE777A61A2D4EC200BA926D /* MercedesLogo.png */,
+				2AE777A71A2D4EC200BA926D /* startBG.png */,
 				B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */,
 				B64620E01A2C5B1700523159 /* nav.png */,
 				B64620DC1A2C4EF700523159 /* launch.jpg */,
@@ -103,6 +121,10 @@
 				B64620D11A2C475900523159 /* Images */,
 				B673C8741A294BFA00D3D55F /* AppDelegate.h */,
 				B673C8751A294BFA00D3D55F /* AppDelegate.m */,
+				2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */,
+				2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */,
+				2AE777A11A2D4E6F00BA926D /* homePageViewController.h */,
+				2AE777A21A2D4E6F00BA926D /* homePageViewController.m */,
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
 				B64620CE1A2C432400523159 /* HomeViewController.h */,
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
@@ -222,9 +244,13 @@
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
+				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
+				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B64620E11A2C5B1700523159 /* nav.png in Resources */,
+				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
+				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
+				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -8,7 +8,8 @@
         <scene sceneID="fsx-gU-zUF">
             <objects>
                 <navigationController id="D2A-cl-ecb" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mvk-R3-k4K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -19,14 +20,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4T-xL-tkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-229" y="310"/>
+            <point key="canvasLocation" x="-558" y="310"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tPd-Ug-CgR">
             <objects>
                 <tableViewController id="bD4-jd-Xze" customClass="HomeViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YdP-8d-9X9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -43,11 +44,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="RrH-ky-bUk"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="310"/>
+            <point key="canvasLocation" x="872" y="310"/>
         </scene>
         <!--Start Page View Controller-->
         <scene sceneID="Lj5-qk-Gyh">
@@ -58,36 +60,101 @@
                         <viewControllerLayoutGuide type="bottom" id="wfi-Hl-Ab6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uhm-jP-jCc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="dPi-Ki-XfF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="montage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nle-j0-fgg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Qsx-CX-Ks8"/>
+                                    <constraint firstAttribute="height" constant="600" id="pwz-Zv-dED"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5I-lk-Kwp">
-                                <rect key="frame" x="100" y="264" width="175" height="37"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Take The Tour">
-                                    <color key="titleColor" red="0.31444714670000001" green="0.66117267219999998" blue="0.63721743519999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bD4-jd-Xze" kind="push" id="DWa-yV-Zrv"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo-tagline-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-gx-rS0">
+                                <rect key="frame" x="181" y="28" width="240" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1SZ-O0-y8c"/>
+                                    <constraint firstAttribute="width" constant="240" id="Itb-KG-gEb"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rX2-XK-BMZ">
+                                <rect key="frame" x="0.0" y="150" width="600" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Unlimited Luxury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-wV-3Nc">
+                                        <rect key="frame" x="132" y="8" width="336" height="47"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Now on your iPhone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geK-LO-lCo">
+                                        <rect key="frame" x="132" y="29" width="336" height="47"/>
+                                        <color key="backgroundColor" red="0.75523318028606112" green="0.7541924048629558" blue="0.77237215909090906" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <color key="textColor" red="0.63226010101010099" green="0.63226010101010099" blue="0.63226010101010099" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-CR-oDk">
+                                        <rect key="frame" x="191" y="75" width="218" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="218" id="Pvi-ZX-VQA"/>
+                                            <constraint firstAttribute="height" constant="51" id="mN3-2c-HHD"/>
+                                        </constraints>
+                                        <state key="normal" image="facebook-login.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSq-Dp-28C">
+                                        <rect key="frame" x="188" y="129" width="224" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="Hhb-HZ-ZGW"/>
+                                            <constraint firstAttribute="width" constant="224" id="fIw-dL-RFa"/>
+                                        </constraints>
+                                        <state key="normal" image="google-login.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="ngF-CR-oDk" secondAttribute="centerX" id="2q0-5C-eLm"/>
+                                    <constraint firstAttribute="centerX" secondItem="MSq-Dp-28C" secondAttribute="centerX" id="jdZ-ty-hDu"/>
+                                    <constraint firstAttribute="centerX" secondItem="geK-LO-lCo" secondAttribute="centerX" id="us1-vg-OJS"/>
+                                    <constraint firstAttribute="centerX" secondItem="tg8-wV-3Nc" secondAttribute="centerX" id="xni-LQ-zVb"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="        of Columbus, Georgia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-kw-btb">
+                                <rect key="frame" x="181" y="61" width="281" height="47"/>
+                                <color key="backgroundColor" red="0.75523318029999997" green="0.75419240489999995" blue="0.77237215910000001" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <color key="textColor" red="0.63226010099999996" green="0.63226010099999996" blue="0.63226010099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rX2-XK-BMZ" firstAttribute="leading" secondItem="uhm-jP-jCc" secondAttribute="leading" id="5O0-PL-rwV"/>
+                            <constraint firstAttribute="trailing" secondItem="rX2-XK-BMZ" secondAttribute="trailing" id="EXH-Qd-Gb0"/>
+                            <constraint firstAttribute="trailing" secondItem="Nle-j0-fgg" secondAttribute="trailing" id="Fnk-lR-qn0"/>
+                            <constraint firstAttribute="centerX" secondItem="Nle-j0-fgg" secondAttribute="centerX" id="GAh-Yi-Qdh"/>
+                            <constraint firstItem="Yq5-gx-rS0" firstAttribute="leading" secondItem="PfX-kw-btb" secondAttribute="leading" id="Ndu-dm-Qic"/>
+                            <constraint firstItem="Nle-j0-fgg" firstAttribute="top" secondItem="uhm-jP-jCc" secondAttribute="top" id="YbG-TB-sXS"/>
+                            <constraint firstItem="Nle-j0-fgg" firstAttribute="leading" secondItem="uhm-jP-jCc" secondAttribute="leading" id="ae8-9u-7hb"/>
+                            <constraint firstAttribute="centerX" secondItem="Yq5-gx-rS0" secondAttribute="centerX" id="cdI-jA-iGm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LDR-Lr-9Zd"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0B-tF-G2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223" y="310"/>
+            <point key="canvasLocation" x="171" y="310"/>
         </scene>
     </scenes>
     <resources>
-        <image name="startBG.png" width="322" height="570"/>
+        <image name="facebook-login.png" width="416" height="101"/>
+        <image name="google-login.png" width="492" height="108"/>
+        <image name="logo-tagline-white.png" width="638" height="184"/>
+        <image name="montage.png" width="1024" height="768"/>
     </resources>
 </document>

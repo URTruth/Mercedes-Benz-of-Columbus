@@ -17,15 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.navigationItem.hidesBackButton = YES;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    //self.view.backgroundColor = [UIColor blackColor];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName: @"AvenirNext-DemiBold" size: 14.0f]} forState:UIControlStateNormal];
+    self.navigationItem.backBarButtonItem = backButton;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -52,6 +48,10 @@
     UIBarButtonItem *navButton = [[UIBarButtonItem alloc] initWithCustomView:navBtn] ;
     self.tabBarController.navigationItem.rightBarButtonItem = navButton;
     self.navigationItem.rightBarButtonItem = navButton;
+}
+
+- (void)viewDidAppear:(BOOL)animated {    
+    
 }
 
 - (void)didReceiveMemoryWarning {

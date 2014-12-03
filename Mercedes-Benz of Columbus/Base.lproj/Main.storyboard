@@ -70,11 +70,18 @@
                                     <constraint firstAttribute="height" constant="600" id="pwz-Zv-dED"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo-tagline-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-gx-rS0">
-                                <rect key="frame" x="181" y="28" width="240" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="montage2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zt6-Ka-GKL">
+                                <rect key="frame" x="300" y="600" width="600" height="600"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="1SZ-O0-y8c"/>
-                                    <constraint firstAttribute="width" constant="240" id="Itb-KG-gEb"/>
+                                    <constraint firstAttribute="width" constant="600" id="V7O-2K-YoP"/>
+                                    <constraint firstAttribute="height" constant="600" id="WPt-Ib-eoy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="montage2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y7E-fH-4oU">
+                                <rect key="frame" x="-300" y="600" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="F4B-1u-oXw"/>
+                                    <constraint firstAttribute="width" constant="600" id="nSX-TF-c2E"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rX2-XK-BMZ">
@@ -94,7 +101,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-CR-oDk">
-                                        <rect key="frame" x="191" y="75" width="218" height="51"/>
+                                        <rect key="frame" x="191" y="92" width="218" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="218" id="Pvi-ZX-VQA"/>
                                             <constraint firstAttribute="height" constant="51" id="mN3-2c-HHD"/>
@@ -104,7 +111,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSq-Dp-28C">
-                                        <rect key="frame" x="188" y="129" width="224" height="51"/>
+                                        <rect key="frame" x="188" y="151" width="224" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="Hhb-HZ-ZGW"/>
                                             <constraint firstAttribute="width" constant="224" id="fIw-dL-RFa"/>
@@ -113,16 +120,35 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdI-wT-82g">
+                                        <rect key="frame" x="169" y="215" width="263" height="30"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <state key="normal" title="Start without connecting">
+                                            <color key="titleColor" red="0.78626104799999996" green="0.78626104799999996" blue="0.78626104799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="bD4-jd-Xze" kind="show" id="8Zr-2l-0Se"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="ngF-CR-oDk" secondAttribute="centerX" id="2q0-5C-eLm"/>
+                                    <constraint firstAttribute="centerX" secondItem="pdI-wT-82g" secondAttribute="centerX" id="34d-Dw-37K"/>
                                     <constraint firstAttribute="centerX" secondItem="MSq-Dp-28C" secondAttribute="centerX" id="jdZ-ty-hDu"/>
                                     <constraint firstAttribute="centerX" secondItem="geK-LO-lCo" secondAttribute="centerX" id="us1-vg-OJS"/>
                                     <constraint firstAttribute="centerX" secondItem="tg8-wV-3Nc" secondAttribute="centerX" id="xni-LQ-zVb"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo-tagline-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-gx-rS0">
+                                <rect key="frame" x="181" y="37" width="240" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1SZ-O0-y8c"/>
+                                    <constraint firstAttribute="width" constant="240" id="Itb-KG-gEb"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="        of Columbus, Georgia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-kw-btb">
-                                <rect key="frame" x="181" y="61" width="281" height="47"/>
+                                <rect key="frame" x="181" y="70" width="281" height="47"/>
                                 <color key="backgroundColor" red="0.75523318029999997" green="0.75419240489999995" blue="0.77237215910000001" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <color key="textColor" red="0.63226010099999996" green="0.63226010099999996" blue="0.63226010099999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,5 +182,6 @@
         <image name="google-login.png" width="492" height="108"/>
         <image name="logo-tagline-white.png" width="638" height="184"/>
         <image name="montage.png" width="1024" height="768"/>
+        <image name="montage2.png" width="1024" height="768"/>
     </resources>
 </document>

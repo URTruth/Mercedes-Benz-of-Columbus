@@ -13,12 +13,15 @@
 		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
 		2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A61A2D4EC200BA926D /* MercedesLogo.png */; };
 		2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A71A2D4EC200BA926D /* startBG.png */; };
+		B62A84531A2EBAD000B6A799 /* montage2.png in Resources */ = {isa = PBXBuildFile; fileRef = B62A84521A2EBAD000B6A799 /* montage2.png */; };
+		B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B62A84541A2EC68200B6A799 /* winter-event.jpg */; };
+		B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B62A84551A2EC68200B6A799 /* 2015-cls-class.jpg */; };
+		B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B62A845A1A2ECC4100B6A799 /* UIColor+FlatUI.m */; };
 		B64620D01A2C432400523159 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B64620CF1A2C432400523159 /* HomeViewController.m */; };
 		B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */ = {isa = PBXBuildFile; fileRef = B64620D21A2C479000523159 /* logo-tagline-white.png */; };
 		B64620DD1A2C4EF700523159 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B64620DC1A2C4EF700523159 /* launch.jpg */; };
 		B64620E11A2C5B1700523159 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = B64620E01A2C5B1700523159 /* nav.png */; };
 		B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */; };
-		B646211C1A2D9C2300523159 /* montage1.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211B1A2D9C2300523159 /* montage1.png */; };
 		B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211D1A2DA9AA00523159 /* facebook-login.png */; };
 		B64621201A2DA9AD00523159 /* google-login.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211F1A2DA9AD00523159 /* google-login.png */; };
 		B64621221A2DB12F00523159 /* montage.png in Resources */ = {isa = PBXBuildFile; fileRef = B64621211A2DB12F00523159 /* montage.png */; };
@@ -49,13 +52,17 @@
 		2AE777A51A2D4EC200BA926D /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		2AE777A61A2D4EC200BA926D /* MercedesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MercedesLogo.png; sourceTree = "<group>"; };
 		2AE777A71A2D4EC200BA926D /* startBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBG.png; sourceTree = "<group>"; };
+		B62A84521A2EBAD000B6A799 /* montage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montage2.png; sourceTree = "<group>"; };
+		B62A84541A2EC68200B6A799 /* winter-event.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "winter-event.jpg"; sourceTree = "<group>"; };
+		B62A84551A2EC68200B6A799 /* 2015-cls-class.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2015-cls-class.jpg"; sourceTree = "<group>"; };
+		B62A84591A2ECC4100B6A799 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		B62A845A1A2ECC4100B6A799 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		B64620CE1A2C432400523159 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B64620CF1A2C432400523159 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B64620D21A2C479000523159 /* logo-tagline-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-tagline-white.png"; sourceTree = "<group>"; };
 		B64620DC1A2C4EF700523159 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		B64620E01A2C5B1700523159 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
 		B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pre-owned-special.jpeg"; sourceTree = "<group>"; };
-		B646211B1A2D9C2300523159 /* montage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montage1.png; sourceTree = "<group>"; };
 		B646211D1A2DA9AA00523159 /* facebook-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-login.png"; sourceTree = "<group>"; };
 		B646211F1A2DA9AD00523159 /* google-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-login.png"; sourceTree = "<group>"; };
 		B64621211A2DB12F00523159 /* montage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montage.png; sourceTree = "<group>"; };
@@ -90,13 +97,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B62A84581A2ECC1900B6A799 /* FlatUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B62A84591A2ECC4100B6A799 /* UIColor+FlatUI.h */,
+				B62A845A1A2ECC4100B6A799 /* UIColor+FlatUI.m */,
+			);
+			name = FlatUIKit;
+			sourceTree = "<group>";
+		};
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				B646211D1A2DA9AA00523159 /* facebook-login.png */,
 				B646211F1A2DA9AD00523159 /* google-login.png */,
-				B646211B1A2D9C2300523159 /* montage1.png */,
 				B64621211A2DB12F00523159 /* montage.png */,
+				B62A84521A2EBAD000B6A799 /* montage2.png */,
+				B62A84541A2EC68200B6A799 /* winter-event.jpg */,
+				B62A84551A2EC68200B6A799 /* 2015-cls-class.jpg */,
 				2AE777A41A2D4EC200BA926D /* image.jpg */,
 				2AE777A51A2D4EC200BA926D /* logo.jpg */,
 				2AE777A61A2D4EC200BA926D /* MercedesLogo.png */,
@@ -142,6 +160,7 @@
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
 				B673C87D1A294BFA00D3D55F /* Images.xcassets */,
 				B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */,
+				B62A84581A2ECC1900B6A799 /* FlatUIKit */,
 				B673C8701A294BFA00D3D55F /* Supporting Files */,
 			);
 			path = "Mercedes-Benz of Columbus";
@@ -256,18 +275,20 @@
 				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
+				B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */,
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
 				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B64620E11A2C5B1700523159 /* nav.png in Resources */,
+				B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */,
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
 				B64621221A2DB12F00523159 /* montage.png in Resources */,
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
+				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
-				B646211C1A2D9C2300523159 /* montage1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +308,7 @@
 			files = (
 				2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
+				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
 				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,

@@ -24,6 +24,8 @@
     
     self.tableView.backgroundColor = [UIColor blackColor];
     
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName: @"AvenirNext-DemiBold" size: 14.0f]} forState:UIControlStateNormal];
     self.navigationItem.backBarButtonItem = backButton;
@@ -81,6 +83,9 @@
         UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
         [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
         [logo setContentMode:UIViewContentModeScaleAspectFit];
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startButtonClicked:)];
+        [tapRecognizer setNumberOfTouchesRequired:1]; [tapRecognizer setDelegate:self];
+        cell.userInteractionEnabled = YES; [cell addGestureRecognizer:tapRecognizer];
         [cell addSubview:logo];
     }
     
@@ -203,10 +208,13 @@
     return 150;
 }
 
+- (IBAction)startButtonClicked:(UITapGestureRecognizer *)sender {
+    [self performSegueWithIdentifier:@"startSegue" sender:self];
+}
+
 - (IBAction)navButtonClicked:(id)sender {
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:11 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].

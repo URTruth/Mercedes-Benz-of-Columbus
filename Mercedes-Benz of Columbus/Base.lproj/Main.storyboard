@@ -46,10 +46,13 @@
                     <navigationItem key="navigationItem" id="RrH-ky-bUk"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <segue destination="37J-qO-eIm" kind="show" identifier="startSegue" id="MbM-ac-4wh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872" y="310"/>
+            <point key="canvasLocation" x="858" y="310"/>
         </scene>
         <!--Start Page View Controller-->
         <scene sceneID="Lj5-qk-Gyh">
@@ -88,19 +91,19 @@
                                 <rect key="frame" x="0.0" y="150" width="600" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Unlimited Luxury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-wV-3Nc">
-                                        <rect key="frame" x="132" y="8" width="336" height="47"/>
+                                        <rect key="frame" x="132" y="42" width="336" height="47"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Now on your iPhone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geK-LO-lCo">
-                                        <rect key="frame" x="132" y="29" width="336" height="47"/>
+                                        <rect key="frame" x="132" y="63" width="336" height="47"/>
                                         <color key="backgroundColor" red="0.75523318028606112" green="0.7541924048629558" blue="0.77237215909090906" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <color key="textColor" red="0.63226010101010099" green="0.63226010101010099" blue="0.63226010101010099" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-CR-oDk">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-CR-oDk">
                                         <rect key="frame" x="191" y="92" width="218" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="218" id="Pvi-ZX-VQA"/>
@@ -110,7 +113,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSq-Dp-28C">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSq-Dp-28C">
                                         <rect key="frame" x="188" y="151" width="224" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="Hhb-HZ-ZGW"/>
@@ -120,10 +123,14 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <view alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCo-84-nDM">
+                                        <rect key="frame" x="0.0" y="184" width="600" height="61"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdI-wT-82g">
-                                        <rect key="frame" x="169" y="215" width="263" height="30"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
-                                        <state key="normal" title="Start without connecting">
+                                        <rect key="frame" x="169" y="195" width="263" height="30"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                        <state key="normal" title="Start">
                                             <color key="titleColor" red="0.78626104799999996" green="0.78626104799999996" blue="0.78626104799999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -135,20 +142,22 @@
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="ngF-CR-oDk" secondAttribute="centerX" id="2q0-5C-eLm"/>
                                     <constraint firstAttribute="centerX" secondItem="pdI-wT-82g" secondAttribute="centerX" id="34d-Dw-37K"/>
+                                    <constraint firstItem="rCo-84-nDM" firstAttribute="leading" secondItem="rX2-XK-BMZ" secondAttribute="leading" id="Ghj-jz-nWf"/>
+                                    <constraint firstAttribute="trailing" secondItem="rCo-84-nDM" secondAttribute="trailing" id="NIr-mD-6Eh"/>
                                     <constraint firstAttribute="centerX" secondItem="MSq-Dp-28C" secondAttribute="centerX" id="jdZ-ty-hDu"/>
                                     <constraint firstAttribute="centerX" secondItem="geK-LO-lCo" secondAttribute="centerX" id="us1-vg-OJS"/>
                                     <constraint firstAttribute="centerX" secondItem="tg8-wV-3Nc" secondAttribute="centerX" id="xni-LQ-zVb"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo-tagline-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-gx-rS0">
-                                <rect key="frame" x="181" y="37" width="240" height="60"/>
+                                <rect key="frame" x="181" y="51" width="240" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1SZ-O0-y8c"/>
                                     <constraint firstAttribute="width" constant="240" id="Itb-KG-gEb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="        of Columbus, Georgia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-kw-btb">
-                                <rect key="frame" x="181" y="70" width="281" height="47"/>
+                                <rect key="frame" x="181" y="84" width="281" height="47"/>
                                 <color key="backgroundColor" red="0.75523318029999997" green="0.75419240489999995" blue="0.77237215910000001" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <color key="textColor" red="0.63226010099999996" green="0.63226010099999996" blue="0.63226010099999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,4 +193,7 @@
         <image name="montage.png" width="1024" height="768"/>
         <image name="montage2.png" width="1024" height="768"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MbM-ac-4wh"/>
+    </inferredMetricsTieBreakers>
 </document>

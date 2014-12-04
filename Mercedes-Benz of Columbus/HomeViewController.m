@@ -83,10 +83,11 @@
         UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
         [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
         [logo setContentMode:UIViewContentModeScaleAspectFit];
+        [cell addSubview:logo];
+        
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startButtonClicked:)];
         [tapRecognizer setNumberOfTouchesRequired:1]; [tapRecognizer setDelegate:self];
         cell.userInteractionEnabled = YES; [cell addGestureRecognizer:tapRecognizer];
-        [cell addSubview:logo];
     }
     
     int padding = 10;
@@ -184,7 +185,7 @@
         text.text = @"Contact us";
     }
     if(indexPath.row == 8) {
-        text.text = @"Gas Saver";
+        text.text = @"Show us your car";
     }
     return cell;
 }

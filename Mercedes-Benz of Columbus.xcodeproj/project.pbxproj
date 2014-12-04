@@ -241,6 +241,7 @@
 				TargetAttributes = {
 					B673C86C1A294BFA00D3D55F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = HCQ2A438C7;
 					};
 					B673C8851A294BFA00D3D55F = {
 						CreatedOnToolsVersion = 6.1;
@@ -435,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Mercedes-Benz of Columbus/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Mercedes-Benz of Columbus/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

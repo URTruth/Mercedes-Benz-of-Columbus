@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import "contactViewController.h"
+#import "locationViewController.h"
+
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+FlatUI.h"
 
@@ -209,17 +212,31 @@
     return 150;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 7) {
+        [self performSegueWithIdentifier:@"contactSegue" sender:self];
+    }
+    if(indexPath.row == 5) {
+        [self performSegueWithIdentifier:@"contactSegue" sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"contactSegue"]){
+        contactViewController *dest = (contactViewController *)[segue destinationViewController];
+    }
+    if([segue.identifier isEqualToString:@"locationSegue"]){
+        locationViewController *dest = (locationViewController *)[segue destinationViewController];
+    }
+}
+
 - (IBAction)startButtonClicked:(UITapGestureRecognizer *)sender {
     [self performSegueWithIdentifier:@"startSegue" sender:self];
 }
 
 - (IBAction)navButtonClicked:(id)sender {
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:11 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "homePageViewController.h"
+#import "contactViewController.h"
+#import "locationViewController.h"
 
 @interface homePageViewController ()
 
@@ -57,21 +59,28 @@
     return cell;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([[tableData objectAtIndex:indexPath.row] isEqualToString:@"Contact Us"]) {
+        [self performSegueWithIdentifier:@"contactSegue" sender:self];
+    }
+    if([[tableData objectAtIndex:indexPath.row] isEqualToString:@"Location & Hours"]) {
+        [self performSegueWithIdentifier:@"contactSegue" sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"contactSegue"]){
+        contactViewController *dest = (contactViewController *)[segue destinationViewController];
+    }
+    if([segue.identifier isEqualToString:@"locationSegue"]){
+        locationViewController *dest = (locationViewController *)[segue destinationViewController];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
 
 @end

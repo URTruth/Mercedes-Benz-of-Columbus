@@ -39,7 +39,7 @@
     
     //checkbox == 0;
     
-    self.navigationItem.hidesBackButton = YES;
+    //self.navigationItem.hidesBackButton = YES;
     
     
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];

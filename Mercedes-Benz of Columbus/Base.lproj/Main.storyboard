@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eiF-GE-bse">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -48,6 +48,8 @@
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <segue destination="37J-qO-eIm" kind="show" identifier="startSegue" id="MbM-ac-4wh"/>
+                        <segue destination="eiF-GE-bse" kind="show" identifier="locationSegue" id="K7G-ac-2zl"/>
+                        <segue destination="mbX-zs-9Tl" kind="show" identifier="contactSegue" id="Gbd-D9-2sX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,6 +232,6 @@
         <image name="montage2.png" width="1024" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hmw-25-4OU"/>
+        <segue reference="MbM-ac-4wh"/>
     </inferredMetricsTieBreakers>
 </document>

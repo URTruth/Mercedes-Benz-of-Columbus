@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AAD6DEB1A5E26FA00AC80D4 /* contactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD6DEA1A5E26FA00AC80D4 /* contactViewController.m */; };
+		2AAD6DEF1A637D8900AC80D4 /* checkbox-checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD6DEC1A637D8900AC80D4 /* checkbox-checked.png */; };
+		2AAD6DF01A637D8900AC80D4 /* checkbox-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD6DED1A637D8900AC80D4 /* checkbox-pressed.png */; };
+		2AAD6DF11A637D8900AC80D4 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD6DEE1A637D8900AC80D4 /* checkbox.png */; };
+		2AAD6DF41A64D2A400AC80D4 /* locationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD6DF31A64D2A400AC80D4 /* locationViewController.m */; };
+		2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */; };
 		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
 		2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE777A21A2D4E6F00BA926D /* homePageViewController.m */; };
 		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
@@ -44,6 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AAD6DE91A5E26FA00AC80D4 /* contactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactViewController.h; sourceTree = "<group>"; };
+		2AAD6DEA1A5E26FA00AC80D4 /* contactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactViewController.m; sourceTree = "<group>"; };
+		2AAD6DEC1A637D8900AC80D4 /* checkbox-checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-checked.png"; sourceTree = "<group>"; };
+		2AAD6DED1A637D8900AC80D4 /* checkbox-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-pressed.png"; sourceTree = "<group>"; };
+		2AAD6DEE1A637D8900AC80D4 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		2AAD6DF21A64D2A400AC80D4 /* locationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locationViewController.h; sourceTree = "<group>"; };
+		2AAD6DF31A64D2A400AC80D4 /* locationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = locationViewController.m; sourceTree = "<group>"; };
+		2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
 		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
 		2AE777A11A2D4E6F00BA926D /* homePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homePageViewController.h; sourceTree = "<group>"; };
@@ -84,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +124,9 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2AAD6DEC1A637D8900AC80D4 /* checkbox-checked.png */,
+				2AAD6DED1A637D8900AC80D4 /* checkbox-pressed.png */,
+				2AAD6DEE1A637D8900AC80D4 /* checkbox.png */,
 				B646211D1A2DA9AA00523159 /* facebook-login.png */,
 				B646211F1A2DA9AD00523159 /* google-login.png */,
 				B64621211A2DB12F00523159 /* montage.png */,
@@ -130,6 +148,7 @@
 		B673C8641A294BFA00D3D55F = {
 			isa = PBXGroup;
 			children = (
+				2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */,
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
 				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
@@ -155,6 +174,10 @@
 				2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */,
 				2AE777A11A2D4E6F00BA926D /* homePageViewController.h */,
 				2AE777A21A2D4E6F00BA926D /* homePageViewController.m */,
+				2AAD6DE91A5E26FA00AC80D4 /* contactViewController.h */,
+				2AAD6DEA1A5E26FA00AC80D4 /* contactViewController.m */,
+				2AAD6DF21A64D2A400AC80D4 /* locationViewController.h */,
+				2AAD6DF31A64D2A400AC80D4 /* locationViewController.m */,
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
 				B64620CE1A2C432400523159 /* HomeViewController.h */,
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
@@ -275,12 +298,15 @@
 			files = (
 				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
+				2AAD6DEF1A637D8900AC80D4 /* checkbox-checked.png in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
 				B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */,
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
+				2AAD6DF01A637D8900AC80D4 /* checkbox-pressed.png in Resources */,
 				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B64620E11A2C5B1700523159 /* nav.png in Resources */,
+				2AAD6DF11A637D8900AC80D4 /* checkbox.png in Resources */,
 				B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */,
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
 				B64621221A2DB12F00523159 /* montage.png in Resources */,
@@ -310,8 +336,10 @@
 				2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
 				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,
+				2AAD6DF41A64D2A400AC80D4 /* locationViewController.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
 				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
+				2AAD6DEB1A5E26FA00AC80D4 /* contactViewController.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

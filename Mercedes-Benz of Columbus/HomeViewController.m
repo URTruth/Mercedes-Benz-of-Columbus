@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "contactViewController.h"
 #import "locationViewController.h"
+#import "menuCell.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+FlatUI.h"
@@ -167,28 +168,44 @@
     [text setTextAlignment:UITextAlignmentCenter];
     [cell addSubview:text];
     if(indexPath.row == 1) {
-        text.text = @"New Inventory";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"New Inventory";
     }
     if(indexPath.row == 2) {
-        text.text = @"Used Inventory";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Used Inventory";
     }
     if(indexPath.row == 3) {
-        text.text = @"Specials";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Specials";
     }
     if(indexPath.row == 4) {
-        text.text = @"Book a Service";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Book a Service";
     }
     if(indexPath.row == 5) {
-        text.text = @"Location & Hours";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Location & Hours";
     }
     if(indexPath.row == 6) {
-        text.text = @"Find us";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Find us";
     }
     if(indexPath.row == 7) {
-        text.text = @"Contact us";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Contact us";
     }
     if(indexPath.row == 8) {
-        text.text = @"Show us your car";
+        static NSString *textCellIdentifier = @"textCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:textCellIdentifier];
+        cell.nameLabel.text = @"Show us your car";
     }
     return cell;
 }
@@ -218,7 +235,7 @@
         [self performSegueWithIdentifier:@"contactSegue" sender:self];
     }
     if(indexPath.row == 5) {
-        [self performSegueWithIdentifier:@"contactSegue" sender:self];
+        [self performSegueWithIdentifier:@"locationSegue" sender:self];
     }
 }
 

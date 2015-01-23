@@ -37,6 +37,7 @@
 		B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B673C87D1A294BFA00D3D55F /* Images.xcassets */; };
 		B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */; };
 		B673C88D1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */; };
+		B6DA2F271A71F75D004D646E /* menuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F261A71F75D004D646E /* menuCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		B673C8861A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mercedes-Benz of ColumbusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B673C88B1A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mercedes_Benz_of_ColumbusTests.m; sourceTree = "<group>"; };
+		B6DA2F251A71F75D004D646E /* menuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuCell.h; sourceTree = "<group>"; };
+		B6DA2F261A71F75D004D646E /* menuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,7 @@
 		B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */ = {
 			isa = PBXGroup;
 			children = (
+				B6DA2F241A71F6EA004D646E /* Cells */,
 				B64620D11A2C475900523159 /* Images */,
 				B673C8741A294BFA00D3D55F /* AppDelegate.h */,
 				B673C8751A294BFA00D3D55F /* AppDelegate.m */,
@@ -213,6 +217,15 @@
 				B673C88B1A294BFA00D3D55F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6DA2F241A71F6EA004D646E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B6DA2F251A71F75D004D646E /* menuCell.h */,
+				B6DA2F261A71F75D004D646E /* menuCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +353,7 @@
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
 				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
 				2AAD6DEB1A5E26FA00AC80D4 /* contactViewController.m in Sources */,
+				B6DA2F271A71F75D004D646E /* menuCell.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

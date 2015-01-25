@@ -10,4 +10,6 @@
 
 @interface HomeViewController : UITableViewController <UIGestureRecognizerDelegate>
 
+@property(nonatomic, strong) NSMutableArray *menuData;
+
 @end

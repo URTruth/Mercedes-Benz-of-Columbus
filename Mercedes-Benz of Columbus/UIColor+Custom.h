@@ -1,13 +1,15 @@
 //
-//  locationViewController.h
+//  UIColor+Custom.h
 //  Mercedes-Benz of Columbus
 //
-//  Created by Danielle Williams on 1/12/15.
+//  Created by Kelvin Graddick on 1/24/15.
 //  Copyright (c) 2015 Wave Link, LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface locationViewController : UIViewController
+@interface UIColor (Custom)
+
++ (UIColor *)CustomGrayColor;
 
 @end

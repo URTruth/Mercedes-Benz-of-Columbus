@@ -1,74 +1,59 @@
 //
-//  contactViewController.m
+//  AppointmentViewController.m
 //  Mercedes-Benz of Columbus
 //
-//  Created by Danielle Williams on 1/7/15.
+//  Created by Kelvin Graddick on 1/24/15.
 //  Copyright (c) 2015 Wave Link, LLC. All rights reserved.
 //
 
-#import "contactViewController.h"
+#import "AppointmentViewController.h"
+#import "Common.h"
 
-@interface contactViewController ()
+@interface AppointmentViewController ()
 
 @end
 
-@implementation contactViewController
-
+@implementation AppointmentViewController
 
 - (void)viewDidAppear:(BOOL)animated {
     // main view background color
     self.view.backgroundColor = [UIColor blackColor];
-
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 360, 600)];
-
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 600)];
+    
     NSInteger viewcount= 4;
     for (int i = 0; i <viewcount; i++)
     {
         CGFloat y = i * self.view.frame.size.height;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y,                                                      self.view.frame.size.width, self .view.frame.size.height)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self .view.frame.size.height)];
         view.backgroundColor = [UIColor greenColor];
         [self.view addSubview:scrollview];
     }
-        scrollview.contentSize = CGSizeMake(350, 200 *viewcount);
+    scrollview.contentSize = CGSizeMake(350, 200 *viewcount);
     
-    //checkbox == 0;
+    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
     
-    //self.navigationItem.hidesBackButton = YES;
-
-    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
-    
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName: @"AvenirNext-DemiBold" size: 14.0f]} forState:UIControlStateNormal];
-    self.navigationItem.backBarButtonItem = backButton;
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     CGRect frame = self.view.frame;
     frame.size.height += 65;
     self.view.frame = frame;
-    
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-   //top image with logo
-    UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
-    [bgImage setImage:[UIImage imageNamed:@"montage.png"]];
-    [bgImage setContentMode:UIViewContentModeScaleAspectFill];
-    [bgImage setClipsToBounds:YES];
-    [self.view addSubview:bgImage];
+    [self.view addSubview:[[Common alloc] headerWithTitle:@"Appointment" withIcon:[UIImage imageNamed:@"appointment.png"]]];
     
-    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
-    [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
-    [logo setContentMode:UIViewContentModeScaleAspectFit];
-    [self.view addSubview:logo];
+    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
+    self.navigationItem.rightBarButtonItem = optionsButton;
     
     //select inquiry button
     UIButton * btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -144,17 +129,17 @@
     [label2 setFont:[UIFont boldSystemFontOfSize:14]];
     label2.textColor=[UIColor blackColor];
     [centerView addSubview:label2];
-
     
-        UIButton * cbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        UIImage * buttonImage = [UIImage imageNamed:@"checkbox.png"];
-        cbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        cbtn.frame = CGRectMake(10, 100, 277, 32);
-        [cbtn setImage:buttonImage forState:UIControlStateNormal];
-        [cbtn setTitle:@"email" forState:UIControlStateNormal];
-        [cbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [centerView addSubview:cbtn];
-   
+    
+    UIButton * cbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIImage * buttonImage = [UIImage imageNamed:@"checkbox.png"];
+    cbtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    cbtn.frame = CGRectMake(10, 100, 277, 32);
+    [cbtn setImage:buttonImage forState:UIControlStateNormal];
+    [cbtn setTitle:@"email" forState:UIControlStateNormal];
+    [cbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [centerView addSubview:cbtn];
+    
     
     UIButton * cbtn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage * buttonImage2 = [UIImage imageNamed:@"checkbox-checked.png"];
@@ -166,12 +151,12 @@
     [centerView addSubview:cbtn2];
     
     
-//    UIButton * checkboxBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    UIImage * btnImage = [UIImage imageNamed:@"checkbox-checked.png"];
-//    checkboxBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    checkboxBtn.frame = CGRectMake(22, 95, 277, 32);
-//    [checkboxBtn setImage:btnImage forState:UIControlStateNormal];
-//    [centerView addSubview:checkboxBtn];
+    //    UIButton * checkboxBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    UIImage * btnImage = [UIImage imageNamed:@"checkbox-checked.png"];
+    //    checkboxBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    checkboxBtn.frame = CGRectMake(22, 95, 277, 32);
+    //    [checkboxBtn setImage:btnImage forState:UIControlStateNormal];
+    //    [centerView addSubview:checkboxBtn];
     
     //email label and text field on gray view
     UILabel * label3 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
@@ -210,7 +195,7 @@
     UITextField *textField4 = [[UITextField alloc] initWithFrame:CGRectMake(70, 200, 80, 30)];
     textField4.borderStyle = UITextBorderStyleRoundedRect;
     textField4.font = [UIFont systemFontOfSize:15];
-   // textField4.placeholder = @"enter phone number";
+    // textField4.placeholder = @"enter phone number";
     textField4.autocorrectionType = UITextAutocorrectionTypeNo;
     textField4.keyboardType = UIKeyboardTypeNumberPad;
     textField4.returnKeyType = UIReturnKeyDone;
@@ -258,7 +243,7 @@
     UITextView *text = [[UITextView alloc] initWithFrame:CGRectMake(10, 275, 320, 100)];
     text.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0f];
     text.text = @"";
-   // textField7.borderStyle = UITextBorderStyleRoundedRect;
+    // textField7.borderStyle = UITextBorderStyleRoundedRect;
     text.font = [UIFont systemFontOfSize:12];
     // textField4.placeholder = @"enter phone number";
     text.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -302,14 +287,14 @@
         [checkboxButton setImage:[UIImage imageNamed:@"checkbox.png"] forState:UIControlStateNormal];
         checkbox = NO;
     }
-
-//    if (checkboxSelected == 0){
-//        [checkboxButton setSelected:YES];
-//        checkboxSelected = 1;
-//    } else {
-//        [checkboxButton setSelected:NO];
-//        checkboxSelected = 0;
-//    }
+    
+    //    if (checkboxSelected == 0){
+    //        [checkboxButton setSelected:YES];
+    //        checkboxSelected = 1;
+    //    } else {
+    //        [checkboxButton setSelected:NO];
+    //        checkboxSelected = 0;
+    //    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -317,14 +302,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+- (IBAction)optionsButtonClicked:(id)sender {
+    //TODO: actionlist
+}
 
 @end

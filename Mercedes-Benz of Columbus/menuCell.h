@@ -10,8 +10,10 @@
 
 @interface menuCell : UITableViewCell
 
-@property (retain, nonatomic) NSDictionary *viewsDictionary;
++ (menuCell *)cell;
+
 @property (nonatomic, retain) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
+@property (nonatomic, retain) IBOutlet UILabel *badgeLabel;
 
 @end

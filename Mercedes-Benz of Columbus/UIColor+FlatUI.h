@@ -35,5 +35,6 @@
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
                               backgroundColor:(UIColor *)backgroundColor
                                  percentBlend:(CGFloat) percentBlend;
++ (UIColor *) randomFlatColor;
 
 @end

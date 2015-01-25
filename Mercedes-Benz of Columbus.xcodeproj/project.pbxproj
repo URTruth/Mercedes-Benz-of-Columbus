@@ -7,18 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2AAD6DEB1A5E26FA00AC80D4 /* contactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD6DEA1A5E26FA00AC80D4 /* contactViewController.m */; };
 		2AAD6DEF1A637D8900AC80D4 /* checkbox-checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD6DEC1A637D8900AC80D4 /* checkbox-checked.png */; };
 		2AAD6DF01A637D8900AC80D4 /* checkbox-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD6DED1A637D8900AC80D4 /* checkbox-pressed.png */; };
 		2AAD6DF11A637D8900AC80D4 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD6DEE1A637D8900AC80D4 /* checkbox.png */; };
-		2AAD6DF41A64D2A400AC80D4 /* locationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD6DF31A64D2A400AC80D4 /* locationViewController.m */; };
 		2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */; };
 		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
-		2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE777A21A2D4E6F00BA926D /* homePageViewController.m */; };
 		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
 		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
 		2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A61A2D4EC200BA926D /* MercedesLogo.png */; };
 		2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A71A2D4EC200BA926D /* startBG.png */; };
+		B624491B1A737B2600FEE0D0 /* vehicleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B624491A1A737B2600FEE0D0 /* vehicleCell.m */; };
+		B624491E1A73821100FEE0D0 /* ShowroomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B624491D1A73821100FEE0D0 /* ShowroomViewController.m */; };
+		B62449201A738A9D00FEE0D0 /* showroom.png in Resources */ = {isa = PBXBuildFile; fileRef = B624491F1A738A9D00FEE0D0 /* showroom.png */; };
+		B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449231A738CE200FEE0D0 /* UIColor+Custom.m */; };
+		B62449391A7391C800FEE0D0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449271A7391C800FEE0D0 /* AFHTTPRequestOperation.m */; };
+		B624493A1A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449291A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m */; };
+		B624493B1A7391C800FEE0D0 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B624492B1A7391C800FEE0D0 /* AFHTTPSessionManager.m */; };
+		B624493C1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B624492E1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m */; };
+		B624493D1A7391C800FEE0D0 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449301A7391C800FEE0D0 /* AFSecurityPolicy.m */; };
+		B624493E1A7391C800FEE0D0 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449321A7391C800FEE0D0 /* AFURLConnectionOperation.m */; };
+		B624493F1A7391C800FEE0D0 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449341A7391C800FEE0D0 /* AFURLRequestSerialization.m */; };
+		B62449401A7391C800FEE0D0 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449361A7391C800FEE0D0 /* AFURLResponseSerialization.m */; };
+		B62449411A7391C800FEE0D0 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449381A7391C800FEE0D0 /* AFURLSessionManager.m */; };
+		B62449541A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449441A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m */; };
+		B62449551A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449461A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m */; };
+		B62449561A7391D200FEE0D0 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449481A7391D200FEE0D0 /* UIAlertView+AFNetworking.m */; };
+		B62449571A7391D200FEE0D0 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B624494A1A7391D200FEE0D0 /* UIButton+AFNetworking.m */; };
+		B62449581A7391D200FEE0D0 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B624494C1A7391D200FEE0D0 /* UIImageView+AFNetworking.m */; };
+		B62449591A7391D200FEE0D0 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B624494F1A7391D200FEE0D0 /* UIProgressView+AFNetworking.m */; };
+		B624495A1A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449511A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m */; };
+		B624495B1A7391D200FEE0D0 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449531A7391D200FEE0D0 /* UIWebView+AFNetworking.m */; };
+		B624495E1A74047400FEE0D0 /* SpecialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B624495D1A74047400FEE0D0 /* SpecialsViewController.m */; };
+		B62449651A740C1900FEE0D0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449641A740C1900FEE0D0 /* User.m */; };
+		B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449671A7424D600FEE0D0 /* AppointmentViewController.m */; };
+		B624496E1A7427B100FEE0D0 /* DealershipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B624496D1A7427B100FEE0D0 /* DealershipViewController.m */; };
+		B62449701A7429C600FEE0D0 /* dealership.png in Resources */ = {isa = PBXBuildFile; fileRef = B624496F1A7429C600FEE0D0 /* dealership.png */; };
+		B62449751A74343600FEE0D0 /* AddressAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449741A74343600FEE0D0 /* AddressAnnotation.m */; };
+		B62449791A74600A00FEE0D0 /* wavelink.png in Resources */ = {isa = PBXBuildFile; fileRef = B62449781A74600A00FEE0D0 /* wavelink.png */; };
+		B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */ = {isa = PBXBuildFile; fileRef = B624497A1A7464E000FEE0D0 /* wavelink-white.png */; };
+		B624497D1A7465D900FEE0D0 /* wavelink-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = B624497C1A7465D900FEE0D0 /* wavelink-grayscale.png */; };
+		B62449831A74736A00FEE0D0 /* specials.png in Resources */ = {isa = PBXBuildFile; fileRef = B62449821A74736A00FEE0D0 /* specials.png */; };
+		B62449871A7473EB00FEE0D0 /* payment.png in Resources */ = {isa = PBXBuildFile; fileRef = B62449861A7473EB00FEE0D0 /* payment.png */; };
+		B62449891A7475F100FEE0D0 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = B62449881A7475F100FEE0D0 /* phone.png */; };
+		B624498B1A7479F400FEE0D0 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = B624498A1A7479F400FEE0D0 /* email.png */; };
 		B62A84531A2EBAD000B6A799 /* montage2.png in Resources */ = {isa = PBXBuildFile; fileRef = B62A84521A2EBAD000B6A799 /* montage2.png */; };
 		B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B62A84541A2EC68200B6A799 /* winter-event.jpg */; };
 		B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B62A84551A2EC68200B6A799 /* 2015-cls-class.jpg */; };
@@ -38,6 +69,13 @@
 		B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */; };
 		B673C88D1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */; };
 		B6DA2F271A71F75D004D646E /* menuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F261A71F75D004D646E /* menuCell.m */; };
+		B6DA2F2A1A733874004D646E /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F291A733874004D646E /* Common.m */; };
+		B6DA2F361A7354C2004D646E /* warranty.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F351A7354C2004D646E /* warranty.png */; };
+		B6DA2F3A1A735515004D646E /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F391A735515004D646E /* account.png */; };
+		B6DA2F3C1A73555A004D646E /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F3B1A73555A004D646E /* contact.png */; };
+		B6DA2F3E1A735579004D646E /* service.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F3D1A735579004D646E /* service.png */; };
+		B6DA2F401A7355BC004D646E /* appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F3F1A7355BC004D646E /* appointment.png */; };
+		B6DA2F451A735927004D646E /* specialsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F441A735927004D646E /* specialsCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,22 +89,77 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2AAD6DE91A5E26FA00AC80D4 /* contactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactViewController.h; sourceTree = "<group>"; };
-		2AAD6DEA1A5E26FA00AC80D4 /* contactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactViewController.m; sourceTree = "<group>"; };
 		2AAD6DEC1A637D8900AC80D4 /* checkbox-checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-checked.png"; sourceTree = "<group>"; };
 		2AAD6DED1A637D8900AC80D4 /* checkbox-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-pressed.png"; sourceTree = "<group>"; };
 		2AAD6DEE1A637D8900AC80D4 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
-		2AAD6DF21A64D2A400AC80D4 /* locationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locationViewController.h; sourceTree = "<group>"; };
-		2AAD6DF31A64D2A400AC80D4 /* locationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = locationViewController.m; sourceTree = "<group>"; };
 		2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
 		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
-		2AE777A11A2D4E6F00BA926D /* homePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homePageViewController.h; sourceTree = "<group>"; };
-		2AE777A21A2D4E6F00BA926D /* homePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homePageViewController.m; sourceTree = "<group>"; };
 		2AE777A41A2D4EC200BA926D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		2AE777A51A2D4EC200BA926D /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		2AE777A61A2D4EC200BA926D /* MercedesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MercedesLogo.png; sourceTree = "<group>"; };
 		2AE777A71A2D4EC200BA926D /* startBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBG.png; sourceTree = "<group>"; };
+		B62449191A737B2600FEE0D0 /* vehicleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vehicleCell.h; sourceTree = "<group>"; };
+		B624491A1A737B2600FEE0D0 /* vehicleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vehicleCell.m; sourceTree = "<group>"; };
+		B624491C1A73821100FEE0D0 /* ShowroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowroomViewController.h; sourceTree = "<group>"; };
+		B624491D1A73821100FEE0D0 /* ShowroomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowroomViewController.m; sourceTree = "<group>"; };
+		B624491F1A738A9D00FEE0D0 /* showroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showroom.png; sourceTree = "<group>"; };
+		B62449221A738CE200FEE0D0 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		B62449231A738CE200FEE0D0 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
+		B62449261A7391C800FEE0D0 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		B62449271A7391C800FEE0D0 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		B62449281A7391C800FEE0D0 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		B62449291A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		B624492A1A7391C800FEE0D0 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		B624492B1A7391C800FEE0D0 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		B624492C1A7391C800FEE0D0 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		B624492D1A7391C800FEE0D0 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		B624492E1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		B624492F1A7391C800FEE0D0 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		B62449301A7391C800FEE0D0 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		B62449311A7391C800FEE0D0 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		B62449321A7391C800FEE0D0 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		B62449331A7391C800FEE0D0 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		B62449341A7391C800FEE0D0 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		B62449351A7391C800FEE0D0 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		B62449361A7391C800FEE0D0 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		B62449371A7391C800FEE0D0 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		B62449381A7391C800FEE0D0 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		B62449431A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		B62449441A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		B62449451A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		B62449461A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		B62449471A7391D200FEE0D0 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		B62449481A7391D200FEE0D0 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		B62449491A7391D200FEE0D0 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		B624494A1A7391D200FEE0D0 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		B624494B1A7391D200FEE0D0 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		B624494C1A7391D200FEE0D0 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		B624494D1A7391D200FEE0D0 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		B624494E1A7391D200FEE0D0 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		B624494F1A7391D200FEE0D0 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		B62449501A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		B62449511A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		B62449521A7391D200FEE0D0 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		B62449531A7391D200FEE0D0 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		B624495C1A74047400FEE0D0 /* SpecialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialsViewController.h; sourceTree = "<group>"; };
+		B624495D1A74047400FEE0D0 /* SpecialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialsViewController.m; sourceTree = "<group>"; };
+		B62449631A740C1900FEE0D0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B62449641A740C1900FEE0D0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B62449661A7424D600FEE0D0 /* AppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentViewController.h; sourceTree = "<group>"; };
+		B62449671A7424D600FEE0D0 /* AppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentViewController.m; sourceTree = "<group>"; };
+		B624496C1A7427B100FEE0D0 /* DealershipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealershipViewController.h; sourceTree = "<group>"; };
+		B624496D1A7427B100FEE0D0 /* DealershipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealershipViewController.m; sourceTree = "<group>"; };
+		B624496F1A7429C600FEE0D0 /* dealership.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealership.png; sourceTree = "<group>"; };
+		B62449731A74343600FEE0D0 /* AddressAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAnnotation.h; sourceTree = "<group>"; };
+		B62449741A74343600FEE0D0 /* AddressAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAnnotation.m; sourceTree = "<group>"; };
+		B62449781A74600A00FEE0D0 /* wavelink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wavelink.png; sourceTree = "<group>"; };
+		B624497A1A7464E000FEE0D0 /* wavelink-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wavelink-white.png"; sourceTree = "<group>"; };
+		B624497C1A7465D900FEE0D0 /* wavelink-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wavelink-grayscale.png"; sourceTree = "<group>"; };
+		B62449821A74736A00FEE0D0 /* specials.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specials.png; sourceTree = "<group>"; };
+		B62449861A7473EB00FEE0D0 /* payment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payment.png; sourceTree = "<group>"; };
+		B62449881A7475F100FEE0D0 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		B624498A1A7479F400FEE0D0 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
 		B62A84521A2EBAD000B6A799 /* montage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montage2.png; sourceTree = "<group>"; };
 		B62A84541A2EC68200B6A799 /* winter-event.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "winter-event.jpg"; sourceTree = "<group>"; };
 		B62A84551A2EC68200B6A799 /* 2015-cls-class.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2015-cls-class.jpg"; sourceTree = "<group>"; };
@@ -94,6 +187,15 @@
 		B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mercedes_Benz_of_ColumbusTests.m; sourceTree = "<group>"; };
 		B6DA2F251A71F75D004D646E /* menuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuCell.h; sourceTree = "<group>"; };
 		B6DA2F261A71F75D004D646E /* menuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuCell.m; sourceTree = "<group>"; };
+		B6DA2F281A733874004D646E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		B6DA2F291A733874004D646E /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		B6DA2F351A7354C2004D646E /* warranty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warranty.png; sourceTree = "<group>"; };
+		B6DA2F391A735515004D646E /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
+		B6DA2F3B1A73555A004D646E /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
+		B6DA2F3D1A735579004D646E /* service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = service.png; sourceTree = "<group>"; };
+		B6DA2F3F1A7355BC004D646E /* appointment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appointment.png; sourceTree = "<group>"; };
+		B6DA2F431A735927004D646E /* specialsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = specialsCell.h; sourceTree = "<group>"; };
+		B6DA2F441A735927004D646E /* specialsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = specialsCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +217,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B62449211A738C0200FEE0D0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B62449221A738CE200FEE0D0 /* UIColor+Custom.h */,
+				B62449231A738CE200FEE0D0 /* UIColor+Custom.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		B62449251A7391C800FEE0D0 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				B62449261A7391C800FEE0D0 /* AFHTTPRequestOperation.h */,
+				B62449271A7391C800FEE0D0 /* AFHTTPRequestOperation.m */,
+				B62449281A7391C800FEE0D0 /* AFHTTPRequestOperationManager.h */,
+				B62449291A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m */,
+				B624492A1A7391C800FEE0D0 /* AFHTTPSessionManager.h */,
+				B624492B1A7391C800FEE0D0 /* AFHTTPSessionManager.m */,
+				B624492C1A7391C800FEE0D0 /* AFNetworking.h */,
+				B624492D1A7391C800FEE0D0 /* AFNetworkReachabilityManager.h */,
+				B624492E1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m */,
+				B624492F1A7391C800FEE0D0 /* AFSecurityPolicy.h */,
+				B62449301A7391C800FEE0D0 /* AFSecurityPolicy.m */,
+				B62449311A7391C800FEE0D0 /* AFURLConnectionOperation.h */,
+				B62449321A7391C800FEE0D0 /* AFURLConnectionOperation.m */,
+				B62449331A7391C800FEE0D0 /* AFURLRequestSerialization.h */,
+				B62449341A7391C800FEE0D0 /* AFURLRequestSerialization.m */,
+				B62449351A7391C800FEE0D0 /* AFURLResponseSerialization.h */,
+				B62449361A7391C800FEE0D0 /* AFURLResponseSerialization.m */,
+				B62449371A7391C800FEE0D0 /* AFURLSessionManager.h */,
+				B62449381A7391C800FEE0D0 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		B62449421A7391D200FEE0D0 /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				B62449431A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.h */,
+				B62449441A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m */,
+				B62449451A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.h */,
+				B62449461A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m */,
+				B62449471A7391D200FEE0D0 /* UIAlertView+AFNetworking.h */,
+				B62449481A7391D200FEE0D0 /* UIAlertView+AFNetworking.m */,
+				B62449491A7391D200FEE0D0 /* UIButton+AFNetworking.h */,
+				B624494A1A7391D200FEE0D0 /* UIButton+AFNetworking.m */,
+				B624494B1A7391D200FEE0D0 /* UIImageView+AFNetworking.h */,
+				B624494C1A7391D200FEE0D0 /* UIImageView+AFNetworking.m */,
+				B624494D1A7391D200FEE0D0 /* UIKit+AFNetworking.h */,
+				B624494E1A7391D200FEE0D0 /* UIProgressView+AFNetworking.h */,
+				B624494F1A7391D200FEE0D0 /* UIProgressView+AFNetworking.m */,
+				B62449501A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.h */,
+				B62449511A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m */,
+				B62449521A7391D200FEE0D0 /* UIWebView+AFNetworking.h */,
+				B62449531A7391D200FEE0D0 /* UIWebView+AFNetworking.m */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		B62449721A74340D00FEE0D0 /* AddressAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				B62449731A74343600FEE0D0 /* AddressAnnotation.h */,
+				B62449741A74343600FEE0D0 /* AddressAnnotation.m */,
+			);
+			name = AddressAnnotation;
+			sourceTree = "<group>";
+		};
 		B62A84581A2ECC1900B6A799 /* FlatUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +297,20 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B624491F1A738A9D00FEE0D0 /* showroom.png */,
+				B624496F1A7429C600FEE0D0 /* dealership.png */,
+				B6DA2F351A7354C2004D646E /* warranty.png */,
+				B6DA2F3F1A7355BC004D646E /* appointment.png */,
+				B6DA2F391A735515004D646E /* account.png */,
+				B62449861A7473EB00FEE0D0 /* payment.png */,
+				B6DA2F3B1A73555A004D646E /* contact.png */,
+				B6DA2F3D1A735579004D646E /* service.png */,
+				B62449821A74736A00FEE0D0 /* specials.png */,
+				B62449881A7475F100FEE0D0 /* phone.png */,
+				B624498A1A7479F400FEE0D0 /* email.png */,
+				B62449781A74600A00FEE0D0 /* wavelink.png */,
+				B624497A1A7464E000FEE0D0 /* wavelink-white.png */,
+				B624497C1A7465D900FEE0D0 /* wavelink-grayscale.png */,
 				2AAD6DEC1A637D8900AC80D4 /* checkbox-checked.png */,
 				2AAD6DED1A637D8900AC80D4 /* checkbox-pressed.png */,
 				2AAD6DEE1A637D8900AC80D4 /* checkbox.png */,
@@ -170,24 +354,34 @@
 		B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */ = {
 			isa = PBXGroup;
 			children = (
-				B6DA2F241A71F6EA004D646E /* Cells */,
 				B64620D11A2C475900523159 /* Images */,
 				B673C8741A294BFA00D3D55F /* AppDelegate.h */,
 				B673C8751A294BFA00D3D55F /* AppDelegate.m */,
 				2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */,
 				2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */,
-				2AE777A11A2D4E6F00BA926D /* homePageViewController.h */,
-				2AE777A21A2D4E6F00BA926D /* homePageViewController.m */,
-				2AAD6DE91A5E26FA00AC80D4 /* contactViewController.h */,
-				2AAD6DEA1A5E26FA00AC80D4 /* contactViewController.m */,
-				2AAD6DF21A64D2A400AC80D4 /* locationViewController.h */,
-				2AAD6DF31A64D2A400AC80D4 /* locationViewController.m */,
+				B62449661A7424D600FEE0D0 /* AppointmentViewController.h */,
+				B62449671A7424D600FEE0D0 /* AppointmentViewController.m */,
+				B624496C1A7427B100FEE0D0 /* DealershipViewController.h */,
+				B624496D1A7427B100FEE0D0 /* DealershipViewController.m */,
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
 				B64620CE1A2C432400523159 /* HomeViewController.h */,
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
+				B624491C1A73821100FEE0D0 /* ShowroomViewController.h */,
+				B624491D1A73821100FEE0D0 /* ShowroomViewController.m */,
+				B624495C1A74047400FEE0D0 /* SpecialsViewController.h */,
+				B624495D1A74047400FEE0D0 /* SpecialsViewController.m */,
+				B6DA2F281A733874004D646E /* Common.h */,
+				B6DA2F291A733874004D646E /* Common.m */,
+				B62449631A740C1900FEE0D0 /* User.h */,
+				B62449641A740C1900FEE0D0 /* User.m */,
 				B673C87D1A294BFA00D3D55F /* Images.xcassets */,
 				B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */,
+				B6DA2F241A71F6EA004D646E /* Cells */,
+				B62449211A738C0200FEE0D0 /* Categories */,
+				B62449251A7391C800FEE0D0 /* AFNetworking */,
+				B62449421A7391D200FEE0D0 /* UIKit+AFNetworking */,
 				B62A84581A2ECC1900B6A799 /* FlatUIKit */,
+				B62449721A74340D00FEE0D0 /* AddressAnnotation */,
 				B673C8701A294BFA00D3D55F /* Supporting Files */,
 			);
 			path = "Mercedes-Benz of Columbus";
@@ -224,6 +418,10 @@
 			children = (
 				B6DA2F251A71F75D004D646E /* menuCell.h */,
 				B6DA2F261A71F75D004D646E /* menuCell.m */,
+				B6DA2F431A735927004D646E /* specialsCell.h */,
+				B6DA2F441A735927004D646E /* specialsCell.m */,
+				B62449191A737B2600FEE0D0 /* vehicleCell.h */,
+				B624491A1A737B2600FEE0D0 /* vehicleCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -310,6 +508,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
+				B6DA2F3E1A735579004D646E /* service.png in Resources */,
+				B6DA2F3A1A735515004D646E /* account.png in Resources */,
+				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
+				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
+				B62449871A7473EB00FEE0D0 /* payment.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
 				2AAD6DEF1A637D8900AC80D4 /* checkbox-checked.png in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
@@ -318,16 +521,25 @@
 				2AAD6DF01A637D8900AC80D4 /* checkbox-pressed.png in Resources */,
 				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
+				B62449201A738A9D00FEE0D0 /* showroom.png in Resources */,
 				B64620E11A2C5B1700523159 /* nav.png in Resources */,
 				2AAD6DF11A637D8900AC80D4 /* checkbox.png in Resources */,
 				B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */,
+				B624497D1A7465D900FEE0D0 /* wavelink-grayscale.png in Resources */,
+				B6DA2F3C1A73555A004D646E /* contact.png in Resources */,
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
+				B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */,
+				B62449831A74736A00FEE0D0 /* specials.png in Resources */,
+				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
+				B624498B1A7479F400FEE0D0 /* email.png in Resources */,
 				B64621221A2DB12F00523159 /* montage.png in Resources */,
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
+				B6DA2F401A7355BC004D646E /* appointment.png in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
+				B62449701A7429C600FEE0D0 /* dealership.png in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,14 +558,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AE777A31A2D4E6F00BA926D /* homePageViewController.m in Sources */,
+				B62449591A7391D200FEE0D0 /* UIProgressView+AFNetworking.m in Sources */,
+				B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */,
+				B624495A1A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m in Sources */,
+				B624495B1A7391D200FEE0D0 /* UIWebView+AFNetworking.m in Sources */,
+				B6DA2F451A735927004D646E /* specialsCell.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
+				B624493A1A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m in Sources */,
+				B6DA2F2A1A733874004D646E /* Common.m in Sources */,
+				B624493E1A7391C800FEE0D0 /* AFURLConnectionOperation.m in Sources */,
 				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,
-				2AAD6DF41A64D2A400AC80D4 /* locationViewController.m in Sources */,
+				B62449551A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */,
+				B624493F1A7391C800FEE0D0 /* AFURLRequestSerialization.m in Sources */,
+				B624493B1A7391C800FEE0D0 /* AFHTTPSessionManager.m in Sources */,
+				B62449391A7391C800FEE0D0 /* AFHTTPRequestOperation.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
+				B62449541A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				B62449651A740C1900FEE0D0 /* User.m in Sources */,
+				B624493D1A7391C800FEE0D0 /* AFSecurityPolicy.m in Sources */,
+				B62449751A74343600FEE0D0 /* AddressAnnotation.m in Sources */,
 				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
-				2AAD6DEB1A5E26FA00AC80D4 /* contactViewController.m in Sources */,
+				B62449581A7391D200FEE0D0 /* UIImageView+AFNetworking.m in Sources */,
+				B624495E1A74047400FEE0D0 /* SpecialsViewController.m in Sources */,
+				B624493C1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m in Sources */,
+				B62449411A7391C800FEE0D0 /* AFURLSessionManager.m in Sources */,
+				B624491B1A737B2600FEE0D0 /* vehicleCell.m in Sources */,
+				B62449561A7391D200FEE0D0 /* UIAlertView+AFNetworking.m in Sources */,
+				B624491E1A73821100FEE0D0 /* ShowroomViewController.m in Sources */,
 				B6DA2F271A71F75D004D646E /* menuCell.m in Sources */,
+				B62449401A7391C800FEE0D0 /* AFURLResponseSerialization.m in Sources */,
+				B62449571A7391D200FEE0D0 /* UIButton+AFNetworking.m in Sources */,
+				B624496E1A7427B100FEE0D0 /* DealershipViewController.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

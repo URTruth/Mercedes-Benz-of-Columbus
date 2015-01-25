@@ -276,4 +276,30 @@
     return [UIColor colorWithRed:newRed green:newGreen blue:newBlue alpha:1.0];
 }
 
++ (UIColor *) randomFlatColor {
+    NSInteger randomNumber = arc4random() % 20;
+    switch (randomNumber) {
+        case 0: return [UIColor turquoiseColor];
+        case 1: return [UIColor greenSeaColor];
+        case 2: return [UIColor emerlandColor];
+        case 3: return [UIColor nephritisColor];
+        case 4: return [UIColor peterRiverColor];
+        case 5: return [UIColor belizeHoleColor];
+        case 6: return [UIColor amethystColor];
+        case 7: return [UIColor wisteriaColor];
+        case 8: return [UIColor wetAsphaltColor];
+        case 9: return [UIColor midnightBlueColor];
+        case 10: return [UIColor sunflowerColor];
+        case 11: return [UIColor tangerineColor];
+        case 12: return [UIColor carrotColor];
+        case 13: return [UIColor pumpkinColor];
+        case 14: return [UIColor alizarinColor];
+        case 15: return [UIColor pomegranateColor];
+        case 16: return [UIColor cloudsColor];
+        case 17: return [UIColor silverColor];
+        case 18: return [UIColor concreteColor];
+        default: return [UIColor asbestosColor];
+    }
+}
+
 @end

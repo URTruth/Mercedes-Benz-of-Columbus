@@ -14,6 +14,13 @@
 @end
 
 @implementation AppointmentViewController
+@synthesize myButton;
+@synthesize inquiry1, inquiry2;
+@synthesize myCustomPicker;
+@synthesize doneButton;
+@synthesize isChecked, checkboxButton;
+@synthesize phone;
+@synthesize firstname,lastname, email, number;
 
 - (void)viewDidAppear:(BOOL)animated {
     // main view background color
@@ -24,52 +31,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 600)];
+    //loads scroll view
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 360, 600)];
     
     NSInteger viewcount= 4;
     for (int i = 0; i <viewcount; i++)
     {
         CGFloat y = i * self.view.frame.size.height;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self .view.frame.size.height)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y,                                                      self.view.frame.size.width, self .view.frame.size.height)];
         view.backgroundColor = [UIColor greenColor];
         [self.view addSubview:scrollview];
     }
     scrollview.contentSize = CGSizeMake(350, 200 *viewcount);
     
-    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName: @"AvenirNext-DemiBold" size: 14.0f]} forState:UIControlStateNormal];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     CGRect frame = self.view.frame;
     frame.size.height += 65;
     self.view.frame = frame;
+    
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[[Common alloc] headerWithTitle:@"Appointment" withIcon:[UIImage imageNamed:@"appointment.png"]]];
+    //top image with logo
+    UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
+    [bgImage setImage:[UIImage imageNamed:@"montage.png"]];
+    [bgImage setContentMode:UIViewContentModeScaleAspectFill];
+    [bgImage setClipsToBounds:YES];
+    [self.view addSubview:bgImage];
     
-    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
-    self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
+    [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
+    [logo setContentMode:UIViewContentModeScaleAspectFit];
+    [self.view addSubview:logo];
     
-    //select inquiry button
-    UIButton * btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn1.backgroundColor = [UIColor colorWithRed:225/255.0f green:225/255.0f blue:225/255.0f alpha:1.0f]; //2980B9
-    btn1.frame = CGRectMake(12, 140, 200, 50);
-    btn1.clipsToBounds = YES;
-    btn1.layer.cornerRadius = 3;
-    btn1.layer.shadowOffset = CGSizeMake(1, -2);
-    btn1.layer.shadowRadius = 4;
-    btn1.layer.shadowOpacity = 0.4;
-    [btn1 setTitle:@"Select your inquiry..." forState:UIControlStateNormal];
-    [btn1 setTitleColor:[UIColor colorWithRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f] forState:UIControlStateNormal];
-    [scrollview addSubview:btn1];
+    //create a rounded rectangle type button
+    self.myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.myButton.backgroundColor = [UIColor colorWithRed:225/255.0f green:225/255.0f blue:225/255.0f alpha:1.0f];
+    self.myButton.frame = CGRectMake(15, 75, 200, 50);
+    self.myButton.clipsToBounds = YES;
+    self.myButton.layer.cornerRadius = 3;
+    self.myButton.layer.shadowOffset = CGSizeMake(1, -2);
+    self.myButton.layer.shadowRadius = 4;
+    self.myButton.layer.shadowOpacity = 0.4;
+    [self.myButton setTitle:@"Select your inquiry..."
+                   forState:UIControlStateNormal];
+    [self.myButton addTarget:self
+                      action:@selector(chooseTheInquiry:)
+            forControlEvents:UIControlEventTouchUpInside];
+    [self.myButton setTag:1];
+    [scrollview addSubview:self.myButton];
     
     // gray background centerview
-    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(15, 215, 360, 450)];
+    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(15, 140, 360, 450)];
     [centerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     centerView.backgroundColor = [UIColor colorWithRed:225/255.0f green:225/255.0f blue:225/255.0f alpha:1.0f];
     [scrollview addSubview:centerView];
@@ -95,29 +118,29 @@
     label1.textColor=[UIColor blackColor];
     [centerView addSubview:label1];
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(70, 50, 120, 30)];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.font = [UIFont systemFontOfSize:15];
-    textField.placeholder = @"first name";
-    textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    textField.keyboardType = UIKeyboardTypeDefault;
-    textField.returnKeyType = UIReturnKeyDone;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField.delegate = self;
-    [centerView addSubview:textField];
+    firstname = [[UITextField alloc] initWithFrame:CGRectMake(70, 50, 120, 30)];
+    firstname.borderStyle = UITextBorderStyleRoundedRect;
+    firstname.font = [UIFont systemFontOfSize:15];
+    firstname.placeholder = @"first name";
+    firstname.autocorrectionType = UITextAutocorrectionTypeNo;
+    firstname.keyboardType = UIKeyboardTypeDefault;
+    firstname.returnKeyType = UIReturnKeyDone;
+    firstname.clearButtonMode = UITextFieldViewModeWhileEditing;
+    firstname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    firstname.delegate = self;
+    [centerView addSubview:firstname];
     
-    UITextField *textField1 = [[UITextField alloc] initWithFrame:CGRectMake(200, 50, 130, 30)];
-    textField1.borderStyle = UITextBorderStyleRoundedRect;
-    textField1.font = [UIFont systemFontOfSize:15];
-    textField1.placeholder = @"last name";
-    textField1.autocorrectionType = UITextAutocorrectionTypeNo;
-    textField1.keyboardType = UIKeyboardTypeDefault;
-    textField1.returnKeyType = UIReturnKeyDone;
-    textField1.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField1.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField1.delegate = self;
-    [centerView addSubview:textField1];
+    lastname = [[UITextField alloc] initWithFrame:CGRectMake(200, 50, 130, 30)];
+    lastname.borderStyle = UITextBorderStyleRoundedRect;
+    lastname.font = [UIFont systemFontOfSize:15];
+    lastname.placeholder = @"last name";
+    lastname.autocorrectionType = UITextAutocorrectionTypeNo;
+    lastname.keyboardType = UIKeyboardTypeDefault;
+    lastname.returnKeyType = UIReturnKeyDone;
+    lastname.clearButtonMode = UITextFieldViewModeWhileEditing;
+    lastname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    lastname.delegate = self;
+    [centerView addSubview:lastname];
     
     //contact label and check buttons on gray view
     UILabel * label2 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
@@ -130,33 +153,41 @@
     label2.textColor=[UIColor blackColor];
     [centerView addSubview:label2];
     
+    //checkbox button and label for email option
+    UIButton* checkBox = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 277, 32)];
+    [checkBox setImage:[UIImage imageNamed:@"unchecked.png"] forState:UIControlStateNormal];
+    [checkBox addTarget:self action:@selector(checkBoxClicked:) forControlEvents: UIControlEventTouchUpInside];
+    [checkBox setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [checkBox setImageEdgeInsets:UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0)];
+    [centerView addSubview:checkBox];
     
-    UIButton * cbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage * buttonImage = [UIImage imageNamed:@"checkbox.png"];
-    cbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    cbtn.frame = CGRectMake(10, 100, 277, 32);
-    [cbtn setImage:buttonImage forState:UIControlStateNormal];
-    [cbtn setTitle:@"email" forState:UIControlStateNormal];
-    [cbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [centerView addSubview:cbtn];
+    UILabel * checkBoxlabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
+    checkBoxlabel.backgroundColor = [UIColor clearColor]; //2980B9
+    checkBoxlabel.frame = CGRectMake(145, 100, 277, 32);
+    checkBoxlabel.clipsToBounds = YES;
+    checkBoxlabel.text = @"email";
+    [checkBoxlabel setTextAlignment: UITextAlignmentLeft];
+    [checkBoxlabel setFont:[UIFont boldSystemFontOfSize:14]];
+    checkBoxlabel.textColor=[UIColor blackColor];
+    [centerView addSubview:checkBoxlabel];
     
+    //checkbox button and label for phone option
+    UIButton* checkBox2 = [[UIButton alloc] initWithFrame:CGRectMake(200, 100, 277, 32)];
+    [checkBox2 setImage:[UIImage imageNamed:@"unchecked.png"] forState:UIControlStateNormal];
+    [checkBox2 addTarget:self action:@selector(checkBoxClicked:) forControlEvents: UIControlEventTouchUpInside];
+    [checkBox2 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [checkBox2 setImageEdgeInsets:UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0)];
+    [centerView addSubview:checkBox2];
     
-    UIButton * cbtn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage * buttonImage2 = [UIImage imageNamed:@"checkbox-checked.png"];
-    cbtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    cbtn2.frame = CGRectMake(100, 100, 277, 32);
-    [cbtn2 setImage:buttonImage2 forState:UIControlStateNormal];
-    [cbtn2 setTitle:@"phone" forState:UIControlStateNormal];
-    [cbtn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [centerView addSubview:cbtn2];
-    
-    
-    //    UIButton * checkboxBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    //    UIImage * btnImage = [UIImage imageNamed:@"checkbox-checked.png"];
-    //    checkboxBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    checkboxBtn.frame = CGRectMake(22, 95, 277, 32);
-    //    [checkboxBtn setImage:btnImage forState:UIControlStateNormal];
-    //    [centerView addSubview:checkboxBtn];
+    UILabel * checkBoxlabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
+    checkBoxlabel2.backgroundColor = [UIColor clearColor]; //2980B9
+    checkBoxlabel2.frame = CGRectMake(245, 100, 277, 32);
+    checkBoxlabel2.clipsToBounds = YES;
+    checkBoxlabel2.text = @"phone";
+    [checkBoxlabel2 setTextAlignment: UITextAlignmentLeft];
+    [checkBoxlabel2 setFont:[UIFont boldSystemFontOfSize:14]];
+    checkBoxlabel2.textColor=[UIColor blackColor];
+    [centerView addSubview:checkBoxlabel2];
     
     //email label and text field on gray view
     UILabel * label3 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
@@ -169,64 +200,41 @@
     label3.textColor=[UIColor blackColor];
     [centerView addSubview:label3];
     
-    UITextField *textField3 = [[UITextField alloc] initWithFrame:CGRectMake(70, 150, 260, 30)];
-    textField3.borderStyle = UITextBorderStyleRoundedRect;
-    textField3.font = [UIFont systemFontOfSize:15];
-    textField3.placeholder = @"enter email";
-    textField3.autocorrectionType = UITextAutocorrectionTypeNo;
-    textField3.keyboardType = UIKeyboardTypeDefault;
-    textField3.returnKeyType = UIReturnKeyDone;
-    textField3.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField3.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField3.delegate = self;
-    [centerView addSubview:textField3];
+    email = [[UITextField alloc] initWithFrame:CGRectMake(70, 150, 260, 30)];
+    email.borderStyle = UITextBorderStyleRoundedRect;
+    email.font = [UIFont systemFontOfSize:15];
+    email.placeholder = @"enter email";
+    email.autocorrectionType = UITextAutocorrectionTypeNo;
+    email.keyboardType = UIKeyboardTypeDefault;
+    email.returnKeyType = UIReturnKeyDone;
+    email.clearButtonMode = UITextFieldViewModeWhileEditing;
+    email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    email.delegate = self;
+    [centerView addSubview:email];
     
     //phone label and text field on gray view
-    UILabel * label4 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
-    label4.backgroundColor = [UIColor clearColor]; //2980B9
-    label4.frame = CGRectMake(10, 190, 100, 50);
-    label4.clipsToBounds = YES;
-    label4.text = @"Phone:*";
-    [label4 setTextAlignment: UITextAlignmentLeft];
-    [label4 setFont:[UIFont boldSystemFontOfSize:14]];
-    label4.textColor=[UIColor blackColor];
-    [centerView addSubview:label4];
+    phone = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
+    phone.backgroundColor = [UIColor clearColor]; //2980B9
+    phone.frame = CGRectMake(10, 190, 100, 50);
+    phone.clipsToBounds = YES;
+    phone.text = @"Phone:*";
+    [phone setTextAlignment: UITextAlignmentLeft];
+    [phone setFont:[UIFont boldSystemFontOfSize:14]];
+    phone.textColor=[UIColor blackColor];
+    [centerView addSubview:phone];
     
-    UITextField *textField4 = [[UITextField alloc] initWithFrame:CGRectMake(70, 200, 80, 30)];
-    textField4.borderStyle = UITextBorderStyleRoundedRect;
-    textField4.font = [UIFont systemFontOfSize:15];
-    // textField4.placeholder = @"enter phone number";
-    textField4.autocorrectionType = UITextAutocorrectionTypeNo;
-    textField4.keyboardType = UIKeyboardTypeNumberPad;
-    textField4.returnKeyType = UIReturnKeyDone;
-    textField4.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField4.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField4.delegate = self;
-    [centerView addSubview:textField4];
+    number = [[UITextField alloc] initWithFrame:CGRectMake(70, 200, 260, 30)];
+    number.borderStyle = UITextBorderStyleRoundedRect;
+    number.font = [UIFont systemFontOfSize:15];
+    number.placeholder = @"enter phone number";
+    number.autocorrectionType = UITextAutocorrectionTypeNo;
+    number.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    number.returnKeyType = UIReturnKeyDone;
+    number.clearButtonMode = UITextFieldViewModeWhileEditing;
+    number.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    number.delegate = self;
+    [centerView addSubview:number];
     
-    UITextField *textField5 = [[UITextField alloc] initWithFrame:CGRectMake(160, 200, 80, 30)];
-    textField5.borderStyle = UITextBorderStyleRoundedRect;
-    textField5.font = [UIFont systemFontOfSize:15];
-    // textField4.placeholder = @"enter phone number";
-    textField5.autocorrectionType = UITextAutocorrectionTypeNo;
-    textField5.keyboardType = UIKeyboardTypeNumberPad;
-    textField5.returnKeyType = UIReturnKeyDone;
-    textField5.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField5.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField5.delegate = self;
-    [centerView addSubview:textField5];
-    
-    UITextField *textField6 = [[UITextField alloc] initWithFrame:CGRectMake(250, 200, 80, 30)];
-    textField6.borderStyle = UITextBorderStyleRoundedRect;
-    textField6.font = [UIFont systemFontOfSize:15];
-    // textField4.placeholder = @"enter phone number";
-    textField6.autocorrectionType = UITextAutocorrectionTypeNo;
-    textField6.keyboardType = UIKeyboardTypeNumberPad;
-    textField6.returnKeyType = UIReturnKeyDone;
-    textField6.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField6.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField6.delegate = self;
-    [centerView addSubview:textField6];
     
     // white background textview
     UILabel * label5 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
@@ -252,8 +260,9 @@
     text.delegate = self;
     [centerView addSubview:text];
     
+    //submit button
     UIButton * btn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn2.backgroundColor = [UIColor colorWithRed:0/255.0f green:202/255.0f blue:0/255.0f alpha:1.0f]; //2980B9
+    btn2.backgroundColor = [UIColor colorWithRed:50/255.0f green:70/255.0f blue:255/255.0f alpha:1.0f]; //2980B9
     btn2.frame = CGRectMake(120, 390, 100, 40);
     btn2.clipsToBounds = YES;
     btn2.layer.cornerRadius = 3;
@@ -263,6 +272,159 @@
     [btn2 setTitle:@"Submit" forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0f] forState:UIControlStateNormal];
     [centerView addSubview:btn2];
+    
+    
+    //set our picker array data for set of options
+    self.inquiry1 = [[NSArray alloc] initWithObjects:
+                     @"Test Drive Request",
+                     @"Get ePrice",
+                     @"Request More Info",
+                     @"Lease / Finance Info",
+                     @"Service & Parts Info",
+                     @"Service Appointment",
+                     @"General Request",
+                     @"Other",
+                     nil];
+    
+}
+
+//method to call when the "Done" button is clicked
+- (void) selectedInquiry:(id)sender {
+    
+    //remove the "Done" button in the navigation bar
+    self.navigationItem.rightBarButtonItem = self.doneButton;
+    
+    //which row number is selected for the inquiry1
+    NSInteger inquiry1Row = [self.myCustomPicker selectedRowInComponent:0];
+    //which row number is selected for the inquiry2
+    // NSInteger inquiry2Row = [self.myCustomPicker selectedRowInComponent:1];
+    
+    //find the option1 based on the array index
+    NSString *option1 = [self.inquiry1 objectAtIndex:inquiry1Row];
+    //find the option2 based on the array index
+    // NSString *option2 = [self.inquiry2 objectAtIndex:inquiry2Row];
+    
+    //your selection for the inquiry
+    NSString *myInquiry = [[NSString alloc] initWithFormat:
+                           @"You selected %@ .",option1];
+    //set the label text with your selection
+    self.myLabel.text = myInquiry;
+    
+    //remove my custom picker view form the super view
+    [self.myCustomPicker removeFromSuperview];
+    
+}
+
+- (void) chooseTheInquiry:(UIButton *)paramSender{
+    
+    NSLog(@"Button was clicked, lets select our Inquiry");
+    
+    //if date picker doesn't exists then create it
+    if(self.myCustomPicker == nil){
+        self.myCustomPicker = [[UIPickerView alloc] init];
+        self.myCustomPicker.backgroundColor = [UIColor whiteColor];
+        
+        //set the picker data source
+        self.myCustomPicker.dataSource = self;
+        //set the picker delegate
+        self.myCustomPicker.delegate = self;
+        //display the selection bar
+        self.myCustomPicker.showsSelectionIndicator = YES;
+    }
+    
+    //find the current view size
+    CGRect screenRect = [self.view frame];
+    NSLog(@"Screen frame %f %f", screenRect.origin.y, screenRect.size.height);
+    
+    //find the custom picker size
+    CGSize pickerSize = [self.myCustomPicker sizeThatFits:CGSizeZero];
+    
+    //set the picker frame
+    CGRect pickerRect = CGRectMake(0.0,
+                                   screenRect.origin.y + screenRect.size.height - pickerSize.height,
+                                   pickerSize.width,
+                                   pickerSize.height);
+    self.myCustomPicker.frame = pickerRect;
+    
+    //add the picker to the view
+    [self.view addSubview:self.myCustomPicker];
+    
+    //create the navigation button if it doesn't exists
+    if(self.doneButton == nil){
+        self.doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(selectedInquiry::)];
+    }
+    //add the "Done" button to the right side of the navigation bar
+    self.navigationItem.rightBarButtonItem = self.doneButton;
+    
+    
+}
+
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    NSInteger result = 0;
+    if ([pickerView isEqual:self.myCustomPicker]){
+        result = 1;
+    }
+    return result;
+}
+
+// returns the number of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    
+    NSInteger result = 0;
+    if ([pickerView isEqual:self.myCustomPicker]){
+        switch (component) {
+            case 0:
+                result = [self.inquiry1 count];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    return result;
+    
+}
+
+//return a plain NSString to display the row for the component.
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component{
+    NSString *result = nil;
+    if ([pickerView isEqual:self.myCustomPicker]){
+        switch (component) {
+            case 0:
+                result = [self.inquiry1 objectAtIndex:row];
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    return result;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    // Selection displays in myButton
+    self.myButton.selected;
+    myCustomPicker.hidden=YES;
+    [self.myButton setTitle:@"Select your inquiry..."
+                   forState:UIControlStateNormal];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    // dismiss the picker view here, either directly, or you could notifiy
+    // the delegate with a custom message:
+    if ([self.myCustomPicker respondsToSelector:@selector(pickerViewShouldDismiss:)]) {
+        // [self.myCustomPicker pickerViewShouldDismiss:self];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -270,31 +432,25 @@
     return YES;
 }
 
-- (BOOL)textViewShouldReturn:(UITextView *)textView {
-    [textView resignFirstResponder];
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
     return YES;
 }
 
-
-- (IBAction)checkbox:(id)sender{
+- (void)checkBoxClicked: (id) sender
+{
+    isChecked = !isChecked;
+    UIButton* check = (UIButton*) sender;
+    if (isChecked == NO)
+        [check setImage:[UIImage imageNamed:@"unchecked.png"] forState:UIControlStateNormal];
+    else
+        [check setImage:[UIImage imageNamed:@"checked.png"] forState:UIControlStateNormal];
     
-    if (!checkbox) {
-        [checkboxButton setImage:[UIImage imageNamed:@"checkbox-checked.png"] forState:UIControlStateNormal];
-        checkbox = YES;
-    }
-    
-    else if (checkbox) {
-        [checkboxButton setImage:[UIImage imageNamed:@"checkbox.png"] forState:UIControlStateNormal];
-        checkbox = NO;
-    }
-    
-    //    if (checkboxSelected == 0){
-    //        [checkboxButton setSelected:YES];
-    //        checkboxSelected = 1;
-    //    } else {
-    //        [checkboxButton setSelected:NO];
-    //        checkboxSelected = 0;
-    //    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -302,13 +458,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
-- (IBAction)optionsButtonClicked:(id)sender {
-    //TODO: actionlist
-}
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -17,7 +17,7 @@
 @property BOOL isChecked;;
 @property (nonatomic, retain) UIButton *checkboxButton;
 @property (nonatomic, strong) UIButton *myButton;
-@property (nonatomic, strong) NSArray *inquiry1, *inquiry2;
+@property (nonatomic, strong) NSArray *inquiry1;
 @property (nonatomic, strong) UIPickerView *myCustomPicker;
 @property (nonatomic, strong) UIBarButtonItem *doneButton;
 @property (nonatomic, strong) UILabel *myLabel, *phone;

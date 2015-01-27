@@ -10,4 +10,6 @@
 
 @interface startPageViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+
 @end

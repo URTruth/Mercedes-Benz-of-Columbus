@@ -41,17 +41,9 @@
                         @{ @"name" : @"Parts", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"8:00 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" }
                         ] mutableCopy];
     
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 600)];
-    
-    NSInteger viewcount= 4;
-    for (int i = 0; i <viewcount; i++)
-    {
-        CGFloat y = i * self.view.frame.size.height;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self .view.frame.size.height)];
-        view.backgroundColor = [UIColor greenColor];
-        [self.view addSubview:scrollview];
-    }
-    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 200 *viewcount);
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, -65, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 65)];
+    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 900);
+    [self.view addSubview:scrollview];
     
     self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
     
@@ -66,14 +58,14 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[[Common alloc] headerWithTitle:@"Our Dealership" withIcon:[UIImage imageNamed:@"dealership.png"]]];
+    [scrollview addSubview:[[Common alloc] headerWithTitle:@"Our Dealership" withIcon:[UIImage imageNamed:@"dealership.png"]]];
     
     UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
     // Gray background
-    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 58, [UIScreen mainScreen].bounds.size.width, 900)];
+    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 123, [UIScreen mainScreen].bounds.size.width, 900)];
     [centerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     centerView.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
     [scrollview addSubview:centerView];

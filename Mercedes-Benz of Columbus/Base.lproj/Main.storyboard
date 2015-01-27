@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -52,6 +53,7 @@
                         <segue destination="LQr-V2-scu" kind="show" identifier="specialsSegue" id="HxR-Ke-LjO"/>
                         <segue destination="w4T-0r-dIk" kind="show" identifier="appointmentSegue" id="ar9-kF-kUV"/>
                         <segue destination="JYy-0v-qQt" kind="show" identifier="dealershipSegue" id="M2O-QQ-ERK"/>
+                        <segue destination="sna-Co-vS2" kind="show" identifier="comingSoonSegue" id="1G0-6a-9av"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,27 +108,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="montage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nle-j0-fgg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="Qsx-CX-Ks8"/>
-                                    <constraint firstAttribute="height" constant="600" id="pwz-Zv-dED"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="montage2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zt6-Ka-GKL">
-                                <rect key="frame" x="300" y="600" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="V7O-2K-YoP"/>
-                                    <constraint firstAttribute="height" constant="600" id="WPt-Ib-eoy"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="montage2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y7E-fH-4oU">
-                                <rect key="frame" x="-300" y="600" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="F4B-1u-oXw"/>
-                                    <constraint firstAttribute="width" constant="600" id="nSX-TF-c2E"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rX2-XK-BMZ">
                                 <rect key="frame" x="0.0" y="150" width="600" height="300"/>
                                 <subviews>
@@ -208,11 +189,7 @@
                         <constraints>
                             <constraint firstItem="rX2-XK-BMZ" firstAttribute="leading" secondItem="uhm-jP-jCc" secondAttribute="leading" id="5O0-PL-rwV"/>
                             <constraint firstAttribute="trailing" secondItem="rX2-XK-BMZ" secondAttribute="trailing" id="EXH-Qd-Gb0"/>
-                            <constraint firstAttribute="trailing" secondItem="Nle-j0-fgg" secondAttribute="trailing" id="Fnk-lR-qn0"/>
-                            <constraint firstAttribute="centerX" secondItem="Nle-j0-fgg" secondAttribute="centerX" id="GAh-Yi-Qdh"/>
                             <constraint firstItem="Yq5-gx-rS0" firstAttribute="leading" secondItem="PfX-kw-btb" secondAttribute="leading" id="Ndu-dm-Qic"/>
-                            <constraint firstItem="Nle-j0-fgg" firstAttribute="top" secondItem="uhm-jP-jCc" secondAttribute="top" id="YbG-TB-sXS"/>
-                            <constraint firstItem="Nle-j0-fgg" firstAttribute="leading" secondItem="uhm-jP-jCc" secondAttribute="leading" id="ae8-9u-7hb"/>
                             <constraint firstAttribute="centerX" secondItem="Yq5-gx-rS0" secondAttribute="centerX" id="cdI-jA-iGm"/>
                         </constraints>
                     </view>
@@ -224,6 +201,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0B-tF-G2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="171" y="70"/>
+        </scene>
+        <!--Coming Soon View Controller-->
+        <scene sceneID="XA2-M9-8Yq">
+            <objects>
+                <viewController id="sna-Co-vS2" customClass="ComingSoonViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kmk-aH-img"/>
+                        <viewControllerLayoutGuide type="bottom" id="X8J-jw-vW0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vMU-5w-eoZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Pn-EVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="62"/>
         </scene>
         <!--Showroom View Controller-->
         <scene sceneID="Gya-1b-Gvd">
@@ -285,8 +280,6 @@
         <image name="facebook-login.png" width="416" height="101"/>
         <image name="google-login.png" width="492" height="108"/>
         <image name="logo-tagline-white.png" width="638" height="184"/>
-        <image name="montage.png" width="1024" height="768"/>
-        <image name="montage2.png" width="1024" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MbM-ac-4wh"/>

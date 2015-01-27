@@ -63,10 +63,10 @@
                 @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue" },
                 @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"4", @"segue" : @"specialsSegue" },
                 @{ @"name" : @"Schedule an Appointment", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
-                @{ @"name" : @"My Account", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"accountSegue" },
-                @{ @"name" : @"Make a Payment", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"paymentSegue" },
-                @{ @"name" : @"Book a Service", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"serviceSegue" },
-                @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue" },
+                @{ @"name" : @"My Account", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Make a Payment", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Book a Service", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
                 @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue" }
                 ] mutableCopy];
     [self.tableView reloadData];

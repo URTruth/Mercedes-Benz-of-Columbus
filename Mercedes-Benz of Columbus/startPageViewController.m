@@ -13,10 +13,18 @@
 @end
 
 @implementation startPageViewController
+@synthesize backgroundImageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    int backgroundImageViewSize = [UIScreen mainScreen].bounds.size.height;
+    backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-((backgroundImageViewSize - [UIScreen mainScreen].bounds.size.width)/2), 0, backgroundImageViewSize, backgroundImageViewSize)];
+    [backgroundImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [backgroundImageView setImage:[UIImage imageNamed:@"montage.png"]];
+    [self.view addSubview:backgroundImageView];
+    [self.view sendSubviewToBack:backgroundImageView];
     
     CGRect myImageRect = CGRectMake( 10.0f, 25.0f, 350.0f, 140.0f);
     UIImageView *myImage = [[UIImageView alloc]initWithFrame:myImageRect];

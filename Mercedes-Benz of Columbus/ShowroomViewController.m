@@ -44,11 +44,25 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
     
+    
+    // Send a asynchronous request for the initial menu data
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"next": @0};
+    [manager POST:@"http://www.wavelinkllc.com/mboc/get_inventory.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        vehicleData = responseObject;
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"ERROR in Showroom data load.");
+        //[self showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+    }];
+    
+    /*
     vehicleData = [@[
                    @{ @"name" : @"Mercedes-Benz C-Class", @"photo" : @"http://www.mbusa.com/vcm/MB/DigitalAssets/Vehicles/ClassLanding/2015/C/Sedan/Gallery/2015-C-CLASS-SEDAN-GALLERY-007-GOE-D.jpg", @"start_price" : @"42985", @"type" : @"New", @"number_available" : @"18" },
                    @{ @"name" : @"Mercedes-Benz CLA-Class", @"photo" : @"http://www.mbusa.com/vcm/MB/DigitalAssets/Vehicles/ClassLanding/2014/CLA/Gallery/2014-CLA-CLASS-COUPE-GALLERY-004-GOE-D.jpg", @"start_price" : @"33745", @"type" : @"New", @"number_available" : @"14" },
                    @{ @"name" : @"Mercedes-Benz CLS-Class", @"photo" : @"http://www.mbusa.com/vcm/MB/DigitalAssets/Vehicles/ClassLanding/2015/CLS/Gallery/2015-CLS-CLASS-COUPE-GALLERY-001-GOE-D.jpg", @"start_price" : @"74285", @"type" : @"New", @"number_available" : @"7" }
                   ] mutableCopy];
+    */
     [self.tableView reloadData];
 }
 
@@ -90,10 +104,11 @@
         if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
         
         NSDictionary* vehicleItem = [vehicleData objectAtIndex:indexPath.row];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[vehicleItem objectForKey:@"photo"]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        [cell.nameLabel setText:[vehicleItem objectForKey:@"name"]];
-        [cell.priceLabel setText:[NSString stringWithFormat:@"From $%@", [vehicleItem objectForKey:@"start_price"]]];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"(%@ - %@ available)", [vehicleItem objectForKey:@"type"], [vehicleItem objectForKey:@"number_available"]]];
+        NSArray *image = [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        [cell.nameLabel setText:[NSString stringWithFormat:@"%@ %@", [vehicleItem objectForKey:@"make"], [vehicleItem objectForKey:@"model"]]];
+        [cell.priceLabel setText:[NSString stringWithFormat:@"From %@", [vehicleItem objectForKey:@"price"]]];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"(%@ - %@ available)", [vehicleItem objectForKey:@"type"], [vehicleItem objectForKey:@"cylinders"]]];
         return cell;
     }
     

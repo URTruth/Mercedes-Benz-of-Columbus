@@ -2,13 +2,12 @@
 //  SignUpViewController.m
 //  Mercedes-Benz of Columbus
 //
-//  Created by Danielle Williams on 2/2/15.
+//  Created by Danielle Williams on 2/4/15.
 //  Copyright (c) 2015 Wave Link, LLC. All rights reserved.
 //
 
 #import "SignUpViewController.h"
 #import "Common.h"
-
 #import "UIColor+FlatUI.h"
 
 @interface SignUpViewController ()
@@ -16,216 +15,217 @@
 @end
 
 @implementation SignUpViewController
-@synthesize labelData;
-@synthesize lastname,firstname,username,email,password;
-@synthesize first,last, user, emailLabel, passwordLabel;
-
-- (void)viewDidAppear:(BOOL)animated {
-    // main view background color
-    self.view.backgroundColor = [UIColor blackColor];
-    
-}
+@synthesize backgroundImage;
+@synthesize username;
+@synthesize password;
+@synthesize passwordReEnter;
+@synthesize email;
+@synthesize firstname, lastname;
+@synthesize doneButton;
+@synthesize signUpLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    
-//    CGRect myImageRect = CGRectMake( 10.0f, 25.0f, 350.0f, 500.0f);
-//    UIImageView *myImage = [[UIImageView alloc]initWithFrame:myImageRect];
-//    [myImage setImage:[UIImage imageNamed:@"montage.png"]];
     
-//    labelData = [@[
-//                   @{ @"first" : @"First Name:", @"last" : @"Last Name:", @"user" : @"Username:", @"emailLabel" : @"Email:", @"passwordLabel" : @"Password:"},
-//                   @{ @"user" : @"Username", @"passwordLabel" : @"Password:"}
-//
-//              ] mutableCopy];
-//    
-//    
-//    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 600)];
-//    
-//    NSInteger viewcount= 4;
-//    for (int i = 0; i <viewcount; i++)
-//    {
-//        CGFloat y = i * self.view.frame.size.height;
-//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self .view.frame.size.height)];
-//        view.backgroundColor = [UIColor greenColor];
-//        [self.view addSubview:scrollview];
-//    }
-//    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 170 *viewcount);
-//    
-//    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
-//    
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [UIImage new];
-//    self.navigationController.navigationBar.translucent = YES;
-//    CGRect frame = self.view.frame;
-//    frame.size.height += 65;
-//    self.view.frame = frame;
-//    self.navigationItem.titleView = nil;
-//    self.tabBarController.navigationItem.titleView = nil;
-//    
-//    [self.view addSubview:[[Common alloc] headerWithTitle:@"My Account" withIcon:[UIImage imageNamed:@"account.png"]]];
-//    
-//    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
-//    self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-//    self.navigationItem.rightBarButtonItem = optionsButton;
-//
-//    // Gray background
-//    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 58, [UIScreen mainScreen].bounds.size.width, 900)];
-//    [centerView setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    centerView.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
-//    [scrollview addSubview:centerView];
-//    
-//    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sign Up", @"Sign In", nil]];
-//    segmentedControl.frame = CGRectMake(95, 100, 250, 50);
-//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-//    segmentedControl.selectedSegmentIndex = 0;
-//    segmentedControl.tintColor = [UIColor grayColor];
-//    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 18.0f] forKey:NSFontAttributeName];
-//    [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
-//    [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
-//    [centerView addSubview:segmentedControl];
-//    
-//    NSDictionary* labelItem = [labelData objectAtIndex:0];
-//    
-//    first = [[UILabel alloc]initWithFrame:CGRectMake(10, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 60, [UIScreen mainScreen].bounds.size.width - 20, 15)];
-//    first.backgroundColor = [UIColor clearColor];
-//    first.clipsToBounds = YES;
-//    first.text = [labelItem objectForKey:@"first"] ;
-//    [first setTextAlignment: UITextAlignmentLeft];
-//    [first setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-//    first.textColor = [UIColor colorFromHexCode:@"353535"];
-//    [centerView addSubview:first];
-//    
-//    firstname = [[UITextField alloc]initWithFrame:CGRectMake(95, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 40, [UIScreen mainScreen].bounds.size.width - 125, 50)];
-//    //firstname = [[UITextField alloc] initWithFrame:CGRectMake(95, 190, 250, 50)];
-//    firstname.borderStyle = UITextBorderStyleRoundedRect;
-//    firstname.font = [UIFont systemFontOfSize:15];
-//    firstname.placeholder = @"first name";
-//    firstname.autocorrectionType = UITextAutocorrectionTypeNo;
-//    firstname.keyboardType = UIKeyboardTypeDefault;
-//    firstname.returnKeyType = UIReturnKeyDone;
-//    firstname.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    firstname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    firstname.delegate = self;
-//    [centerView addSubview:firstname];
-//    
-//    last = [[UILabel alloc]initWithFrame:CGRectMake(10, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 110, [UIScreen mainScreen].bounds.size.width - 20, 15)];
-//    last.backgroundColor = [UIColor clearColor];
-//    last.clipsToBounds = YES;
-//    last.text = [labelItem objectForKey:@"last"] ;
-//    //last.text = @"Last Name:*";
-//    [last setTextAlignment: UITextAlignmentLeft];
-//    [last setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-//    last.textColor=[UIColor colorFromHexCode:@"353535"];
-//    [centerView addSubview:last];
-//    
-//    lastname = [[UITextField alloc] initWithFrame:CGRectMake(95, 240, 250, 50)];
-//    lastname.borderStyle = UITextBorderStyleRoundedRect;
-//    lastname.font = [UIFont systemFontOfSize:15];
-//    lastname.placeholder = @"last name";
-//    lastname.autocorrectionType = UITextAutocorrectionTypeNo;
-//    lastname.keyboardType = UIKeyboardTypeDefault;
-//    lastname.returnKeyType = UIReturnKeyDone;
-//    lastname.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    lastname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    lastname.delegate = self;
-//    [centerView addSubview:lastname];
-//    
-//    user = [[UILabel alloc]initWithFrame:CGRectMake(10, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 160, [UIScreen mainScreen].bounds.size.width - 20, 15)];
-//    user.backgroundColor = [UIColor clearColor];
-//    user.clipsToBounds = YES;
-//    user.text = [labelItem objectForKey:@"user"] ;
-//   // user.text = @"Username:*";
-//    [user setTextAlignment: UITextAlignmentLeft];
-//    [user setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-//    user.textColor=[UIColor colorFromHexCode:@"353535"];
-//    [centerView addSubview:user];
-//    
-//    username = [[UITextField alloc] initWithFrame:CGRectMake(95, 290, 250, 50)];
-//    username.borderStyle = UITextBorderStyleRoundedRect;
-//    username.font = [UIFont systemFontOfSize:15];
-//    username.placeholder = @"username";
-//    username.autocorrectionType = UITextAutocorrectionTypeNo;
-//    username.keyboardType = UIKeyboardTypeDefault;
-//    username.returnKeyType = UIReturnKeyDone;
-//    username.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    username.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    username.delegate = self;
-//    [centerView addSubview:username];
-//    
-//    emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 160, [UIScreen mainScreen].bounds.size.width - 20, 15)];
-//    emailLabel.backgroundColor = [UIColor clearColor];
-//    emailLabel.frame = CGRectMake(10, 340, 100, 50);
-//    emailLabel.clipsToBounds = YES;
-//    emailLabel.text = [labelItem objectForKey:@"emailLabel"] ;
-//    //emailLabel.text = @"Email:*";
-//    [emailLabel setTextAlignment: UITextAlignmentLeft];
-//    [emailLabel setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-//    emailLabel.textColor=[UIColor colorFromHexCode:@"353535"];
-//    [centerView addSubview:emailLabel];
-//    
-//    email = [[UITextField alloc] initWithFrame:CGRectMake(95, 340, 250, 50)];
-//    email.borderStyle = UITextBorderStyleRoundedRect;
-//    email.font = [UIFont systemFontOfSize:15];
-//    email.placeholder = @"enter email";
-//    email.autocorrectionType = UITextAutocorrectionTypeNo;
-//    email.keyboardType = UIKeyboardTypeDefault;
-//    email.returnKeyType = UIReturnKeyDone;
-//    email.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    email.delegate = self;
-//    [centerView addSubview:email];
-//    
-//    passwordLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 190, [UIScreen mainScreen].bounds.size.width - 20, 15)];
-//    passwordLabel.backgroundColor = [UIColor clearColor];
-//    passwordLabel.frame = CGRectMake(10, 390, 100, 50);
-//    passwordLabel.clipsToBounds = YES;
-//    passwordLabel.text = [labelItem objectForKey:@"passwordLabel"] ;
-//    //passwordLabel.text = @"Password:*";
-//    [passwordLabel setTextAlignment: UITextAlignmentLeft];
-//    [passwordLabel setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-//    passwordLabel.textColor=[UIColor colorFromHexCode:@"353535"];
-//    [centerView addSubview:passwordLabel];
-//
-//    password = [[UITextField alloc] initWithFrame:CGRectMake(95, 390, 250, 50)];
-//    password.borderStyle = UITextBorderStyleRoundedRect;
-//    password.font = [UIFont systemFontOfSize:15];
-//    password.placeholder = @"at least 8 characters";
-//    password.autocorrectionType = UITextAutocorrectionTypeNo;
-//    password.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-//    password.returnKeyType = UIReturnKeyDone;
-//    password.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    password.delegate = self;
-//    [centerView addSubview:password];
-//    
-//    UIButton * btn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    btn2.backgroundColor = [UIColor colorWithRed:50/255.0f green:70/255.0f blue:255/255.0f alpha:1.0f]; //2980B9
-//    btn2.frame = CGRectMake(120, 385, 100, 40);
-//    btn2.clipsToBounds = YES;
-//    btn2.layer.cornerRadius = 3;
-//    btn2.layer.shadowOffset = CGSizeMake(1, -2);
-//    btn2.layer.shadowRadius = 4;
-//    btn2.layer.shadowOpacity = 0.4;
-//    [btn2 setTitle:@"Submit" forState:UIControlStateNormal];
-//    [btn2 setTitleColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0f] forState:UIControlStateNormal];
-//    [centerView addSubview:btn2];
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 360, 600)];
+    
+    NSInteger viewcount= 4;
+    for (int i = 0; i <viewcount; i++)
+    {
+        CGFloat y = i * self.view.frame.size.height;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y,                                                      self.view.frame.size.width, self .view.frame.size.height)];
+        view.backgroundColor = [UIColor greenColor];
+        [self.view addSubview:scrollview];
+    }
+    scrollview.contentSize = CGSizeMake(350, 180 *viewcount);
+    
+    
+    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    CGRect frame = self.view.frame;
+    frame.size.height += 65;
+    self.view.frame = frame;
+    self.navigationItem.titleView = nil;
+    self.tabBarController.navigationItem.titleView = nil;
+    
+    [self.view addSubview:[[Common alloc] headerWithTitle:@"My Account" withIcon:[UIImage imageNamed:@"account.png"]]];
+    
+    
+    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
+    self.navigationItem.rightBarButtonItem = optionsButton;
+    
+    
+    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 122, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
+    [backgroundImage setImage:[UIImage imageNamed:@"montage.png"]];
+    [self.view addSubview:backgroundImage];
+
+    
+    signUpLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 140, 200, 50)];
+    signUpLabel.text = @"Create an Account";
+    signUpLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
+    signUpLabel.shadowColor = [UIColor clearColor];
+    signUpLabel.textColor = [UIColor whiteColor];
+    [self.view addSubview:signUpLabel];
+    
+    
+    firstname = [[UITextField alloc] initWithFrame:CGRectMake(30, 200, 150, 50)];
+    firstname.borderStyle = UITextBorderStyleRoundedRect;
+    firstname.font = [UIFont systemFontOfSize:18];
+    firstname.layer.cornerRadius=8.0f;
+    firstname.layer.masksToBounds=YES;
+    [firstname setBackgroundColor:[UIColor clearColor]];
+    firstname.layer.borderColor=[[UIColor whiteColor]CGColor];
+    firstname.layer.borderWidth= 1.0f;
+    UIColor *color = [UIColor whiteColor];
+    firstname.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"first name" attributes:@{NSForegroundColorAttributeName: color}];
+    firstname.autocorrectionType = UITextAutocorrectionTypeNo;
+    firstname.keyboardType = UIKeyboardTypeDefault;
+    firstname.textColor = [UIColor whiteColor];
+    firstname.returnKeyType = UIReturnKeyDone;
+    firstname.clearButtonMode = UITextFieldViewModeWhileEditing;
+    firstname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    firstname.delegate = self;
+    [self.view addSubview:firstname];
+    
+    
+    lastname = [[UITextField alloc] initWithFrame:CGRectMake(200, 200, 150, 50)];
+    lastname.borderStyle = UITextBorderStyleRoundedRect;
+    lastname.font = [UIFont systemFontOfSize:18];
+    lastname.layer.cornerRadius=8.0f;
+    lastname.layer.masksToBounds=YES;
+    [lastname setBackgroundColor:[UIColor clearColor]];
+    lastname.layer.borderColor=[[UIColor whiteColor]CGColor];
+    lastname.layer.borderWidth= 1.0f;
+    UIColor *color2 = [UIColor whiteColor];
+    lastname.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"last name" attributes:@{NSForegroundColorAttributeName: color2}];
+    lastname.autocorrectionType = UITextAutocorrectionTypeNo;
+    lastname.keyboardType = UIKeyboardTypeDefault;
+    lastname.textColor = [UIColor whiteColor];
+    lastname.returnKeyType = UIReturnKeyDone;
+    lastname.clearButtonMode = UITextFieldViewModeWhileEditing;
+    lastname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    lastname.delegate = self;
+    [self.view addSubview:lastname];
+    
+    
+    username = [[UITextField alloc] initWithFrame:CGRectMake(30, 260, 320, 50)];
+    username.borderStyle = UITextBorderStyleRoundedRect;
+    username.font = [UIFont systemFontOfSize:18];
+    username.layer.cornerRadius=8.0f;
+    username.layer.masksToBounds=YES;
+    [username setBackgroundColor:[UIColor clearColor]];
+    username.layer.borderColor=[[UIColor whiteColor]CGColor];
+    username.layer.borderWidth= 1.0f;
+    UIColor *color3 = [UIColor whiteColor];
+    username.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter username" attributes:@{NSForegroundColorAttributeName: color3}];
+    username.autocorrectionType = UITextAutocorrectionTypeNo;
+    username.keyboardType = UIKeyboardTypeDefault;
+    username.textColor = [UIColor whiteColor];
+    username.returnKeyType = UIReturnKeyDone;
+    username.clearButtonMode = UITextFieldViewModeWhileEditing;
+    username.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    username.delegate = self;
+    [self.view addSubview:username];
+    
+    
+    email = [[UITextField alloc] initWithFrame:CGRectMake(30, 320, 320, 50)];
+    email.borderStyle = UITextBorderStyleRoundedRect;
+    email.font = [UIFont systemFontOfSize:18];
+    email.layer.cornerRadius=8.0f;
+    email.layer.masksToBounds=YES;
+    [email setBackgroundColor:[UIColor clearColor]];
+    email.layer.borderColor=[[UIColor whiteColor]CGColor];
+    email.layer.borderWidth= 1.0f;
+    UIColor *color4 = [UIColor whiteColor];
+    email.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter email" attributes:@{NSForegroundColorAttributeName: color4}];
+    email.autocorrectionType = UITextAutocorrectionTypeNo;
+    email.keyboardType = UIKeyboardTypeDefault;
+    email.textColor = [UIColor whiteColor];
+    email.returnKeyType = UIReturnKeyDone;
+    email.clearButtonMode = UITextFieldViewModeWhileEditing;
+    email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    email.delegate = self;
+    [self.view addSubview:email];
+    
+    
+    password = [[UITextField alloc] initWithFrame:CGRectMake(30, 380, 320, 50)];
+    password.borderStyle = UITextBorderStyleRoundedRect;
+    [password setBackgroundColor:[UIColor clearColor]];
+    password.font = [UIFont systemFontOfSize:18];
+    password.layer.cornerRadius=8.0f;
+    password.layer.borderColor=[[UIColor whiteColor]CGColor];
+    password.layer.borderWidth= 1.0f;
+    password.layer.masksToBounds=YES;
+    UIColor *color5 = [UIColor whiteColor];
+    password.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter password" attributes:@{NSForegroundColorAttributeName: color5}];
+    password.autocorrectionType = UITextAutocorrectionTypeNo;
+    password.keyboardType = UIKeyboardTypeDefault;
+    password.textColor = [UIColor whiteColor];
+    password.returnKeyType = UIReturnKeyDone;
+    password.clearButtonMode = UITextFieldViewModeWhileEditing;
+    password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    password.delegate = self;
+    [self.view addSubview:password];
+    
+    
+    passwordReEnter = [[UITextField alloc] initWithFrame:CGRectMake(30, 440, 320, 50)];
+    passwordReEnter.borderStyle = UITextBorderStyleRoundedRect;
+    [passwordReEnter setBackgroundColor:[UIColor clearColor]];
+    passwordReEnter.font = [UIFont systemFontOfSize:18];
+    passwordReEnter.layer.cornerRadius=8.0f;
+    passwordReEnter.layer.borderColor=[[UIColor whiteColor]CGColor];
+    passwordReEnter.layer.borderWidth= 1.0f;
+    passwordReEnter.layer.masksToBounds=YES;
+    UIColor *color6 = [UIColor whiteColor];
+    passwordReEnter.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"re-enter password" attributes:@{NSForegroundColorAttributeName: color6}];
+    passwordReEnter.autocorrectionType = UITextAutocorrectionTypeNo;
+    passwordReEnter.keyboardType = UIKeyboardTypeDefault;
+    passwordReEnter.textColor = [UIColor whiteColor];
+    passwordReEnter.returnKeyType = UIReturnKeyDone;
+    passwordReEnter.clearButtonMode = UITextFieldViewModeWhileEditing;
+    passwordReEnter.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    passwordReEnter.delegate = self;
+    [self.view addSubview:passwordReEnter];
+    
+    doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.backgroundColor = [UIColor clearColor];
+    doneButton.frame = CGRectMake(220, 520, 150, 50);
+    doneButton.layer.cornerRadius=8.0f;
+    doneButton.layer.masksToBounds=YES;
+    [doneButton setBackgroundColor:[UIColor clearColor]];
+    doneButton.layer.borderColor=[[UIColor clearColor]CGColor];
+    doneButton.layer.borderWidth= 1.0f;
+    doneButton.clipsToBounds = YES;
+    doneButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
+    [doneButton setTitle:@"Sign Up"
+            forState:UIControlStateNormal];
+    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [doneButton addTarget:self
+               action:@selector(doneAction:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [doneButton setTag:1];
+    [self.view addSubview:doneButton];
+
 
 }
 
-- (void)valueChanged:(UISegmentedControl *)segment {
-    NSDictionary* Item = [labelData objectAtIndex:segment.selectedSegmentIndex];
-//    first.text = [Item objectForKey:@"first"];
-//    last.text = [[Common alloc] formatPhoneNumber:[Item objectForKey:@"last"]];
-//    departmentTelephoneLabel.text = [[Common alloc] formatPhoneNumber:[departmentItem objectForKey:@"phone"]];
-//    mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
-//    saturdayLabel.text = [@"Saturday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
-//    sundayLabel.text = [@"Sunday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
+- (IBAction)doneAction:(id)sender {
+    // Send a synchronous request
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

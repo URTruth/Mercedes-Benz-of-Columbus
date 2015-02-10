@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3160261A882EBE0014E19D /* SettingsViewController.m */; };
 		2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */; };
+		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
+		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
+		2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */; };
 		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
 		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
 		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
@@ -89,7 +93,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A3160251A882EBE0014E19D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		2A3160261A882EBE0014E19D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		2AD87E681A871CEB00D7EFA0 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
 		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
 		2AE777A41A2D4EC200BA926D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
@@ -366,12 +378,20 @@
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
 				B64620CE1A2C432400523159 /* HomeViewController.h */,
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
+				2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */,
+				2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */,
+				2AD87E681A871CEB00D7EFA0 /* SignInViewController.h */,
+				2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */,
+				2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */,
+				2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */,
 				B624491C1A73821100FEE0D0 /* ShowroomViewController.h */,
 				B624491D1A73821100FEE0D0 /* ShowroomViewController.m */,
 				B624495C1A74047400FEE0D0 /* SpecialsViewController.h */,
 				B624495D1A74047400FEE0D0 /* SpecialsViewController.m */,
 				B61D6D821A775F0B0065DC4A /* ComingSoonViewController.h */,
 				B61D6D831A775F0B0065DC4A /* ComingSoonViewController.m */,
+				2A3160251A882EBE0014E19D /* SettingsViewController.h */,
+				2A3160261A882EBE0014E19D /* SettingsViewController.m */,
 				B6DA2F281A733874004D646E /* Common.h */,
 				B6DA2F291A733874004D646E /* Common.m */,
 				B62449631A740C1900FEE0D0 /* User.h */,
@@ -567,7 +587,10 @@
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
 				B624493A1A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m in Sources */,
 				B6DA2F2A1A733874004D646E /* Common.m in Sources */,
+				2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */,
 				B624493E1A7391C800FEE0D0 /* AFURLConnectionOperation.m in Sources */,
+				2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */,
+				2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */,
 				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,
 				B62449551A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */,
@@ -584,6 +607,7 @@
 				B61D6D841A775F0B0065DC4A /* ComingSoonViewController.m in Sources */,
 				B624495E1A74047400FEE0D0 /* SpecialsViewController.m in Sources */,
 				B624493C1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m in Sources */,
+				2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */,
 				B62449411A7391C800FEE0D0 /* AFURLSessionManager.m in Sources */,
 				B624491B1A737B2600FEE0D0 /* vehicleCell.m in Sources */,
 				B62449561A7391D200FEE0D0 /* UIAlertView+AFNetworking.m in Sources */,

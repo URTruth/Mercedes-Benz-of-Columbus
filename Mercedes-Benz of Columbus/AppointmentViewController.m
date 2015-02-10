@@ -60,23 +60,25 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
+    [self.view addSubview:[[Common alloc] headerWithTitle:@"Schedule an Appointment" withIcon:[UIImage imageNamed:@"appointment.png"]]];
+    
     
     UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
-
-    //top image with logo
-    UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
-    [bgImage setImage:[UIImage imageNamed:@"montage.png"]];
-    [bgImage setContentMode:UIViewContentModeScaleAspectFill];
-    [bgImage setClipsToBounds:YES];
-    [self.view addSubview:bgImage];
     
-    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
-    [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
-    [logo setContentMode:UIViewContentModeScaleAspectFit];
-    [self.view addSubview:logo];
+    //top image with logo
+//    UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
+//    [bgImage setImage:[UIImage imageNamed:@"montage.png"]];
+//    [bgImage setContentMode:UIViewContentModeScaleAspectFill];
+//    [bgImage setClipsToBounds:YES];
+//    [self.view addSubview:bgImage];
+//    
+//    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
+//    [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
+//    [logo setContentMode:UIViewContentModeScaleAspectFit];
+//    [self.view addSubview:logo];
     
     //create a rounded rectangle type button
     self.myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -89,7 +91,7 @@
     self.myButton.layer.shadowOpacity = 0.4;
     [self.myButton setTitle:@"Select your inquiry"
                    forState:UIControlStateNormal];
-     NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 10.0f] forKey:NSFontAttributeName];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 10.0f] forKey:NSFontAttributeName];
     [self.myButton addTarget:self
                       action:@selector(chooseTheInquiry:)
             forControlEvents:UIControlEventTouchUpInside];
@@ -173,7 +175,7 @@
     
     UILabel * checkBoxlabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
     checkBoxlabel.backgroundColor = [UIColor clearColor]; //2980B9
-    checkBoxlabel.frame = CGRectMake(145, 95, 277, 32);
+    checkBoxlabel.frame = CGRectMake(155, 95, 277, 32);
     checkBoxlabel.clipsToBounds = YES;
     checkBoxlabel.text = @"email";
     [checkBoxlabel setTextAlignment: UITextAlignmentLeft];
@@ -191,7 +193,7 @@
     
     UILabel * checkBoxlabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 0, 0)];
     checkBoxlabel2.backgroundColor = [UIColor clearColor]; //2980B9
-    checkBoxlabel2.frame = CGRectMake(245, 95, 277, 32);
+    checkBoxlabel2.frame = CGRectMake(255, 95, 277, 32);
     checkBoxlabel2.clipsToBounds = YES;
     checkBoxlabel2.text = @"phone";
     [checkBoxlabel2 setTextAlignment: UITextAlignmentLeft];
@@ -285,7 +287,7 @@
     [btn2 setTitle:@"Submit" forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0f] forState:UIControlStateNormal];
     [centerView addSubview:btn2];
-
+    
     
     //set our picker array data for set of options
     self.inquiry1 = [[NSArray alloc] initWithObjects:
@@ -426,7 +428,7 @@ numberOfRowsInComponent:(NSInteger)component{
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     // Selection displays in myButton
- [myButton setTitle:[inquiry1 objectAtIndex:row] forState:UIControlStateNormal];
+    [myButton setTitle:[inquiry1 objectAtIndex:row] forState:UIControlStateNormal];
     myCustomPicker.hidden=YES;
     
 }

@@ -34,7 +34,7 @@
         [photoImageView setClipsToBounds:YES];
         [self addSubview:photoImageView];
         
-        int labelWidth = [UIScreen mainScreen].bounds.size.width - padding*2 - photoImageView.frame.size.width;
+        int labelWidth = [UIScreen mainScreen].bounds.size.width - padding - photoImageView.frame.size.width;
         int labelX = 102;
         
         int nameLabelFont = 18;

@@ -14,6 +14,7 @@
 
 @implementation startPageViewController
 @synthesize backgroundImageView;
+@synthesize startButtonImageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,34 +22,16 @@
     
     int backgroundImageViewSize = [UIScreen mainScreen].bounds.size.height;
     backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-((backgroundImageViewSize - [UIScreen mainScreen].bounds.size.width)/2), 0, backgroundImageViewSize, backgroundImageViewSize)];
-    [backgroundImageView setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImageView setImage:[UIImage imageNamed:@"montage.png"]];
+    [backgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
+    [backgroundImageView setImage:[UIImage imageNamed:@"engine-start-background.jpg"]];
     [self.view addSubview:backgroundImageView];
     [self.view sendSubviewToBack:backgroundImageView];
     
-    CGRect myImageRect = CGRectMake( 10.0f, 25.0f, 350.0f, 140.0f);
-    UIImageView *myImage = [[UIImageView alloc]initWithFrame:myImageRect];
-    [myImage setImage:[UIImage imageNamed:@"MercedesLogo.png"]];
-    //[self.view addSubview:myImage];
-    
-    CGRect myImageRect2 = CGRectMake( 10.0f, 570.0f, 355.0f, 90.0f);
-    UIImageView *myImage2 = [[UIImageView alloc]initWithFrame:myImageRect2];
-    [myImage2 setImage:[UIImage imageNamed:@"image.jpg"]];
-    //[self.view addSubview:myImage2];
-    
-    //    UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    //    //btn.backgroundColor = [UIColor colorWithRed:41/255.0f green:128/255.0f blue:185/255.0f alpha:1.0f]; //2980B9
-    //    btn.frame = CGRectMake(65, 250, 250, 40);
-    //    btn.clipsToBounds = YES;
-    //    btn.layer.cornerRadius = 3;
-    //    btn.layer.shadowOffset = CGSizeMake(1, -2);
-    //    btn.layer.shadowRadius = 1;
-    //    btn.layer.shadowOpacity = 0.2;
-    //    [btn setTitle:@"Take A Tour" forState:UIControlStateNormal];
-    //    [btn setTitleColor:[UIColor colorWithRed:46/255.0f green:184/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateNormal];
-    //    [btn setFont:[UIFont fontWithName:@"Arial" size:20]];
-    //   // [btn addTarget:self action:@selector(<#selector#>)(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    //    [self.view addSubview:btn];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(start)];
+    [tapRecognizer setNumberOfTouchesRequired:1];
+    [tapRecognizer setDelegate:self];
+    startButtonImageView.userInteractionEnabled = YES;
+    [startButtonImageView addGestureRecognizer:tapRecognizer];
     
     UIButton * btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     btn1.backgroundColor = [UIColor colorWithRed:41/255.0f green:128/255.0f blue:185/255.0f alpha:1.0f]; //2980B9
@@ -85,8 +68,10 @@
     [btn3 setTitle:@"Connect With Email" forState:UIControlStateNormal];
     [btn3 setTitleColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0f] forState:UIControlStateNormal];
     //[self.view addSubview:btn3];
-    
-    
+}
+
+- (void)start {
+    [self performSegueWithIdentifier:@"homeSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

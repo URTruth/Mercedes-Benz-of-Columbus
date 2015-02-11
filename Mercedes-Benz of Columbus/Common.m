@@ -15,7 +15,7 @@ NSString* const REGULAR_FONT = @"AppleSDGothicNeo-Regular";
 NSString* const SEMI_BOLD_FONT = @"AppleSDGothicNeo-SemiBold";
 NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
 
-- (UITableViewCell *)headerOfType:(headerType)type withTitle:(NSString*)title withIcon:(UIImage*)iconImage {
++ (UITableViewCell *)headerOfType:(headerType)type withTitle:(NSString*)title withIcon:(UIImage*)iconImage {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell addSubview:[self headerMontageImageView]];
     if((int)type == Home) {
@@ -30,7 +30,7 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return cell;
 }
 
-- (UIView *)headerWithTitle:(NSString*)title withIcon:(UIImage*)iconImage {
++ (UIView *)headerWithTitle:(NSString*)title withIcon:(UIImage*)iconImage {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
     [view addSubview:[self headerMontageImageView]];
     [view addSubview:[self headerIconImageViewWithImage:iconImage]];
@@ -38,13 +38,13 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return view;
 }
 
-- (UIBarButtonItem *)backButton {
++ (UIBarButtonItem *)backButton {
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]} forState:UIControlStateNormal];
     return backButton;
 }
 
-- (UIBarButtonItem *)optionsButtonWithTarget:(id)target andAction:(SEL)action {
++ (UIBarButtonItem *)optionsButtonWithTarget:(id)target andAction:(SEL)action {
     UIButton *navBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *navBtnImage = [UIImage imageNamed:@"nav.png"];
     [navBtn setBackgroundImage:navBtnImage forState:UIControlStateNormal];
@@ -53,7 +53,7 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return [[UIBarButtonItem alloc] initWithCustomView:navBtn];
 }
 
-- (NSString *)formatPhoneNumber:(NSString*)number {
++ (NSString *)formatPhoneNumber:(NSString*)number {
     NSArray *components = [number componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
     NSString *decimalString = [components componentsJoinedByString:@""];
     
@@ -90,16 +90,25 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return formattedString;
 }
 
-- (NSString *)formatTimeRangeWithStart:(NSString *)start andEnd:(NSString *)end {
++ (NSString *)formatTimeRangeWithStart:(NSString *)start andEnd:(NSString *)end {
     if([start isEqualToString:@"n/a"] || [end isEqualToString:@"n/a"]) {
         return @"Closed All Day";
     }
     return [NSString stringWithFormat:@"%@ - %@", start, end];
 }
 
++ (void)showErrorMessageWithTitle:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelButtonTitle {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:cancelButtonTitle
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
 // Private methods
 
-- (UIImageView *)headerMontageImageView {
++ (UIImageView *)headerMontageImageView {
     UIImageView *montageImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
     [montageImageView setImage:[UIImage imageNamed:@"montage.png"]];
     [montageImageView setContentMode:UIViewContentModeScaleAspectFill];
@@ -107,7 +116,7 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return montageImageView;
 }
 
-- (UIImageView *)headerIconImageViewWithImage:(UIImage *)image {
++ (UIImageView *)headerIconImageViewWithImage:(UIImage *)image {
     UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(45, 28, 32, 32)];
     [iconImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     iconImageView.tintColor = [UIColor whiteColor];
@@ -115,7 +124,7 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return iconImageView;
 }
 
-- (UILabel *)headerTitleLabelWithText:(NSString *)text {
++ (UILabel *)headerTitleLabelWithText:(NSString *)text {
     int titleLabelFont = 23;
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 34, 200, titleLabelFont)];
     [titleLabel setFont:[UIFont fontWithName:LIGHT_FONT size:titleLabelFont]];

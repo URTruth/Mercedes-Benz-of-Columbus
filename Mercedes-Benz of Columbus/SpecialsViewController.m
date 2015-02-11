@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
+    self.navigationItem.backBarButtonItem = [Common backButton];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
@@ -32,7 +32,7 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
@@ -84,7 +84,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [[Common alloc] headerOfType:Default withTitle:@"Special Offers" withIcon:[UIImage imageNamed:@"specials.png"]];
+        return [Common headerOfType:Default withTitle:@"Special Offers" withIcon:[UIImage imageNamed:@"specials.png"]];
     }
     
     if(indexPath.section == 1) {

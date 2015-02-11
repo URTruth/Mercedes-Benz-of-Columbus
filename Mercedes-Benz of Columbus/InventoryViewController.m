@@ -1,28 +1,28 @@
 //
-//  ShowroomViewController.m
+//  InventoryViewController.m
 //  Mercedes-Benz of Columbus
 //
-//  Created by Kelvin Graddick on 1/24/15.
+//  Created by Kelvin Graddick on 2/10/15.
 //  Copyright (c) 2015 Wave Link, LLC. All rights reserved.
 //
 
-#import "ShowroomViewController.h"
 #import "InventoryViewController.h"
 #import "vehicleCell.h"
-#import "Common.h"
 
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "UIColor+FlatUI.h"
 
-@interface ShowroomViewController ()
+@interface InventoryViewController ()
 
 @end
 
-@implementation ShowroomViewController
+@implementation InventoryViewController
 @synthesize type;
 @synthesize make;
 @synthesize model;
+@synthesize order;
+@synthesize vin;
 @synthesize vehicleData;
 
 - (void)viewDidLoad {
@@ -48,20 +48,20 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
     
-    type = @"new";
+    order = @"";
     [self refresh];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Showroom page" forKey:kGAIScreenName] build]];
+    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Inventory page" forKey:kGAIScreenName] build]];
 }
 
 - (void)refresh {
     // Send a asynchronous request for the initial menu data
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"next": @0, @"type": type};
-    [manager POST:@"http://www.wavelinkllc.com/mboc/get_showroom.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *parameters = @{@"next": @0, @"type": type, @"make": make, @"model": model, @"order": order};
+    [manager POST:@"http://www.wavelinkllc.com/mboc/get_inventory.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -84,26 +84,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:@"Showroom" withIcon:[UIImage imageNamed:@"showroom.png"]];
+        return [Common headerOfType:Default withTitle:[NSString stringWithFormat:@"%@ %@", make, model] withIcon:[UIImage imageNamed:@"showroom.png"]];
     }
     
     if(indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"segmentedControlCell"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"segmentedControlCell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
-            UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"New", @"Used", nil]];
-            segmentedControl.frame = CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width - 20, 30);
-            segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-            segmentedControl.selectedSegmentIndex = 0;
-            segmentedControl.tintColor = [UIColor grayColor];
-            NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
-            [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
-            [segmentedControl addTarget:self action:@selector(typeChanged:) forControlEvents: UIControlEventValueChanged];
-            [cell addSubview:segmentedControl];
-        }
-        return cell;
+        
     }
     
     if(indexPath.section == 2) {
@@ -115,8 +100,8 @@
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
         [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
         [cell.nameLabel setText:[vehicleItem objectForKey:@"name"]];
-        [cell.priceLabel setText:[NSString stringWithFormat:@"From %@", [vehicleItem objectForKey:@"price"]]];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"(%@ available)", [vehicleItem objectForKey:@"count"]]];
+        [cell.priceLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"price"]]];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@ · %@ · %@", [vehicleItem objectForKey:@"type"], [vehicleItem objectForKey:@"color"], [vehicleItem objectForKey:@"body"]]];
         return cell;
     }
     
@@ -130,7 +115,7 @@
         return 122;
     }
     if(indexPath.section == 1) {
-        return 50;
+        return 0;
     }
     if(indexPath.section == 2) {
         return 88;
@@ -142,18 +127,15 @@
 {
     if(indexPath.section == 2) {
         NSDictionary* vehicleItem = [vehicleData objectAtIndex:indexPath.row];
-        make = [vehicleItem objectForKey:@"make"];
-        model = [vehicleItem objectForKey:@"model"];
-        [self performSegueWithIdentifier:@"inventorySegue" sender:self];
+        vin = [vehicleItem objectForKey:@"vin"];
+        [self performSegueWithIdentifier:@"vehicleSegue" sender:self];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"inventorySegue"]){
-        InventoryViewController *dest = (InventoryViewController *)[segue destinationViewController];
-        dest.type = type;
-        dest.make = make;
-        dest.model = model;
+    if([segue.identifier isEqualToString:@"vehicleSegue"]){
+        //VehicleViewController *dest = (VehicleViewController *)[segue destinationViewController];
+        //dest.vin = vin;
     }
 }
 
@@ -161,18 +143,8 @@
     //TODO: add actionsheet here
 }
 
-- (void)typeChanged:(UISegmentedControl *)segment {
-    if(segment.selectedSegmentIndex == 0) {
-        type = @"new";
-    } else {
-        type = @"used";
-    }
-    [self refresh];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

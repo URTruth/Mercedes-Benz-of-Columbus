@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
+    self.navigationItem.backBarButtonItem = [Common backButton];
     
     self.navigationItem.hidesBackButton = YES;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -39,7 +39,7 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
 
@@ -97,7 +97,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [[Common alloc] headerOfType:Home withTitle:nil withIcon:nil];
+        return [Common headerOfType:Home withTitle:nil withIcon:nil];
     }
     
     if(indexPath.section == 1) {

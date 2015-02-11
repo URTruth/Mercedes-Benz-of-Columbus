@@ -47,7 +47,7 @@
     scrollview.contentSize = CGSizeMake(350, 180 *viewcount);
     
     
-    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
+    self.navigationItem.backBarButtonItem = [Common backButton];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
@@ -60,10 +60,10 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[[Common alloc] headerWithTitle:@"Schedule an Appointment" withIcon:[UIImage imageNamed:@"appointment.png"]]];
+    [self.view addSubview:[Common headerWithTitle:@"Schedule an Appointment" withIcon:[UIImage imageNamed:@"appointment.png"]]];
     
     
-    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     

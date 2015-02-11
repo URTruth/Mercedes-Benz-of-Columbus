@@ -45,7 +45,7 @@
     scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 900);
     [self.view addSubview:scrollview];
     
-    self.navigationItem.backBarButtonItem = [[Common alloc] backButton];
+    self.navigationItem.backBarButtonItem = [Common backButton];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
@@ -58,9 +58,9 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [scrollview addSubview:[[Common alloc] headerWithTitle:@"Our Dealership" withIcon:[UIImage imageNamed:@"dealership.png"]]];
+    [scrollview addSubview:[Common headerWithTitle:@"Our Dealership" withIcon:[UIImage imageNamed:@"dealership.png"]]];
     
-    UIBarButtonItem *optionsButton = [[Common alloc] optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
@@ -163,7 +163,7 @@
     departmentTelephoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, departmentNameLabel.frame.origin.y + departmentNameLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 14)];
     departmentTelephoneLabel.backgroundColor = [UIColor clearColor];
     departmentTelephoneLabel.clipsToBounds = YES;
-    departmentTelephoneLabel.text = [[Common alloc] formatPhoneNumber:[departmentItem objectForKey:@"phone"]];
+    departmentTelephoneLabel.text = [Common formatPhoneNumber:[departmentItem objectForKey:@"phone"]];
     [departmentTelephoneLabel setTextAlignment: UITextAlignmentLeft];
     [departmentTelephoneLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]];
     departmentTelephoneLabel.textColor = [UIColor peterRiverColor];
@@ -181,7 +181,7 @@
     mondayThroughFridayLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, hoursLabel.frame.origin.y + hoursLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
     mondayThroughFridayLabel.backgroundColor = [UIColor clearColor];
     mondayThroughFridayLabel.clipsToBounds = YES;
-    mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
+    mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
     [mondayThroughFridayLabel setTextAlignment: UITextAlignmentLeft];
     [mondayThroughFridayLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     mondayThroughFridayLabel.textColor = [UIColor colorFromHexCode:@"353535"];
@@ -190,7 +190,7 @@
     saturdayLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, mondayThroughFridayLabel.frame.origin.y + mondayThroughFridayLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
     saturdayLabel.backgroundColor = [UIColor clearColor];
     saturdayLabel.clipsToBounds = YES;
-    saturdayLabel.text = [@"Saturday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
+    saturdayLabel.text = [@"Saturday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
     [saturdayLabel setTextAlignment: UITextAlignmentLeft];
     [saturdayLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     saturdayLabel.textColor = [UIColor colorFromHexCode:@"353535"];
@@ -199,7 +199,7 @@
     sundayLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, saturdayLabel.frame.origin.y + saturdayLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
     sundayLabel.backgroundColor = [UIColor clearColor];
     sundayLabel.clipsToBounds = YES;
-    sundayLabel.text = [@"Sunday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
+    sundayLabel.text = [@"Sunday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
     [sundayLabel setTextAlignment: UITextAlignmentLeft];
     [sundayLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     sundayLabel.textColor = [UIColor colorFromHexCode:@"353535"];
@@ -209,10 +209,10 @@
 - (void)valueChanged:(UISegmentedControl *)segment {
     NSDictionary* departmentItem = [departmentData objectAtIndex:segment.selectedSegmentIndex];
     departmentNameLabel.text = [[departmentItem objectForKey:@"name"] stringByAppendingString:@" Department"];
-    departmentTelephoneLabel.text = [[Common alloc] formatPhoneNumber:[departmentItem objectForKey:@"phone"]];
-    mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
-    saturdayLabel.text = [@"Saturday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
-    sundayLabel.text = [@"Sunday · " stringByAppendingString:[[Common alloc] formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
+    departmentTelephoneLabel.text = [Common formatPhoneNumber:[departmentItem objectForKey:@"phone"]];
+    mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
+    saturdayLabel.text = [@"Saturday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
+    sundayLabel.text = [@"Sunday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation

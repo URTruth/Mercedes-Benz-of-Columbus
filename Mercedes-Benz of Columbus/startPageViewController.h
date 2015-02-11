@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface startPageViewController : UIViewController
+@interface startPageViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *startButtonImageView;
 
 @end

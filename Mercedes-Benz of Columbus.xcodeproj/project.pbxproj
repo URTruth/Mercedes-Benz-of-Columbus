@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3160261A882EBE0014E19D /* SettingsViewController.m */; };
+		2A3160291A8C4E470014E19D /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3160281A8C4E470014E19D /* arrow.png */; };
+		2A31602B1A8C4F100014E19D /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602A1A8C4F100014E19D /* car.png */; };
+		2A31602F1A8C525E0014E19D /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602E1A8C525E0014E19D /* share.png */; };
 		2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */; };
 		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
 		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
@@ -99,6 +102,9 @@
 /* Begin PBXFileReference section */
 		2A3160251A882EBE0014E19D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		2A3160261A882EBE0014E19D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		2A3160281A8C4E470014E19D /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		2A31602A1A8C4F100014E19D /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		2A31602E1A8C525E0014E19D /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
@@ -322,6 +328,8 @@
 				B686B1D21A8AF4C300928565 /* engine_start_button.png */,
 				B686B1D71A8B3F2B00928565 /* engine-start-background.jpg */,
 				B686B1D91A8B440800928565 /* empty.png */,
+				2A3160281A8C4E470014E19D /* arrow.png */,
+				2A31602A1A8C4F100014E19D /* car.png */,
 				B61D6D891A7773220065DC4A /* checked.png */,
 				B61D6D851A7773010065DC4A /* unchecked.png */,
 				B624491F1A738A9D00FEE0D0 /* showroom.png */,
@@ -332,6 +340,7 @@
 				B62449861A7473EB00FEE0D0 /* payment.png */,
 				B6DA2F3B1A73555A004D646E /* contact.png */,
 				B6DA2F3D1A735579004D646E /* service.png */,
+				2A31602E1A8C525E0014E19D /* share.png */,
 				B62449821A74736A00FEE0D0 /* specials.png */,
 				B62449881A7475F100FEE0D0 /* phone.png */,
 				B624498A1A7479F400FEE0D0 /* email.png */,
@@ -545,6 +554,7 @@
 			files = (
 				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
 				B6DA2F3E1A735579004D646E /* service.png in Resources */,
+				2A31602B1A8C4F100014E19D /* car.png in Resources */,
 				B6DA2F3A1A735515004D646E /* account.png in Resources */,
 				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
@@ -567,6 +577,7 @@
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
 				B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */,
 				B686B1DA1A8B440800928565 /* empty.png in Resources */,
+				2A31602F1A8C525E0014E19D /* share.png in Resources */,
 				B62449831A74736A00FEE0D0 /* specials.png in Resources */,
 				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
 				B624498B1A7479F400FEE0D0 /* email.png in Resources */,
@@ -577,6 +588,7 @@
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
+				2A3160291A8C4E470014E19D /* arrow.png in Resources */,
 				B62449701A7429C600FEE0D0 /* dealership.png in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "AccountViewController.h"
 #import "Common.h"
 #import "UIColor+FlatUI.h"
 
@@ -21,7 +22,7 @@
 @synthesize passwordReEnter;
 @synthesize email;
 @synthesize firstname, lastname;
-@synthesize doneButton;
+@synthesize signUp;
 @synthesize signUpLabel;
 
 - (void)viewDidLoad {
@@ -195,24 +196,24 @@
     passwordReEnter.delegate = self;
     [self.view addSubview:passwordReEnter];
     
-    doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.backgroundColor = [UIColor clearColor];
-    doneButton.frame = CGRectMake(220, 520, 150, 50);
-    doneButton.layer.cornerRadius=8.0f;
-    doneButton.layer.masksToBounds=YES;
-    [doneButton setBackgroundColor:[UIColor clearColor]];
-    doneButton.layer.borderColor=[[UIColor clearColor]CGColor];
-    doneButton.layer.borderWidth= 1.0f;
-    doneButton.clipsToBounds = YES;
-    doneButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    [doneButton setTitle:@"Sign Up"
+    signUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    signUp.backgroundColor = [UIColor clearColor];
+    signUp.frame = CGRectMake(220, 520, 150, 50);
+    signUp.layer.cornerRadius=8.0f;
+    signUp.layer.masksToBounds=YES;
+    [signUp setBackgroundColor:[UIColor clearColor]];
+    signUp.layer.borderColor=[[UIColor clearColor]CGColor];
+    signUp.layer.borderWidth= 1.0f;
+    signUp.clipsToBounds = YES;
+    signUp.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
+    [signUp setTitle:@"Sign Up"
             forState:UIControlStateNormal];
-    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [doneButton addTarget:self
+    [signUp setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [signUp addTarget:self
                action:@selector(doneAction:)
      forControlEvents:UIControlEventTouchUpInside];
-    [doneButton setTag:1];
-    [self.view addSubview:doneButton];
+    [signUp setTag:1];
+    [self.view addSubview:signUp];
 
 
 }
@@ -223,23 +224,22 @@
     return YES;
 }
 
-- (IBAction)doneAction:(id)sender {
-    // Send a synchronous request
+- (void) doneAction:(UIButton *)paramSender{
+    [self performSegueWithIdentifier:@"doneSegue" sender:self];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"doneSegue"]){
+        AccountViewController *dest = (AccountViewController *)[segue destinationViewController];
+    }
 }
-*/
 
 @end

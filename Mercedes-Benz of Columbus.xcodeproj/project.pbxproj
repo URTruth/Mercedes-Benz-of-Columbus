@@ -625,6 +625,8 @@
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
+				2A3160291A8C4E470014E19D /* arrow.png in Resources */,
+				B62449701A7429C600FEE0D0 /* dealership.png in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

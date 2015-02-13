@@ -45,7 +45,6 @@
 		B62449651A740C1900FEE0D0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449641A740C1900FEE0D0 /* User.m */; };
 		B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449671A7424D600FEE0D0 /* AppointmentViewController.m */; };
 		B624496E1A7427B100FEE0D0 /* DealershipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B624496D1A7427B100FEE0D0 /* DealershipViewController.m */; };
-		B62449701A7429C600FEE0D0 /* dealership.png in Resources */ = {isa = PBXBuildFile; fileRef = B624496F1A7429C600FEE0D0 /* dealership.png */; };
 		B62449751A74343600FEE0D0 /* AddressAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B62449741A74343600FEE0D0 /* AddressAnnotation.m */; };
 		B62449791A74600A00FEE0D0 /* wavelink.png in Resources */ = {isa = PBXBuildFile; fileRef = B62449781A74600A00FEE0D0 /* wavelink.png */; };
 		B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */ = {isa = PBXBuildFile; fileRef = B624497A1A7464E000FEE0D0 /* wavelink-white.png */; };
@@ -74,8 +73,18 @@
 		B673C88D1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */; };
 		B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D21A8AF4C300928565 /* engine_start_button.png */; };
 		B686B1D61A8B0B2500928565 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B1D51A8B0B2500928565 /* InventoryViewController.m */; };
-		B686B1D81A8B3F2B00928565 /* engine-start-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D71A8B3F2B00928565 /* engine-start-background.jpg */; };
 		B686B1DA1A8B440800928565 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D91A8B440800928565 /* empty.png */; };
+		B6A0488B1A8C4D3B00C0F8D7 /* VehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */; };
+		B6A0488D1A8C6AD000C0F8D7 /* text-veil.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */; };
+		B6A048951A8C810500C0F8D7 /* backgroundA.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048941A8C810500C0F8D7 /* backgroundA.png */; };
+		B6A048971A8C811800C0F8D7 /* backgroundB.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048961A8C811800C0F8D7 /* backgroundB.png */; };
+		B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048981A8C818700C0F8D7 /* backgroundC.png */; };
+		B6A0489D1A8C842C00C0F8D7 /* night-road-blurry.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A0489C1A8C842C00C0F8D7 /* night-road-blurry.png */; };
+		B6A0489F1A8C8B8A00C0F8D7 /* backgroundD.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A0489E1A8C8B8A00C0F8D7 /* backgroundD.png */; };
+		B6A048A71A8C9CAE00C0F8D7 /* no-vehicle-image.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048A61A8C9CAE00C0F8D7 /* no-vehicle-image.png */; };
+		B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048A81A8C9F4600C0F8D7 /* roadside.png */; };
+		B6A048AB1A8C9F4C00C0F8D7 /* parts.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048AA1A8C9F4C00C0F8D7 /* parts.png */; };
+		B6A6C8C21A8CA21300C2802A /* dealership.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A6C8C11A8CA21300C2802A /* dealership.png */; };
 		B6DA2F271A71F75D004D646E /* menuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F261A71F75D004D646E /* menuCell.m */; };
 		B6DA2F2A1A733874004D646E /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F291A733874004D646E /* Common.m */; };
 		B6DA2F361A7354C2004D646E /* warranty.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F351A7354C2004D646E /* warranty.png */; };
@@ -167,7 +176,6 @@
 		B62449671A7424D600FEE0D0 /* AppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentViewController.m; sourceTree = "<group>"; };
 		B624496C1A7427B100FEE0D0 /* DealershipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealershipViewController.h; sourceTree = "<group>"; };
 		B624496D1A7427B100FEE0D0 /* DealershipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealershipViewController.m; sourceTree = "<group>"; };
-		B624496F1A7429C600FEE0D0 /* dealership.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealership.png; sourceTree = "<group>"; };
 		B62449731A74343600FEE0D0 /* AddressAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAnnotation.h; sourceTree = "<group>"; };
 		B62449741A74343600FEE0D0 /* AddressAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAnnotation.m; sourceTree = "<group>"; };
 		B62449781A74600A00FEE0D0 /* wavelink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wavelink.png; sourceTree = "<group>"; };
@@ -205,8 +213,19 @@
 		B686B1D21A8AF4C300928565 /* engine_start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engine_start_button.png; sourceTree = "<group>"; };
 		B686B1D41A8B0B2500928565 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
 		B686B1D51A8B0B2500928565 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
-		B686B1D71A8B3F2B00928565 /* engine-start-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "engine-start-background.jpg"; sourceTree = "<group>"; };
 		B686B1D91A8B440800928565 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
+		B6A048891A8C4D3B00C0F8D7 /* VehicleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleViewController.h; sourceTree = "<group>"; };
+		B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleViewController.m; sourceTree = "<group>"; };
+		B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-veil.png"; sourceTree = "<group>"; };
+		B6A048941A8C810500C0F8D7 /* backgroundA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundA.png; sourceTree = "<group>"; };
+		B6A048961A8C811800C0F8D7 /* backgroundB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundB.png; sourceTree = "<group>"; };
+		B6A048981A8C818700C0F8D7 /* backgroundC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundC.png; sourceTree = "<group>"; };
+		B6A0489C1A8C842C00C0F8D7 /* night-road-blurry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "night-road-blurry.png"; sourceTree = "<group>"; };
+		B6A0489E1A8C8B8A00C0F8D7 /* backgroundD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundD.png; sourceTree = "<group>"; };
+		B6A048A61A8C9CAE00C0F8D7 /* no-vehicle-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-vehicle-image.png"; sourceTree = "<group>"; };
+		B6A048A81A8C9F4600C0F8D7 /* roadside.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roadside.png; sourceTree = "<group>"; };
+		B6A048AA1A8C9F4C00C0F8D7 /* parts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parts.png; sourceTree = "<group>"; };
+		B6A6C8C11A8CA21300C2802A /* dealership.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealership.png; sourceTree = "<group>"; };
 		B6DA2F251A71F75D004D646E /* menuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuCell.h; sourceTree = "<group>"; };
 		B6DA2F261A71F75D004D646E /* menuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuCell.m; sourceTree = "<group>"; };
 		B6DA2F281A733874004D646E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -319,13 +338,21 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */,
+				B6A048941A8C810500C0F8D7 /* backgroundA.png */,
+				B6A048961A8C811800C0F8D7 /* backgroundB.png */,
+				B6A048981A8C818700C0F8D7 /* backgroundC.png */,
+				B6A0489E1A8C8B8A00C0F8D7 /* backgroundD.png */,
+				B6A0489C1A8C842C00C0F8D7 /* night-road-blurry.png */,
+				B6A048A61A8C9CAE00C0F8D7 /* no-vehicle-image.png */,
 				B686B1D21A8AF4C300928565 /* engine_start_button.png */,
-				B686B1D71A8B3F2B00928565 /* engine-start-background.jpg */,
+				B6A048A81A8C9F4600C0F8D7 /* roadside.png */,
+				B6A048AA1A8C9F4C00C0F8D7 /* parts.png */,
+				B6A6C8C11A8CA21300C2802A /* dealership.png */,
 				B686B1D91A8B440800928565 /* empty.png */,
 				B61D6D891A7773220065DC4A /* checked.png */,
 				B61D6D851A7773010065DC4A /* unchecked.png */,
 				B624491F1A738A9D00FEE0D0 /* showroom.png */,
-				B624496F1A7429C600FEE0D0 /* dealership.png */,
 				B6DA2F351A7354C2004D646E /* warranty.png */,
 				B6DA2F3F1A7355BC004D646E /* appointment.png */,
 				B6DA2F391A735515004D646E /* account.png */,
@@ -400,6 +427,8 @@
 				B624491D1A73821100FEE0D0 /* ShowroomViewController.m */,
 				B686B1D41A8B0B2500928565 /* InventoryViewController.h */,
 				B686B1D51A8B0B2500928565 /* InventoryViewController.m */,
+				B6A048891A8C4D3B00C0F8D7 /* VehicleViewController.h */,
+				B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */,
 				B624495C1A74047400FEE0D0 /* SpecialsViewController.h */,
 				B624495D1A74047400FEE0D0 /* SpecialsViewController.m */,
 				B61D6D821A775F0B0065DC4A /* ComingSoonViewController.h */,
@@ -543,15 +572,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A0489D1A8C842C00C0F8D7 /* night-road-blurry.png in Resources */,
 				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
+				B6A6C8C21A8CA21300C2802A /* dealership.png in Resources */,
 				B6DA2F3E1A735579004D646E /* service.png in Resources */,
+				B6A0489F1A8C8B8A00C0F8D7 /* backgroundD.png in Resources */,
 				B6DA2F3A1A735515004D646E /* account.png in Resources */,
 				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
+				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,
+				B6A048A71A8C9CAE00C0F8D7 /* no-vehicle-image.png in Resources */,
 				B62449871A7473EB00FEE0D0 /* payment.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
-				B686B1D81A8B3F2B00928565 /* engine-start-background.jpg in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
 				B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */,
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
@@ -568,16 +601,20 @@
 				B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */,
 				B686B1DA1A8B440800928565 /* empty.png in Resources */,
 				B62449831A74736A00FEE0D0 /* specials.png in Resources */,
+				B6A048951A8C810500C0F8D7 /* backgroundA.png in Resources */,
 				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
+				B6A0488D1A8C6AD000C0F8D7 /* text-veil.png in Resources */,
 				B624498B1A7479F400FEE0D0 /* email.png in Resources */,
+				B6A048971A8C811800C0F8D7 /* backgroundB.png in Resources */,
 				B64621221A2DB12F00523159 /* montage.png in Resources */,
+				B6A048AB1A8C9F4C00C0F8D7 /* parts.png in Resources */,
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B6DA2F401A7355BC004D646E /* appointment.png in Resources */,
+				B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
-				B62449701A7429C600FEE0D0 /* dealership.png in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +666,7 @@
 				B62449411A7391C800FEE0D0 /* AFURLSessionManager.m in Sources */,
 				B624491B1A737B2600FEE0D0 /* vehicleCell.m in Sources */,
 				B62449561A7391D200FEE0D0 /* UIAlertView+AFNetworking.m in Sources */,
+				B6A0488B1A8C4D3B00C0F8D7 /* VehicleViewController.m in Sources */,
 				B624491E1A73821100FEE0D0 /* ShowroomViewController.m in Sources */,
 				B6DA2F271A71F75D004D646E /* menuCell.m in Sources */,
 				B62449401A7391C800FEE0D0 /* AFURLResponseSerialization.m in Sources */,

@@ -23,8 +23,8 @@ extern NSString* const REGULAR_FONT;
 extern NSString* const SEMI_BOLD_FONT;
 extern NSString* const BOLD_FONT;
 
-+ (UITableViewCell *)headerOfType:(headerType)type withTitle:(NSString*)title withIcon:(UIImage*)iconImage;
-+ (UIView *)headerWithTitle:(NSString*)title withIcon:(UIImage*)iconImage;
++ (UITableViewCell *)headerOfType:(headerType)type withTitle:(NSString*)title withIcon:(UIImage*)iconImage withBackground:(UIImage*)backgroundImage;
++ (UIView *)headerWithTitle:(NSString*)title withIcon:(UIImage*)iconImage withBackground:(UIImage*)backgroundImage;
 + (UIBarButtonItem *)backButton;
 + (UIBarButtonItem *)optionsButtonWithTarget:(id)target andAction:(SEL)action;
 + (NSString *)formatPhoneNumber:(NSString*)number;

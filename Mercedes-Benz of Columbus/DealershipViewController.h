@@ -19,4 +19,6 @@
 @property(nonatomic, strong) UILabel *saturdayLabel;
 @property(nonatomic, strong) UILabel *sundayLabel;
 
+@property(nonatomic, strong) NSString *about;
+
 @end

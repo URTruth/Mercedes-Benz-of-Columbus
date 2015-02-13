@@ -60,7 +60,7 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[Common headerWithTitle:@"Schedule an Appointment" withIcon:[UIImage imageNamed:@"appointment.png"]]];
+    [self.view addSubview:[Common headerWithTitle:@"Contact Us" withIcon:[UIImage imageNamed:@"appointment.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]]];
     
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];

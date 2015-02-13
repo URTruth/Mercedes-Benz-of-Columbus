@@ -15,9 +15,9 @@ NSString* const REGULAR_FONT = @"AppleSDGothicNeo-Regular";
 NSString* const SEMI_BOLD_FONT = @"AppleSDGothicNeo-SemiBold";
 NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
 
-+ (UITableViewCell *)headerOfType:(headerType)type withTitle:(NSString*)title withIcon:(UIImage*)iconImage {
++ (UITableViewCell *)headerOfType:(headerType)type withTitle:(NSString*)title withIcon:(UIImage*)iconImage withBackground:(UIImage*)backgroundImage {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    [cell addSubview:[self headerMontageImageView]];
+    [cell addSubview:[self headerMontageImageViewWithImage:backgroundImage]];
     if((int)type == Home) {
         UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
         [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
@@ -30,9 +30,9 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     return cell;
 }
 
-+ (UIView *)headerWithTitle:(NSString*)title withIcon:(UIImage*)iconImage {
++ (UIView *)headerWithTitle:(NSString*)title withIcon:(UIImage*)iconImage withBackground:(UIImage*)backgroundImage  {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
-    [view addSubview:[self headerMontageImageView]];
+    [view addSubview:[self headerMontageImageViewWithImage:backgroundImage]];
     [view addSubview:[self headerIconImageViewWithImage:iconImage]];
     [view addSubview:[self headerTitleLabelWithText:title]];
     return view;
@@ -108,9 +108,9 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
 
 // Private methods
 
-+ (UIImageView *)headerMontageImageView {
++ (UIImageView *)headerMontageImageViewWithImage:(UIImage *)image {
     UIImageView *montageImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122)];
-    [montageImageView setImage:[UIImage imageNamed:@"montage.png"]];
+    [montageImageView setImage:image];
     [montageImageView setContentMode:UIViewContentModeScaleAspectFill];
     [montageImageView setClipsToBounds:YES];
     return montageImageView;

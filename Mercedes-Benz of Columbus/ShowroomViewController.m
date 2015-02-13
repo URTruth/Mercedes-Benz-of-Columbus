@@ -84,7 +84,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:@"Showroom" withIcon:[UIImage imageNamed:@"showroom.png"]];
+        return [Common headerOfType:Default withTitle:@"Showroom" withIcon:[UIImage imageNamed:@"showroom.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
     }
     
     if(indexPath.section == 1) {
@@ -113,7 +113,7 @@
         
         NSDictionary* vehicleItem = [vehicleData objectAtIndex:indexPath.row];
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
         [cell.nameLabel setText:[vehicleItem objectForKey:@"name"]];
         [cell.priceLabel setText:[NSString stringWithFormat:@"From %@", [vehicleItem objectForKey:@"price"]]];
         [cell.auxLabel setText:[NSString stringWithFormat:@"(%@ available)", [vehicleItem objectForKey:@"count"]]];

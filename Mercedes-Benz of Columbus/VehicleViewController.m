@@ -1,12 +1,11 @@
 //
-//  InventoryViewController.m
+//  VehicleViewController.m
 //  Mercedes-Benz of Columbus
 //
-//  Created by Kelvin Graddick on 2/10/15.
+//  Created by Kelvin Graddick on 2/11/15.
 //  Copyright (c) 2015 Wave Link, LLC. All rights reserved.
 //
 
-#import "InventoryViewController.h"
 #import "VehicleViewController.h"
 #import "vehicleCell.h"
 #import "Common.h"
@@ -15,17 +14,16 @@
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "UIColor+FlatUI.h"
 
-@interface InventoryViewController ()
+@interface VehicleViewController ()
 
 @end
 
-@implementation InventoryViewController
-@synthesize type;
-@synthesize make;
-@synthesize model;
-@synthesize order;
+@implementation VehicleViewController
 @synthesize vin;
 @synthesize vehicleData;
+@synthesize vehicleImageView;
+@synthesize vehicleNameLabel;
+@synthesize vehiclePriceLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,20 +48,19 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
     
-    order = @"";
     [self refresh];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Inventory page" forKey:kGAIScreenName] build]];
+    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Vehicle page" forKey:kGAIScreenName] build]];
 }
 
 - (void)refresh {
     // Send a asynchronous request for the initial menu data
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"next": @0, @"type": type, @"make": make, @"model": model, @"order": order};
-    [manager POST:@"http://www.wavelinkllc.com/mboc/get_inventory.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *parameters = @{@"vin": vin};
+    [manager POST:@"http://www.wavelinkllc.com/mboc/get_vehicle.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -79,32 +76,73 @@
     switch (section) {
         case 0: return 1;
         case 1: return 1;
-        case 2: return [vehicleData count];
+        case 2: return 1;
+        case 3: return 20;
         default: return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary* vehicleItem = [vehicleData objectAtIndex:0];
+    
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:[NSString stringWithFormat:@"%@ %@", make, model] withIcon:[UIImage imageNamed:@"showroom.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
+        return [Common headerOfType:Default withTitle:[vehicleItem objectForKey:@"name"] withIcon:[UIImage imageNamed:@"showroom.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
     }
     
     if(indexPath.section == 1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"presentationCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"presentationCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+            
+            vehicleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
+            [vehicleImageView setContentMode:UIViewContentModeScaleAspectFill];
+            [cell addSubview:vehicleImageView];
+            
+            UIImageView *text_veil = [[UIImageView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.width - [UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
+            [text_veil setContentMode:UIViewContentModeScaleAspectFill];
+            [text_veil setImage:[UIImage imageNamed:@"text-veil.png"]];
+            [cell addSubview:text_veil];
+            
+            int vehicleNameFont = 24;
+            vehicleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, text_veil.frame.size.height/4/1.75, [UIScreen mainScreen].bounds.size.width - 40, vehicleNameFont)];
+            [vehicleNameLabel setFont:[UIFont fontWithName:LIGHT_FONT size:vehicleNameFont]];
+            [vehicleNameLabel setTextColor:[UIColor whiteColor]];
+            [text_veil addSubview:vehicleNameLabel];
+            
+            int vehiclePriceFont = 17;
+            vehiclePriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, vehicleNameLabel.frame.origin.y + vehicleNameLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width/2 - 20, vehiclePriceFont)];
+            [vehiclePriceLabel setFont:[UIFont fontWithName:BOLD_FONT size:vehiclePriceFont]];
+            [vehiclePriceLabel setTextColor:[UIColor greenSeaColor]];
+            [text_veil addSubview:vehiclePriceLabel];
+        }
         
+        NSArray *images = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [vehicleImageView setImageWithURL:[NSURL URLWithString:[images objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
+        
+        [vehicleNameLabel setText:[vehicleItem objectForKey:@"name"]];
+        
+        [vehiclePriceLabel setText:[vehicleItem objectForKey:@"price"]];
+        
+        return cell;
     }
     
     if(indexPath.section == 2) {
+        
+    }
+    
+    if(indexPath.section == 3) {
         static NSString *vehicleCellIdentifier = @"vehicleCell";
         vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
         if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
         
-        NSDictionary* vehicleItem = [vehicleData objectAtIndex:indexPath.row];
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
         [cell.nameLabel setText:[vehicleItem objectForKey:@"name"]];
         [cell.priceLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"price"]]];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@ · %@ · %@", [vehicleItem objectForKey:@"type"], [vehicleItem objectForKey:@"color"], [vehicleItem objectForKey:@"body"]]];
-        return cell;
+        //return cell;
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
@@ -117,9 +155,12 @@
         return 122;
     }
     if(indexPath.section == 1) {
-        return 0;
+        return [UIScreen mainScreen].bounds.size.width;
     }
     if(indexPath.section == 2) {
+        return 0;
+    }
+    if(indexPath.section == 3) {
         return 88;
     }
     return 0;

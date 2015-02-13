@@ -25,6 +25,8 @@
 @synthesize saturdayLabel;
 @synthesize sundayLabel;
 
+@synthesize about;
+
 - (void)viewDidAppear:(BOOL)animated {
     // main view background color
     self.view.backgroundColor = [UIColor blackColor];
@@ -41,8 +43,12 @@
                         @{ @"name" : @"Parts", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"8:00 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" }
                         ] mutableCopy];
     
+    about = @"The only authorized Mercedes-Benz dealership in the Columbus, Georgia and Phenix City, Alabama area. *USAA special offers for active duty military, retired military, and spouses. A variety of models from: New Cars, Pre-Owned, and Certified Pre-Owned Vehicles. 24-7 Roadside Assistance (1-800-367-6372) Genuine Mercedes-Benz Parts and Accessories. Courtesy shuttles to Ft. Benning when you bring your car in for service. All Mercedes-Benz of Columus Technicians are Master Certified with over 69 years of combined experience. Stay up-to-date with the offical Mercedes-Benz of Columbus facebook page, for the latest information about upcoming events and service specials.";
+    
+    int scrollHeight = 1100;
+    
     UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, -65, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 65)];
-    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 900);
+    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, scrollHeight);
     [self.view addSubview:scrollview];
     
     self.navigationItem.backBarButtonItem = [Common backButton];
@@ -58,14 +64,14 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [scrollview addSubview:[Common headerWithTitle:@"Our Dealership" withIcon:[UIImage imageNamed:@"dealership.png"]]];
+    [scrollview addSubview:[Common headerWithTitle:@"Our Dealership" withIcon:[UIImage imageNamed:@"dealership.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]]];
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
     // Gray background
-    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 123, [UIScreen mainScreen].bounds.size.width, 900)];
+    UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 123, [UIScreen mainScreen].bounds.size.width, scrollHeight)];
     [centerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     centerView.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
     [scrollview addSubview:centerView];
@@ -117,7 +123,7 @@
     [map.layer setMasksToBounds:YES];
     map.delegate = self;
     //map.mapType = MKMapTypeHybrid;
-    CLLocationCoordinate2D coord = {.latitude =  32.5311, .longitude =  -84.9567};
+    CLLocationCoordinate2D coord = {.latitude =  32.55346, .longitude =  -84.94564};
     MKCoordinateSpan span = {.latitudeDelta =  0.00725, .longitudeDelta =  0.00725}; // half a mile
     MKCoordinateRegion region = {coord, span};
     [map setRegion:region animated:YES];
@@ -204,6 +210,25 @@
     [sundayLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     sundayLabel.textColor = [UIColor colorFromHexCode:@"353535"];
     [centerView addSubview:sundayLabel];
+    
+    UILabel * aboutLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, sundayLabel.frame.origin.y + sundayLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 14)];
+    aboutLabel.backgroundColor = [UIColor clearColor];
+    aboutLabel.clipsToBounds = YES;
+    aboutLabel.text = @"About Us";
+    [aboutLabel setTextAlignment: UITextAlignmentLeft];
+    [aboutLabel setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
+    aboutLabel.textColor = [UIColor colorFromHexCode:@"353535"];
+    [centerView addSubview:aboutLabel];
+    
+    UITextView *aboutText = [[UITextView alloc]initWithFrame:CGRectMake(10, aboutLabel.frame.origin.y + aboutLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
+    aboutText.backgroundColor = [UIColor clearColor];
+    aboutText.clipsToBounds = YES;
+    aboutText.text = about;
+    [aboutText sizeToFit];
+    [aboutText setTextAlignment: UITextAlignmentLeft];
+    [aboutText setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
+    aboutText.textColor = [UIColor colorFromHexCode:@"353535"];
+    [centerView addSubview:aboutText];
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {

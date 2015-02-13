@@ -22,8 +22,8 @@
     
     int backgroundImageViewSize = [UIScreen mainScreen].bounds.size.height;
     backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-((backgroundImageViewSize - [UIScreen mainScreen].bounds.size.width)/2), 0, backgroundImageViewSize, backgroundImageViewSize)];
-    [backgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
-    [backgroundImageView setImage:[UIImage imageNamed:@"engine-start-background.jpg"]];
+    [backgroundImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [backgroundImageView setImage:[UIImage imageNamed:@"backgroundC.png"]];
     [self.view addSubview:backgroundImageView];
     [self.view sendSubviewToBack:backgroundImageView];
     

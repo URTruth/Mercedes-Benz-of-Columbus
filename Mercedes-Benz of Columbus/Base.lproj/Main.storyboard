@@ -181,37 +181,34 @@
                                 <color key="textColor" red="0.63226010099999996" green="0.63226010099999996" blue="0.63226010099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now on your iPhone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geK-LO-lCo">
-                                <rect key="frame" x="133" y="512" width="336" height="47"/>
-                                <color key="backgroundColor" red="0.75523318028606112" green="0.7541924048629558" blue="0.77237215909090906" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Unlimited Luxury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-wV-3Nc">
+                                <rect key="frame" x="132" y="139" width="336" height="47"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Unlimited Luxury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-wV-3Nc">
-                                <rect key="frame" x="126" y="486" width="336" height="47"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="ddf-C9-Y1c">
-                                <rect key="frame" x="235" y="235" width="130" height="130"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="engine_start_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="ddf-C9-Y1c">
+                                <rect key="frame" x="226" y="225" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="3f3-hl-0EN"/>
-                                    <constraint firstAttribute="height" constant="130" id="Yi8-ON-xgH"/>
+                                    <constraint firstAttribute="height" constant="150" id="LTl-0q-Ekc"/>
+                                    <constraint firstAttribute="width" constant="150" id="i6r-5U-M2t"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Now on your iPhone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geK-LO-lCo">
+                                <rect key="frame" x="133" y="159" width="336" height="47"/>
+                                <color key="backgroundColor" red="0.75523318028606112" green="0.7541924048629558" blue="0.77237215909090906" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="ddf-C9-Y1c" secondAttribute="centerY" id="74c-jG-oAS"/>
-                            <constraint firstItem="wfi-Hl-Ab6" firstAttribute="top" secondItem="tg8-wV-3Nc" secondAttribute="bottom" constant="67" id="G9I-NQ-UFb"/>
                             <constraint firstAttribute="centerX" secondItem="ddf-C9-Y1c" secondAttribute="centerX" id="Igg-dw-btx"/>
                             <constraint firstAttribute="centerX" secondItem="tg8-wV-3Nc" secondAttribute="centerX" id="LaV-mY-5Qt"/>
                             <constraint firstAttribute="centerX" secondItem="geK-LO-lCo" secondAttribute="centerX" id="NF1-TS-rpE"/>
                             <constraint firstItem="Yq5-gx-rS0" firstAttribute="leading" secondItem="PfX-kw-btb" secondAttribute="leading" id="Ndu-dm-Qic"/>
                             <constraint firstAttribute="centerX" secondItem="Yq5-gx-rS0" secondAttribute="centerX" id="cdI-jA-iGm"/>
-                            <constraint firstItem="wfi-Hl-Ab6" firstAttribute="top" secondItem="geK-LO-lCo" secondAttribute="bottom" constant="41" id="tsD-eh-Wa3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LDR-Lr-9Zd"/>
@@ -303,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="1686" y="794"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Vehicle View Controller-->
         <scene sceneID="nbh-8l-3vE">
             <objects>
-                <tableViewController id="FsO-Qo-4sp" sceneMemberID="viewController">
+                <tableViewController id="FsO-Qo-4sp" customClass="VehicleViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rem-Sd-BDW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +357,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="empty.png" width="1" height="1"/>
+        <image name="engine_start_button.png" width="200" height="202"/>
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>

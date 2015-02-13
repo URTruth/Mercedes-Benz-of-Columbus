@@ -84,7 +84,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:@"Special Offers" withIcon:[UIImage imageNamed:@"specials.png"]];
+        return [Common headerOfType:Default withTitle:@"Special Offers" withIcon:[UIImage imageNamed:@"specials.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
     }
     
     if(indexPath.section == 1) {

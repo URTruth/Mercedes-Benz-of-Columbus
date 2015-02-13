@@ -34,7 +34,6 @@
     }
     scrollview.contentSize = CGSizeMake(350, 180 *viewcount);
     
-    
     self.navigationItem.backBarButtonItem = [Common backButton];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -48,13 +47,11 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[Common headerWithTitle:@"Settings" withIcon:[UIImage imageNamed:@"account.png"]]];
-    
+    [self.view addSubview:[Common headerWithTitle:@"Settings" withIcon:[UIImage imageNamed:@"account.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]]];
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
-    
     
     backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 122, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];

@@ -60,14 +60,16 @@
     */
     
     menuData = [@[
+                @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue" },
                 @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue" },
                 @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"4", @"segue" : @"specialsSegue" },
-                @{ @"name" : @"Schedule an Appointment", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
+                @{ @"name" : @"Contact Us", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
                 @{ @"name" : @"My Account", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"signInSegue" },
+                @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
                 @{ @"name" : @"Make a Payment", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
                 @{ @"name" : @"Book a Service", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
                 @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue" }
+                @{ @"name" : @"Parts/Accessories", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" }
                 ] mutableCopy];
     [self.tableView reloadData];
 }
@@ -97,7 +99,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [Common headerOfType:Home withTitle:nil withIcon:nil];
+        return [Common headerOfType:Home withTitle:nil withIcon:nil withBackground:[UIImage imageNamed:@"backgroundD.png"]];
     }
     
     if(indexPath.section == 1) {
@@ -123,6 +125,7 @@
     
     if(indexPath.section == 2) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 320) / 2, 0, 320, 60)];
         
@@ -147,7 +150,7 @@
         UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200)];
         [bgImageView setContentMode:UIViewContentModeScaleAspectFill];
         [bgImageView setClipsToBounds:YES];
-        [bgImageView setImage:[UIImage imageNamed:@"montage.png"]];
+        [bgImageView setImage:[UIImage imageNamed:@"backgroundA.png"]];
         [bgView addSubview:bgImageView];
         cell.backgroundView = bgView;
         

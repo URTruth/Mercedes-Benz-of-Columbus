@@ -12,4 +12,10 @@
 
 @property(nonatomic, strong) UIImageView *backgroundImage;
 
+@property(nonatomic, strong) UIImageView *carImage;
+@property(nonatomic, strong) UIImageView *shareImage;
+@property(nonatomic, strong) UIImageView *arrowImage;
+
+@property (nonatomic, strong) UIButton *logOut, *myCar, *share;
+
 @end

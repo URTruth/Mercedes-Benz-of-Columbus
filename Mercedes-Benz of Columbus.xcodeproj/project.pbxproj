@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3160261A882EBE0014E19D /* SettingsViewController.m */; };
 		2A3160291A8C4E470014E19D /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3160281A8C4E470014E19D /* arrow.png */; };
-		2A31602B1A8C4F100014E19D /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602A1A8C4F100014E19D /* car.png */; };
 		2A31602F1A8C525E0014E19D /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602E1A8C525E0014E19D /* share.png */; };
 		2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */; };
+		2AC9D0111A9A7C7D007E6228 /* inside_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D00B1A9A7C7D007E6228 /* inside_blur.jpg */; };
+		2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D00C1A9A7C7D007E6228 /* lights_blur.jpg */; };
+		2AC9D0131A9A7C7D007E6228 /* mercedes_lights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D00D1A9A7C7D007E6228 /* mercedes_lights.jpg */; };
+		2AC9D0151A9A8259007E6228 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0141A9A8259007E6228 /* car.png */; };
+		2AC9D0181A9A8ADE007E6228 /* blend_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0161A9A8ADE007E6228 /* blend_blur.jpg */; };
+		2AC9D0191A9A8ADE007E6228 /* g_class_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */; };
 		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
 		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
 		2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */; };
@@ -112,9 +117,14 @@
 		2A3160251A882EBE0014E19D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		2A3160261A882EBE0014E19D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2A3160281A8C4E470014E19D /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		2A31602A1A8C4F100014E19D /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		2A31602E1A8C525E0014E19D /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2AC9D00B1A9A7C7D007E6228 /* inside_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = inside_blur.jpg; sourceTree = "<group>"; };
+		2AC9D00C1A9A7C7D007E6228 /* lights_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lights_blur.jpg; sourceTree = "<group>"; };
+		2AC9D00D1A9A7C7D007E6228 /* mercedes_lights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mercedes_lights.jpg; sourceTree = "<group>"; };
+		2AC9D0141A9A8259007E6228 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		2AC9D0161A9A8ADE007E6228 /* blend_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blend_blur.jpg; sourceTree = "<group>"; };
+		2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g_class_blur.png; sourceTree = "<group>"; };
 		2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -354,10 +364,15 @@
 				B686B1D21A8AF4C300928565 /* engine_start_button.png */,
 				B6A048A81A8C9F4600C0F8D7 /* roadside.png */,
 				B6A048AA1A8C9F4C00C0F8D7 /* parts.png */,
+				2AC9D0141A9A8259007E6228 /* car.png */,
 				B6A6C8C11A8CA21300C2802A /* dealership.png */,
+				2AC9D0161A9A8ADE007E6228 /* blend_blur.jpg */,
+				2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */,
+				2AC9D00B1A9A7C7D007E6228 /* inside_blur.jpg */,
+				2AC9D00C1A9A7C7D007E6228 /* lights_blur.jpg */,
+				2AC9D00D1A9A7C7D007E6228 /* mercedes_lights.jpg */,
 				B686B1D91A8B440800928565 /* empty.png */,
 				2A3160281A8C4E470014E19D /* arrow.png */,
-				2A31602A1A8C4F100014E19D /* car.png */,
 				B61D6D891A7773220065DC4A /* checked.png */,
 				B61D6D851A7773010065DC4A /* unchecked.png */,
 				B624491F1A738A9D00FEE0D0 /* showroom.png */,
@@ -581,6 +596,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC9D0111A9A7C7D007E6228 /* inside_blur.jpg in Resources */,
 				B6A0489D1A8C842C00C0F8D7 /* night-road-blurry.png in Resources */,
 				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
 				B6A6C8C21A8CA21300C2802A /* dealership.png in Resources */,
@@ -588,6 +604,7 @@
 				B6A0489F1A8C8B8A00C0F8D7 /* backgroundD.png in Resources */,
 				B6DA2F3A1A735515004D646E /* account.png in Resources */,
 				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
+				2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */,
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
 				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,
@@ -603,6 +620,7 @@
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B62449201A738A9D00FEE0D0 /* showroom.png in Resources */,
 				B64620E11A2C5B1700523159 /* nav.png in Resources */,
+				2AC9D0191A9A8ADE007E6228 /* g_class_blur.png in Resources */,
 				B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */,
 				B624497D1A7465D900FEE0D0 /* wavelink-grayscale.png in Resources */,
 				B6DA2F3C1A73555A004D646E /* contact.png in Resources */,
@@ -617,6 +635,8 @@
 				B624498B1A7479F400FEE0D0 /* email.png in Resources */,
 				B6A048971A8C811800C0F8D7 /* backgroundB.png in Resources */,
 				B64621221A2DB12F00523159 /* montage.png in Resources */,
+				2AC9D0181A9A8ADE007E6228 /* blend_blur.jpg in Resources */,
+				2AC9D0131A9A7C7D007E6228 /* mercedes_lights.jpg in Resources */,
 				B6A048AB1A8C9F4C00C0F8D7 /* parts.png in Resources */,
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B6DA2F401A7355BC004D646E /* appointment.png in Resources */,
@@ -626,8 +646,8 @@
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
 				2A3160291A8C4E470014E19D /* arrow.png in Resources */,
-				B62449701A7429C600FEE0D0 /* dealership.png in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
+				2AC9D0151A9A8259007E6228 /* car.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,10 @@
 @synthesize tentView;
 @synthesize signInLabel;
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.view.backgroundColor = [UIColor blackColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -84,11 +88,10 @@
     [forgotPassword addGestureRecognizer:tapRecognizer];
     
     
-    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 122, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(162, 122, 50, 550)];
     [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setImage:[UIImage imageNamed:@"montage.png"]];
+    [backgroundImage setImage:[UIImage imageNamed:@"blend_blur.jpg"]];
     [self.view addSubview:backgroundImage];
-    
     
     signInLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 200, 250, 50)];
     signInLabel.text = @"Sign in to your Account";

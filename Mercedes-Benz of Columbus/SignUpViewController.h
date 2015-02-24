@@ -13,6 +13,7 @@
 @property(nonatomic, strong) UIImageView *backgroundImage;
 
 @property (strong, nonatomic) IBOutlet UITextField *username;
+@property (strong, nonatomic) IBOutlet UITextField *VIN;
 @property (strong, nonatomic) IBOutlet UITextField *password;
 @property (strong, nonatomic) IBOutlet UITextField *passwordReEnter;
 @property (strong, nonatomic) IBOutlet UITextField *email;

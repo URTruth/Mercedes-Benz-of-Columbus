@@ -24,6 +24,11 @@
 @synthesize firstname, lastname;
 @synthesize signUp;
 @synthesize signUpLabel;
+@synthesize VIN;
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.view.backgroundColor = [UIColor blackColor];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,9 +68,9 @@
     self.navigationItem.rightBarButtonItem = optionsButton;
     
     
-    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 122, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(168, 148, 20, 425)];
     [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setImage:[UIImage imageNamed:@"montage.png"]];
+    [backgroundImage setImage:[UIImage imageNamed:@"lights_blur.jpg"]];
     [self.view addSubview:backgroundImage];
 
     
@@ -157,7 +162,27 @@
     [self.view addSubview:email];
     
     
-    password = [[UITextField alloc] initWithFrame:CGRectMake(30, 380, 320, 50)];
+    VIN = [[UITextField alloc] initWithFrame:CGRectMake(30, 380, 320, 50)];
+    VIN.borderStyle = UITextBorderStyleRoundedRect;
+    [VIN setBackgroundColor:[UIColor clearColor]];
+    VIN.font = [UIFont systemFontOfSize:18];
+    VIN.layer.cornerRadius=8.0f;
+    VIN.layer.borderColor=[[UIColor whiteColor]CGColor];
+    VIN.layer.borderWidth= 1.0f;
+    VIN.layer.masksToBounds=YES;
+    UIColor *color5 = [UIColor whiteColor];
+    VIN.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter VIN" attributes:@{NSForegroundColorAttributeName: color5}];
+    VIN.autocorrectionType = UITextAutocorrectionTypeNo;
+    VIN.keyboardType = UIKeyboardTypeDefault;
+    VIN.textColor = [UIColor whiteColor];
+    VIN.returnKeyType = UIReturnKeyDone;
+    VIN.clearButtonMode = UITextFieldViewModeWhileEditing;
+    VIN.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    VIN.delegate = self;
+    [self.view addSubview:VIN];
+
+    
+    password = [[UITextField alloc] initWithFrame:CGRectMake(30, 440, 320, 50)];
     password.borderStyle = UITextBorderStyleRoundedRect;
     [password setBackgroundColor:[UIColor clearColor]];
     password.font = [UIFont systemFontOfSize:18];
@@ -165,8 +190,8 @@
     password.layer.borderColor=[[UIColor whiteColor]CGColor];
     password.layer.borderWidth= 1.0f;
     password.layer.masksToBounds=YES;
-    UIColor *color5 = [UIColor whiteColor];
-    password.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter password" attributes:@{NSForegroundColorAttributeName: color5}];
+    UIColor *color6 = [UIColor whiteColor];
+    password.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter password" attributes:@{NSForegroundColorAttributeName: color6}];
     password.autocorrectionType = UITextAutocorrectionTypeNo;
     password.keyboardType = UIKeyboardTypeDefault;
     password.textColor = [UIColor whiteColor];
@@ -177,7 +202,7 @@
     [self.view addSubview:password];
     
     
-    passwordReEnter = [[UITextField alloc] initWithFrame:CGRectMake(30, 440, 320, 50)];
+    passwordReEnter = [[UITextField alloc] initWithFrame:CGRectMake(30, 500, 320, 50)];
     passwordReEnter.borderStyle = UITextBorderStyleRoundedRect;
     [passwordReEnter setBackgroundColor:[UIColor clearColor]];
     passwordReEnter.font = [UIFont systemFontOfSize:18];
@@ -185,8 +210,8 @@
     passwordReEnter.layer.borderColor=[[UIColor whiteColor]CGColor];
     passwordReEnter.layer.borderWidth= 1.0f;
     passwordReEnter.layer.masksToBounds=YES;
-    UIColor *color6 = [UIColor whiteColor];
-    passwordReEnter.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"re-enter password" attributes:@{NSForegroundColorAttributeName: color6}];
+    UIColor *color7 = [UIColor whiteColor];
+    passwordReEnter.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"re-enter password" attributes:@{NSForegroundColorAttributeName: color7}];
     passwordReEnter.autocorrectionType = UITextAutocorrectionTypeNo;
     passwordReEnter.keyboardType = UIKeyboardTypeDefault;
     passwordReEnter.textColor = [UIColor whiteColor];
@@ -198,7 +223,7 @@
     
     signUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     signUp.backgroundColor = [UIColor clearColor];
-    signUp.frame = CGRectMake(220, 520, 150, 50);
+    signUp.frame = CGRectMake(220, 560, 150, 50);
     signUp.layer.cornerRadius=8.0f;
     signUp.layer.masksToBounds=YES;
     [signUp setBackgroundColor:[UIColor clearColor]];

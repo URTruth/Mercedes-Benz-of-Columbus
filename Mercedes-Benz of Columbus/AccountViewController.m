@@ -21,6 +21,11 @@
 @synthesize backgroundImage, carImage, shareImage,arrowImage;
 @synthesize logOut, myCar, share;
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.view.backgroundColor = [UIColor blackColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -59,15 +64,15 @@
     self.navigationItem.rightBarButtonItem = optionsButton;
     
     
-    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 122, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(192, 122, 20, 470)];
     [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setImage:[UIImage imageNamed:@"montage.png"]];
+    [backgroundImage setImage:[UIImage imageNamed:@"g_class_blur.png"]];
     [self.view addSubview:backgroundImage];
     
 
     logOut = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     logOut.backgroundColor = [UIColor clearColor];
-    logOut.frame = CGRectMake(116, 530, 150, 50);
+    logOut.frame = CGRectMake(116, 600, 150, 50);
     logOut.layer.cornerRadius=8.0f;
     logOut.layer.masksToBounds=YES;
     [logOut setBackgroundColor:[UIColor clearColor]];

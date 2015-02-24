@@ -17,6 +17,7 @@
 		2AC9D0151A9A8259007E6228 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0141A9A8259007E6228 /* car.png */; };
 		2AC9D0181A9A8ADE007E6228 /* blend_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0161A9A8ADE007E6228 /* blend_blur.jpg */; };
 		2AC9D0191A9A8ADE007E6228 /* g_class_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */; };
+		2AC9D0221A9C3567007E6228 /* WarrantyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */; };
 		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
 		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
 		2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */; };
@@ -125,6 +126,8 @@
 		2AC9D0141A9A8259007E6228 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		2AC9D0161A9A8ADE007E6228 /* blend_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blend_blur.jpg; sourceTree = "<group>"; };
 		2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g_class_blur.png; sourceTree = "<group>"; };
+		2AC9D0201A9C3567007E6228 /* WarrantyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarrantyViewController.h; sourceTree = "<group>"; };
+		2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarrantyViewController.m; sourceTree = "<group>"; };
 		2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 				B61D6D831A775F0B0065DC4A /* ComingSoonViewController.m */,
 				2A3160251A882EBE0014E19D /* SettingsViewController.h */,
 				2A3160261A882EBE0014E19D /* SettingsViewController.m */,
+				2AC9D0201A9C3567007E6228 /* WarrantyViewController.h */,
+				2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */,
 				B6DA2F281A733874004D646E /* Common.h */,
 				B6DA2F291A733874004D646E /* Common.m */,
 				B62449631A740C1900FEE0D0 /* User.h */,
@@ -685,6 +690,7 @@
 				B624493B1A7391C800FEE0D0 /* AFHTTPSessionManager.m in Sources */,
 				B62449391A7391C800FEE0D0 /* AFHTTPRequestOperation.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
+				2AC9D0221A9C3567007E6228 /* WarrantyViewController.m in Sources */,
 				B62449541A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B62449651A740C1900FEE0D0 /* User.m in Sources */,
 				B624493D1A7391C800FEE0D0 /* AFSecurityPolicy.m in Sources */,

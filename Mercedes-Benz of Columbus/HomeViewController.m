@@ -68,7 +68,7 @@
                 @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
                 @{ @"name" : @"Make a Payment", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
                 @{ @"name" : @"Book a Service", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue" },
                 @{ @"name" : @"Parts/Accessories", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" }
                 ] mutableCopy];
     [self.tableView reloadData];

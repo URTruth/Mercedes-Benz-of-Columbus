@@ -12,7 +12,7 @@
 
 @property(nonatomic, strong) UIImageView *backgroundImage;
 
-@property (nonatomic, strong) UITextField *username, *password, *email;
+@property (nonatomic, strong) UITextField *password, *email;
 @property (nonatomic, strong) UIButton *signUp, *signIn, *facebook, *forgotPassword, *submit;
 @property (weak, nonatomic) IBOutlet UIView *credentialsView;
 @property (weak, nonatomic) IBOutlet UIView *forgotView;

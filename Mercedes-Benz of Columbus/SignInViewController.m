@@ -20,9 +20,8 @@
 
 @implementation SignInViewController
 @synthesize backgroundImage;
-@synthesize username, password;
+@synthesize email, password;
 @synthesize signIn, signUp, facebook, forgotPassword, submit;
-@synthesize email;
 @synthesize credentialsView;
 @synthesize forgotView;
 @synthesize tentView;
@@ -35,19 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 360, 600)];
-    
-    NSInteger viewcount= 4;
-    for (int i = 0; i <viewcount; i++)
-    {
-        CGFloat y = i * self.view.frame.size.height;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y,                                                      self.view.frame.size.width, self .view.frame.size.height)];
-        view.backgroundColor = [UIColor greenColor];
-        [self.view addSubview:scrollview];
-    }
-    scrollview.contentSize = CGSizeMake(350, 180 *viewcount);
-    
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
@@ -62,20 +48,20 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[Common headerWithTitle:@"My Account" withIcon:[UIImage imageNamed:@"account.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]]];
+    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
+    [backgroundImage setImage:[UIImage imageNamed:@"blend_blur.jpg"]];
+    [self.view addSubview:backgroundImage];
+    
+    [self.view addSubview:[Common headerWithTitle:@"My Account" withIcon:[UIImage imageNamed:@"account.png"] withBackground:[UIImage imageNamed:nil]]];
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
-    username.alpha = 0;
     email.alpha = 0;
     password.alpha = 0;
-//   // self.fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-//    //fbLoginView.alpha = 0;
     forgotPassword.alpha = 0;
-
-    
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInAction:)];
     [tapRecognizer setNumberOfTouchesRequired:1];
@@ -87,41 +73,26 @@
     forgotPassword.userInteractionEnabled = YES;
     [forgotPassword addGestureRecognizer:tapRecognizer];
     
-    
-    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(162, 122, 50, 550)];
-    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setImage:[UIImage imageNamed:@"blend_blur.jpg"]];
-    [self.view addSubview:backgroundImage];
-    
-    signInLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 200, 250, 50)];
-    signInLabel.text = @"Sign in to your Account";
-    signInLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    signInLabel.shadowColor = [UIColor clearColor];
-    signInLabel.textColor = [UIColor whiteColor];
-    [self.view addSubview:signInLabel];
-    
-    
-    username = [[UITextField alloc] initWithFrame:CGRectMake(30, 280, 320, 50)];
-    username.borderStyle = UITextBorderStyleRoundedRect;
-    username.font = [UIFont systemFontOfSize:18];
-    username.layer.cornerRadius=8.0f;
-    username.layer.masksToBounds=YES;
-    [username setBackgroundColor:[UIColor clearColor]];
-    username.layer.borderColor=[[UIColor whiteColor]CGColor];
-    username.layer.borderWidth= 1.0f;
+    email = [[UITextField alloc] initWithFrame:CGRectMake(20, 115, [UIScreen mainScreen].bounds.size.width - 40, 50)];
+    email.borderStyle = UITextBorderStyleRoundedRect;
+    email.font = [UIFont systemFontOfSize:18];
+    email.layer.cornerRadius=8.0f;
+    email.layer.masksToBounds=YES;
+    [email setBackgroundColor:[UIColor clearColor]];
+    email.layer.borderColor=[[UIColor whiteColor]CGColor];
+    email.layer.borderWidth= 1.0f;
     UIColor *color = [UIColor whiteColor];
-    username.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter username" attributes:@{NSForegroundColorAttributeName: color}];
-    username.autocorrectionType = UITextAutocorrectionTypeNo;
-    username.keyboardType = UIKeyboardTypeDefault;
-    username.textColor = [UIColor whiteColor];
-    username.returnKeyType = UIReturnKeyDone;
-    username.clearButtonMode = UITextFieldViewModeWhileEditing;
-    username.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    username.delegate = self;
-    [self.view addSubview:username];
+    email.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Enter email" attributes:@{NSForegroundColorAttributeName: color}];
+    email.autocorrectionType = UITextAutocorrectionTypeNo;
+    email.keyboardType = UIKeyboardTypeDefault;
+    email.textColor = [UIColor whiteColor];
+    email.returnKeyType = UIReturnKeyDone;
+    email.clearButtonMode = UITextFieldViewModeWhileEditing;
+    email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    email.delegate = self;
+    [self.view addSubview:email];
     
-    
-    password = [[UITextField alloc] initWithFrame:CGRectMake(30, 345, 320, 50)];
+    password = [[UITextField alloc] initWithFrame:CGRectMake(20, email.frame.origin.y + 60, [UIScreen mainScreen].bounds.size.width - 40, 50)];
     password.borderStyle = UITextBorderStyleRoundedRect;
     [password setBackgroundColor:[UIColor clearColor]];
     password.font = [UIFont systemFontOfSize:18];
@@ -130,7 +101,7 @@
     password.layer.borderWidth= 1.0f;
     password.layer.masksToBounds=YES;
     UIColor *color2 = [UIColor whiteColor];
-    password.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"enter password" attributes:@{NSForegroundColorAttributeName: color2}];
+    password.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Enter password" attributes:@{NSForegroundColorAttributeName: color2}];
     password.autocorrectionType = UITextAutocorrectionTypeNo;
     password.keyboardType = UIKeyboardTypeDefault;
     password.textColor = [UIColor whiteColor];
@@ -142,15 +113,14 @@
     
     signIn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     signIn.backgroundColor = [UIColor clearColor];
-    signIn.frame = CGRectMake(260, 430, 100, 50);
+    signIn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 120, password.frame.origin.y + 50, 100, 50);
     signIn.layer.cornerRadius=8.0f;
     signIn.layer.masksToBounds=YES;
     [signIn setBackgroundColor:[UIColor clearColor]];
     signIn.layer.borderColor=[[UIColor clearColor]CGColor];
     signIn.layer.borderWidth= 1.0f;
     signIn.clipsToBounds = YES;
-    [signIn setTitle:@"Sign In"
-            forState:UIControlStateNormal];
+    [signIn setTitle:@"Sign In" forState:UIControlStateNormal];
     signIn.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
     
     [signIn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -170,46 +140,36 @@
         facebook.layer.borderColor=[[UIColor clearColor]CGColor];
         facebook.layer.borderWidth= 1.0f;
         facebook.clipsToBounds = YES;
-        [facebook addTarget:self
-                action:@selector(facebookAction:)
-         forControlEvents:UIControlEventTouchUpInside];
+        [facebook addTarget:self action:@selector(facebookAction:) forControlEvents:UIControlEventTouchUpInside];
         [facebook setTag:1];
         [self.view addSubview:facebook];
     
-    
     forgotPassword = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    forgotPassword.frame = CGRectMake(25, 405, 150, 30);
+    forgotPassword.frame = CGRectMake(15, password.frame.origin.y + 59, 150, 30);
     forgotPassword.layer.cornerRadius=8.0f;
     forgotPassword.layer.masksToBounds=YES;
     [forgotPassword setBackgroundColor:[UIColor clearColor]];
     forgotPassword.layer.borderColor=[[UIColor clearColor]CGColor];
     forgotPassword.layer.borderWidth= 1.0f;
     forgotPassword.clipsToBounds = YES;
-    [forgotPassword setTitle:@"Forgot Password?"
-                    forState:UIControlStateNormal];
-    
+    [forgotPassword setTitle:@"Forgot Password?" forState:UIControlStateNormal];
     [forgotPassword setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [forgotPassword addTarget:self
-                       action:@selector(forgotPasswordAction:)
-             forControlEvents:UIControlEventTouchUpInside];
+    [forgotPassword addTarget:self action:@selector(forgotPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
     [forgotPassword setTag:1];
     [self.view addSubview:forgotPassword];
     
     signUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    signUp.frame = CGRectMake(260, 130, 100, 50);
+    signUp.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 120, 66, 100, 50);
     signUp.layer.cornerRadius=8.0f;
     signUp.layer.masksToBounds=YES;
     [signUp setBackgroundColor:[UIColor clearColor]];
     signUp.layer.borderColor=[[UIColor clearColor]CGColor];
     signUp.layer.borderWidth= 1.0f;
     signUp.clipsToBounds = YES;
-    [signUp setTitle:@"Sign Up"
-            forState:UIControlStateNormal];
+    [signUp setTitle:@"Sign Up" forState:UIControlStateNormal];
     signUp.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    [signUp setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [signUp addTarget:self
-               action:@selector(signUpAction:)
-     forControlEvents:UIControlEventTouchUpInside];
+    [signUp setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [signUp addTarget:self action:@selector(signUpAction:) forControlEvents:UIControlEventTouchUpInside];
     [signUp setTag:1];
     [self.view addSubview:signUp];
     
@@ -271,7 +231,6 @@
 
         [UIView animateWithDuration:0.0 animations:^{
             email.alpha = 1.0;
-            username.alpha = 0.0;
             password.alpha = 0.0;
             forgotPassword.alpha = 0.0;
             signIn.alpha = 0.0;

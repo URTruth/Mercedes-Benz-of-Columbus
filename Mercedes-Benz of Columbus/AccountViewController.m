@@ -30,18 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 360, 600)];
-    
-    NSInteger viewcount= 4;
-    for (int i = 0; i <viewcount; i++)
-    {
-        CGFloat y = i * self.view.frame.size.height;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y,                                                      self.view.frame.size.width, self .view.frame.size.height)];
-        view.backgroundColor = [UIColor greenColor];
-        [self.view addSubview:scrollview];
-    }
-    scrollview.contentSize = CGSizeMake(350, 180 *viewcount);
-    
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 900);
+    [self.view addSubview:scrollview];
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
@@ -67,7 +58,7 @@
     backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(192, 122, 20, 470)];
     [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
     [backgroundImage setImage:[UIImage imageNamed:@"g_class_blur.png"]];
-    [self.view addSubview:backgroundImage];
+    //[scrollview addSubview:backgroundImage];
     
 
     logOut = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -87,13 +78,13 @@
                action:@selector(logOutAction:)
      forControlEvents:UIControlEventTouchUpInside];
     [logOut setTag:1];
-    [self.view addSubview:logOut];
+    [scrollview addSubview:logOut];
 
     
     carImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 234, 20, 20)];
     [carImage setContentMode:UIViewContentModeScaleAspectFill];
     [carImage setImage:[UIImage imageNamed:@"car.png"]];
-    [self.view addSubview:carImage];
+    [scrollview addSubview:carImage];
     
     myCar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     myCar.backgroundColor = [UIColor clearColor];
@@ -113,21 +104,21 @@
                action:@selector(myCarAction:)
      forControlEvents:UIControlEventTouchUpInside];
     [myCar setTag:1];
-    [self.view addSubview:myCar];
+    [scrollview addSubview:myCar];
     
     arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(330, 230, 30, 30)];
     [arrowImage setContentMode:UIViewContentModeScaleAspectFill];
     [arrowImage setImage:[UIImage imageNamed:@"arrow.png"]];
-    [self.view addSubview:arrowImage];
+    [scrollview addSubview:arrowImage];
 
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(60, 270, 330, 1)];
     lineView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:lineView];
+    [scrollview addSubview:lineView];
     
     shareImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 285, 30, 30)];
     [shareImage setContentMode:UIViewContentModeScaleAspectFill];
     [shareImage setImage:[UIImage imageNamed:@"share.png"]];
-    [self.view addSubview:shareImage];
+    [scrollview addSubview:shareImage];
     
     share = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     share.backgroundColor = [UIColor clearColor];
@@ -147,12 +138,12 @@
                action:@selector(shareAction:)
      forControlEvents:UIControlEventTouchUpInside];
     [share setTag:1];
-    [self.view addSubview:share];
+    [scrollview addSubview:share];
 
     arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(330, 290, 30, 30)];
     [arrowImage setContentMode:UIViewContentModeScaleAspectFill];
     [arrowImage setImage:[UIImage imageNamed:@"arrow.png"]];
-    [self.view addSubview:arrowImage];
+    [scrollview addSubview:arrowImage];
 }
 
 - (void) logOutAction:(UIButton *)paramSender{

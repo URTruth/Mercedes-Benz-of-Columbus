@@ -115,7 +115,7 @@
     addressLabel.text = @"7470 Veterans Parkway · Columbus, GA 31909";
     [addressLabel setTextAlignment: UITextAlignmentLeft];
     [addressLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
-    addressLabel.textColor = [UIColor grayColor];
+    addressLabel.textColor = [UIColor CustomGrayColor];
     [centerView addSubview:addressLabel];
     
     // Map

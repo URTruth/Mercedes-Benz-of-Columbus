@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "SignUpViewController.h"
 #import "AccountViewController.h"
+#import "User.h"
 #import "Common.h"
 #import "UIColor+Custom.h"
 
@@ -85,7 +86,7 @@
     [tapRecognizer setDelegate:self];
     signIn.userInteractionEnabled = YES;
     [signIn addGestureRecognizer:tapRecognizer];
-
+    
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(forgotPasswordAction::)];
     forgotPassword.userInteractionEnabled = YES;
     [forgotPassword addGestureRecognizer:tapRecognizer];
@@ -335,7 +336,7 @@
 }
 
 - (void) signUpAction:(UIButton *)paramSender{
-     [self performSegueWithIdentifier:@"signUpSegue" sender:self];
+    [self performSegueWithIdentifier:@"signUpSegue" sender:self];
     
 }
 
@@ -348,7 +349,7 @@
     // Dispose of any resources that can be recreated.
 }
 
- #pragma mark - Navigation
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"signUpSegue"]){

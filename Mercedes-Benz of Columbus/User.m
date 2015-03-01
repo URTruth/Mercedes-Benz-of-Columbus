@@ -13,16 +13,17 @@
 @synthesize userId = _userId;
 @synthesize email = _email;
 @synthesize password = _password;
-@synthesize firstName = _firstName;
-@synthesize lastName = _lastName;
+@synthesize name = _name;
 @synthesize vin = _vin;
 @synthesize photo = _photo;
-@synthesize bio = _bio;
-@synthesize gender = _gender;
 @synthesize phone = _phone;
 @synthesize facebookId = _facebookId;
-@synthesize twitterToken = _twitterToken;
-@synthesize twitterSecret = _twitterSecret;
+@synthesize facebookEmail = _facebookEmail;
+@synthesize facebookFirstName = _facebookFirstName;
+@synthesize facebookLastName = _facebookLastName;
+@synthesize facebookPictureURL = _facebookPictureURL;
+@synthesize twitterId = _twitterId;
+@synthesize deviceToken = _deviceToken;
 
 + (User *)sharedInstance {
     static dispatch_once_t onceToken;
@@ -39,16 +40,16 @@
         _userId = nil;
         _email = nil;
         _password = nil;
-        _firstName = nil;
-        _lastName = nil;
         _vin = nil;
         _photo = nil;
-        _bio = nil;
-        _gender = nil;
         _phone = nil;
         _facebookId = nil;
-        _twitterToken = nil;
-        _twitterSecret = nil;
+        _facebookEmail = nil;
+        _facebookFirstName = nil;
+        _facebookLastName = nil;
+        _facebookPictureURL = nil;
+        _twitterId = nil;
+        _deviceToken = nil;
     }
     return self;
 }

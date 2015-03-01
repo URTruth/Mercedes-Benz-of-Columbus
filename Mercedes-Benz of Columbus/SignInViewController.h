@@ -35,5 +35,4 @@
 @property (weak, nonatomic) IBOutlet UIView *forgotView;
 @property (strong, nonatomic) IBOutlet UILabel *signInLabel;
 
-
 @end

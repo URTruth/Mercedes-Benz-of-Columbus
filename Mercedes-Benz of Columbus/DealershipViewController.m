@@ -8,6 +8,7 @@
 
 #import "DealershipViewController.h"
 #import "Common.h"
+#import "UIColor+Custom.h"
 
 #import "UIColor+FlatUI.h"
 #import "AddressAnnotation.h"
@@ -73,7 +74,7 @@
     // Gray background
     UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 123, [UIScreen mainScreen].bounds.size.width, scrollHeight)];
     [centerView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    centerView.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+    centerView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     [scrollview addSubview:centerView];
     
     UIImageView *phoneImageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 95, 22, 32, 32)];
@@ -114,7 +115,7 @@
     addressLabel.text = @"7470 Veterans Parkway · Columbus, GA 31909";
     [addressLabel setTextAlignment: UITextAlignmentLeft];
     [addressLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
-    addressLabel.textColor = [UIColor grayColor];
+    addressLabel.textColor = [UIColor CustomGrayColor];
     [centerView addSubview:addressLabel];
     
     // Map
@@ -135,7 +136,7 @@
     segmentedControl.frame = CGRectMake(10, map.frame.origin.y + map.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 30);
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.tintColor = [UIColor grayColor];
+    segmentedControl.tintColor = [UIColor CustomGrayColor];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
     [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];

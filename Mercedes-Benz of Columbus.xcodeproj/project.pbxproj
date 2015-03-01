@@ -413,10 +413,10 @@
 		B673C8641A294BFA00D3D55F = {
 			isa = PBXGroup;
 			children = (
-				2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */,
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
 				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
+				2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */,
 			);
 			sourceTree = "<group>";
 		};

@@ -45,7 +45,7 @@
 
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
-    self.tableView.separatorColor = [UIColor colorFromHexCode:@"f5f5f5"];
+    self.tableView.separatorColor = [UIColor whiteColor];
     
     /*
     // Send a asynchronous request for the initial menu data
@@ -138,7 +138,7 @@
         
         UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(poweredLabel.frame.origin.x + 80, poweredLabel.frame.origin.y - 21.5, 100, 45)];
         [logo setImage:[[UIImage imageNamed:@"wavelink-grayscale.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        logo.tintColor = [UIColor colorFromHexCode:@"dfdfdf"];
+        logo.tintColor = [UIColor colorFromHexCode:@"f5f5f5"];
         [logo setContentMode:UIViewContentModeScaleAspectFit];
         [view addSubview:logo];
         

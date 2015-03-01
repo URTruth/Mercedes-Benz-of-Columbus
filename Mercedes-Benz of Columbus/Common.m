@@ -7,6 +7,7 @@
 //
 
 #import "Common.h"
+#import "UIColor+Custom.h"
 
 @implementation Common
 
@@ -104,6 +105,29 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
                                               cancelButtonTitle:cancelButtonTitle
                                               otherButtonTitles:nil];
     [alertView show];
+}
+
++ (UITextField *)textBoxWithPlaceholder:(NSString*)placeholder frame:(CGRect)frame target:(id)target {
+    UITextField* textBox = [[UITextField alloc] initWithFrame:frame];
+    textBox.borderStyle = UITextBorderStyleRoundedRect;
+    textBox.font = [UIFont fontWithName:@"AvenirNext-Regular" size:15.0];
+    textBox.layer.cornerRadius=8.0f;
+    textBox.layer.masksToBounds=YES;
+    [textBox setBackgroundColor:[UIColor CustomGrayColor]];
+    textBox.layer.borderWidth= 0.0f;
+    textBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    textBox.autocorrectionType = UITextAutocorrectionTypeNo;
+    textBox.keyboardType = UIKeyboardTypeDefault;
+    textBox.textColor = [UIColor whiteColor];
+    textBox.returnKeyType = UIReturnKeyDone;
+    textBox.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textBox.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    textBox.delegate = target;
+    return textBox;
+}
+
++ (NSString *)webServiceUrlWithPath:(NSString *)path {
+    return [@"http://www.wavelinkllc.com/mboc/" stringByAppendingString:path];
 }
 
 // Private methods

@@ -12,16 +12,17 @@
     NSString *_userId;
     NSString *_email;
     NSString *_password;
-    NSString *_firstName;
-    NSString *_lastName;
+    NSString *_name;
     NSString *_vin;
     NSString *_photo;
-    NSString *_bio;
-    NSString *_gender;
     NSString *_phone;
     NSString *_facebookId;
-    NSString *_twitterToken;
-    NSString *_twitterSecret;
+    NSString *_facebookEmail;
+    NSString *_facebookFirstName;
+    NSString *_facebookLastName;
+    NSString *_facebookPictureURL;
+    NSString *_twitterId;
+    NSString *_deviceToken;
 }
 
 + (User *)sharedInstance;
@@ -29,15 +30,16 @@
 @property(strong, nonatomic, readwrite) NSString *userId;
 @property(strong, nonatomic, readwrite) NSString *email;
 @property(strong, nonatomic, readwrite) NSString *password;
-@property(strong, nonatomic, readwrite) NSString *firstName;
-@property(strong, nonatomic, readwrite) NSString *lastName;
+@property(strong, nonatomic, readwrite) NSString *name;
 @property(strong, nonatomic, readwrite) NSString *vin;
 @property(strong, nonatomic, readwrite) NSString *photo;
-@property(strong, nonatomic, readwrite) NSString *bio;
-@property(strong, nonatomic, readwrite) NSString *gender;
 @property(strong, nonatomic, readwrite) NSString *phone;
 @property(strong, nonatomic, readwrite) NSString *facebookId;
-@property(strong, nonatomic, readwrite) NSString *twitterToken;
-@property(strong, nonatomic, readwrite) NSString *twitterSecret;
+@property(strong, nonatomic, readwrite) NSString *facebookEmail;
+@property(strong, nonatomic, readwrite) NSString *facebookFirstName;
+@property(strong, nonatomic, readwrite) NSString *facebookLastName;
+@property(strong, nonatomic, readwrite) NSString *facebookPictureURL;
+@property(strong, nonatomic, readwrite) NSString *twitterId;
+@property(strong, nonatomic, readwrite) NSString *deviceToken;
 
 @end

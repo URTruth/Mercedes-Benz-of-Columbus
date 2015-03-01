@@ -10,6 +10,7 @@
 #import "InventoryViewController.h"
 #import "vehicleCell.h"
 #import "Common.h"
+#import "UIColor+Custom.h"
 
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
@@ -92,12 +93,12 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"segmentedControlCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+            cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
             UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"New", @"Used", nil]];
             segmentedControl.frame = CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width - 20, 30);
             segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
             segmentedControl.selectedSegmentIndex = 0;
-            segmentedControl.tintColor = [UIColor grayColor];
+            segmentedControl.tintColor = [UIColor CustomGrayColor];
             NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
             [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
             [segmentedControl addTarget:self action:@selector(typeChanged:) forControlEvents: UIControlEventValueChanged];

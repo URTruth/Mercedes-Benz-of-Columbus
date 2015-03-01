@@ -15,7 +15,7 @@
 #import "UIColor+Custom.h"
 
 #import "UIColor+FlatUI.h"
-#import "ACSimpleKeychain.h"
+//#import "ACSimpleKeychain.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 
@@ -24,7 +24,6 @@
 @end
 
 @implementation SignInViewController
-@synthesize appDelegate;
 @synthesize backgroundView;
 @synthesize emailTextBox;
 @synthesize passwordTextBox;
@@ -44,8 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    appDelegate = [[UIApplication sharedApplication]delegate];
     
     backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     backgroundView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
@@ -92,7 +89,7 @@
     [forgotPassword addGestureRecognizer:tapRecognizer];
     
     //fbLoginView = [[FBLoginView alloc] initWithFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    ////fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    //fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     //fbLoginView.delegate = self;
     //[self.view addSubview:fbLoginView];
     
@@ -164,16 +161,16 @@
         [textField resignFirstResponder];
         [spinner startAnimating];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"email": emailTextBox.text, @"password": passwordTextBox.text, @"iOSdeviceToken":appDelegate.dToken};
+        NSDictionary *parameters = @{@"email": emailTextBox.text, @"password": passwordTextBox.text, @"iOSdeviceToken":[User sharedInstance].deviceToken};
         [manager POST:[Common webServiceUrlWithPath:@"login.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSDictionary *responseData = (NSDictionary*)responseObject;
             if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                appDelegate.userId = [responseData objectForKey:@"userId"];
-                appDelegate.email = [responseData objectForKey:@"email"];
-                ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-                    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-                }
+                [User sharedInstance].userId = [responseData objectForKey:@"userId"];
+                [User sharedInstance].email = [responseData objectForKey:@"email"];
+                //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+                //if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
+                //    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
+                //}
                 [self performSegueWithIdentifier:@"accountSegue" sender:self];
             }else{
                 [Common showErrorMessageWithTitle:@"Oops! Login failed!" message:@"Please review your credentials." cancelButtonTitle:@"OK"];
@@ -185,76 +182,75 @@
         }];
     }
     /*
-    else if (textField == self.emailTextBox) {
-        [textField resignFirstResponder];
-        
-        [spinner startAnimating];
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"email": emailTextBox.text };
-        [manager POST:[Common webServiceUrlWithPath:@"forgot_password.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSDictionary *responseData = (NSDictionary*)responseObject;
-            if ([[responseData objectForKey:@"response"] isEqualToString:@"success"]){
-                [Common showErrorMessageWithTitle:@"Success!" message:@"Check your email to get your password." cancelButtonTitle:@"OK"];
-            }else{
-                [Common showErrorMessageWithTitle:[responseData objectForKey:@"response"] message:@"Please try again." cancelButtonTitle:@"OK"];
-            }
-            [spinner stopAnimating];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-            [spinner stopAnimating];
-        }];
-    }
-    */
+     else if (textField == self.emailTextBox) {
+     [textField resignFirstResponder];
+     
+     [spinner startAnimating];
+     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+     NSDictionary *parameters = @{@"email": emailTextBox.text };
+     [manager POST:[Common webServiceUrlWithPath:@"forgot_password.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     NSDictionary *responseData = (NSDictionary*)responseObject;
+     if ([[responseData objectForKey:@"response"] isEqualToString:@"success"]){
+     [Common showErrorMessageWithTitle:@"Success!" message:@"Check your email to get your password." cancelButtonTitle:@"OK"];
+     }else{
+     [Common showErrorMessageWithTitle:[responseData objectForKey:@"response"] message:@"Please try again." cancelButtonTitle:@"OK"];
+     }
+     [spinner stopAnimating];
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+     [spinner stopAnimating];
+     }];
+     }
+     */
     
     return YES;
 }
 
 /*
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+ - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+ 
+ }
+ 
+ - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+ 
+ }
 
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    if (![self isUser:cachedUser equalToUser:user]) {
-        cachedUser = user;
-        facebookID = user.id;
-        facebookFirstName = user.first_name;
-        facebookLastName = user.last_name;
-        facebookEmail = [user objectForKey:@"email"];
-        facebookProfilePicURL = [[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large", facebookID];
-        
-        [spinner startAnimating];
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"facebookId": facebookID, @"iOSdeviceToken":appDelegate.dToken};
-        [manager POST:[Common webServiceUrlWithPath:@"login_with_facebook.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSDictionary *responseData = (NSDictionary*)responseObject;
-            if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                appDelegate.userId = [responseData objectForKey:@"userId"];
-                appDelegate.email = [responseData objectForKey:@"email"];
-                ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
+ - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+     if (![self isUser:cachedUser equalToUser:user]) {
+         cachedUser = user;
+         facebookID = user.id;
+         facebookFirstName = user.first_name;
+         facebookLastName = user.last_name;
+         facebookEmail = [user objectForKey:@"email"];
+         facebookProfilePicURL = [[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large", facebookID];
+         
+         [spinner startAnimating];
+         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+         NSDictionary *parameters = @{@"facebookId": facebookID, @"iOSdeviceToken":appDelegate.dToken};
+         [manager POST:[Common webServiceUrlWithPath:@"login_with_facebook.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSDictionary *responseData = (NSDictionary*)responseObject;
+             if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
+                 appDelegate.userId = [responseData objectForKey:@"userId"];
+                 appDelegate.email = [responseData objectForKey:@"email"];
+                 ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+                 if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
                     NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-                }
-                
-                //UIViewController *vc = [self topMostController:[UIApplication sharedApplication].keyWindow.rootViewController];
-                //if([vc.restorationIdentifier isEqualToString:@"Login"]){
+                 }
+                 
+                 //UIViewController *vc = [self topMostController:[UIApplication sharedApplication].keyWindow.rootViewController];
+                 //if([vc.restorationIdentifier isEqualToString:@"Login"]){
                     [self performSegueWithIdentifier:@"accountSegue" sender:self];
-                //}
-            }else{
+                 //}
+             }else{
                 [self performSegueWithIdentifier:@"signUpSegue" sender:self];
-            }
-            [spinner stopAnimating];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-            [spinner stopAnimating];
-        }];
-    }
-}
- */
+             }
+             [spinner stopAnimating];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+             [spinner stopAnimating];
+         }];
+     }
+ }
 
 /*
 - (void)handleTwitterResponse:(TWTRSession *)session error:(NSError *)error {
@@ -308,12 +304,12 @@
     [manager POST:[Common webServiceUrlWithPath:@"login.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseData = (NSDictionary*)responseObject;
         if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-            appDelegate.userId = [responseData objectForKey:@"userId"];
-            appDelegate.email = [responseData objectForKey:@"email"];
-            ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-            if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-                NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-            }
+            [User sharedInstance].userId = [responseData objectForKey:@"userId"];
+            [User sharedInstance].email = [responseData objectForKey:@"email"];
+            //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+            //if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
+            //    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
+            //}
             [self performSegueWithIdentifier:@"accountSegue" sender:self];
         }else{
             [Common showErrorMessageWithTitle:@"Oops! Login failed!" message:@"Please review your credentials." cancelButtonTitle:@"OK"];
@@ -326,9 +322,9 @@
 }
 
 /*
-- (BOOL)isUser:(id<FBGraphUser>)firstUser equalToUser:(id<FBGraphUser>)secondUser {
-    return [firstUser.id isEqual:secondUser.id];
-}
+ - (BOOL)isUser:(id<FBGraphUser>)firstUser equalToUser:(id<FBGraphUser>)secondUser {
+ return [firstUser.id isEqual:secondUser.id];
+ }
  */
 
 - (void) signInAction:(UIButton *)paramSender{
@@ -341,7 +337,7 @@
 }
 
 - (void) forgotPasswordAction:(UIButton *)paramSender{
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -353,14 +349,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"signUpSegue"]){
-        SignUpViewController *dest = (SignUpViewController *)[segue destinationViewController];
-        dest.facebookID = facebookID;
-        dest.facebookEmail = facebookEmail;
-        dest.facebookFirstName = facebookFirstName;
-        dest.facebookLastName = facebookLastName;
-        dest.facebookProfilePicURL = facebookProfilePicURL;
-    }else if([segue.identifier isEqualToString:@"accountSegue"]){
 
+    }else if([segue.identifier isEqualToString:@"accountSegue"]){
+        
     }
 }
 

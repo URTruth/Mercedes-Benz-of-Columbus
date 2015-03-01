@@ -45,7 +45,7 @@
 
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
-    self.tableView.separatorColor = [UIColor colorFromHexCode:@"dfdfdf"];
+    self.tableView.separatorColor = [UIColor whiteColor];
     
     /*
     // Send a asynchronous request for the initial menu data

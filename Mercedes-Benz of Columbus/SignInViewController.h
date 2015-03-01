@@ -9,21 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-//#import <FacebookSDK/FacebookSDK.h>
-//#import <TwitterKit/TwitterKit.h>
+@interface SignInViewController : UIViewController<UITextFieldDelegate>
 
-@interface SignInViewController : UIViewController<UITextFieldDelegate>//, FBLoginViewDelegate>
-{
-    //id<FBGraphUser> cachedUser;
-    NSString *facebookID;
-    NSString *facebookEmail;
-    NSString *facebookFirstName;
-    NSString *facebookLastName;
-    NSString *facebookProfilePicURL;
-}
-
-@property(nonatomic, strong) AppDelegate *appDelegate;
-@property(nonatomic, strong) UIImageView *backgroundView;
+@property(nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UITextField *emailTextBox;
 @property (nonatomic, strong) UITextField *passwordTextBox;
 @property (nonatomic, strong) UIButton *signUp, *signIn, *forgotPassword, *submit;

@@ -29,11 +29,9 @@
 		B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC3F1AA180AB00A24F45 /* ACSimpleKeychain.m */; };
 		B61CCC661AA181AF00A24F45 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC431AA181AF00A24F45 /* Appirater.m */; };
 		B61CCC671AA181AF00A24F45 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC451AA181AF00A24F45 /* AppiraterLocalizable.strings */; };
-		B61CCC821AA2BCE900A24F45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC721AA2BCE900A24F45 /* AppDelegate.m */; };
 		B61CCC831AA2BCE900A24F45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC731AA2BCE900A24F45 /* LaunchScreen.xib */; };
 		B61CCC841AA2BCE900A24F45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC751AA2BCE900A24F45 /* Images.xcassets */; };
 		B61CCC851AA2BCE900A24F45 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC761AA2BCE900A24F45 /* Info.plist */; };
-		B61CCC861AA2BCE900A24F45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC771AA2BCE900A24F45 /* main.m */; };
 		B61CCC871AA2BCE900A24F45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC791AA2BCE900A24F45 /* ViewController.m */; };
 		B61CCC881AA2BCE900A24F45 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC7A1AA2BCE900A24F45 /* ViewController.xib */; };
 		B61CCC891AA2BCE900A24F45 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC7F1AA2BCE900A24F45 /* ProgressHUD.bundle */; };
@@ -352,7 +350,6 @@
 		B61CCA5A1AA16EF900A24F45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -688,7 +685,6 @@
 				B673C8691A294BFA00D3D55F /* Sources */,
 				B673C86A1A294BFA00D3D55F /* Frameworks */,
 				B673C86B1A294BFA00D3D55F /* Resources */,
-				B61CCC681AA19BC400A24F45 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -877,28 +873,11 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B61CCC681AA19BC400A24F45 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run fc4bea66669eab675a49481b279964733cad3193 7840fcadac711bbde5060da608aa7d350d4c35bd0b531351030032231aad2519";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B673C8691A294BFA00D3D55F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61CCC821AA2BCE900A24F45 /* AppDelegate.m in Sources */,
 				B62449591A7391D200FEE0D0 /* UIProgressView+AFNetworking.m in Sources */,
 				B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */,
 				B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */,
@@ -926,7 +905,6 @@
 				2AC9D0221A9C3567007E6228 /* WarrantyViewController.m in Sources */,
 				B62449541A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B62449651A740C1900FEE0D0 /* User.m in Sources */,
-				B61CCC861AA2BCE900A24F45 /* main.m in Sources */,
 				B624493D1A7391C800FEE0D0 /* AFSecurityPolicy.m in Sources */,
 				B62449751A74343600FEE0D0 /* AddressAnnotation.m in Sources */,
 				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
@@ -1117,19 +1095,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Mercedes-Benz",
-					of,
-					Columbus/FacebookSDK,
-					"$(PROJECT_DIR)/Mercedes-Benz",
-					of,
-					Columbus,
-					/Users/kelvin/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/Mercedes-Benz",
-					of,
-					Columbus/FacebookSDK,
-				);
 				INFOPLIST_FILE = "Mercedes-Benz of Columbus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1142,19 +1107,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Mercedes-Benz",
-					of,
-					Columbus/FacebookSDK,
-					"$(PROJECT_DIR)/Mercedes-Benz",
-					of,
-					Columbus,
-					/Users/kelvin/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/Mercedes-Benz",
-					of,
-					Columbus/FacebookSDK,
-				);
 				INFOPLIST_FILE = "Mercedes-Benz of Columbus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

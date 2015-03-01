@@ -15,7 +15,7 @@
 #import "UIColor+Custom.h"
 
 #import "UIColor+FlatUI.h"
-//#import "ACSimpleKeychain.h"
+#import "ACSimpleKeychain.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 
@@ -28,7 +28,7 @@
 @synthesize emailTextBox;
 @synthesize passwordTextBox;
 @synthesize signIn, signUp, forgotPassword, submit;
-//@synthesize fbLoginView;
+@synthesize fbLoginView;
 @synthesize twitterLoginButton;
 @synthesize spinner;
 @synthesize credentialsView;
@@ -88,18 +88,17 @@
     forgotPassword.userInteractionEnabled = YES;
     [forgotPassword addGestureRecognizer:tapRecognizer];
     
-    //fbLoginView = [[FBLoginView alloc] initWithFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    //fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-    //fbLoginView.delegate = self;
-    //[self.view addSubview:fbLoginView];
+    fbLoginView = [[FBLoginView alloc] initWithFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    fbLoginView.delegate = self;
+    [self.view addSubview:fbLoginView];
     
     twitterLoginButton = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) { [self handleTwitterResponse:session error:error]; }];
-    //[twitterLoginButton setFrame:CGRectMake(20, fbLoginView.frame.origin.y + fbLoginView.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    [twitterLoginButton setFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    [twitterLoginButton setFrame:CGRectMake(20, fbLoginView.frame.origin.y + fbLoginView.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 40)];
     [self.view addSubview:twitterLoginButton];
     
-    //emailTextBox = [Common textBoxWithPlaceholder:@"Enter email.." frame:CGRectMake(20, twitterLoginButton.frame.origin.y + twitterLoginButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 45) target:self];
-    //[self.view addSubview:emailTextBox];
+    emailTextBox = [Common textBoxWithPlaceholder:@"Enter email.." frame:CGRectMake(20, twitterLoginButton.frame.origin.y + twitterLoginButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 45) target:self];
+    [self.view addSubview:emailTextBox];
     
     passwordTextBox = [Common textBoxWithPlaceholder:@"Enter password.." frame:CGRectMake(20, emailTextBox.frame.origin.y + emailTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, emailTextBox.frame.size.height) target:self];
     [self.view addSubview:passwordTextBox];
@@ -207,34 +206,33 @@
     return YES;
 }
 
-/*
- - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
  
- }
+}
  
- - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
  
- }
+}
 
- - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
      if (![self isUser:cachedUser equalToUser:user]) {
          cachedUser = user;
-         facebookID = user.id;
-         facebookFirstName = user.first_name;
-         facebookLastName = user.last_name;
-         facebookEmail = [user objectForKey:@"email"];
-         facebookProfilePicURL = [[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large", facebookID];
+         [User sharedInstance].facebookId = user.id;
+         [User sharedInstance].facebookFirstName = user.first_name;
+         [User sharedInstance].facebookLastName = user.last_name;
+         [User sharedInstance].facebookEmail = [user objectForKey:@"email"];
+         [User sharedInstance].facebookPictureURL = [[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large", user.id];
          
          [spinner startAnimating];
          AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-         NSDictionary *parameters = @{@"facebookId": facebookID, @"iOSdeviceToken":appDelegate.dToken};
+         NSDictionary *parameters = @{@"facebookId": [User sharedInstance].facebookId, @"iOSdeviceToken":[User sharedInstance].deviceToken};
          [manager POST:[Common webServiceUrlWithPath:@"login_with_facebook.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSDictionary *responseData = (NSDictionary*)responseObject;
              if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                 appDelegate.userId = [responseData objectForKey:@"userId"];
-                 appDelegate.email = [responseData objectForKey:@"email"];
+                 [User sharedInstance].userId = [responseData objectForKey:@"userId"];
+                 [User sharedInstance].email = [responseData objectForKey:@"email"];
                  ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                 if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
+                 if ([keychain storeUsername:[User sharedInstance].email password:[User sharedInstance].userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
                     NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
                  }
                  
@@ -251,8 +249,11 @@
              [spinner stopAnimating];
          }];
      }
- }
- */
+}
+
+- (BOOL)isUser:(id<FBGraphUser>)firstUser equalToUser:(id<FBGraphUser>)secondUser {
+    return [firstUser.id isEqual:secondUser.id];
+}
 
 - (void)handleTwitterResponse:(TWTRSession *)session error:(NSError *)error {
     if (session) {
@@ -320,12 +321,6 @@
         [spinner stopAnimating];
     }];
 }
-
-/*
- - (BOOL)isUser:(id<FBGraphUser>)firstUser equalToUser:(id<FBGraphUser>)secondUser {
- return [firstUser.id isEqual:secondUser.id];
- }
- */
 
 - (void) signInAction:(UIButton *)paramSender{
     [self performSegueWithIdentifier:@"accountSegue" sender:self];

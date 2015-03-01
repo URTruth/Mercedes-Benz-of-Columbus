@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 
-//#import "ACSimpleKeychain.h"
-//#import <FacebookSDK/FacebookSDK.h>
+#import "ACSimpleKeychain.h"
+#import <FacebookSDK/FacebookSDK.h>
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 //#import "Appirater.h"
@@ -31,8 +31,8 @@
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     
-    //[FBSession class];
-    //[FBLoginView class];
+    [FBSession class];
+    [FBLoginView class];
     [Fabric with:@[TwitterKit]];
     
      //GOOGLE ANALYTICS
@@ -55,10 +55,10 @@
     [Appirater appLaunched:YES];
     */
      
-    //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-    //NSDictionary *credentials = [keychain credentialsForIdentifier:@"account" service:@"Mercedes-Benz of Columbus"];
-    //email = [credentials valueForKey:ACKeychainUsername];
-    //userId = [credentials valueForKey:ACKeychainPassword];
+    ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+    NSDictionary *credentials = [keychain credentialsForIdentifier:@"account" service:@"Mercedes-Benz of Columbus"];
+    [User sharedInstance].email = [credentials valueForKey:ACKeychainUsername];
+    [User sharedInstance].userId = [credentials valueForKey:ACKeychainPassword];
     
     return YES;
 }
@@ -81,20 +81,12 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
-    //[FBAppEvents activateApp];
+    [FBAppEvents activateApp];
 }
 
-/*
- - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
- return [[FBSession activeSession] handleOpenURL:url];
- }
-/*
-
-/*
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    //return [[FBSession activeSession] handleOpenURL:url];
+     return [[FBSession activeSession] handleOpenURL:url];
 }
- */
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
 {

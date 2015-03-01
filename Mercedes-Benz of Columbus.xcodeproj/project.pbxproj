@@ -29,17 +29,12 @@
 		B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC3F1AA180AB00A24F45 /* ACSimpleKeychain.m */; };
 		B61CCC661AA181AF00A24F45 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC431AA181AF00A24F45 /* Appirater.m */; };
 		B61CCC671AA181AF00A24F45 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC451AA181AF00A24F45 /* AppiraterLocalizable.strings */; };
-		B61CCC831AA2BCE900A24F45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC731AA2BCE900A24F45 /* LaunchScreen.xib */; };
-		B61CCC841AA2BCE900A24F45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC751AA2BCE900A24F45 /* Images.xcassets */; };
-		B61CCC851AA2BCE900A24F45 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC761AA2BCE900A24F45 /* Info.plist */; };
-		B61CCC871AA2BCE900A24F45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC791AA2BCE900A24F45 /* ViewController.m */; };
-		B61CCC881AA2BCE900A24F45 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC7A1AA2BCE900A24F45 /* ViewController.xib */; };
-		B61CCC891AA2BCE900A24F45 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC7F1AA2BCE900A24F45 /* ProgressHUD.bundle */; };
 		B61CCC8A1AA2BCE900A24F45 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC811AA2BCE900A24F45 /* ProgressHUD.m */; };
 		B61CCC911AA2BD6200A24F45 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC901AA2BD6200A24F45 /* WSCoachMarksView.m */; };
 		B61CCE9B1AA31B7800A24F45 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CCE981AA31B7800A24F45 /* TwitterKit.framework */; };
 		B61CCE9C1AA31B7800A24F45 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B61CCE991AA31B7800A24F45 /* TwitterKitResources.bundle */; };
 		B61CCE9D1AA31B7800A24F45 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CCE9A1AA31B7800A24F45 /* Fabric.framework */; };
+		B61CCE9F1AA31D3400A24F45 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CCE9E1AA31D3400A24F45 /* FacebookSDK.framework */; };
 		B61D6D841A775F0B0065DC4A /* ComingSoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61D6D831A775F0B0065DC4A /* ComingSoonViewController.m */; };
 		B61D6D861A7773010065DC4A /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = B61D6D851A7773010065DC4A /* unchecked.png */; };
 		B61D6D8A1A7773220065DC4A /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = B61D6D891A7773220065DC4A /* checked.png */; };
@@ -119,13 +114,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B61CCC8C1AA2BCE900A24F45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B61CCC7B1AA2BCE900A24F45 /* app.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 292BA68019E7F62000D0F6C8;
-			remoteInfo = app;
-		};
 		B673C8871A294BFA00D3D55F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B673C8651A294BFA00D3D55F /* Project object */;
@@ -198,24 +186,14 @@
 		B61CCC631AA181AF00A24F45 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
 		B61CCC641AA181AF00A24F45 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
 		B61CCC651AA181AF00A24F45 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
-		B61CCC711AA2BCE900A24F45 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B61CCC721AA2BCE900A24F45 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B61CCC741AA2BCE900A24F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B61CCC751AA2BCE900A24F45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B61CCC761AA2BCE900A24F45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B61CCC771AA2BCE900A24F45 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B61CCC781AA2BCE900A24F45 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B61CCC791AA2BCE900A24F45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B61CCC7A1AA2BCE900A24F45 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		B61CCC7B1AA2BCE900A24F45 /* app.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = app.xcodeproj; sourceTree = "<group>"; };
-		B61CCC7F1AA2BCE900A24F45 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
-		B61CCC801AA2BCE900A24F45 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
-		B61CCC811AA2BCE900A24F45 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		B61CCC801AA2BCE900A24F45 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = ProgressHUD/ProgressHUD.h; sourceTree = "<group>"; };
+		B61CCC811AA2BCE900A24F45 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = ProgressHUD/ProgressHUD.m; sourceTree = "<group>"; };
 		B61CCC8F1AA2BD6200A24F45 /* WSCoachMarksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCoachMarksView.h; sourceTree = "<group>"; };
 		B61CCC901AA2BD6200A24F45 /* WSCoachMarksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCoachMarksView.m; sourceTree = "<group>"; };
 		B61CCE981AA31B7800A24F45 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		B61CCE991AA31B7800A24F45 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		B61CCE9A1AA31B7800A24F45 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		B61CCE9E1AA31D3400A24F45 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		B61D6D821A775F0B0065DC4A /* ComingSoonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComingSoonViewController.h; sourceTree = "<group>"; };
 		B61D6D831A775F0B0065DC4A /* ComingSoonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComingSoonViewController.m; sourceTree = "<group>"; };
 		B61D6D851A7773010065DC4A /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
@@ -340,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */,
+				B61CCE9F1AA31D3400A24F45 /* FacebookSDK.framework in Frameworks */,
 				B61CCE9B1AA31B7800A24F45 /* TwitterKit.framework in Frameworks */,
 				B61CCE9D1AA31B7800A24F45 /* Fabric.framework in Frameworks */,
 			);
@@ -385,41 +364,6 @@
 		B61CCC6F1AA2BCE900A24F45 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				B61CCC701AA2BCE900A24F45 /* app */,
-				B61CCC7B1AA2BCE900A24F45 /* app.xcodeproj */,
-				B61CCC7E1AA2BCE900A24F45 /* ProgressHUD */,
-			);
-			path = ProgressHUD;
-			sourceTree = "<group>";
-		};
-		B61CCC701AA2BCE900A24F45 /* app */ = {
-			isa = PBXGroup;
-			children = (
-				B61CCC711AA2BCE900A24F45 /* AppDelegate.h */,
-				B61CCC721AA2BCE900A24F45 /* AppDelegate.m */,
-				B61CCC731AA2BCE900A24F45 /* LaunchScreen.xib */,
-				B61CCC751AA2BCE900A24F45 /* Images.xcassets */,
-				B61CCC761AA2BCE900A24F45 /* Info.plist */,
-				B61CCC771AA2BCE900A24F45 /* main.m */,
-				B61CCC781AA2BCE900A24F45 /* ViewController.h */,
-				B61CCC791AA2BCE900A24F45 /* ViewController.m */,
-				B61CCC7A1AA2BCE900A24F45 /* ViewController.xib */,
-			);
-			path = app;
-			sourceTree = "<group>";
-		};
-		B61CCC7C1AA2BCE900A24F45 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B61CCC8D1AA2BCE900A24F45 /* app.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B61CCC7E1AA2BCE900A24F45 /* ProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				B61CCC7F1AA2BCE900A24F45 /* ProgressHUD.bundle */,
 				B61CCC801AA2BCE900A24F45 /* ProgressHUD.h */,
 				B61CCC811AA2BCE900A24F45 /* ProgressHUD.m */,
 			);
@@ -574,6 +518,7 @@
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
 				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
+				B61CCE9E1AA31D3400A24F45 /* FacebookSDK.framework */,
 				B61CCE981AA31B7800A24F45 /* TwitterKit.framework */,
 				B61CCE991AA31B7800A24F45 /* TwitterKitResources.bundle */,
 				B61CCE9A1AA31B7800A24F45 /* Fabric.framework */,
@@ -786,12 +731,6 @@
 			mainGroup = B673C8641A294BFA00D3D55F;
 			productRefGroup = B673C86E1A294BFA00D3D55F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B61CCC7C1AA2BCE900A24F45 /* Products */;
-					ProjectRef = B61CCC7B1AA2BCE900A24F45 /* app.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				B673C86C1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
@@ -799,16 +738,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		B61CCC8D1AA2BCE900A24F45 /* app.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = app.app;
-			remoteRef = B61CCC8C1AA2BCE900A24F45 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B673C86B1A294BFA00D3D55F /* Resources */ = {
@@ -825,12 +754,10 @@
 				B61CCE9C1AA31B7800A24F45 /* TwitterKitResources.bundle in Resources */,
 				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
 				2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */,
-				B61CCC841AA2BCE900A24F45 /* Images.xcassets in Resources */,
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
 				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,
 				B6A048A71A8C9CAE00C0F8D7 /* no-vehicle-image.png in Resources */,
-				B61CCC891AA2BCE900A24F45 /* ProgressHUD.bundle in Resources */,
 				B62449871A7473EB00FEE0D0 /* payment.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
@@ -838,7 +765,6 @@
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
 				B61D6D861A7773010065DC4A /* unchecked.png in Resources */,
 				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
-				B61CCC831AA2BCE900A24F45 /* LaunchScreen.xib in Resources */,
 				B61D6D8A1A7773220065DC4A /* checked.png in Resources */,
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B62449201A738A9D00FEE0D0 /* showroom.png in Resources */,
@@ -853,7 +779,6 @@
 				2A31602F1A8C525E0014E19D /* share.png in Resources */,
 				B62449831A74736A00FEE0D0 /* specials.png in Resources */,
 				B6A048951A8C810500C0F8D7 /* backgroundA.png in Resources */,
-				B61CCC881AA2BCE900A24F45 /* ViewController.xib in Resources */,
 				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
 				B6A0488D1A8C6AD000C0F8D7 /* text-veil.png in Resources */,
 				B624498B1A7479F400FEE0D0 /* email.png in Resources */,
@@ -865,7 +790,6 @@
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B6DA2F401A7355BC004D646E /* appointment.png in Resources */,
 				B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */,
-				B61CCC851AA2BCE900A24F45 /* Info.plist in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
@@ -927,7 +851,6 @@
 				B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */,
 				B624493F1A7391C800FEE0D0 /* AFURLRequestSerialization.m in Sources */,
 				B624493B1A7391C800FEE0D0 /* AFHTTPSessionManager.m in Sources */,
-				B61CCC871AA2BCE900A24F45 /* ViewController.m in Sources */,
 				B62449391A7391C800FEE0D0 /* AFHTTPRequestOperation.m in Sources */,
 				B61CCC8A1AA2BCE900A24F45 /* ProgressHUD.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
@@ -1012,14 +935,6 @@
 				B61CCC651AA181AF00A24F45 /* zh-Hant */,
 			);
 			name = AppiraterLocalizable.strings;
-			sourceTree = "<group>";
-		};
-		B61CCC731AA2BCE900A24F45 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B61CCC741AA2BCE900A24F45 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 		B673C87A1A294BFA00D3D55F /* Main.storyboard */ = {

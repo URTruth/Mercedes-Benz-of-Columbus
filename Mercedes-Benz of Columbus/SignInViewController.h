@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+#import <FacebookSDK/FacebookSDK.h>
 #import <TwitterKit/TwitterKit.h>
 
-@interface SignInViewController : UIViewController<UITextFieldDelegate>
+@interface SignInViewController : UIViewController<UITextFieldDelegate, FBLoginViewDelegate>
+{
+    id<FBGraphUser> cachedUser;
+}
 
 @property(nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UITextField *emailTextBox;
 @property (nonatomic, strong) UITextField *passwordTextBox;
 @property (nonatomic, strong) UIButton *signUp, *signIn, *forgotPassword, *submit;
-//@property (nonatomic, strong) FBLoginView *fbLoginView;
+@property (nonatomic, strong) FBLoginView *fbLoginView;
 @property (nonatomic, strong) TWTRLogInButton *twitterLoginButton;
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIView *tentView;

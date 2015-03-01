@@ -10,8 +10,8 @@
 
 //#import "ACSimpleKeychain.h"
 //#import <FacebookSDK/FacebookSDK.h>
-//#import <Fabric/Fabric.h>
-//#import <TwitterKit/TwitterKit.h>
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
 //#import "Appirater.h"
 //#import "GAI.h"
 
@@ -33,7 +33,7 @@
     
     //[FBSession class];
     //[FBLoginView class];
-    //[Fabric with:@[TwitterKit]];
+    [Fabric with:@[TwitterKit]];
     
      //GOOGLE ANALYTICS
      // Optional: automatically send uncaught exceptions to Google Analytics.

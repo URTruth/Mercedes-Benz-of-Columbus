@@ -29,7 +29,7 @@
 @synthesize passwordTextBox;
 @synthesize signIn, signUp, forgotPassword, submit;
 //@synthesize fbLoginView;
-//@synthesize twitterLoginButton;
+@synthesize twitterLoginButton;
 @synthesize spinner;
 @synthesize credentialsView;
 @synthesize forgotView;
@@ -93,9 +93,10 @@
     //fbLoginView.delegate = self;
     //[self.view addSubview:fbLoginView];
     
-    //twitterLoginButton = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) { [self handleTwitterResponse:session error:error]; }];
+    twitterLoginButton = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) { [self handleTwitterResponse:session error:error]; }];
     //[twitterLoginButton setFrame:CGRectMake(20, fbLoginView.frame.origin.y + fbLoginView.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    //[self.view addSubview:twitterLoginButton];
+    [twitterLoginButton setFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    [self.view addSubview:twitterLoginButton];
     
     //emailTextBox = [Common textBoxWithPlaceholder:@"Enter email.." frame:CGRectMake(20, twitterLoginButton.frame.origin.y + twitterLoginButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 45) target:self];
     //[self.view addSubview:emailTextBox];
@@ -251,8 +252,8 @@
          }];
      }
  }
+ */
 
-/*
 - (void)handleTwitterResponse:(TWTRSession *)session error:(NSError *)error {
     if (session) {
         NSLog(@"signed in as %@", [session userName]);
@@ -260,20 +261,20 @@
             
             [spinner startAnimating];
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            NSDictionary *parameters = @{@"twitterId": [session userID], @"iOSdeviceToken":appDelegate.dToken};
+            NSDictionary *parameters = @{@"twitterId": [session userID], @"iOSdeviceToken":[User sharedInstance].deviceToken};
             [manager POST:[Common webServiceUrlWithPath:@"login_with_twitter.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSDictionary *responseData = (NSDictionary*)responseObject;
                 if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                    appDelegate.userId = [responseData objectForKey:@"userId"];
-                    appDelegate.email = [responseData objectForKey:@"email"];
-                    ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                    if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-                        NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-                    }
+                    [User sharedInstance].userId = [responseData objectForKey:@"userId"];
+                    [User sharedInstance].email = [responseData objectForKey:@"email"];
+                    //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+                    //if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
+                    //    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
+                    //}
                     
                     //UIViewController *vc = [self topMostController:[UIApplication sharedApplication].keyWindow.rootViewController];
                     //if([vc.restorationIdentifier isEqualToString:@"Login"]){
-                    [self performSegueWithIdentifier:@"accountSegue" sender:self];
+                        [self performSegueWithIdentifier:@"accountSegue" sender:self];
                     //}
                 }else{
                     [self performSegueWithIdentifier:@"signUpSegue" sender:self];
@@ -287,7 +288,7 @@
             /*
              TWTRShareEmailViewController* shareEmailViewController = [[TWTRShareEmailViewController alloc] initWithCompletion:^(NSString* email, NSError* error) { NSLog(@"Email %@, Error: %@", email, error); }];
              [self presentViewController:shareEmailViewController  animated:YES completion:nil];
-             *
+             */
         } else {
             // TODO: Handle user not signed in (e.g. attempt to log in or show an alert)
         }
@@ -295,7 +296,6 @@
         NSLog(@"error: %@", [error localizedDescription]);
     }
 }
-*/
 
 - (void)loginWithEmail:(NSString *)email password:(NSString *)password facebookId:(NSString *)facebookId twitterId:(NSString *)twitterId iOSdeviceToken:(NSString *)iOSdeviceToken {
     [spinner startAnimating];

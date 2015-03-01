@@ -7,16 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface SignInViewController : UIViewController<UITextFieldDelegate>
+//#import <FacebookSDK/FacebookSDK.h>
+//#import <TwitterKit/TwitterKit.h>
 
-@property(nonatomic, strong) UIImageView *backgroundImage;
+@interface SignInViewController : UIViewController<UITextFieldDelegate>//, FBLoginViewDelegate>
+{
+    //id<FBGraphUser> cachedUser;
+    NSString *facebookID;
+    NSString *facebookEmail;
+    NSString *facebookFirstName;
+    NSString *facebookLastName;
+    NSString *facebookProfilePicURL;
+}
 
-@property (nonatomic, strong) UITextField *password, *email;
-@property (nonatomic, strong) UIButton *signUp, *signIn, *facebook, *forgotPassword, *submit;
+@property(nonatomic, strong) AppDelegate *appDelegate;
+@property(nonatomic, strong) UIImageView *backgroundView;
+@property (nonatomic, strong) UITextField *emailTextBox;
+@property (nonatomic, strong) UITextField *passwordTextBox;
+@property (nonatomic, strong) UIButton *signUp, *signIn, *forgotPassword, *submit;
+//@property (nonatomic, strong) FBLoginView *fbLoginView;
+//@property (nonatomic, strong) TWTRLogInButton *twitterLoginButton;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UIView *tentView;
 @property (weak, nonatomic) IBOutlet UIView *credentialsView;
 @property (weak, nonatomic) IBOutlet UIView *forgotView;
-@property (strong, nonatomic) IBOutlet UIView *tentView;
 @property (strong, nonatomic) IBOutlet UILabel *signInLabel;
 
 

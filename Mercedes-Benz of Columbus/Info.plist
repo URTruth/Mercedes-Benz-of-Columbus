@@ -18,8 +18,40 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb766094793466959</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.35</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>fc4bea66669eab675a49481b279964733cad3193</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>mNgnclIwwnIXZSYscvklddgqB</string>
+					<key>consumerSecret</key>
+					<string>Ghm4gXunr3aFRzASoBQD2oNGXJygbiIrAQtVVZEpn8ckfrLB7P</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
+	<key>FacebookAppID</key>
+	<string>766094793466959</string>
+	<key>FacebookDisplayName</key>
+	<string>Mercedes-Benz of Columbus</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

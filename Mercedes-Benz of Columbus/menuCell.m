@@ -48,7 +48,7 @@
         [badgeLabel setAlpha:0];
         [self addSubview:badgeLabel];
         
-        self.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+        self.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     }
     return self;
 }

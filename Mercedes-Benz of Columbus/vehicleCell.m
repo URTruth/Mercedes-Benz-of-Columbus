@@ -55,7 +55,7 @@
         [auxLabel setTextColor:[UIColor darkGrayColor]];
         [self addSubview:auxLabel];
         
-        self.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+        self.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     }
     return self;
 }

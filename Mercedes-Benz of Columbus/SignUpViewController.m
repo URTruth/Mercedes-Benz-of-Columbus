@@ -25,6 +25,11 @@
 @synthesize signUp;
 @synthesize signUpLabel;
 @synthesize VIN;
+@synthesize facebookID;
+@synthesize facebookEmail;
+@synthesize facebookFirstName;
+@synthesize facebookLastName;
+@synthesize facebookProfilePicURL;
 
 - (void)viewDidAppear:(BOOL)animated {
     self.view.backgroundColor = [UIColor blackColor];

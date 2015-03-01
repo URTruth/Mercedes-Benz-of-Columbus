@@ -26,5 +26,10 @@
 @property (nonatomic, retain) NSString * user;
 @property (nonatomic, retain) NSString * password2;
 
+@property (retain, nonatomic) NSString *facebookID;
+@property (retain, nonatomic) NSString *facebookEmail;
+@property (retain, nonatomic) NSString *facebookFirstName;
+@property (retain, nonatomic) NSString *facebookLastName;
+@property (retain, nonatomic) NSString *facebookProfilePicURL;
 
 @end

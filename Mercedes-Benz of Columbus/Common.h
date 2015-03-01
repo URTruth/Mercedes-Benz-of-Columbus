@@ -30,5 +30,7 @@ extern NSString* const BOLD_FONT;
 + (NSString *)formatPhoneNumber:(NSString*)number;
 + (NSString *)formatTimeRangeWithStart:(NSString *)start andEnd:(NSString *)end;
 + (void)showErrorMessageWithTitle:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelButtonTitle;
++ (UITextField *)textBoxWithPlaceholder:(NSString*)placeholder frame:(CGRect)frame target:(id)target;
++ (NSString *)webServiceUrlWithPath:(NSString *)path;
 
 @end

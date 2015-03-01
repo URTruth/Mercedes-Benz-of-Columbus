@@ -94,7 +94,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"presentationCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+            cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
             
             vehicleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
             [vehicleImageView setContentMode:UIViewContentModeScaleAspectFill];

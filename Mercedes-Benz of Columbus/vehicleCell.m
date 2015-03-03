@@ -33,7 +33,7 @@
         [photoImageView setContentMode:UIViewContentModeScaleAspectFill];
         [photoImageView setClipsToBounds:YES];
         [self addSubview:photoImageView];
-        
+
         int labelWidth = [UIScreen mainScreen].bounds.size.width - padding - photoImageView.frame.size.width;
         int labelX = 102;
         

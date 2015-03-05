@@ -92,6 +92,9 @@
 		B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D21A8AF4C300928565 /* engine_start_button.png */; };
 		B686B1D61A8B0B2500928565 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B1D51A8B0B2500928565 /* InventoryViewController.m */; };
 		B686B1DA1A8B440800928565 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D91A8B440800928565 /* empty.png */; };
+		B69628401AA3CB3500DC7A50 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B696283F1AA3CB3500DC7A50 /* FUIButton.m */; };
+		B69628431AA3CFC100DC7A50 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B69628421AA3CFC100DC7A50 /* UIImage+FlatUI.m */; };
+		B69628471AA3E8C800DC7A50 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B69628461AA3E8C800DC7A50 /* VPImageCropperViewController.m */; };
 		B6A0488B1A8C4D3B00C0F8D7 /* VehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */; };
 		B6A0488D1A8C6AD000C0F8D7 /* text-veil.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */; };
 		B6A048951A8C810500C0F8D7 /* backgroundA.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048941A8C810500C0F8D7 /* backgroundA.png */; };
@@ -287,6 +290,12 @@
 		B686B1D41A8B0B2500928565 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
 		B686B1D51A8B0B2500928565 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
 		B686B1D91A8B440800928565 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
+		B696283E1AA3CB3500DC7A50 /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		B696283F1AA3CB3500DC7A50 /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		B69628411AA3CFC100DC7A50 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		B69628421AA3CFC100DC7A50 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		B69628451AA3E8C800DC7A50 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		B69628461AA3E8C800DC7A50 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		B6A048891A8C4D3B00C0F8D7 /* VehicleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleViewController.h; sourceTree = "<group>"; };
 		B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleViewController.m; sourceTree = "<group>"; };
 		B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-veil.png"; sourceTree = "<group>"; };
@@ -450,8 +459,12 @@
 		B62A84581A2ECC1900B6A799 /* FlatUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B696283E1AA3CB3500DC7A50 /* FUIButton.h */,
+				B696283F1AA3CB3500DC7A50 /* FUIButton.m */,
 				B62A84591A2ECC4100B6A799 /* UIColor+FlatUI.h */,
 				B62A845A1A2ECC4100B6A799 /* UIColor+FlatUI.m */,
+				B69628411AA3CFC100DC7A50 /* UIImage+FlatUI.h */,
+				B69628421AA3CFC100DC7A50 /* UIImage+FlatUI.m */,
 			);
 			name = FlatUIKit;
 			sourceTree = "<group>";
@@ -585,6 +598,7 @@
 				B62449721A74340D00FEE0D0 /* AddressAnnotation */,
 				B61CCC3D1AA180AB00A24F45 /* ACSimpleKeychain */,
 				B61CCC411AA181AF00A24F45 /* Appirater */,
+				B69628441AA3E8C800DC7A50 /* VPImageCropper */,
 				B61CCC8E1AA2BD3600A24F45 /* WSCoachMarks */,
 				B673C8701A294BFA00D3D55F /* Supporting Files */,
 				B61CCA5A1AA16EF900A24F45 /* Frameworks */,
@@ -616,6 +630,15 @@
 				B673C88B1A294BFA00D3D55F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B69628441AA3E8C800DC7A50 /* VPImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				B69628451AA3E8C800DC7A50 /* VPImageCropperViewController.h */,
+				B69628461AA3E8C800DC7A50 /* VPImageCropperViewController.m */,
+			);
+			path = VPImageCropper;
 			sourceTree = "<group>";
 		};
 		B6DA2F241A71F6EA004D646E /* Cells */ = {
@@ -839,6 +862,7 @@
 				B624495B1A7391D200FEE0D0 /* UIWebView+AFNetworking.m in Sources */,
 				B6DA2F451A735927004D646E /* specialsCell.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
+				B69628431AA3CFC100DC7A50 /* UIImage+FlatUI.m in Sources */,
 				B624493A1A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m in Sources */,
 				B6DA2F2A1A733874004D646E /* Common.m in Sources */,
 				2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */,
@@ -849,6 +873,7 @@
 				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,
 				B62449551A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */,
+				B69628401AA3CB3500DC7A50 /* FUIButton.m in Sources */,
 				B624493F1A7391C800FEE0D0 /* AFURLRequestSerialization.m in Sources */,
 				B624493B1A7391C800FEE0D0 /* AFHTTPSessionManager.m in Sources */,
 				B62449391A7391C800FEE0D0 /* AFHTTPRequestOperation.m in Sources */,
@@ -873,6 +898,7 @@
 				B6DA2F271A71F75D004D646E /* menuCell.m in Sources */,
 				B61CCC661AA181AF00A24F45 /* Appirater.m in Sources */,
 				B62449401A7391C800FEE0D0 /* AFURLResponseSerialization.m in Sources */,
+				B69628471AA3E8C800DC7A50 /* VPImageCropperViewController.m in Sources */,
 				B62449571A7391D200FEE0D0 /* UIButton+AFNetworking.m in Sources */,
 				B624496E1A7427B100FEE0D0 /* DealershipViewController.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,

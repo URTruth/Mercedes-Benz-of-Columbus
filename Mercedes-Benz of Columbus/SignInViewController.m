@@ -25,11 +25,9 @@
 
 @implementation SignInViewController
 @synthesize backgroundView;
-@synthesize emailTextBox;
-@synthesize passwordTextBox;
-@synthesize signIn, signUp, forgotPassword, submit;
 @synthesize fbLoginView;
 @synthesize twitterLoginButton;
+@synthesize digitsButton;
 @synthesize spinner;
 @synthesize credentialsView;
 @synthesize forgotView;
@@ -67,26 +65,12 @@
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
-    emailTextBox.alpha = 0;
-    passwordTextBox.alpha = 0;
-    forgotPassword.alpha = 0;
-    
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     CGRect spinnerFrame = spinner.frame;
     spinnerFrame.origin.x = self.view.frame.size.width / 2 - spinnerFrame.size.width / 2;
     spinnerFrame.origin.y = self.view.frame.size.height / 2 - spinnerFrame.size.height / 2;
     spinner.frame = spinnerFrame;
     [self.view addSubview:spinner];
-    
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInAction:)];
-    [tapRecognizer setNumberOfTouchesRequired:1];
-    [tapRecognizer setDelegate:self];
-    signIn.userInteractionEnabled = YES;
-    [signIn addGestureRecognizer:tapRecognizer];
-    
-    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(forgotPasswordAction::)];
-    forgotPassword.userInteractionEnabled = YES;
-    [forgotPassword addGestureRecognizer:tapRecognizer];
     
     fbLoginView = [[FBLoginView alloc] initWithFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
     fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
@@ -97,113 +81,9 @@
     [twitterLoginButton setFrame:CGRectMake(20, fbLoginView.frame.origin.y + fbLoginView.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 40)];
     [self.view addSubview:twitterLoginButton];
     
-    emailTextBox = [Common textBoxWithPlaceholder:@"Enter email.." frame:CGRectMake(20, twitterLoginButton.frame.origin.y + twitterLoginButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 45) target:self];
-    [self.view addSubview:emailTextBox];
-    
-    passwordTextBox = [Common textBoxWithPlaceholder:@"Enter password.." frame:CGRectMake(20, emailTextBox.frame.origin.y + emailTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, emailTextBox.frame.size.height) target:self];
-    [self.view addSubview:passwordTextBox];
-    
-    signIn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    signIn.backgroundColor = [UIColor clearColor];
-    signIn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 120, passwordTextBox.frame.origin.y + 50, 100, 50);
-    signIn.layer.cornerRadius=8.0f;
-    signIn.layer.masksToBounds=YES;
-    [signIn setBackgroundColor:[UIColor clearColor]];
-    signIn.layer.borderColor=[[UIColor clearColor]CGColor];
-    signIn.layer.borderWidth= 1.0f;
-    signIn.clipsToBounds = YES;
-    [signIn setTitle:@"Sign In" forState:UIControlStateNormal];
-    signIn.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    
-    [signIn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [signIn addTarget:self
-               action:@selector(signInAction:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [signIn setTag:1];
-    [self.view addSubview:signIn];
-    
-    forgotPassword = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    forgotPassword.frame = CGRectMake(15, passwordTextBox.frame.origin.y + 59, 150, 30);
-    forgotPassword.layer.cornerRadius=8.0f;
-    forgotPassword.layer.masksToBounds=YES;
-    [forgotPassword setBackgroundColor:[UIColor clearColor]];
-    forgotPassword.layer.borderColor=[[UIColor clearColor]CGColor];
-    forgotPassword.layer.borderWidth= 1.0f;
-    forgotPassword.clipsToBounds = YES;
-    [forgotPassword setTitle:@"Forgot Password?" forState:UIControlStateNormal];
-    [forgotPassword setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [forgotPassword addTarget:self action:@selector(forgotPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
-    [forgotPassword setTag:1];
-    [self.view addSubview:forgotPassword];
-    
-    signUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    signUp.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 120, 66, 100, 50);
-    signUp.layer.cornerRadius=8.0f;
-    signUp.layer.masksToBounds=YES;
-    [signUp setBackgroundColor:[UIColor clearColor]];
-    signUp.layer.borderColor=[[UIColor clearColor]CGColor];
-    signUp.layer.borderWidth= 1.0f;
-    signUp.clipsToBounds = YES;
-    [signUp setTitle:@"Sign Up" forState:UIControlStateNormal];
-    signUp.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    [signUp setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    [signUp addTarget:self action:@selector(signUpAction:) forControlEvents:UIControlEventTouchUpInside];
-    [signUp setTag:1];
-    [self.view addSubview:signUp];
-    
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == emailTextBox) {
-        [textField resignFirstResponder];
-        [passwordTextBox becomeFirstResponder];
-    } else if (textField == self.passwordTextBox) {
-        [textField resignFirstResponder];
-        [spinner startAnimating];
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"email": emailTextBox.text, @"password": passwordTextBox.text, @"iOSdeviceToken":[User sharedInstance].deviceToken};
-        [manager POST:[Common webServiceUrlWithPath:@"login.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSDictionary *responseData = (NSDictionary*)responseObject;
-            if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                [User sharedInstance].userId = [responseData objectForKey:@"userId"];
-                [User sharedInstance].email = [responseData objectForKey:@"email"];
-                //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                //if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-                //    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-                //}
-                [self performSegueWithIdentifier:@"accountSegue" sender:self];
-            }else{
-                [Common showErrorMessageWithTitle:@"Oops! Login failed!" message:@"Please review your credentials." cancelButtonTitle:@"OK"];
-            }
-            [spinner stopAnimating];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-            [spinner stopAnimating];
-        }];
-    }
-    /*
-     else if (textField == self.emailTextBox) {
-     [textField resignFirstResponder];
-     
-     [spinner startAnimating];
-     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-     NSDictionary *parameters = @{@"email": emailTextBox.text };
-     [manager POST:[Common webServiceUrlWithPath:@"forgot_password.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-     NSDictionary *responseData = (NSDictionary*)responseObject;
-     if ([[responseData objectForKey:@"response"] isEqualToString:@"success"]){
-     [Common showErrorMessageWithTitle:@"Success!" message:@"Check your email to get your password." cancelButtonTitle:@"OK"];
-     }else{
-     [Common showErrorMessageWithTitle:[responseData objectForKey:@"response"] message:@"Please try again." cancelButtonTitle:@"OK"];
-     }
-     [spinner stopAnimating];
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-     [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-     [spinner stopAnimating];
-     }];
-     }
-     */
-    
-    return YES;
+    digitsButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) { [self handleDigitsResponse:session error:error]; }];
+    digitsButton.frame = CGRectMake(20, twitterLoginButton.frame.origin.y + twitterLoginButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 45);
+    [self.view addSubview:digitsButton];
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
@@ -218,36 +98,10 @@
      if (![self isUser:cachedUser equalToUser:user]) {
          cachedUser = user;
          [User sharedInstance].facebookId = user.id;
-         [User sharedInstance].facebookFirstName = user.first_name;
-         [User sharedInstance].facebookLastName = user.last_name;
-         [User sharedInstance].facebookEmail = [user objectForKey:@"email"];
-         [User sharedInstance].facebookPictureURL = [[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large", user.id];
-         
-         [spinner startAnimating];
-         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-         NSDictionary *parameters = @{@"facebookId": [User sharedInstance].facebookId, @"iOSdeviceToken":[User sharedInstance].deviceToken};
-         [manager POST:[Common webServiceUrlWithPath:@"login_with_facebook.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSDictionary *responseData = (NSDictionary*)responseObject;
-             if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                 [User sharedInstance].userId = [responseData objectForKey:@"userId"];
-                 [User sharedInstance].email = [responseData objectForKey:@"email"];
-                 ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                 if ([keychain storeUsername:[User sharedInstance].email password:[User sharedInstance].userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-                    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-                 }
-                 
-                 //UIViewController *vc = [self topMostController:[UIApplication sharedApplication].keyWindow.rootViewController];
-                 //if([vc.restorationIdentifier isEqualToString:@"Login"]){
-                    [self performSegueWithIdentifier:@"accountSegue" sender:self];
-                 //}
-             }else{
-                [self performSegueWithIdentifier:@"signUpSegue" sender:self];
-             }
-             [spinner stopAnimating];
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-             [spinner stopAnimating];
-         }];
+         [User sharedInstance].name = user.name;
+         [User sharedInstance].email = [user objectForKey:@"email"];
+         [User sharedInstance].photo = [[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large", user.id];
+         [self login];
      }
 }
 
@@ -257,39 +111,25 @@
 
 - (void)handleTwitterResponse:(TWTRSession *)session error:(NSError *)error {
     if (session) {
-        NSLog(@"signed in as %@", [session userName]);
+         NSLog(@"signed in as %@", [session userName]);
+         TWTRShareEmailViewController* shareEmailViewController = [[TWTRShareEmailViewController alloc] initWithCompletion:^(NSString* email, NSError* error) { NSLog(@"Email %@, Error: %@", email, error);
+             [User sharedInstance].twitterId = [session userID];
+             [User sharedInstance].email = email;
+             [self login];
+         }];
+         [self presentViewController:shareEmailViewController  animated:YES completion:nil];
+    } else {
+        NSLog(@"error: %@", [error localizedDescription]);
+    }
+}
+
+- (void)handleDigitsResponse:(DGTSession *)session error:(NSError *)error {
+    if (session) {
+        NSLog(@"signed in as %@", [session phoneNumber]);
         if ([[Twitter sharedInstance] session]) {
-            
-            [spinner startAnimating];
-            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            NSDictionary *parameters = @{@"twitterId": [session userID], @"iOSdeviceToken":[User sharedInstance].deviceToken};
-            [manager POST:[Common webServiceUrlWithPath:@"login_with_twitter.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSDictionary *responseData = (NSDictionary*)responseObject;
-                if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-                    [User sharedInstance].userId = [responseData objectForKey:@"userId"];
-                    [User sharedInstance].email = [responseData objectForKey:@"email"];
-                    //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-                    //if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-                    //    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-                    //}
-                    
-                    //UIViewController *vc = [self topMostController:[UIApplication sharedApplication].keyWindow.rootViewController];
-                    //if([vc.restorationIdentifier isEqualToString:@"Login"]){
-                        [self performSegueWithIdentifier:@"accountSegue" sender:self];
-                    //}
-                }else{
-                    [self performSegueWithIdentifier:@"signUpSegue" sender:self];
-                }
-                [spinner stopAnimating];
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-                [spinner stopAnimating];
-            }];
-            
-            /*
-             TWTRShareEmailViewController* shareEmailViewController = [[TWTRShareEmailViewController alloc] initWithCompletion:^(NSString* email, NSError* error) { NSLog(@"Email %@, Error: %@", email, error); }];
-             [self presentViewController:shareEmailViewController  animated:YES completion:nil];
-             */
+            [User sharedInstance].digitsId = [session userID];
+            [User sharedInstance].phone = [session phoneNumber];
+            [self login];
         } else {
             // TODO: Handle user not signed in (e.g. attempt to log in or show an alert)
         }
@@ -298,56 +138,34 @@
     }
 }
 
-- (void)loginWithEmail:(NSString *)email password:(NSString *)password facebookId:(NSString *)facebookId twitterId:(NSString *)twitterId iOSdeviceToken:(NSString *)iOSdeviceToken {
+- (void)login {
     [spinner startAnimating];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"email": email, @"password": password, @"facebookId":facebookId, @"twitterId":twitterId, @"iOSdeviceToken":iOSdeviceToken};
-    [manager POST:[Common webServiceUrlWithPath:@"login.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *responseData = (NSDictionary*)responseObject;
-        if ([[responseData objectForKey:@"authenticated"] isEqualToString:@"true"]){
-            [User sharedInstance].userId = [responseData objectForKey:@"userId"];
-            [User sharedInstance].email = [responseData objectForKey:@"email"];
-            //ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
-            //if ([keychain storeUsername:appDelegate.email password:appDelegate.userId identifier:@"account" forService:@"Mercedes-Benz of Columbus"]) {
-            //    NSLog(@"SAVED credentials for 'Mercedes-Benz of Columbus' credentials identifier 'account'");
-            //}
-            [self performSegueWithIdentifier:@"accountSegue" sender:self];
-        }else{
-            [Common showErrorMessageWithTitle:@"Oops! Login failed!" message:@"Please review your credentials." cancelButtonTitle:@"OK"];
+    [[User sharedInstance] login:^(BOOL isSuccess) {
+        if(isSuccess) {
+            AccountViewController *accountViewController = [[AccountViewController alloc] init];
+            [self.navigationController setViewControllers:[NSArray arrayWithObject:accountViewController] animated:YES];
+        } else {
+            [self performSegueWithIdentifier:@"signUpSegue" sender:self];
         }
         [spinner stopAnimating];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-        [spinner stopAnimating];
     }];
-}
-
-- (void) signInAction:(UIButton *)paramSender{
-    [self performSegueWithIdentifier:@"accountSegue" sender:self];
-}
-
-- (void) signUpAction:(UIButton *)paramSender{
-    [self performSegueWithIdentifier:@"signUpSegue" sender:self];
-    
 }
 
 - (void) forgotPasswordAction:(UIButton *)paramSender{
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"signUpSegue"]){
-
+        
     }else if([segue.identifier isEqualToString:@"accountSegue"]){
         
     }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

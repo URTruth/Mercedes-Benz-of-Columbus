@@ -57,8 +57,7 @@
      
     ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
     NSDictionary *credentials = [keychain credentialsForIdentifier:@"account" service:@"Mercedes-Benz of Columbus"];
-    [User sharedInstance].email = [credentials valueForKey:ACKeychainUsername];
-    [User sharedInstance].userId = [credentials valueForKey:ACKeychainPassword];
+    [User sharedInstance].userId = [credentials valueForKey:ACKeychainUsername];
     
     return YES;
 }

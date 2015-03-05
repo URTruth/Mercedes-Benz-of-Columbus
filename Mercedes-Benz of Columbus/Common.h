@@ -14,6 +14,8 @@ typedef enum {
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "FUIButton.h"
+
 @interface Common : NSObject {
     headerType headerType;
 }
@@ -31,6 +33,8 @@ extern NSString* const BOLD_FONT;
 + (NSString *)formatTimeRangeWithStart:(NSString *)start andEnd:(NSString *)end;
 + (void)showErrorMessageWithTitle:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelButtonTitle;
 + (UITextField *)textBoxWithPlaceholder:(NSString*)placeholder frame:(CGRect)frame target:(id)target;
++ (FUIButton *)buttonWithText:(NSString*)text color:(UIColor*)color frame:(CGRect)frame;
 + (NSString *)webServiceUrlWithPath:(NSString *)path;
++ (UIImage *)scaleAndRotateImage:(UIImage *)image;
 
 @end

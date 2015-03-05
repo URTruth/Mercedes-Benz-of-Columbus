@@ -8,28 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate,UITextFieldDelegate>
+#import "FUIButton.h"
+#import "VPImageCropperViewController.h"
 
-@property(nonatomic, strong) UIImageView *backgroundImage;
+@interface SignUpViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, UITextFieldDelegate, VPImageCropperDelegate>
+{
+    UIImagePickerController *picker;
+    UIImagePickerController *picker2;
+    UIImage *image;
+}
 
-@property (strong, nonatomic) IBOutlet UITextField *username;
-@property (strong, nonatomic) IBOutlet UITextField *VIN;
-@property (strong, nonatomic) IBOutlet UITextField *password;
-@property (strong, nonatomic) IBOutlet UITextField *passwordReEnter;
-@property (strong, nonatomic) IBOutlet UITextField *email;
-@property (strong, nonatomic) IBOutlet UITextField *firstname;
-@property (strong, nonatomic) IBOutlet UITextField *lastname;
-@property (strong, nonatomic) IBOutlet UIButton *signUp;
-@property (strong, nonatomic) IBOutlet UILabel *signUpLabel;
-
-@property (nonatomic, retain) NSString * userId;
-@property (nonatomic, retain) NSString * user;
-@property (nonatomic, retain) NSString * password2;
-
-@property (retain, nonatomic) NSString *facebookID;
-@property (retain, nonatomic) NSString *facebookEmail;
-@property (retain, nonatomic) NSString *facebookFirstName;
-@property (retain, nonatomic) NSString *facebookLastName;
-@property (retain, nonatomic) NSString *facebookProfilePicURL;
+@property(nonatomic, strong) UIView *backgroundView;
+@property(nonatomic, strong) UIScrollView *scrollView;
+@property (strong, nonatomic) UITextField *nameTextBox;
+@property (strong, nonatomic) UITextField *emailTextBox;
+@property (strong, nonatomic) UITextField *phoneTextBox;
+@property (strong, nonatomic) UITextField *vinTextBox;
+@property (strong, nonatomic) UIImageView *photoImageView;
+@property (strong, nonatomic) UIImageView *placeholderImageView;
+@property (strong, nonatomic) FUIButton *searchButton;
+@property (strong, nonatomic) FUIButton *signUpButton;
 
 @end

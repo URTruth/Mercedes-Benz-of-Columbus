@@ -62,6 +62,7 @@
     menuData = [@[
                 @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue" },
                 @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue" },
+                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"135", @"segue" : @"videoSegue" },
                 @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"4", @"segue" : @"specialsSegue" },
                 @{ @"name" : @"Contact Us", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
                 @{ @"name" : @"My Account", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"signInSegue" },

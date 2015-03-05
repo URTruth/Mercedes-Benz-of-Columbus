@@ -18,6 +18,10 @@
 		2AC9D0181A9A8ADE007E6228 /* blend_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0161A9A8ADE007E6228 /* blend_blur.jpg */; };
 		2AC9D0191A9A8ADE007E6228 /* g_class_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */; };
 		2AC9D0221A9C3567007E6228 /* WarrantyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */; };
+		2AC9D0281A9C3D21007E6228 /* videoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9D0271A9C3D21007E6228 /* videoCell.m */; };
+		2AC9D0761AA5754F007E6228 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9D0751AA5754F007E6228 /* VideoViewController.m */; };
+		2AC9D0781AA57911007E6228 /* video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0771AA57911007E6228 /* video.png */; };
+		2AC9D07E1AA57ADC007E6228 /* gray-video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D07D1AA57ADC007E6228 /* gray-video.png */; };
 		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
 		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
 		2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */; };
@@ -140,6 +144,12 @@
 		2AC9D0171A9A8ADE007E6228 /* g_class_blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g_class_blur.png; sourceTree = "<group>"; };
 		2AC9D0201A9C3567007E6228 /* WarrantyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarrantyViewController.h; sourceTree = "<group>"; };
 		2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarrantyViewController.m; sourceTree = "<group>"; };
+		2AC9D0261A9C3D20007E6228 /* videoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoCell.h; sourceTree = "<group>"; };
+		2AC9D0271A9C3D21007E6228 /* videoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoCell.m; sourceTree = "<group>"; };
+		2AC9D0741AA5754F007E6228 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		2AC9D0751AA5754F007E6228 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		2AC9D0771AA57911007E6228 /* video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video.png; sourceTree = "<group>"; };
+		2AC9D07D1AA57ADC007E6228 /* gray-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-video.png"; sourceTree = "<group>"; };
 		2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -502,7 +512,9 @@
 				B6DA2F3D1A735579004D646E /* service.png */,
 				2A31602E1A8C525E0014E19D /* share.png */,
 				B62449821A74736A00FEE0D0 /* specials.png */,
+				2AC9D07D1AA57ADC007E6228 /* gray-video.png */,
 				B62449881A7475F100FEE0D0 /* phone.png */,
+				2AC9D0771AA57911007E6228 /* video.png */,
 				B624498A1A7479F400FEE0D0 /* email.png */,
 				B62449781A74600A00FEE0D0 /* wavelink.png */,
 				B624497A1A7464E000FEE0D0 /* wavelink-white.png */,
@@ -583,6 +595,8 @@
 				2A3160261A882EBE0014E19D /* SettingsViewController.m */,
 				2AC9D0201A9C3567007E6228 /* WarrantyViewController.h */,
 				2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */,
+				2AC9D0741AA5754F007E6228 /* VideoViewController.h */,
+				2AC9D0751AA5754F007E6228 /* VideoViewController.m */,
 				B6DA2F281A733874004D646E /* Common.h */,
 				B6DA2F291A733874004D646E /* Common.m */,
 				B62449631A740C1900FEE0D0 /* User.h */,
@@ -650,6 +664,8 @@
 				B6DA2F441A735927004D646E /* specialsCell.m */,
 				B62449191A737B2600FEE0D0 /* vehicleCell.h */,
 				B624491A1A737B2600FEE0D0 /* vehicleCell.m */,
+				2AC9D0261A9C3D20007E6228 /* videoCell.h */,
+				2AC9D0271A9C3D21007E6228 /* videoCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -812,6 +828,8 @@
 				B6A048AB1A8C9F4C00C0F8D7 /* parts.png in Resources */,
 				B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */,
 				B6DA2F401A7355BC004D646E /* appointment.png in Resources */,
+				2AC9D07E1AA57ADC007E6228 /* gray-video.png in Resources */,
+				2AC9D0781AA57911007E6228 /* video.png in Resources */,
 				B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
@@ -857,6 +875,7 @@
 				B62449591A7391D200FEE0D0 /* UIProgressView+AFNetworking.m in Sources */,
 				B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */,
 				B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */,
+				2AC9D0761AA5754F007E6228 /* VideoViewController.m in Sources */,
 				B686B1D61A8B0B2500928565 /* InventoryViewController.m in Sources */,
 				B624495A1A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m in Sources */,
 				B624495B1A7391D200FEE0D0 /* UIWebView+AFNetworking.m in Sources */,
@@ -890,6 +909,7 @@
 				B624495E1A74047400FEE0D0 /* SpecialsViewController.m in Sources */,
 				B624493C1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m in Sources */,
 				2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */,
+				2AC9D0281A9C3D21007E6228 /* videoCell.m in Sources */,
 				B62449411A7391C800FEE0D0 /* AFURLSessionManager.m in Sources */,
 				B624491B1A737B2600FEE0D0 /* vehicleCell.m in Sources */,
 				B62449561A7391D200FEE0D0 /* UIAlertView+AFNetworking.m in Sources */,

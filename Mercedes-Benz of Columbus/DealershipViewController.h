@@ -12,6 +12,7 @@
 @interface DealershipViewController : UIViewController <MKMapViewDelegate>
 
 @property(nonatomic, strong) NSMutableArray *departmentData;
+@property(nonatomic, strong) NSMutableArray *departmentData2;
 
 @property(nonatomic, strong) UILabel *departmentNameLabel;
 @property(nonatomic, strong) UILabel *departmentTelephoneLabel;
@@ -19,6 +20,7 @@
 @property(nonatomic, strong) UILabel *saturdayLabel;
 @property(nonatomic, strong) UILabel *sundayLabel;
 
+@property (nonatomic, strong) UIButton *directionsButton;
 @property(nonatomic, strong) NSString *about;
 
 @end

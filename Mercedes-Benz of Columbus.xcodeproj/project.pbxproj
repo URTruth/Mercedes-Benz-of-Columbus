@@ -25,6 +25,9 @@
 		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
 		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
 		2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */; };
+		2ADE8E6E1AAE936F005F1EAE /* flag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE8E6D1AAE936F005F1EAE /* flag.jpg */; };
+		2ADE8E711AAE9589005F1EAE /* RoadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8E701AAE9589005F1EAE /* RoadsideViewController.m */; };
+		2ADE8E731AAE9932005F1EAE /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE8E721AAE9932005F1EAE /* thumb.png */; };
 		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
 		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
 		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
@@ -156,6 +159,10 @@
 		2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		2AD87E681A871CEB00D7EFA0 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		2ADE8E6D1AAE936F005F1EAE /* flag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flag.jpg; sourceTree = "<group>"; };
+		2ADE8E6F1AAE9589005F1EAE /* RoadsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadsideViewController.h; sourceTree = "<group>"; };
+		2ADE8E701AAE9589005F1EAE /* RoadsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadsideViewController.m; sourceTree = "<group>"; };
+		2ADE8E721AAE9932005F1EAE /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
 		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
 		2AE777A41A2D4EC200BA926D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
@@ -520,7 +527,9 @@
 				B624497A1A7464E000FEE0D0 /* wavelink-white.png */,
 				B624497C1A7465D900FEE0D0 /* wavelink-grayscale.png */,
 				B646211D1A2DA9AA00523159 /* facebook-login.png */,
+				2ADE8E6D1AAE936F005F1EAE /* flag.jpg */,
 				B646211F1A2DA9AD00523159 /* google-login.png */,
+				2ADE8E721AAE9932005F1EAE /* thumb.png */,
 				B64621211A2DB12F00523159 /* montage.png */,
 				B62A84521A2EBAD000B6A799 /* montage2.png */,
 				B62A84541A2EC68200B6A799 /* winter-event.jpg */,
@@ -581,6 +590,8 @@
 				2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */,
 				2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */,
 				2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */,
+				2ADE8E6F1AAE9589005F1EAE /* RoadsideViewController.h */,
+				2ADE8E701AAE9589005F1EAE /* RoadsideViewController.m */,
 				B624491C1A73821100FEE0D0 /* ShowroomViewController.h */,
 				B624491D1A73821100FEE0D0 /* ShowroomViewController.m */,
 				B686B1D41A8B0B2500928565 /* InventoryViewController.h */,
@@ -790,6 +801,7 @@
 				B6DA2F3E1A735579004D646E /* service.png in Resources */,
 				B6A0489F1A8C8B8A00C0F8D7 /* backgroundD.png in Resources */,
 				B6DA2F3A1A735515004D646E /* account.png in Resources */,
+				2ADE8E6E1AAE936F005F1EAE /* flag.jpg in Resources */,
 				B61CCE9C1AA31B7800A24F45 /* TwitterKitResources.bundle in Resources */,
 				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
 				2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */,
@@ -812,6 +824,7 @@
 				B62A84561A2EC68200B6A799 /* winter-event.jpg in Resources */,
 				B624497D1A7465D900FEE0D0 /* wavelink-grayscale.png in Resources */,
 				B6DA2F3C1A73555A004D646E /* contact.png in Resources */,
+				2ADE8E731AAE9932005F1EAE /* thumb.png in Resources */,
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
 				B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */,
 				B686B1DA1A8B440800928565 /* empty.png in Resources */,
@@ -889,6 +902,7 @@
 				2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */,
 				B61CCC911AA2BD6200A24F45 /* WSCoachMarksView.m in Sources */,
 				2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */,
+				2ADE8E711AAE9589005F1EAE /* RoadsideViewController.m in Sources */,
 				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,
 				B62449551A7391D200FEE0D0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */,

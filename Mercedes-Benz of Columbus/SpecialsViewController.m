@@ -53,9 +53,10 @@
      */
     
     specialsData = [@[
-                      @{ @"title" : @"The Winter Event", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"specialSegue" },
-                      @{ @"title" : @"National Pre-Owned Specials", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"specialSegue" },
-                      @{ @"title" : @"The 2015 CLS-Class", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"specialSegue" }
+                      @{ @"title" : @"New Vehicle Offers", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"specialSegue" },
+                      @{ @"title" : @"Certified Pre-Owned Offers", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"specialSegue" },
+                      @{ @"title" : @"U.S. Military Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"flag.jpg", @"segue" : @"specialSegue" },
+                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"specialSegue" }
                       ] mutableCopy];
     [self.tableView reloadData];
 }

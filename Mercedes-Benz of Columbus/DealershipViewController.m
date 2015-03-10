@@ -19,12 +19,14 @@
 
 @implementation DealershipViewController
 @synthesize departmentData;
+@synthesize departmentData2;
 
 @synthesize departmentNameLabel;
 @synthesize departmentTelephoneLabel;
 @synthesize mondayThroughFridayLabel;
 @synthesize saturdayLabel;
 @synthesize sundayLabel;
+@synthesize directionsButton;
 
 @synthesize about;
 
@@ -41,7 +43,11 @@
     departmentData = [@[
                         @{ @"name" : @"Sales", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"9:00 AM", @"weekday_close_hour" : @"7:00 PM", @"saturday_open_hour" : @"9:00 AM", @"saturday_close_hour" : @"6:00 PM", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
                         @{ @"name" : @"Service", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"7:30 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
-                        @{ @"name" : @"Parts", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"8:00 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" }
+                        @{ @"name" : @"Parts", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"8:00 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
+                        //] mutableCopy];
+    
+//    departmentData2 = [@[
+                        @{ @"segue" : @"appointmentSegue" }
                         ] mutableCopy];
     
     about = @"The only authorized Mercedes-Benz dealership in the Columbus, Georgia and Phenix City, Alabama area. *USAA special offers for active duty military, retired military, and spouses. A variety of models from: New Cars, Pre-Owned, and Certified Pre-Owned Vehicles. 24-7 Roadside Assistance (1-800-367-6372) Genuine Mercedes-Benz Parts and Accessories. Courtesy shuttles to Ft. Benning when you bring your car in for service. All Mercedes-Benz of Columus Technicians are Master Certified with over 69 years of combined experience. Stay up-to-date with the offical Mercedes-Benz of Columbus facebook page, for the latest information about upcoming events and service specials.";
@@ -70,6 +76,7 @@
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
+    
     
     // Gray background
     UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 123, [UIScreen mainScreen].bounds.size.width, scrollHeight)];
@@ -118,28 +125,17 @@
     addressLabel.textColor = [UIColor CustomGrayColor];
     [centerView addSubview:addressLabel];
     
-    // Map
-    MKMapView * map = [[MKMapView alloc] initWithFrame: CGRectMake(10, addressLabel.frame.origin.y + addressLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, [UIScreen mainScreen].bounds.size.width - 20)];
-    map.layer.cornerRadius = 5;
-    [map.layer setMasksToBounds:YES];
-    map.delegate = self;
-    //map.mapType = MKMapTypeHybrid;
-    CLLocationCoordinate2D coord = {.latitude =  32.55346, .longitude =  -84.94564};
-    MKCoordinateSpan span = {.latitudeDelta =  0.00725, .longitudeDelta =  0.00725}; // half a mile
-    MKCoordinateRegion region = {coord, span};
-    [map setRegion:region animated:YES];
-    AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:coord];
-    [map addAnnotation:addAnnotation];
-    [centerView addSubview:map];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sales", @"Service", @"Parts", nil]];
-    segmentedControl.frame = CGRectMake(10, map.frame.origin.y + map.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 30);
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sales", @"Service", @"Parts", @"Inquire", nil]];
+    segmentedControl.frame = CGRectMake(10, addressLabel.frame.origin.y + addressLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 30);
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [UIColor CustomGrayColor];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
     [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
+    //[segmentedControl addTarget:self action:@selector(inquiryAction:) forControlEvents: UIControlEventValueChanged];
+
     [centerView addSubview:segmentedControl];
     
     UIImageView *departmentPhoneImageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 95, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 22, 32, 32)];
@@ -230,6 +226,43 @@
     [aboutText setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     aboutText.textColor = [UIColor colorFromHexCode:@"353535"];
     [centerView addSubview:aboutText];
+    
+    
+    directionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    directionsButton.backgroundColor = [UIColor clearColor];
+    directionsButton.frame = CGRectMake(10, aboutText.frame.origin.y + aboutText.frame.size.height + 20, 200, 40);
+    directionsButton.layer.cornerRadius=8.0f;
+    directionsButton.layer.masksToBounds=YES;
+    [directionsButton setBackgroundColor:[UIColor clearColor]];
+    directionsButton.layer.borderColor=[[UIColor clearColor]CGColor];
+    directionsButton.layer.borderWidth= 1.0f;
+    directionsButton.clipsToBounds = YES;
+    directionsButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
+    [directionsButton setTitle:@"Directions"
+            forState:UIControlStateNormal];
+    [directionsButton setTitleColor:[UIColor peterRiverColor] forState:UIControlStateNormal];
+    directionsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [directionsButton addTarget:self
+                         action:@selector(directionsAction:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [directionsButton setTag:1];
+    [centerView addSubview:directionsButton];
+    
+    
+    // Map
+    MKMapView * map = [[MKMapView alloc] initWithFrame: CGRectMake(30, directionsButton.frame.origin.y + directionsButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 60, [UIScreen mainScreen].bounds.size.width - 100)];
+    map.layer.cornerRadius = 5;
+    [map.layer setMasksToBounds:YES];
+    map.delegate = self;
+    //map.mapType = MKMapTypeHybrid;
+    CLLocationCoordinate2D coord = {.latitude =  32.55346, .longitude =  -84.94564};
+    MKCoordinateSpan span = {.latitudeDelta =  0.00725, .longitudeDelta =  0.00725}; // half a mile
+    MKCoordinateRegion region = {coord, span};
+    [map setRegion:region animated:YES];
+    AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:coord];
+    [map addAnnotation:addAnnotation];
+    [centerView addSubview:map];
+
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {
@@ -239,12 +272,47 @@
     mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
     saturdayLabel.text = [@"Saturday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
     sundayLabel.text = [@"Sunday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
-}
+    {
+//    NSDictionary* departmentItem2 = [departmentData objectAtIndex:segment.selectedSegmentIndex];
+//    //if (segment.selectedSegmentIndex==departmentItem2)//right control button pressed
+//        
+//        [self performSegueWithIdentifier:@"segue" sender:self];
+//
+        
+//- (void)inquiryAction:(UISegmentedControl *)segment2 {
+//    NSDictionary* departmentItem2 = [departmentData objectAtIndex:segment.selectedSegmentIndex];
+ //   [self performSegueWithIdentifier:[departmentItem objectAtIndex:@"segue"] sender:self];
+//
+    }
+   }
+
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     NSLog(@"coordinates = %f,%f", mapView.userLocation.coordinate.latitude,
           mapView.userLocation.coordinate.longitude);
+}
+
+- (void) directionsAction:(UIButton *)paramSender{
+    
+    CLLocationCoordinate2D rdOfficeLocation = CLLocationCoordinate2DMake(31.20691,121.477847);
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?center=%f,%f",rdOfficeLocation.latitude,rdOfficeLocation.longitude]];
+    if (![[UIApplication sharedApplication] canOpenURL:url]) {
+        NSLog(@"Google Maps app is not installed");
+        //left as an exercise for the reader: open the Google Maps mobile website instead!
+    } else {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+//    NSURL *testURL = [NSURL URLWithString:@"comgooglemaps-x-callback://"];
+//    if ([[UIApplication sharedApplication] canOpenURL:testURL]) {
+//    
+//        NSString *directionsRequest = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%g,%g&daddr=50.967222,-2.153611", coords.latitude, coords.longitude];
+//        NSURL *directionsURL = [NSURL URLWithString:directionsRequest];
+//        [[UIApplication sharedApplication] openURL:directionsURL];
+//    } else {
+//        NSLog(@"Can't use comgooglemaps-x-callback:// on this device.");
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

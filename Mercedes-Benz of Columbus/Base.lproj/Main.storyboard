@@ -76,12 +76,13 @@
                         <segue destination="37J-qO-eIm" kind="show" identifier="startSegue" id="MbM-ac-4wh"/>
                         <segue destination="HVg-k5-nT7" kind="show" identifier="showroomSegue" id="kBa-QG-ckC"/>
                         <segue destination="LQr-V2-scu" kind="show" identifier="specialsSegue" id="HxR-Ke-LjO"/>
-                        <segue destination="w4T-0r-dIk" kind="show" identifier="appointmentSegue" id="ar9-kF-kUV"/>
+                        <segue destination="w4T-0r-dIk" kind="show" identifier="" id="ar9-kF-kUV"/>
                         <segue destination="JYy-0v-qQt" kind="show" identifier="dealershipSegue" id="M2O-QQ-ERK"/>
                         <segue destination="sna-Co-vS2" kind="show" identifier="comingSoonSegue" id="1G0-6a-9av"/>
                         <segue destination="FkO-Z0-05f" kind="show" identifier="signInSegue" id="bMa-yX-BtS"/>
                         <segue destination="j8W-gy-s1k" kind="show" identifier="warrantySegue" id="hqN-yj-lFr"/>
                         <segue destination="waH-bg-SRa" kind="show" identifier="videoSegue" id="lcz-Mf-Lw4"/>
+                        <segue destination="ht2-fn-SnX" kind="show" identifier="roadsideSegue" id="Ov5-g3-piX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,6 +102,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="w4T-0r-dIk" kind="show" identifier="appointmentSegue" id="dk5-ob-qT2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DB-qB-j4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,6 +127,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1D8-c6-W9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="456" y="2286"/>
+        </scene>
+        <!--Roadside View Controller-->
+        <scene sceneID="HON-gH-cDb">
+            <objects>
+                <viewController id="ht2-fn-SnX" customClass="RoadsideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="prk-vT-Kcl"/>
+                        <viewControllerLayoutGuide type="bottom" id="mhp-J6-jer"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aeS-Ge-glb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="371-1f-dKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="2270"/>
         </scene>
         <!--Appointment View Controller-->
         <scene sceneID="Sr5-qH-5mx">
@@ -431,9 +453,10 @@
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kBa-QG-ckC"/>
         <segue reference="KMS-yO-wKX"/>
         <segue reference="MbM-ac-4wh"/>
-        <segue reference="kBa-QG-ckC"/>
+        <segue reference="ar9-kF-kUV"/>
         <segue reference="GCh-dz-IkF"/>
     </inferredMetricsTieBreakers>
 </document>

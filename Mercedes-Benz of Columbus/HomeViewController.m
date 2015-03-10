@@ -61,16 +61,17 @@
     
     menuData = [@[
                 @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue" },
-                @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue" },
-                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"135", @"segue" : @"videoSegue" },
+                @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"roadsideSegue" },
                 @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"4", @"segue" : @"specialsSegue" },
-                @{ @"name" : @"Contact Us", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
-                @{ @"name" : @"My Account", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"signInSegue" },
-                @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Make a Payment", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Book a Service", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue" },
-                @{ @"name" : @"Parts/Accessories", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" }
+                @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue" },
+                @{ @"name" : @"My Vehicle", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"signInSegue" },
+                @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Request Service Appointment", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Genuine Mercedes-Benz Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
+                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"135", @"segue" : @"videoSegue" },
+               // @{ @"name" : @"Contact Us", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
+               // @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue" },
+                @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" }
                 ] mutableCopy];
     [self.tableView reloadData];
 }

@@ -111,6 +111,10 @@
     [scrollView addSubview:searchButton];
     
     signUpButton = [Common buttonWithText:@"Skip" color:[UIColor sunflowerColor] frame:CGRectMake(20, searchButton.frame.origin.y + searchButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, buttonHeight)];
+    UITapGestureRecognizer *signUpTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signUpButtonClicked:)];
+    [signUpTapRecognizer setNumberOfTouchesRequired:1];
+    [signUpTapRecognizer setDelegate:self];
+    [signUpButton addGestureRecognizer:signUpTapRecognizer];
     [scrollView addSubview:signUpButton];
     
     nameTextBox.text = [User sharedInstance].name;
@@ -161,7 +165,8 @@
                 AccountViewController *accountViewController = [[AccountViewController alloc] init];
                 [self.navigationController setViewControllers:[NSArray arrayWithObject:accountViewController] animated:YES];
             } else {
-                [ProgressHUD showError:@"Login was unsuccessful. Please try again."];
+                [ProgressHUD showError:@""];
+                [Common showErrorMessageWithTitle:@"Login was unsuccessful." message:@"Please try again." cancelButtonTitle:@"OK"];
             }
             [self enableControls];
         }];
@@ -184,12 +189,12 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": emailTextBox.text, @"phone": phoneTextBox.text};
     [manager POST:[Common webServiceUrlWithPath:@"get_vin.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *saleItem = (NSDictionary*)responseObject;
-        if(saleItem) {
-            vinTextBox.text = [saleItem objectForKey:@"vin"];
+        if([responseObject count] > 0) {
+            vinTextBox.text = [[responseObject objectAtIndex:0] objectForKey:@"vin"];
             [ProgressHUD showSuccess:@"Success! Your VIN number was loaded."];
         } else {
-            [ProgressHUD showError:@"VIN search was unsuccessful. Change the search information and try again."];
+            [ProgressHUD showError:@""];
+            [Common showErrorMessageWithTitle:@"VIN search was unsuccessful." message:@"Change the search information and try again." cancelButtonTitle:@"OK"];
         }
         [self enableControls];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -299,6 +304,13 @@
     {
         [scrollView setContentOffset:CGPointMake(0, sender.frame.origin.y-100) animated:YES];
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(textField == vinTextBox && ![textField.text isEqualToString:@""]) {
+        
+    }
+    return YES;
 }
 
 -(void)tap:(UITapGestureRecognizer *)tapRec{

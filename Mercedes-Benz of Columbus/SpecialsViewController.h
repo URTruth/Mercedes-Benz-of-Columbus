@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SpecialsViewController : UITableViewController <UIGestureRecognizerDelegate>
+{
+    int selectedRow;
+}
 
 @property(nonatomic, strong) NSMutableArray *specialsData;
 

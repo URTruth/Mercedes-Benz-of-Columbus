@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface DealershipViewController : UIViewController <MKMapViewDelegate>
+@interface DealershipViewController : UIViewController <UIGestureRecognizerDelegate, MKMapViewDelegate>
 
 @property(nonatomic, strong) NSMutableArray *departmentData;
 @property(nonatomic, strong) NSMutableArray *departmentData2;

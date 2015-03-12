@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoadsideViewController : UIViewController
+#import "FUIButton.h"
 
-@property(nonatomic, strong) UIImageView *backgroundImage;
-@property(nonatomic, strong) UIImageView *iconImageView;
-@property(nonatomic, strong) UILabel *roadsideNumber;
+@interface RoadsideViewController : UIViewController <UIScrollViewDelegate>
+
+@property(nonatomic, strong) UIView *backgroundView;
+@property(nonatomic, strong) UIScrollView *scrollView;
+@property (strong, nonatomic) FUIButton *numberButton;
+
+@property (strong, nonatomic) NSString *number;
 
 @end

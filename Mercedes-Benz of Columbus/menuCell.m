@@ -32,7 +32,7 @@
         iconImageView.alpha = .5;
         [self addSubview:iconImageView];
         
-        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(68, 18, 200, 18)];
+        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(68, 18, [UIScreen mainScreen].bounds.size.width - 100, 18)];
         [nameLabel setTextColor: [UIColor darkGrayColor]];
         [nameLabel setBackgroundColor:[UIColor clearColor]];
         [nameLabel setFont:[UIFont fontWithName: LIGHT_FONT size: 18.0f]];

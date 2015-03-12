@@ -90,6 +90,8 @@
 		B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211D1A2DA9AA00523159 /* facebook-login.png */; };
 		B64621201A2DA9AD00523159 /* google-login.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211F1A2DA9AD00523159 /* google-login.png */; };
 		B64621221A2DB12F00523159 /* montage.png in Resources */ = {isa = PBXBuildFile; fileRef = B64621211A2DB12F00523159 /* montage.png */; };
+		B65C7B1F1AB12DA900B7F36A /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */; };
+		B65C7B221AB1763900B7F36A /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65C7B211AB1763900B7F36A /* UrlViewController.m */; };
 		B673C8731A294BFA00D3D55F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8721A294BFA00D3D55F /* main.m */; };
 		B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8751A294BFA00D3D55F /* AppDelegate.m */; };
 		B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B673C87A1A294BFA00D3D55F /* Main.storyboard */; };
@@ -292,6 +294,9 @@
 		B646211D1A2DA9AA00523159 /* facebook-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-login.png"; sourceTree = "<group>"; };
 		B646211F1A2DA9AD00523159 /* google-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-login.png"; sourceTree = "<group>"; };
 		B64621211A2DB12F00523159 /* montage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montage.png; sourceTree = "<group>"; };
+		B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		B65C7B201AB1763900B7F36A /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
+		B65C7B211AB1763900B7F36A /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
 		B673C86D1A294BFA00D3D55F /* Mercedes-Benz of Columbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mercedes-Benz of Columbus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B673C8711A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B673C8721A294BFA00D3D55F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -390,6 +395,7 @@
 		B61CCC6F1AA2BCE900A24F45 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */,
 				B61CCC801AA2BCE900A24F45 /* ProgressHUD.h */,
 				B61CCC811AA2BCE900A24F45 /* ProgressHUD.m */,
 			);
@@ -584,6 +590,8 @@
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
 				B64620CE1A2C432400523159 /* HomeViewController.h */,
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
+				B65C7B201AB1763900B7F36A /* UrlViewController.h */,
+				B65C7B211AB1763900B7F36A /* UrlViewController.m */,
 				2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */,
 				2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */,
 				2AD87E681A871CEB00D7EFA0 /* SignInViewController.h */,
@@ -808,6 +816,7 @@
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
 				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,
+				B65C7B1F1AB12DA900B7F36A /* ProgressHUD.bundle in Resources */,
 				B6A048A71A8C9CAE00C0F8D7 /* no-vehicle-image.png in Resources */,
 				B62449871A7473EB00FEE0D0 /* payment.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
@@ -901,6 +910,7 @@
 				B624493E1A7391C800FEE0D0 /* AFURLConnectionOperation.m in Sources */,
 				2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */,
 				B61CCC911AA2BD6200A24F45 /* WSCoachMarksView.m in Sources */,
+				B65C7B221AB1763900B7F36A /* UrlViewController.m in Sources */,
 				2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */,
 				2ADE8E711AAE9589005F1EAE /* RoadsideViewController.m in Sources */,
 				B62A845B1A2ECC4100B6A799 /* UIColor+FlatUI.m in Sources */,

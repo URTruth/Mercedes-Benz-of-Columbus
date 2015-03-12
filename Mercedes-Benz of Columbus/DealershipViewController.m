@@ -44,13 +44,10 @@
                         @{ @"name" : @"Sales", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"9:00 AM", @"weekday_close_hour" : @"7:00 PM", @"saturday_open_hour" : @"9:00 AM", @"saturday_close_hour" : @"6:00 PM", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
                         @{ @"name" : @"Service", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"7:30 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
                         @{ @"name" : @"Parts", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"8:00 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
-                        //] mutableCopy];
-    
-//    departmentData2 = [@[
-                        @{ @"segue" : @"appointmentSegue" }
+                        @{ @"name" : @"Inquire", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"*", @"weekday_close_hour" : @"*", @"saturday_open_hour" : @"*", @"saturday_close_hour" : @"*", @"sunday_open_hour" : @"*", @"sunday_close_hour" : @"*" }
                         ] mutableCopy];
     
-    about = @"The only authorized Mercedes-Benz dealership in the Columbus, Georgia and Phenix City, Alabama area. *USAA special offers for active duty military, retired military, and spouses. A variety of models from: New Cars, Pre-Owned, and Certified Pre-Owned Vehicles. 24-7 Roadside Assistance (1-800-367-6372) Genuine Mercedes-Benz Parts and Accessories. Courtesy shuttles to Ft. Benning when you bring your car in for service. All Mercedes-Benz of Columus Technicians are Master Certified with over 69 years of combined experience. Stay up-to-date with the offical Mercedes-Benz of Columbus facebook page, for the latest information about upcoming events and service specials.";
+    about = @"We are the only authorized Mercedes-Benz dealership in the Columbus, Georgia and Phenix City, Alabama area. We offer a variety of cars and advantages from: New Cars, Pre-Owned, Certified Pre-Owned Vehicles, 24-7 Roadside Assistance, and Genuine Mercedes-Benz Parts and Accessories.";
     
     int scrollHeight = 1100;
     
@@ -84,57 +81,35 @@
     centerView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     [scrollview addSubview:centerView];
     
-    UIImageView *phoneImageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 95, 22, 32, 32)];
-    phoneImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [phoneImageView setBackgroundColor:[UIColor clearColor]];
-    phoneImageView.alpha = .5;
-    [phoneImageView setImage:[UIImage imageNamed:@"phone.png"]];
-    [centerView addSubview:phoneImageView];
-    
-    UIImageView *emailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(phoneImageView.frame.origin.x + phoneImageView.frame.size.width + 15, phoneImageView.frame.origin.y, phoneImageView.frame.size.width, phoneImageView.frame.size.height)];
-    emailImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [emailImageView setBackgroundColor:[UIColor clearColor]];
-    emailImageView.alpha = .5;
-    [emailImageView setImage:[UIImage imageNamed:@"email.png"]];
-    [centerView addSubview:emailImageView];
-    
-    UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 20, 15)];
+    UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 20, 20)];
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.clipsToBounds = YES;
     nameLabel.text = @"Mercedes-Benz of Columbus";
     [nameLabel setTextAlignment: UITextAlignmentLeft];
-    [nameLabel setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-    nameLabel.textColor = [UIColor colorFromHexCode:@"353535"];
+    [nameLabel setFont:[UIFont fontWithName: BOLD_FONT size: 20.0f]];
+    nameLabel.textColor = [UIColor peterRiverColor];
     [centerView addSubview:nameLabel];
     
-    UILabel * telephoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, nameLabel.frame.origin.y + nameLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 14)];
-    telephoneLabel.backgroundColor = [UIColor clearColor];
-    telephoneLabel.clipsToBounds = YES;
-    telephoneLabel.text = @"(706) 256-6100";
-    [telephoneLabel setTextAlignment: UITextAlignmentLeft];
-    [telephoneLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]];
-    telephoneLabel.textColor = [UIColor peterRiverColor];
-    [centerView addSubview:telephoneLabel];
-    
-    UILabel * addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, telephoneLabel.frame.origin.y + telephoneLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
-    addressLabel.backgroundColor = [UIColor clearColor];
-    addressLabel.clipsToBounds = YES;
-    addressLabel.text = @"7470 Veterans Parkway · Columbus, GA 31909";
-    [addressLabel setTextAlignment: UITextAlignmentLeft];
-    [addressLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
-    addressLabel.textColor = [UIColor CustomGrayColor];
-    [centerView addSubview:addressLabel];
-    
+    UITextView *aboutText = [[UITextView alloc]initWithFrame:CGRectMake(10, nameLabel.frame.origin.y + nameLabel.frame.size.height + 7, [UIScreen mainScreen].bounds.size.width - 20, 12)];
+    aboutText.backgroundColor = [UIColor clearColor];
+    aboutText.clipsToBounds = YES;
+    aboutText.scrollEnabled = NO;
+    aboutText.editable = NO;
+    aboutText.text = about;
+    [aboutText sizeToFit];
+    [aboutText setTextAlignment: UITextAlignmentLeft];
+    [aboutText setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
+    aboutText.textColor = [UIColor colorFromHexCode:@"353535"];
+    [centerView addSubview:aboutText];
     
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sales", @"Service", @"Parts", @"Inquire", nil]];
-    segmentedControl.frame = CGRectMake(10, addressLabel.frame.origin.y + addressLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 30);
+    segmentedControl.frame = CGRectMake(10, aboutText.frame.origin.y + aboutText.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 30);
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [UIColor CustomGrayColor];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
     [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
-    //[segmentedControl addTarget:self action:@selector(inquiryAction:) forControlEvents: UIControlEventValueChanged];
 
     [centerView addSubview:segmentedControl];
     
@@ -208,38 +183,17 @@
     sundayLabel.textColor = [UIColor colorFromHexCode:@"353535"];
     [centerView addSubview:sundayLabel];
     
-    UILabel * aboutLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, sundayLabel.frame.origin.y + sundayLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 14)];
-    aboutLabel.backgroundColor = [UIColor clearColor];
-    aboutLabel.clipsToBounds = YES;
-    aboutLabel.text = @"About Us";
-    [aboutLabel setTextAlignment: UITextAlignmentLeft];
-    [aboutLabel setFont:[UIFont fontWithName: BOLD_FONT size: 15.0f]];
-    aboutLabel.textColor = [UIColor colorFromHexCode:@"353535"];
-    [centerView addSubview:aboutLabel];
-    
-    UITextView *aboutText = [[UITextView alloc]initWithFrame:CGRectMake(10, aboutLabel.frame.origin.y + aboutLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
-    aboutText.backgroundColor = [UIColor clearColor];
-    aboutText.clipsToBounds = YES;
-    aboutText.text = about;
-    [aboutText sizeToFit];
-    [aboutText setTextAlignment: UITextAlignmentLeft];
-    [aboutText setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
-    aboutText.textColor = [UIColor colorFromHexCode:@"353535"];
-    [centerView addSubview:aboutText];
-    
-    
     directionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     directionsButton.backgroundColor = [UIColor clearColor];
-    directionsButton.frame = CGRectMake(10, aboutText.frame.origin.y + aboutText.frame.size.height + 20, 200, 40);
+    directionsButton.frame = CGRectMake(10, sundayLabel.frame.origin.y + sundayLabel.frame.size.height + 25, 200, 20);
     directionsButton.layer.cornerRadius=8.0f;
     directionsButton.layer.masksToBounds=YES;
     [directionsButton setBackgroundColor:[UIColor clearColor]];
     directionsButton.layer.borderColor=[[UIColor clearColor]CGColor];
     directionsButton.layer.borderWidth= 1.0f;
     directionsButton.clipsToBounds = YES;
-    directionsButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    [directionsButton setTitle:@"Directions"
-            forState:UIControlStateNormal];
+    directionsButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20.0];
+    [directionsButton setTitle:@"Location" forState:UIControlStateNormal];
     [directionsButton setTitleColor:[UIColor peterRiverColor] forState:UIControlStateNormal];
     directionsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [directionsButton addTarget:self
@@ -248,9 +202,18 @@
     [directionsButton setTag:1];
     [centerView addSubview:directionsButton];
     
+    UILabel * addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, directionsButton.frame.origin.y + directionsButton.frame.size.height + 12, [UIScreen mainScreen].bounds.size.width - 20, 12)];
+    addressLabel.backgroundColor = [UIColor clearColor];
+    addressLabel.clipsToBounds = YES;
+    addressLabel.text = @"7470 Veterans Parkway · Columbus, GA 31909";
+    [addressLabel setTextAlignment: UITextAlignmentLeft];
+    [addressLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
+    addressLabel.textColor = [UIColor CustomGrayColor];
+    [centerView addSubview:addressLabel];
     
     // Map
-    MKMapView * map = [[MKMapView alloc] initWithFrame: CGRectMake(30, directionsButton.frame.origin.y + directionsButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 60, [UIScreen mainScreen].bounds.size.width - 100)];
+    MKMapView * map = [[MKMapView alloc] initWithFrame: CGRectMake(20, addressLabel.frame.origin.y + addressLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.width - 40)];
+    map.scrollEnabled = NO;
     map.layer.cornerRadius = 5;
     [map.layer setMasksToBounds:YES];
     map.delegate = self;
@@ -261,6 +224,10 @@
     [map setRegion:region animated:YES];
     AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:coord];
     [map addAnnotation:addAnnotation];
+    UITapGestureRecognizer *mapTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapClicked:)];
+    [mapTapRecognizer setNumberOfTouchesRequired:1];
+    [mapTapRecognizer setDelegate:self];
+    [map addGestureRecognizer:mapTapRecognizer];
     [centerView addSubview:map];
 
 }
@@ -272,19 +239,10 @@
     mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
     saturdayLabel.text = [@"Saturday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
     sundayLabel.text = [@"Sunday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
-    {
-//    NSDictionary* departmentItem2 = [departmentData objectAtIndex:segment.selectedSegmentIndex];
-//    //if (segment.selectedSegmentIndex==departmentItem2)//right control button pressed
-//        
-//        [self performSegueWithIdentifier:@"segue" sender:self];
-//
-        
-//- (void)inquiryAction:(UISegmentedControl *)segment2 {
-//    NSDictionary* departmentItem2 = [departmentData objectAtIndex:segment.selectedSegmentIndex];
- //   [self performSegueWithIdentifier:[departmentItem objectAtIndex:@"segue"] sender:self];
-//
+    if([[departmentItem objectForKey:@"name"] isEqualToString:@"Inquire"]) {
+        [self performSegueWithIdentifier:@"appointmentSegue" sender:self];
     }
-   }
+}
 
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -293,26 +251,17 @@
           mapView.userLocation.coordinate.longitude);
 }
 
-- (void) directionsAction:(UIButton *)paramSender{
-    
-    CLLocationCoordinate2D rdOfficeLocation = CLLocationCoordinate2DMake(31.20691,121.477847);
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?center=%f,%f",rdOfficeLocation.latitude,rdOfficeLocation.longitude]];
+- (void) mapClicked:(id)sender {
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(32.55346,-84.94564);
+    //NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?center=%f,%f",location.latitude,location.longitude]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=7470+Veterans+Parkway+Columbus,+GA+31909"]];
     if (![[UIApplication sharedApplication] canOpenURL:url]) {
         NSLog(@"Google Maps app is not installed");
-        //left as an exercise for the reader: open the Google Maps mobile website instead!
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=7470+Veterans+Parkway+Columbus,+GA+31909"]];
+        [[UIApplication sharedApplication] openURL:url];
     } else {
         [[UIApplication sharedApplication] openURL:url];
     }
-//    NSURL *testURL = [NSURL URLWithString:@"comgooglemaps-x-callback://"];
-//    if ([[UIApplication sharedApplication] canOpenURL:testURL]) {
-//    
-//        NSString *directionsRequest = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%g,%g&daddr=50.967222,-2.153611", coords.latitude, coords.longitude];
-//        NSURL *directionsURL = [NSURL URLWithString:directionsRequest];
-//        [[UIApplication sharedApplication] openURL:directionsURL];
-//    } else {
-//        NSLog(@"Can't use comgooglemaps-x-callback:// on this device.");
-//    }
 }
 
 - (void)didReceiveMemoryWarning {

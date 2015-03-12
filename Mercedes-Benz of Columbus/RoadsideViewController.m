@@ -16,49 +16,70 @@
 @end
 
 @implementation RoadsideViewController
-@synthesize backgroundImage;
-@synthesize roadsideNumber;
-@synthesize iconImageView;
+@synthesize backgroundView;
+@synthesize scrollView;
+@synthesize numberButton;
+@synthesize number;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setImage:[UIImage imageNamed:@"montage.png"]];
-    [self.view addSubview:backgroundImage];
+    backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    backgroundView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
+    [self.view addSubview:backgroundView];
     
-    int iconImageViewSize = 32;
-    iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake((backgroundImage.frame.size.width - iconImageViewSize)/2, 150, iconImageViewSize, iconImageViewSize)];
-    [iconImageView setImage:[[UIImage imageNamed:@"service.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    iconImageView.tintColor = [UIColor whiteColor];
-    [iconImageView setContentMode:UIViewContentModeScaleAspectFit];
-    [backgroundImage addSubview:iconImageView];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 1200);
+    [self.view addSubview:scrollView];
     
-    int roadsideNumberWidth = 320;
-    int roadsideNumberFontSize = 20;
-    roadsideNumber = [[UILabel alloc] initWithFrame:CGRectMake((backgroundImage.frame.size.width - roadsideNumberWidth)/2, iconImageView.frame.origin.y + iconImageView.frame.size.height + 20, roadsideNumberWidth, roadsideNumberFontSize)];
-    [roadsideNumber setFont:[UIFont fontWithName:BOLD_FONT size:roadsideNumberFontSize]];
-    [roadsideNumber setTextColor:[UIColor whiteColor]];
-    [roadsideNumber setTextAlignment:NSTextAlignmentCenter];
-    [roadsideNumber setText:@"1(800) 367-6372"];
-    [backgroundImage addSubview:roadsideNumber];
+    self.navigationItem.backBarButtonItem = [Common backButton];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    CGRect frame = self.view.frame;
+    frame.size.height += 65;
+    self.view.frame = frame;
+    self.navigationItem.titleView = nil;
+    self.tabBarController.navigationItem.titleView = nil;
+    
+    [scrollView addSubview:[Common headerWithTitle:@"Roadside Assist" withIcon:[UIImage imageNamed:@"roadside.png"] withBackground:[UIImage imageNamed:@"backgroundC.png"]]];
+    
+    UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
+    self.navigationItem.rightBarButtonItem = optionsButton;
+    
+    
+    number = @"1(800) 367-6372";
+    
+    numberButton = [Common buttonWithText:number color:[UIColor turquoiseColor] frame:CGRectMake(20, 143, [UIScreen mainScreen].bounds.size.width - 40, 50)];
+    [numberButton addTarget:self action:@selector(roadsideButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:numberButton];
+    
+    UITextView *roadsideLabel = [[UITextView alloc]initWithFrame:CGRectMake(20, numberButton.frame.origin.y + numberButton.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 40, 15)];
+    roadsideLabel.backgroundColor = [UIColor clearColor];
+    roadsideLabel.clipsToBounds = YES;
+    roadsideLabel.text = @"Click the button above to call Roadside Assistance!";
+    [roadsideLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT  size: 15.0f]];
+    roadsideLabel.textColor = [UIColor colorFromHexCode:@"353535"];
+    roadsideLabel.clipsToBounds = YES;
+    roadsideLabel.scrollEnabled = NO;
+    roadsideLabel.editable = NO;
+    [roadsideLabel sizeToFit];
+    [scrollView addSubview:roadsideLabel];
+}
+
+- (void) roadsideButtonClicked:(id)sender {
+    NSString *unformattedNumber = [[number componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

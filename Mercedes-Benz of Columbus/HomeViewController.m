@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "SpecialsViewController.h"
+#import "UrlViewController.h"
 #import "menuCell.h"
 #import "specialsCell.h"
 #import "Common.h"
@@ -60,18 +60,17 @@
     */
     
     menuData = [@[
-                @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue" },
-                @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"roadsideSegue" },
-                @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"4", @"segue" : @"specialsSegue" },
-                @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue" },
-                @{ @"name" : @"My Vehicle", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"signInSegue" },
-                @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Request Service Appointment", @"icon" : @"service.png", @"badge" : @"1", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Genuine Mercedes-Benz Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" },
-                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"135", @"segue" : @"videoSegue" },
-               // @{ @"name" : @"Contact Us", @"icon" : @"appointment.png", @"badge" : @"1", @"segue" : @"appointmentSegue" },
-               // @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue" },
-                @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"comingSoonSegue" }
+                  @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"roadsideSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"4", @"segue" : @"specialsSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"135", @"segue" : @"showroomSegue", @"url" : @"n/a" },
+                @{ @"name" : @"My Vehicle", @"icon" : @"account.png", @"badge" : @"5", @"segue" : @"signInSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Request Service", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Genuine Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"8", @"segue" : @"videoSegue", @"url" : @"n/a" },
+               // @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },
+                @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.dealerrater.com/dealer/Mercedes-Benz-of-Columbus-review-18279/" },
                 ] mutableCopy];
     [self.tableView reloadData];
 }
@@ -79,11 +78,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Home page" forKey:kGAIScreenName] build]];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -180,19 +174,29 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 1) {
+        selectedRow = indexPath.row;
         NSDictionary* menuItem = [menuData objectAtIndex:indexPath.row];
         [self performSegueWithIdentifier:[menuItem objectForKey:@"segue"] sender:self];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"specialsSegue"]){
-        SpecialsViewController *dest = (SpecialsViewController *)[segue destinationViewController];
+    if([segue.identifier isEqualToString:@"urlSegue"]){
+        UrlViewController *dest = (UrlViewController *)[segue destinationViewController];
+        NSDictionary* menuItem = [menuData objectAtIndex:selectedRow];
+        dest.url = [NSURL URLWithString:[menuItem objectForKey:@"url"]];
+        dest.title = [menuItem objectForKey:@"name"];
+        dest.image = [menuItem objectForKey:@"icon"];
     }
 }
 
 - (IBAction)optionsButtonClicked:(id)sender {
     //TODO: actionlist
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

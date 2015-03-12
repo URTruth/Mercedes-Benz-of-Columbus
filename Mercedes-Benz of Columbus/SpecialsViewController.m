@@ -7,7 +7,7 @@
 //
 
 #import "SpecialsViewController.h"
-#import "ShowroomViewController.h"
+#import "UrlViewController.h"
 #import "specialsCell.h"
 #import "Common.h"
 
@@ -53,10 +53,10 @@
      */
     
     specialsData = [@[
-                      @{ @"title" : @"New Vehicle Offers", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"specialSegue" },
-                      @{ @"title" : @"Certified Pre-Owned Offers", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"specialSegue" },
-                      @{ @"title" : @"U.S. Military Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"flag.jpg", @"segue" : @"specialSegue" },
-                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"specialSegue" }
+                      @{ @"title" : @"New Vehicle Offers", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers/national-new-special-offers" },
+                      @{ @"title" : @"Certified Pre-Owned Offers", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers/national-pre-owned-specials" },
+                      @{ @"title" : @"U.S. Military Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"flag.jpg", @"segue" : @"urlSegue", @"url" : @"https://usaa2.secure.zag.com/targetedincentives/promo.html?makeGroup=mercedes-benzGroup&makeName=mercedes-benz&referrer_id=ZUSA200092" },
+                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers/service-specials" }
                       ] mutableCopy];
     [self.tableView reloadData];
 }
@@ -118,13 +118,19 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 1) {
-        [self performSegueWithIdentifier:@"showroomSegue" sender:self];
+        selectedRow = indexPath.row;
+        NSDictionary* menuItem = [specialsData objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:[menuItem objectForKey:@"segue"] sender:self];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"showroomSegue"]){
-        ShowroomViewController *dest = (ShowroomViewController *)[segue destinationViewController];
+    if([segue.identifier isEqualToString:@"urlSegue"]){
+        UrlViewController *dest = (UrlViewController *)[segue destinationViewController];
+        NSDictionary* menuItem = [specialsData objectAtIndex:selectedRow];
+        dest.url = [NSURL URLWithString:[menuItem objectForKey:@"url"]];
+        dest.title = [menuItem objectForKey:@"title"];
+        dest.image = @"specials.png";
     }
 }
 

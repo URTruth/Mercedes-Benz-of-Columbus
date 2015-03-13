@@ -68,7 +68,7 @@
                 @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Request Service", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Genuine Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"8", @"segue" : @"videoSegue", @"url" : @"n/a" },
+                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"4", @"segue" : @"videoSegue", @"url" : @"n/a" },
                // @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },
                 @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.dealerrater.com/dealer/Mercedes-Benz-of-Columbus-review-18279/" },
                 ] mutableCopy];

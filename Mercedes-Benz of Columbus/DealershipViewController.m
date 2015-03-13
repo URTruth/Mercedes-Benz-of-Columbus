@@ -7,6 +7,7 @@
 //
 
 #import "DealershipViewController.h"
+#import "UrlViewController.h"
 #import "Common.h"
 #import "UIColor+Custom.h"
 
@@ -19,16 +20,17 @@
 
 @implementation DealershipViewController
 @synthesize departmentData;
-@synthesize departmentData2;
-
 @synthesize departmentNameLabel;
 @synthesize departmentTelephoneLabel;
+@synthesize departmentEmail;
 @synthesize mondayThroughFridayLabel;
 @synthesize saturdayLabel;
 @synthesize sundayLabel;
 @synthesize directionsButton;
-
 @synthesize about;
+@synthesize segueURL;
+@synthesize segueTitle;
+@synthesize segueImage;
 
 - (void)viewDidAppear:(BOOL)animated {
     // main view background color
@@ -81,16 +83,38 @@
     centerView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     [scrollview addSubview:centerView];
     
-    UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 20, 20)];
+    UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 23, [UIScreen mainScreen].bounds.size.width - 20, 16)];
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.clipsToBounds = YES;
     nameLabel.text = @"Mercedes-Benz of Columbus";
     [nameLabel setTextAlignment: UITextAlignmentLeft];
-    [nameLabel setFont:[UIFont fontWithName: BOLD_FONT size: 20.0f]];
+    [nameLabel setFont:[UIFont fontWithName: BOLD_FONT size: 16.0f]];
     nameLabel.textColor = [UIColor peterRiverColor];
     [centerView addSubview:nameLabel];
     
-    UITextView *aboutText = [[UITextView alloc]initWithFrame:CGRectMake(10, nameLabel.frame.origin.y + nameLabel.frame.size.height + 7, [UIScreen mainScreen].bounds.size.width - 20, 12)];
+    UIImageView *facebookImageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 90, nameLabel.frame.origin.y - 10, 32, 32)];
+    facebookImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [facebookImageView setBackgroundColor:[UIColor clearColor]];
+    [facebookImageView setImage:[UIImage imageNamed:@"facebook.png"]];
+    [facebookImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *facebookTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(facebookClicked:)];
+    [facebookTapRecognizer setNumberOfTouchesRequired:1];
+    [facebookTapRecognizer setDelegate:self];
+    [facebookImageView addGestureRecognizer:facebookTapRecognizer];
+    [centerView addSubview:facebookImageView];
+    
+    UIImageView *twitterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(facebookImageView.frame.origin.x + facebookImageView.frame.size.width + 10, facebookImageView.frame.origin.y, facebookImageView.frame.size.width, facebookImageView.frame.size.height)];
+    twitterImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [twitterImageView setBackgroundColor:[UIColor clearColor]];
+    [twitterImageView setImage:[UIImage imageNamed:@"twitter.png"]];
+    [twitterImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *twitterTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twitterClicked:)];
+    [twitterTapRecognizer setNumberOfTouchesRequired:1];
+    [twitterTapRecognizer setDelegate:self];
+    [twitterImageView addGestureRecognizer:twitterTapRecognizer];
+    [centerView addSubview:twitterImageView];
+    
+    UITextView *aboutText = [[UITextView alloc]initWithFrame:CGRectMake(10, nameLabel.frame.origin.y + nameLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 12)];
     aboutText.backgroundColor = [UIColor clearColor];
     aboutText.clipsToBounds = YES;
     aboutText.scrollEnabled = NO;
@@ -103,28 +127,35 @@
     [centerView addSubview:aboutText];
     
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sales", @"Service", @"Parts", @"Inquire", nil]];
-    segmentedControl.frame = CGRectMake(10, aboutText.frame.origin.y + aboutText.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 30);
+    segmentedControl.frame = CGRectMake(10, aboutText.frame.origin.y + aboutText.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 30);
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [UIColor CustomGrayColor];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
     [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
-
     [centerView addSubview:segmentedControl];
     
     UIImageView *departmentPhoneImageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 95, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 22, 32, 32)];
     departmentPhoneImageView.contentMode = UIViewContentModeScaleAspectFit;
     [departmentPhoneImageView setBackgroundColor:[UIColor clearColor]];
-    departmentPhoneImageView.alpha = .5;
     [departmentPhoneImageView setImage:[UIImage imageNamed:@"phone.png"]];
+    [departmentPhoneImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *phoneTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(phoneClicked:)];
+    [phoneTapRecognizer setNumberOfTouchesRequired:1];
+    [phoneTapRecognizer setDelegate:self];
+    [departmentPhoneImageView addGestureRecognizer:phoneTapRecognizer];
     [centerView addSubview:departmentPhoneImageView];
     
     UIImageView *departmentEmailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(departmentPhoneImageView.frame.origin.x + departmentPhoneImageView.frame.size.width + 15, departmentPhoneImageView.frame.origin.y, departmentPhoneImageView.frame.size.width, departmentPhoneImageView.frame.size.height)];
     departmentEmailImageView.contentMode = UIViewContentModeScaleAspectFit;
     [departmentEmailImageView setBackgroundColor:[UIColor clearColor]];
-    departmentEmailImageView.alpha = .5;
     [departmentEmailImageView setImage:[UIImage imageNamed:@"email.png"]];
+    [departmentEmailImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *emailTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emailClicked:)];
+    [emailTapRecognizer setNumberOfTouchesRequired:1];
+    [emailTapRecognizer setDelegate:self];
+    [departmentEmailImageView addGestureRecognizer:emailTapRecognizer];
     [centerView addSubview:departmentEmailImageView];
     
     NSDictionary* departmentItem = [departmentData objectAtIndex:0];
@@ -146,6 +177,8 @@
     [departmentTelephoneLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]];
     departmentTelephoneLabel.textColor = [UIColor peterRiverColor];
     [centerView addSubview:departmentTelephoneLabel];
+    
+    departmentEmail = [departmentItem objectForKey:@"email"];
 
     UILabel * hoursLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, departmentTelephoneLabel.frame.origin.y + departmentTelephoneLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 14)];
     hoursLabel.backgroundColor = [UIColor clearColor]; //2980B9
@@ -185,14 +218,14 @@
     
     directionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     directionsButton.backgroundColor = [UIColor clearColor];
-    directionsButton.frame = CGRectMake(10, sundayLabel.frame.origin.y + sundayLabel.frame.size.height + 25, 200, 20);
+    directionsButton.frame = CGRectMake(10, sundayLabel.frame.origin.y + sundayLabel.frame.size.height + 25, 200, 15);
     directionsButton.layer.cornerRadius=8.0f;
     directionsButton.layer.masksToBounds=YES;
     [directionsButton setBackgroundColor:[UIColor clearColor]];
     directionsButton.layer.borderColor=[[UIColor clearColor]CGColor];
     directionsButton.layer.borderWidth= 1.0f;
     directionsButton.clipsToBounds = YES;
-    directionsButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20.0];
+    directionsButton.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:15];
     [directionsButton setTitle:@"Location" forState:UIControlStateNormal];
     [directionsButton setTitleColor:[UIColor peterRiverColor] forState:UIControlStateNormal];
     directionsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -236,6 +269,7 @@
     NSDictionary* departmentItem = [departmentData objectAtIndex:segment.selectedSegmentIndex];
     departmentNameLabel.text = [[departmentItem objectForKey:@"name"] stringByAppendingString:@" Department"];
     departmentTelephoneLabel.text = [Common formatPhoneNumber:[departmentItem objectForKey:@"phone"]];
+    departmentEmail = [departmentItem objectForKey:@"email"];
     mondayThroughFridayLabel.text = [@"Monday - Friday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"weekday_open_hour"] andEnd:[departmentItem objectForKey:@"weekday_close_hour"]]];
     saturdayLabel.text = [@"Saturday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"saturday_open_hour"] andEnd:[departmentItem objectForKey:@"saturday_close_hour"]]];
     sundayLabel.text = [@"Sunday · " stringByAppendingString:[Common formatTimeRangeWithStart:[departmentItem objectForKey:@"sunday_open_hour"] andEnd:[departmentItem objectForKey:@"sunday_close_hour"]]];
@@ -244,11 +278,33 @@
     }
 }
 
-
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     NSLog(@"coordinates = %f,%f", mapView.userLocation.coordinate.latitude,
           mapView.userLocation.coordinate.longitude);
+}
+
+- (void) facebookClicked:(id)sender {
+    segueURL = [NSURL URLWithString:@"https://www.facebook.com/MercedesBenzofColumbus"];
+    segueTitle = @"Facebook";
+    segueImage = @"facebook.png";
+    [self performSegueWithIdentifier:@"urlSegue" sender:self];
+}
+
+- (void) twitterClicked:(id)sender {
+    segueURL = [NSURL URLWithString:@"https://twitter.com/MBColumbusGa"];
+    segueTitle = @"Twitter";
+    segueImage = @"twitter.png";
+    [self performSegueWithIdentifier:@"urlSegue" sender:self];
+}
+
+- (void) phoneClicked:(id)sender {
+    NSString *unformattedNumber = [[departmentTelephoneLabel.text componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
+}
+
+- (void) emailClicked:(id)sender {
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", departmentEmail]]];
 }
 
 - (void) mapClicked:(id)sender {
@@ -270,8 +326,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"urlSegue"]){
+        UrlViewController *dest = (UrlViewController *)[segue destinationViewController];
+        dest.url = segueURL;
+        dest.title = segueTitle;
+        dest.image = segueImage;
+    }
 }
 
 - (IBAction)optionsButtonClicked:(id)sender {

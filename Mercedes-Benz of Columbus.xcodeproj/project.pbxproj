@@ -92,6 +92,8 @@
 		B64621221A2DB12F00523159 /* montage.png in Resources */ = {isa = PBXBuildFile; fileRef = B64621211A2DB12F00523159 /* montage.png */; };
 		B65C7B1F1AB12DA900B7F36A /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */; };
 		B65C7B221AB1763900B7F36A /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65C7B211AB1763900B7F36A /* UrlViewController.m */; };
+		B65C7B241AB299C400B7F36A /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = B65C7B231AB299C400B7F36A /* facebook.png */; };
+		B65C7B261AB299C900B7F36A /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = B65C7B251AB299C900B7F36A /* twitter.png */; };
 		B673C8731A294BFA00D3D55F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8721A294BFA00D3D55F /* main.m */; };
 		B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C8751A294BFA00D3D55F /* AppDelegate.m */; };
 		B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B673C87A1A294BFA00D3D55F /* Main.storyboard */; };
@@ -297,6 +299,8 @@
 		B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		B65C7B201AB1763900B7F36A /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
 		B65C7B211AB1763900B7F36A /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
+		B65C7B231AB299C400B7F36A /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		B65C7B251AB299C900B7F36A /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		B673C86D1A294BFA00D3D55F /* Mercedes-Benz of Columbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mercedes-Benz of Columbus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B673C8711A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B673C8721A294BFA00D3D55F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -495,6 +499,8 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B65C7B231AB299C400B7F36A /* facebook.png */,
+				B65C7B251AB299C900B7F36A /* twitter.png */,
 				B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */,
 				B6A048941A8C810500C0F8D7 /* backgroundA.png */,
 				B6A048961A8C811800C0F8D7 /* backgroundB.png */,
@@ -839,6 +845,7 @@
 				B686B1DA1A8B440800928565 /* empty.png in Resources */,
 				2A31602F1A8C525E0014E19D /* share.png in Resources */,
 				B62449831A74736A00FEE0D0 /* specials.png in Resources */,
+				B65C7B241AB299C400B7F36A /* facebook.png in Resources */,
 				B6A048951A8C810500C0F8D7 /* backgroundA.png in Resources */,
 				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
 				B6A0488D1A8C6AD000C0F8D7 /* text-veil.png in Resources */,
@@ -852,6 +859,7 @@
 				B6DA2F401A7355BC004D646E /* appointment.png in Resources */,
 				2AC9D07E1AA57ADC007E6228 /* gray-video.png in Resources */,
 				2AC9D0781AA57911007E6228 /* video.png in Resources */,
+				B65C7B261AB299C900B7F36A /* twitter.png in Resources */,
 				B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,

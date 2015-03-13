@@ -7,6 +7,7 @@
 //
 
 #import "specialsCell.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Common.h"
 
 #import "UIColor+FlatUI.h"
@@ -33,12 +34,20 @@
         
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(padding, padding, 300, 16)];
         [titleLabel setFont:[UIFont fontWithName:SEMI_BOLD_FONT size:16]];
-        [titleLabel setTextColor:[UIColor asbestosColor]];
+        [titleLabel setTextColor:[UIColor whiteColor]];
+        titleLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
+        titleLabel.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+        titleLabel.layer.shadowRadius = 1.0;
+        titleLabel.layer.shadowOpacity = 1.0;
         [self addSubview:titleLabel];
         
         descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(padding, padding + titleLabel.frame.size.height, 300, 10)];
         [descriptionLabel setFont:[UIFont fontWithName:REGULAR_FONT size:10]];
-        [descriptionLabel setTextColor:[UIColor asbestosColor]];
+        [descriptionLabel setTextColor:[UIColor whiteColor]];
+        descriptionLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
+        descriptionLabel.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+        descriptionLabel.layer.shadowRadius = 1.0;
+        descriptionLabel.layer.shadowOpacity = 1.0;
         [self addSubview:descriptionLabel];
         
         self.backgroundColor = [UIColor whiteColor];

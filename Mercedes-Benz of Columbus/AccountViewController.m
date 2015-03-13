@@ -167,11 +167,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"logoutSegue"]){
-        HomeViewController *dest = (HomeViewController *)[segue destinationViewController];
-//    }else if([segue.identifier isEqualToString:@"accountSegue"]){
-//        AccountViewController *dest = (AccountViewController *)[segue destinationViewController];
-    }
+
 }
 
 @end

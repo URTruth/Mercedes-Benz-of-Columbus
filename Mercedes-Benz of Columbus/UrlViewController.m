@@ -9,6 +9,8 @@
 #import "UrlViewController.h"
 #import "Common.h"
 
+#import "ProgressHUD.h"
+
 @interface UrlViewController ()
 
 @end
@@ -22,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [ProgressHUD show:@"Loading..."];
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
@@ -45,7 +49,17 @@
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [webView loadRequest:urlRequest];
+    [webView setDelegate:self];
     [self.view addSubview:webView];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [ProgressHUD showSuccess:@""];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [ProgressHUD showError:@""];
+    [Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
 }
 
 - (void)didReceiveMemoryWarning {

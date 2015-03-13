@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UrlViewController : UIViewController
+@interface UrlViewController : UIViewController <UIWebViewDelegate>
 
 @property(nonatomic, strong) UIWebView *webView;
 @property(nonatomic, strong) NSURL *url;

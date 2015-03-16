@@ -7,6 +7,7 @@
 //
 
 #import "VideoViewController.h"
+#import "YoutubeViewController.h"
 #import "videoCell.h"
 #import "Common.h"
 
@@ -70,6 +71,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
         return [Common headerOfType:Default withTitle:@"Video" withIcon:[UIImage imageNamed:@"video.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
+        
     }
     
     if(indexPath.section == 1) {
@@ -144,6 +146,11 @@
 //    }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"youtubeSegue"]){
+        YoutubeViewController *dest = (YoutubeViewController *)[segue destinationViewController];
+    }
+}
 
 - (IBAction)optionsButtonClicked:(id)sender {
     //TODO: add actionsheet here

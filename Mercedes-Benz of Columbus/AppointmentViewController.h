@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppointmentViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
+@interface AppointmentViewController : UIViewController <UIImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIScrollViewDelegate> {
  
     BOOL isChecked;
     UIButton *checkboxButton;
 }
 
-@property BOOL isChecked;;
+@property BOOL isChecked;
+@property(nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, retain) UIButton *checkboxButton;
 @property (nonatomic, strong) UIButton *myButton;
 @property (nonatomic, strong) NSArray *inquiry1;

@@ -22,13 +22,13 @@
     if (self) {
         // Initialization code
         
-        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 375, 250)];
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 350, 250)];
         [webView setContentMode:UIViewContentModeScaleAspectFill];
         [webView setClipsToBounds:YES];
         [self addSubview:webView];
         
-
-        self.backgroundColor = [UIColor colorFromHexCode:@"dfdfdf"];
+        
+        self.backgroundColor = [UIColor blackColor];
     }
     return self;
 }

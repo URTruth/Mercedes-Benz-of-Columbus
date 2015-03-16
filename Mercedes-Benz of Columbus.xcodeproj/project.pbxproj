@@ -28,6 +28,7 @@
 		2ADE8E6E1AAE936F005F1EAE /* flag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE8E6D1AAE936F005F1EAE /* flag.jpg */; };
 		2ADE8E711AAE9589005F1EAE /* RoadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8E701AAE9589005F1EAE /* RoadsideViewController.m */; };
 		2ADE8E731AAE9932005F1EAE /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE8E721AAE9932005F1EAE /* thumb.png */; };
+		2ADE8E761AB28217005F1EAE /* YoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8E751AB28217005F1EAE /* YoutubeViewController.m */; };
 		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
 		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
 		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
@@ -167,6 +168,8 @@
 		2ADE8E6F1AAE9589005F1EAE /* RoadsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadsideViewController.h; sourceTree = "<group>"; };
 		2ADE8E701AAE9589005F1EAE /* RoadsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadsideViewController.m; sourceTree = "<group>"; };
 		2ADE8E721AAE9932005F1EAE /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		2ADE8E741AB28217005F1EAE /* YoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeViewController.h; sourceTree = "<group>"; };
+		2ADE8E751AB28217005F1EAE /* YoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeViewController.m; sourceTree = "<group>"; };
 		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
 		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
 		2AE777A41A2D4EC200BA926D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				2AC9D0211A9C3567007E6228 /* WarrantyViewController.m */,
 				2AC9D0741AA5754F007E6228 /* VideoViewController.h */,
 				2AC9D0751AA5754F007E6228 /* VideoViewController.m */,
+				2ADE8E741AB28217005F1EAE /* YoutubeViewController.h */,
+				2ADE8E751AB28217005F1EAE /* YoutubeViewController.m */,
 				B6DA2F281A733874004D646E /* Common.h */,
 				B6DA2F291A733874004D646E /* Common.m */,
 				B62449631A740C1900FEE0D0 /* User.h */,
@@ -932,6 +937,7 @@
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
 				2AC9D0221A9C3567007E6228 /* WarrantyViewController.m in Sources */,
 				B62449541A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				2ADE8E761AB28217005F1EAE /* YoutubeViewController.m in Sources */,
 				B62449651A740C1900FEE0D0 /* User.m in Sources */,
 				B624493D1A7391C800FEE0D0 /* AFSecurityPolicy.m in Sources */,
 				B62449751A74343600FEE0D0 /* AddressAnnotation.m in Sources */,

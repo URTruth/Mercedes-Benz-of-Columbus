@@ -23,10 +23,10 @@
         // Initialization code
         
         webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 350, 250)];
+        webView.scrollView.scrollEnabled = NO;
         [webView setContentMode:UIViewContentModeScaleAspectFill];
         [webView setClipsToBounds:YES];
         [self addSubview:webView];
-        
         
         self.backgroundColor = [UIColor blackColor];
     }

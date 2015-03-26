@@ -23,6 +23,11 @@
 @synthesize type;
 @synthesize videoData;
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.view.backgroundColor = [UIColor blackColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -48,10 +53,10 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Showroom page" forKey:kGAIScreenName] build]];
-}
+//- (void)viewDidAppear:(BOOL)animated {
+//    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Showroom page" forKey:kGAIScreenName] build]];
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 5;
@@ -79,7 +84,9 @@
         videoCell *cell = (videoCell *)[tableView dequeueReusableCellWithIdentifier:videoCellIdentifier];
         if (cell == nil){ cell = [[videoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
             
+
             [cell.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.youtube.com/embed/videoseries?list=PLKgHYmJ8Qq3L2D2nQDxWJ6MCvzuBhLfRg&amp;hl=en_US%22"]]];
+            
         }
         return cell;
     }
@@ -93,7 +100,6 @@
         }
         return cell;
     }
-    
     if(indexPath.section == 3) {
         static NSString *videoCellIdentifier = @"vehicleCell";
         videoCell *cell = (videoCell *)[tableView dequeueReusableCellWithIdentifier:videoCellIdentifier];

@@ -8,34 +8,27 @@
 
 #import "AccountViewController.h"
 #import "HomeViewController.h"
+#import "UrlViewController.h"
+#import "menuCell.h"
+#import "specialsCell.h"
 #import "Common.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import "UIColor+FlatUI.h"
 
-
-@interface AccountViewController ()
+@interface HomeViewController ()
 
 @end
 
 @implementation AccountViewController
-@synthesize backgroundImage, carImage, shareImage,arrowImage;
-@synthesize logOut, myCar, share;
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    self.view.backgroundColor = [UIColor blackColor];
-}
+@synthesize menuData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 900);
-    [self.view addSubview:scrollview];
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
+    self.navigationItem.hidesBackButton = YES;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -47,127 +40,119 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[Common headerWithTitle:@"My Vehicle" withIcon:[UIImage imageNamed:@"account.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]]];;
-    
-    
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
+    self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
+    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.separatorColor = [UIColor whiteColor];
     
-    backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(192, 122, 20, 470)];
-    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setImage:[UIImage imageNamed:@"g_class_blur.png"]];
-    //[scrollview addSubview:backgroundImage];
+    /*
+     // Send a asynchronous request for the initial menu data
+     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+     NSDictionary *parameters = @{@"userId": self.userId};
+     [manager POST:feedURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     feedData = responseObject;
+     [self.tableView reloadData];
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     [self showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+     }];
+     */
     
-
-    logOut = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    logOut.backgroundColor = [UIColor clearColor];
-    logOut.frame = CGRectMake(116, 600, 150, 50);
-    logOut.layer.cornerRadius=8.0f;
-    logOut.layer.masksToBounds=YES;
-    [logOut setBackgroundColor:[UIColor clearColor]];
-    logOut.layer.borderColor=[[UIColor clearColor]CGColor];
-    logOut.layer.borderWidth= 1.0f;
-    logOut.clipsToBounds = YES;
-    logOut.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    [logOut setTitle:@"Log Out"
-            forState:UIControlStateNormal];
-    [logOut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [logOut addTarget:self
-               action:@selector(logOutAction:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [logOut setTag:1];
-    [scrollview addSubview:logOut];
-
-    
-    carImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 234, 20, 20)];
-    [carImage setContentMode:UIViewContentModeScaleAspectFill];
-    [carImage setImage:[UIImage imageNamed:@"car.png"]];
-    [scrollview addSubview:carImage];
-    
-    myCar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myCar.backgroundColor = [UIColor clearColor];
-    myCar.frame = CGRectMake(60, 220, 300, 50);
-    myCar.layer.cornerRadius=8.0f;
-    myCar.layer.masksToBounds=YES;
-    [myCar setBackgroundColor:[UIColor clearColor]];
-    myCar.layer.borderColor=[[UIColor clearColor]CGColor];
-    myCar.layer.borderWidth= 1.0f;
-    myCar.clipsToBounds = YES;
-    myCar.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    myCar.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [myCar setTitle:@"My Mercedes"
-            forState:UIControlStateNormal];
-    [myCar setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [myCar addTarget:self
-               action:@selector(myCarAction:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [myCar setTag:1];
-    [scrollview addSubview:myCar];
-    
-    arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(330, 230, 30, 30)];
-    [arrowImage setContentMode:UIViewContentModeScaleAspectFill];
-    [arrowImage setImage:[UIImage imageNamed:@"arrow.png"]];
-    [scrollview addSubview:arrowImage];
-
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(60, 270, 330, 1)];
-    lineView.backgroundColor = [UIColor whiteColor];
-    [scrollview addSubview:lineView];
-    
-    shareImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 285, 30, 30)];
-    [shareImage setContentMode:UIViewContentModeScaleAspectFill];
-    [shareImage setImage:[UIImage imageNamed:@"share.png"]];
-    [scrollview addSubview:shareImage];
-    
-    share = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    share.backgroundColor = [UIColor clearColor];
-    share.frame = CGRectMake(60, 280, 300, 50);
-    share.layer.cornerRadius=8.0f;
-    share.layer.masksToBounds=YES;
-    [share setBackgroundColor:[UIColor clearColor]];
-    share.layer.borderColor=[[UIColor clearColor]CGColor];
-    share.layer.borderWidth= 1.0f;
-    share.clipsToBounds = YES;
-    share.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22.0];
-    share.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [share setTitle:@"Share this App"
-            forState:UIControlStateNormal];
-    [share setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [share addTarget:self
-               action:@selector(shareAction:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [share setTag:1];
-    [scrollview addSubview:share];
-
-    arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(330, 290, 30, 30)];
-    [arrowImage setContentMode:UIViewContentModeScaleAspectFill];
-    [arrowImage setImage:[UIImage imageNamed:@"arrow.png"]];
-    [scrollview addSubview:arrowImage];
+    menuData = [@[
+                  @{ @"name" : @"My Vehicle", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"myVehicleSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Service History", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"serviceHistorySegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Share This App", @"icon" : @"specials.png", @"badge" : @"0", @"segue" : @"shareAppSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Logout", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"logoutSegue", @"url" : @"n/a" }
+                  ] mutableCopy];
+    [self.tableView reloadData];
 }
 
-- (void) logOutAction:(UIButton *)paramSender{
-    [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+- (void)viewDidAppear:(BOOL)animated {
+    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Home page" forKey:kGAIScreenName] build]];
 }
 
-- (void) myCarAction:(UIButton *)paramSender{
-    [self performSegueWithIdentifier:@"mycarSegue" sender:self];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
 
-- (void) shareAction:(UIButton *)paramSender{
-    [self performSegueWithIdentifier:@"shareSegue" sender:self];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0: return 1;
+        case 1: return [menuData count];
+        default: return 0;
+    }
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return [Common headerOfType:Home withTitle:nil withIcon:nil withBackground:[UIImage imageNamed:@"backgroundD.png"]];
+    }
+    
+    if(indexPath.section == 1) {
+        static NSString *menuCellIdentifier = @"menuCell";
+        menuCell *cell = (menuCell *)[tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
+        if (cell == nil){ cell = [[menuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:menuCellIdentifier]; }
+        
+        NSDictionary* menuItem = [menuData objectAtIndex:indexPath.row];
+        cell.nameLabel.text = [menuItem objectForKey:@"name"];
+        cell.iconImageView.image = [UIImage imageNamed:[menuItem objectForKey:@"icon"]];
+        if(![[menuItem objectForKey:@"badge"] isEqualToString:@"0"]) {
+            cell.badgeLabel.text = [menuItem objectForKey:@"badge"];
+            cell.badgeLabel.alpha = 1;
+            float width = [cell.badgeLabel.text boundingRectWithSize:cell.badgeLabel.frame.size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:cell.badgeLabel.font } context:nil].size.width;
+            CGRect frame = cell.badgeLabel.frame;
+            frame.origin.x = [UIScreen mainScreen].bounds.size.width - width - 40;
+            frame.size.width = width + 20;
+            cell.badgeLabel.frame = frame;
+        }
+        
+        return cell;
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
+    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return 122;
+    }
+    if(indexPath.section == 1) {
+        return 51;
+    }
+    return 0;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 1) {
+        selectedRow = indexPath.row;
+        NSDictionary* menuItem = [menuData objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:[menuItem objectForKey:@"segue"] sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"urlSegue"]){
+        UrlViewController *dest = (UrlViewController *)[segue destinationViewController];
+        NSDictionary* menuItem = [menuData objectAtIndex:selectedRow];
+        dest.url = [NSURL URLWithString:[menuItem objectForKey:@"url"]];
+        dest.title = [menuItem objectForKey:@"name"];
+        dest.image = [menuItem objectForKey:@"icon"];
+    }
+}
+
+- (IBAction)optionsButtonClicked:(id)sender {
+    //TODO: actionlist
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
 }
 
 @end

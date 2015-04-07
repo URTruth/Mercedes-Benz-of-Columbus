@@ -7,8 +7,13 @@
 //
 
 #import "startPageViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface startPageViewController ()
+{
+    AVAudioPlayer *_audioPlayer;
+}
+
 
 @end
 
@@ -68,9 +73,18 @@
     [btn3 setTitle:@"Connect With Email" forState:UIControlStateNormal];
     [btn3 setTitleColor:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0f] forState:UIControlStateNormal];
     //[self.view addSubview:btn3];
+    
+    
+    // Construct URL to sound file
+    NSString *path = [NSString stringWithFormat:@"%@/drum01.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+    
+    // Create audio player object and initialize with URL to sound
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
 }
 
 - (void)start {
+    [_audioPlayer play];
     [self performSegueWithIdentifier:@"homeSegue" sender:self];
 }
 
@@ -78,5 +92,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

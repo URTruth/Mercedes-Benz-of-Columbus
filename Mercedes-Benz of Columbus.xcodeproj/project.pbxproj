@@ -10,6 +10,8 @@
 		2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3160261A882EBE0014E19D /* SettingsViewController.m */; };
 		2A3160291A8C4E470014E19D /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3160281A8C4E470014E19D /* arrow.png */; };
 		2A31602F1A8C525E0014E19D /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602E1A8C525E0014E19D /* share.png */; };
+		2A7AA1DB1ACF9442000B7FAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */; };
+		2A7AA1E11ACF9EC1000B7FAE /* drum01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E01ACF9EC1000B7FAE /* drum01.mp3 */; };
 		2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */; };
 		2AC9D0111A9A7C7D007E6228 /* inside_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D00B1A9A7C7D007E6228 /* inside_blur.jpg */; };
 		2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D00C1A9A7C7D007E6228 /* lights_blur.jpg */; };
@@ -143,6 +145,8 @@
 		2A3160261A882EBE0014E19D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2A3160281A8C4E470014E19D /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		2A31602E1A8C525E0014E19D /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2A7AA1E01ACF9EC1000B7FAE /* drum01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drum01.mp3; sourceTree = "<group>"; };
 		2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC9D00B1A9A7C7D007E6228 /* inside_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = inside_blur.jpg; sourceTree = "<group>"; };
 		2AC9D00C1A9A7C7D007E6228 /* lights_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lights_blur.jpg; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7AA1DB1ACF9442000B7FAE /* AVFoundation.framework in Frameworks */,
 				2AAD6DF61A64D5AB00AC80D4 /* MapKit.framework in Frameworks */,
 				B61CCE9F1AA31D3400A24F45 /* FacebookSDK.framework in Frameworks */,
 				B61CCE9B1AA31B7800A24F45 /* TwitterKit.framework in Frameworks */,
@@ -564,6 +569,7 @@
 		B673C8641A294BFA00D3D55F = {
 			isa = PBXGroup;
 			children = (
+				2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */,
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
 				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
@@ -590,6 +596,7 @@
 				B64620D11A2C475900523159 /* Images */,
 				B673C8741A294BFA00D3D55F /* AppDelegate.h */,
 				B673C8751A294BFA00D3D55F /* AppDelegate.m */,
+				2A7AA1E01ACF9EC1000B7FAE /* drum01.mp3 */,
 				2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */,
 				2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */,
 				B62449661A7424D600FEE0D0 /* AppointmentViewController.h */,
@@ -824,6 +831,7 @@
 				B61CCE9C1AA31B7800A24F45 /* TwitterKitResources.bundle in Resources */,
 				B6DA2F361A7354C2004D646E /* warranty.png in Resources */,
 				2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */,
+				2A7AA1E11ACF9EC1000B7FAE /* drum01.mp3 in Resources */,
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
 				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,

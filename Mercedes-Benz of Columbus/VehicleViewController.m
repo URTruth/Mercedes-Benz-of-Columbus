@@ -147,10 +147,10 @@
         
       
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"exterior.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
         cell.nameLabel.text = @"Exterior Color";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"color"]]];
 
         return cell;
@@ -164,10 +164,10 @@
         
         
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"interior_color.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
          cell.nameLabel.text = @"Interior Color";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"color"]]];
         
         return cell;
@@ -181,10 +181,10 @@
         
         
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"interior.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
          cell.nameLabel.text = @"Interior Description";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
 
         return cell;
@@ -198,10 +198,10 @@
         
         
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"showroom.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
          cell.nameLabel.text = @"Body Description";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
         
         return cell;
@@ -215,10 +215,10 @@
         
         
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"mileage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
          cell.nameLabel.text = @"Mileage";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
 
         return cell;
@@ -232,10 +232,10 @@
         
         
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"parts.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
          cell.nameLabel.text = @"Stock Number";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
         
         return cell;
@@ -249,10 +249,10 @@
         
         
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"barcode.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:LIGHT_FONT size:22.0f];
          cell.nameLabel.text = @"VIN";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        cell.auxLabel.font = [UIFont fontWithName:BOLD_FONT size:16.0f];
         [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"vin"]]];
 
         return cell;

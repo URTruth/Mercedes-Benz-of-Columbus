@@ -49,7 +49,8 @@
     self.tableView.backgroundColor = [UIColor blackColor];
     
     [self refresh];
-}
+    
+ }
 
 - (void)viewDidAppear:(BOOL)animated {
     //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
@@ -69,7 +70,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 10;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -77,7 +78,13 @@
         case 0: return 1;
         case 1: return 1;
         case 2: return 1;
-        case 3: return 20;
+        case 3: return 1;
+        case 4: return 1;
+        case 5: return 1;
+        case 6: return 1;
+        case 7: return 1;
+        case 8: return 1;
+        case 9: return 1;
         default: return 0;
     }
 }
@@ -130,6 +137,7 @@
     
     if(indexPath.section == 2) {
         
+        
     }
     
     if(indexPath.section == 3) {
@@ -137,13 +145,120 @@
         vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
         if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
         
+      
         NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
         [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        [cell.nameLabel setText:[vehicleItem objectForKey:@"name"]];
-        [cell.priceLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"price"]]];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@ · %@ · %@", [vehicleItem objectForKey:@"type"], [vehicleItem objectForKey:@"color"], [vehicleItem objectForKey:@"body"]]];
-        //return cell;
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+        cell.nameLabel.text = @"Exterior Color";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"color"]]];
+
+        return cell;
+
     }
+    
+    if(indexPath.section == 4) {
+        static NSString *vehicleCellIdentifier = @"vehicleCell";
+        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
+        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
+        
+        
+        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+         cell.nameLabel.text = @"Interior Color";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"color"]]];
+        
+        return cell;
+        
+    }
+
+    if(indexPath.section == 5) {
+        static NSString *vehicleCellIdentifier = @"vehicleCell";
+        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
+        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
+        
+        
+        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+         cell.nameLabel.text = @"Interior Description";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
+
+        return cell;
+        
+    }
+    
+    if(indexPath.section == 6) {
+        static NSString *vehicleCellIdentifier = @"vehicleCell";
+        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
+        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
+        
+        
+        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+         cell.nameLabel.text = @"Body Description";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
+        
+        return cell;
+        
+    }
+    
+    if(indexPath.section == 7) {
+        static NSString *vehicleCellIdentifier = @"vehicleCell";
+        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
+        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
+        
+        
+        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+         cell.nameLabel.text = @"Mileage";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
+
+        return cell;
+        
+    }
+
+    if(indexPath.section == 8) {
+        static NSString *vehicleCellIdentifier = @"vehicleCell";
+        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
+        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
+        
+        
+        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+         cell.nameLabel.text = @"Stock Number";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
+        
+        return cell;
+        
+    }
+
+    if(indexPath.section == 9) {
+        static NSString *vehicleCellIdentifier = @"vehicleCell";
+        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
+        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
+        
+        
+        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
+        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
+         cell.nameLabel.text = @"VIN";
+        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
+        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"vin"]]];
+
+        return cell;
+        
+    }
+
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
     if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
@@ -163,6 +278,25 @@
     if(indexPath.section == 3) {
         return 88;
     }
+    if(indexPath.section == 4) {
+        return 88;
+    }
+    if(indexPath.section == 5) {
+        return 88;
+    }
+    if(indexPath.section == 6) {
+        return 88;
+    }
+    if(indexPath.section == 7) {
+        return 88;
+    }
+    if(indexPath.section == 8) {
+        return 88;
+    }
+    if(indexPath.section == 9) {
+        return 88;
+    }
+
     return 0;
 }
 

@@ -50,7 +50,7 @@
         [self addSubview:priceLabel];
         
         int auxLabelFont = 11;
-        auxLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, padding + priceLabel.frame.origin.y + priceLabel.frame.size.height, labelWidth, auxLabelFont)];
+        auxLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, padding + priceLabel.frame.origin.y + priceLabel.frame.size.height, labelWidth, auxLabelFont + 5)];
         [auxLabel setFont:[UIFont fontWithName:REGULAR_FONT size:auxLabelFont]];
         [auxLabel setTextColor:[UIColor darkGrayColor]];
         [self addSubview:auxLabel];

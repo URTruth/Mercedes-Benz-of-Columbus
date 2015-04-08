@@ -7,7 +7,7 @@
 //
 
 #import "VehicleViewController.h"
-#import "vehicleCell.h"
+#import "vehicleDetailCell.h"
 #import "Common.h"
 
 #import "AFHTTPRequestOperationManager.h"
@@ -21,6 +21,7 @@
 @implementation VehicleViewController
 @synthesize vin;
 @synthesize vehicleData;
+@synthesize detailData;
 @synthesize vehicleImageView;
 @synthesize vehicleNameLabel;
 @synthesize vehiclePriceLabel;
@@ -48,8 +49,23 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
     
-    [self refresh];
+    detailData = [@[
+                  @{ @"name" : @"Images", @"icon" : @"images.png", @"key" : @"urls", @"segue" : @"vehicleImagesSegue" },
+                  @{ @"name" : @"Type", @"icon" : @"showroom.png", @"key" : @"type", @"segue" : @"n/a" },
+                  @{ @"name" : @"Year", @"icon" : @"year.png", @"key" : @"year", @"segue" : @"n/a" },
+                  @{ @"name" : @"Make", @"icon" : @"showroom.png", @"key" : @"make", @"segue" : @"n/a" },
+                  @{ @"name" : @"Model", @"icon" : @"showroom.png", @"key" : @"model", @"segue" : @"n/a" },
+                  @{ @"name" : @"Body", @"icon" : @"showroom.png", @"key" : @"body", @"segue" : @"n/a" },
+                  @{ @"name" : @"Color", @"icon" : @"color.png", @"key" : @"color", @"segue" : @"n/a" },
+                  @{ @"name" : @"Trim", @"icon" : @"trim.png", @"key" : @"trim", @"segue" : @"n/a" },
+                  @{ @"name" : @"Stock #", @"icon" : @"stock.png", @"key" : @"stock_number", @"segue" : @"n/a" },
+                  @{ @"name" : @"MPG", @"icon" : @"mpg.png", @"key" : @"mpg", @"segue" : @"n/a" },
+                  @{ @"name" : @"Cylinders", @"icon" : @"cylinders.png", @"key" : @"cylinders", @"segue" : @"n/a" },
+                  @{ @"name" : @"Engine", @"icon" : @"engine.png", @"key" : @"engine", @"segue" : @"n/a" },
+                  @{ @"name" : @"Mileage", @"icon" : @"mpg.png", @"key" : @"odometer", @"segue" : @"n/a" },
+                  ] mutableCopy];
     
+    [self refresh];
  }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,6 +79,7 @@
     NSDictionary *parameters = @{@"vin": vin};
     [manager POST:@"http://www.wavelinkllc.com/mboc/get_vehicle.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
+        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
@@ -70,21 +87,14 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: return 1;
         case 1: return 1;
-        case 2: return 1;
-        case 3: return 1;
-        case 4: return 1;
-        case 5: return 1;
-        case 6: return 1;
-        case 7: return 1;
-        case 8: return 1;
-        case 9: return 1;
+        case 2: return [detailData count];
         default: return 0;
     }
 }
@@ -136,129 +146,17 @@
     }
     
     if(indexPath.section == 2) {
-        
-        
-    }
-    
-    if(indexPath.section == 3) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
+        static NSString *vehicleDetailCellIdentifier = @"vehicleDetailCell";
+        vehicleDetailCell *cell = (vehicleDetailCell *)[tableView dequeueReusableCellWithIdentifier:vehicleDetailCellIdentifier];
+        if (cell == nil){ cell = [[vehicleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleDetailCellIdentifier]; }
       
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-        cell.nameLabel.text = @"Exterior Color";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"color"]]];
+        NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
+        [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
+        [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
+        [cell.auxLabel setText:(![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqual:[NSNull null]] && ![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqualToString:@""]) ? [vehicleItem objectForKey:[detailItem objectForKey:@"key"]] : @"--"];
 
         return cell;
-
     }
-    
-    if(indexPath.section == 4) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
-        
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-         cell.nameLabel.text = @"Interior Color";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"color"]]];
-        
-        return cell;
-        
-    }
-
-    if(indexPath.section == 5) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
-        
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-         cell.nameLabel.text = @"Interior Description";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
-
-        return cell;
-        
-    }
-    
-    if(indexPath.section == 6) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
-        
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-         cell.nameLabel.text = @"Body Description";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
-        
-        return cell;
-        
-    }
-    
-    if(indexPath.section == 7) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
-        
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-         cell.nameLabel.text = @"Mileage";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
-
-        return cell;
-        
-    }
-
-    if(indexPath.section == 8) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
-        
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-         cell.nameLabel.text = @"Stock Number";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"body"]]];
-        
-        return cell;
-        
-    }
-
-    if(indexPath.section == 9) {
-        static NSString *vehicleCellIdentifier = @"vehicleCell";
-        vehicleCell *cell = (vehicleCell *)[tableView dequeueReusableCellWithIdentifier:vehicleCellIdentifier];
-        if (cell == nil){ cell = [[vehicleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleCellIdentifier]; }
-        
-        
-        NSArray *image = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"montage.png"]];
-        cell.nameLabel.font = [UIFont fontWithName:BOLD_FONT size:22.0f];
-         cell.nameLabel.text = @"VIN";
-        cell.auxLabel.font = [UIFont fontWithName:LIGHT_FONT size:16.0f];
-        [cell.auxLabel setText:[NSString stringWithFormat:@"%@", [vehicleItem objectForKey:@"vin"]]];
-
-        return cell;
-        
-    }
-
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
     if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
@@ -273,30 +171,8 @@
         return [UIScreen mainScreen].bounds.size.width;
     }
     if(indexPath.section == 2) {
-        return 0;
+        return 78;
     }
-    if(indexPath.section == 3) {
-        return 88;
-    }
-    if(indexPath.section == 4) {
-        return 88;
-    }
-    if(indexPath.section == 5) {
-        return 88;
-    }
-    if(indexPath.section == 6) {
-        return 88;
-    }
-    if(indexPath.section == 7) {
-        return 88;
-    }
-    if(indexPath.section == 8) {
-        return 88;
-    }
-    if(indexPath.section == 9) {
-        return 88;
-    }
-
     return 0;
 }
 

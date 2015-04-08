@@ -36,6 +36,15 @@
 		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
 		2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A61A2D4EC200BA926D /* MercedesLogo.png */; };
 		2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A71A2D4EC200BA926D /* startBG.png */; };
+		B60771F81AD50DC400008C9C /* vehicleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60771F71AD50DC400008C9C /* vehicleDetailCell.m */; };
+		B60771FA1AD51C1600008C9C /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = B60771F91AD51C1600008C9C /* images.png */; };
+		B60771FC1AD51C3000008C9C /* year.png in Resources */ = {isa = PBXBuildFile; fileRef = B60771FB1AD51C3000008C9C /* year.png */; };
+		B60771FE1AD51C7000008C9C /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = B60771FD1AD51C7000008C9C /* color.png */; };
+		B60772001AD51CC900008C9C /* trim.png in Resources */ = {isa = PBXBuildFile; fileRef = B60771FF1AD51CC900008C9C /* trim.png */; };
+		B60772021AD51CE200008C9C /* mpg.png in Resources */ = {isa = PBXBuildFile; fileRef = B60772011AD51CE200008C9C /* mpg.png */; };
+		B60772041AD51CFC00008C9C /* cylinders.png in Resources */ = {isa = PBXBuildFile; fileRef = B60772031AD51CFC00008C9C /* cylinders.png */; };
+		B60772061AD51F1B00008C9C /* engine.png in Resources */ = {isa = PBXBuildFile; fileRef = B60772051AD51F1B00008C9C /* engine.png */; };
+		B60772081AD521D600008C9C /* stock.png in Resources */ = {isa = PBXBuildFile; fileRef = B60772071AD521D600008C9C /* stock.png */; };
 		B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC3F1AA180AB00A24F45 /* ACSimpleKeychain.m */; };
 		B61CCC661AA181AF00A24F45 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CCC431AA181AF00A24F45 /* Appirater.m */; };
 		B61CCC671AA181AF00A24F45 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61CCC451AA181AF00A24F45 /* AppiraterLocalizable.strings */; };
@@ -180,6 +189,16 @@
 		2AE777A51A2D4EC200BA926D /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		2AE777A61A2D4EC200BA926D /* MercedesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MercedesLogo.png; sourceTree = "<group>"; };
 		2AE777A71A2D4EC200BA926D /* startBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBG.png; sourceTree = "<group>"; };
+		B60771F61AD50DC400008C9C /* vehicleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vehicleDetailCell.h; sourceTree = "<group>"; };
+		B60771F71AD50DC400008C9C /* vehicleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vehicleDetailCell.m; sourceTree = "<group>"; };
+		B60771F91AD51C1600008C9C /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		B60771FB1AD51C3000008C9C /* year.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = year.png; sourceTree = "<group>"; };
+		B60771FD1AD51C7000008C9C /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
+		B60771FF1AD51CC900008C9C /* trim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trim.png; sourceTree = "<group>"; };
+		B60772011AD51CE200008C9C /* mpg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mpg.png; sourceTree = "<group>"; };
+		B60772031AD51CFC00008C9C /* cylinders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cylinders.png; sourceTree = "<group>"; };
+		B60772051AD51F1B00008C9C /* engine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engine.png; sourceTree = "<group>"; };
+		B60772071AD521D600008C9C /* stock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock.png; sourceTree = "<group>"; };
 		B61CCC3E1AA180AB00A24F45 /* ACSimpleKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSimpleKeychain.h; sourceTree = "<group>"; };
 		B61CCC3F1AA180AB00A24F45 /* ACSimpleKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSimpleKeychain.m; sourceTree = "<group>"; };
 		B61CCC421AA181AF00A24F45 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
@@ -507,6 +526,14 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B60771F91AD51C1600008C9C /* images.png */,
+				B60771FB1AD51C3000008C9C /* year.png */,
+				B60771FD1AD51C7000008C9C /* color.png */,
+				B60771FF1AD51CC900008C9C /* trim.png */,
+				B60772011AD51CE200008C9C /* mpg.png */,
+				B60772031AD51CFC00008C9C /* cylinders.png */,
+				B60772051AD51F1B00008C9C /* engine.png */,
+				B60772071AD521D600008C9C /* stock.png */,
 				B65C7B231AB299C400B7F36A /* facebook.png */,
 				B65C7B251AB299C900B7F36A /* twitter.png */,
 				B6A0488C1A8C6AD000C0F8D7 /* text-veil.png */,
@@ -569,10 +596,10 @@
 		B673C8641A294BFA00D3D55F = {
 			isa = PBXGroup;
 			children = (
-				2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */,
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
 				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
+				2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */,
 				B61CCE9E1AA31D3400A24F45 /* FacebookSDK.framework */,
 				B61CCE981AA31B7800A24F45 /* TwitterKit.framework */,
 				B61CCE991AA31B7800A24F45 /* TwitterKitResources.bundle */,
@@ -701,6 +728,8 @@
 				B6DA2F441A735927004D646E /* specialsCell.m */,
 				B62449191A737B2600FEE0D0 /* vehicleCell.h */,
 				B624491A1A737B2600FEE0D0 /* vehicleCell.m */,
+				B60771F61AD50DC400008C9C /* vehicleDetailCell.h */,
+				B60771F71AD50DC400008C9C /* vehicleDetailCell.m */,
 				2AC9D0261A9C3D20007E6228 /* videoCell.h */,
 				2AC9D0271A9C3D21007E6228 /* videoCell.m */,
 			);
@@ -836,14 +865,17 @@
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
 				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,
 				B65C7B1F1AB12DA900B7F36A /* ProgressHUD.bundle in Resources */,
+				B60772061AD51F1B00008C9C /* engine.png in Resources */,
 				B6A048A71A8C9CAE00C0F8D7 /* no-vehicle-image.png in Resources */,
 				B62449871A7473EB00FEE0D0 /* payment.png in Resources */,
+				B60771FA1AD51C1600008C9C /* images.png in Resources */,
 				B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */,
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
 				B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */,
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
 				B61D6D861A7773010065DC4A /* unchecked.png in Resources */,
 				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
+				B60772041AD51CFC00008C9C /* cylinders.png in Resources */,
 				B61D6D8A1A7773220065DC4A /* checked.png in Resources */,
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B62449201A738A9D00FEE0D0 /* showroom.png in Resources */,
@@ -863,6 +895,7 @@
 				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
 				B6A0488D1A8C6AD000C0F8D7 /* text-veil.png in Resources */,
 				B624498B1A7479F400FEE0D0 /* email.png in Resources */,
+				B60771FC1AD51C3000008C9C /* year.png in Resources */,
 				B6A048971A8C811800C0F8D7 /* backgroundB.png in Resources */,
 				B64621221A2DB12F00523159 /* montage.png in Resources */,
 				2AC9D0181A9A8ADE007E6228 /* blend_blur.jpg in Resources */,
@@ -875,12 +908,16 @@
 				B65C7B261AB299C900B7F36A /* twitter.png in Resources */,
 				B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
+				B60771FE1AD51C7000008C9C /* color.png in Resources */,
+				B60772081AD521D600008C9C /* stock.png in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
+				B60772001AD51CC900008C9C /* trim.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
 				2A3160291A8C4E470014E19D /* arrow.png in Resources */,
 				B61CCC671AA181AF00A24F45 /* AppiraterLocalizable.strings in Resources */,
 				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
+				B60772021AD51CE200008C9C /* mpg.png in Resources */,
 				2AC9D0151A9A8259007E6228 /* car.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -966,6 +1003,7 @@
 				B62449401A7391C800FEE0D0 /* AFURLResponseSerialization.m in Sources */,
 				B69628471AA3E8C800DC7A50 /* VPImageCropperViewController.m in Sources */,
 				B62449571A7391D200FEE0D0 /* UIButton+AFNetworking.m in Sources */,
+				B60771F81AD50DC400008C9C /* vehicleDetailCell.m in Sources */,
 				B624496E1A7427B100FEE0D0 /* DealershipViewController.m in Sources */,
 				B64620D01A2C432400523159 /* HomeViewController.m in Sources */,
 			);

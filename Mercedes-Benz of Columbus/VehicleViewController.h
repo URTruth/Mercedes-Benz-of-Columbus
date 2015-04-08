@@ -12,6 +12,7 @@
 
 @property(nonatomic, strong) NSString *vin;
 @property(nonatomic, strong) NSMutableArray *vehicleData;
+@property(nonatomic, strong) NSMutableArray *detailData;
 
 @property(nonatomic, strong) UIImageView *vehicleImageView;
 @property(nonatomic, strong) UILabel *vehicleNameLabel;

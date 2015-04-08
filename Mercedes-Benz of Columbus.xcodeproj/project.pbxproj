@@ -13,7 +13,6 @@
 		2A7AA1DB1ACF9442000B7FAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */; };
 		2A7AA1E11ACF9EC1000B7FAE /* drum01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E01ACF9EC1000B7FAE /* drum01.mp3 */; };
 		2A7AA1E31AD4C3E6000B7FAE /* barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E21AD4C3E6000B7FAE /* barcode.png */; };
-		2A7AA1E51AD4C3F0000B7FAE /* interior.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E41AD4C3F0000B7FAE /* interior.png */; };
 		2A7AA1E71AD4C492000B7FAE /* mileage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E61AD4C492000B7FAE /* mileage.png */; };
 		2A7AA1E91AD4C681000B7FAE /* exterior.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E81AD4C681000B7FAE /* exterior.png */; };
 		2A7AA1EB1AD4C688000B7FAE /* interior_color.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1EA1AD4C688000B7FAE /* interior_color.png */; };

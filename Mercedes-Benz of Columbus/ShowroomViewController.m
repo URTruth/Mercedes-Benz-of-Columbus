@@ -15,6 +15,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "UIColor+FlatUI.h"
+#import "ProgressHUD.h"
 
 @interface ShowroomViewController ()
 
@@ -60,12 +61,15 @@
 
 - (void)refresh {
     // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading..."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"next": @0, @"type": type};
     [manager POST:@"http://www.wavelinkllc.com/mboc/get_showroom.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
         [self.tableView reloadData];
+        [ProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
     }];
 }
@@ -169,6 +173,11 @@
         type = @"used";
     }
     [self refresh];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

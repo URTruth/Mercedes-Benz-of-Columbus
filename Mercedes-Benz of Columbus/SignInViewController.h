@@ -21,7 +21,6 @@
 @property (nonatomic, strong) FBLoginView *fbLoginView;
 @property (nonatomic, strong) TWTRLogInButton *twitterLoginButton;
 @property (nonatomic, strong) DGTAuthenticateButton *digitsButton;
-@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIView *tentView;
 @property (weak, nonatomic) IBOutlet UIView *credentialsView;
 @property (weak, nonatomic) IBOutlet UIView *forgotView;

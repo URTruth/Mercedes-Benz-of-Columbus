@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountViewController : UITableViewController <UIGestureRecognizerDelegate>
+@interface AccountViewController : UITableViewController <UITableViewDelegate, UIGestureRecognizerDelegate>
 {
     int selectedRow;
 }

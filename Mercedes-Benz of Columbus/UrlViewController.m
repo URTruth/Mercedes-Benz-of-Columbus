@@ -54,12 +54,17 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [ProgressHUD showSuccess:@""];
+    [ProgressHUD dismiss];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    [ProgressHUD showError:@""];
+    [ProgressHUD dismiss];
     [Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

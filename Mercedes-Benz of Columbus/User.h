@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void(^LoginCompletionBlock)(BOOL isSuccess);
+typedef void(^LogoutCompletionBlock)(BOOL isSuccess);
 
 @interface User : NSObject {
     NSString *_userId;
@@ -27,6 +28,7 @@ typedef void(^LoginCompletionBlock)(BOOL isSuccess);
 + (User *)sharedInstance;
 
 - (void)login:(LoginCompletionBlock) loginBlock;
+- (void)logout:(LogoutCompletionBlock) logoutBlock;
 
 @property(strong, nonatomic, readwrite) NSString *userId;
 @property(strong, nonatomic, readwrite) NSString *email;

@@ -52,7 +52,6 @@
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
     
-    
     number = @"1(800) 367-6372";
     
     numberButton = [Common buttonWithText:number color:[UIColor turquoiseColor] frame:CGRectMake(20, 143, [UIScreen mainScreen].bounds.size.width - 40, 50)];

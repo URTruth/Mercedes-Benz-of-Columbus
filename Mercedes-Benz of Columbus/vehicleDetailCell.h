@@ -15,5 +15,6 @@
 @property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *auxLabel;
+@property (nonatomic, retain) IBOutlet UILabel *arrowLabel;
 
 @end

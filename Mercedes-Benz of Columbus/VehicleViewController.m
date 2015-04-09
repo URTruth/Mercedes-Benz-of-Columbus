@@ -13,6 +13,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "UIColor+FlatUI.h"
+#import "ProgressHUD.h"
 
 @interface VehicleViewController ()
 
@@ -20,11 +21,14 @@
 
 @implementation VehicleViewController
 @synthesize vin;
+@synthesize number;
 @synthesize vehicleData;
 @synthesize detailData;
 @synthesize vehicleImageView;
 @synthesize vehicleNameLabel;
 @synthesize vehiclePriceLabel;
+@synthesize _photoBrowser;
+@synthesize imageUrls;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,6 +53,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
     
+    number = @"7062566100";
     detailData = [@[
                   @{ @"name" : @"Images", @"icon" : @"images.png", @"key" : @"urls", @"segue" : @"vehicleImagesSegue" },
                   @{ @"name" : @"Type", @"icon" : @"showroom.png", @"key" : @"type", @"segue" : @"n/a" },
@@ -75,13 +80,15 @@
 
 - (void)refresh {
     // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading.."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"vin": vin};
     [manager POST:@"http://www.wavelinkllc.com/mboc/get_vehicle.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
-        
         [self.tableView reloadData];
+        [ProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
     }];
 }
@@ -103,15 +110,13 @@
     NSDictionary* vehicleItem = [vehicleData objectAtIndex:0];
     
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:[vehicleItem objectForKey:@"name"] withIcon:[UIImage imageNamed:@"showroom.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
-    }
-    
-    if(indexPath.section == 1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"presentationCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"presentationCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
+            cell.contentView.clipsToBounds = YES;
+            cell.clipsToBounds = YES;
             
             vehicleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
             [vehicleImageView setContentMode:UIViewContentModeScaleAspectFill];
@@ -135,12 +140,34 @@
             [text_veil addSubview:vehiclePriceLabel];
         }
         
-        NSArray *images = (![[vehicleItem objectForKey:@"urls"] isEqual:[NSNull null]]) ? [[vehicleItem objectForKey:@"urls"] componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [vehicleImageView setImageWithURL:[NSURL URLWithString:[images objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
+        NSString *stringOfUrls = [vehicleItem objectForKey:@"urls"];
+        imageUrls = (![stringOfUrls isEqual:[NSNull null]]) ? [([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+        [vehicleImageView setImageWithURL:[NSURL URLWithString:[imageUrls objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
         
         [vehicleNameLabel setText:[vehicleItem objectForKey:@"name"]];
         
         [vehiclePriceLabel setText:[vehicleItem objectForKey:@"price"]];
+        
+        return cell;
+    }
+    
+    if(indexPath.section == 1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"buttonCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
+            cell.contentView.clipsToBounds = YES;
+            cell.clipsToBounds = YES;
+            
+            FUIButton * callButton = [Common buttonWithText:@"Call" color:[UIColor greenSeaColor] frame:CGRectMake(15, 10, [UIScreen mainScreen].bounds.size.width/2 - 20, 40)];
+            [callButton addTarget:self action:@selector(callButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:callButton];
+            
+            FUIButton * quoteButton = [Common buttonWithText:@"Request Quote" color:[UIColor asbestosColor] frame:CGRectMake(callButton.frame.origin.x + callButton.frame.size.width + 10, 10, [UIScreen mainScreen].bounds.size.width/2 - 20, 40)];
+            [quoteButton addTarget:self action:@selector(quoteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:quoteButton];
+        }
         
         return cell;
     }
@@ -153,7 +180,16 @@
         NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
         [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
         [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
-        [cell.auxLabel setText:(![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqual:[NSNull null]] && ![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqualToString:@""]) ? [vehicleItem objectForKey:[detailItem objectForKey:@"key"]] : @"--"];
+        
+        if([[detailItem objectForKey:@"key"] isEqualToString:@"urls"]) {
+            NSString *stringOfUrls = [vehicleItem objectForKey:@"urls"];
+            int count = (![stringOfUrls isEqual:[NSNull null]]) ? [[([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] count] : 0;
+            cell.auxLabel.text = [NSString stringWithFormat:@"(%d)", count];
+            cell.arrowLabel.alpha = 1;
+        } else {
+            [cell.auxLabel setText:(![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqual:[NSNull null]] && ![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqualToString:@""]) ? [vehicleItem objectForKey:[detailItem objectForKey:@"key"]] : @"--"];
+            cell.arrowLabel.alpha = 0;
+        }
 
         return cell;
     }
@@ -165,10 +201,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return 122;
+        return [UIScreen mainScreen].bounds.size.width;
     }
     if(indexPath.section == 1) {
-        return [UIScreen mainScreen].bounds.size.width;
+        return 62;
     }
     if(indexPath.section == 2) {
         return 78;
@@ -178,11 +214,51 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 2) {
-        NSDictionary* vehicleItem = [vehicleData objectAtIndex:indexPath.row];
-        vin = [vehicleItem objectForKey:@"vin"];
-        [self performSegueWithIdentifier:@"vehicleSegue" sender:self];
+    if(indexPath.section == 1) {
+        [self.photoBrowser show];
     }
+    if(indexPath.section == 2) {
+        NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
+        if([[detailItem objectForKey:@"key"] isEqualToString:@"urls"]) {
+            [self.photoBrowser show];
+        }
+    }
+}
+
+- (NSInteger)numberOfPhotosForPhotoBrowser:(AGPhotoBrowserView *)photoBrowser {
+    return [imageUrls count];
+}
+
+- (UIImage *)photoBrowser:(AGPhotoBrowserView *)photoBrowser imageAtIndex:(NSInteger)index {
+    return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[imageUrls objectAtIndex: index]]]];
+}
+
+- (NSString *)photoBrowser:(AGPhotoBrowserView *)photoBrowser titleForImageAtIndex:(NSInteger)index
+{
+    return [NSString stringWithFormat:@"Image %d", index + 1];
+}
+
+- (NSString *)photoBrowser:(AGPhotoBrowserView *)photoBrowser descriptionForImageAtIndex:(NSInteger)index
+{
+    return [[vehicleData objectAtIndex:0] objectForKey:@"name"];
+}
+
+- (void)photoBrowser:(AGPhotoBrowserView *)photoBrowser didTapOnDoneButton:(UIButton *)doneButton
+{
+    [self.photoBrowser hideWithCompletion:^(BOOL finished){
+
+    }];
+}
+
+- (AGPhotoBrowserView *)photoBrowser
+{
+    if (!_photoBrowser) {
+        _photoBrowser = [[AGPhotoBrowserView alloc] initWithFrame:CGRectZero];
+        _photoBrowser.delegate = self;
+        _photoBrowser.dataSource = self;
+    }
+    
+    return _photoBrowser;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -192,8 +268,21 @@
     }
 }
 
+- (void) callButtonClicked:(id)sender {
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:number]]];
+}
+
+- (void) quoteButtonClicked:(id)sender {
+
+}
+
 - (IBAction)optionsButtonClicked:(id)sender {
     //TODO: add actionsheet here
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

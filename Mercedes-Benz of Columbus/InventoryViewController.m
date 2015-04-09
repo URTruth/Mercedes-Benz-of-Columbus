@@ -14,6 +14,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "UIColor+FlatUI.h"
+#import "ProgressHUD.h"
 
 @interface InventoryViewController ()
 
@@ -48,7 +49,7 @@
     self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
     order = @"";
     [self refresh];
@@ -61,12 +62,15 @@
 
 - (void)refresh {
     // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading..."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"next": @0, @"type": type, @"make": make, @"model": model, @"order": order};
     [manager POST:@"http://www.wavelinkllc.com/mboc/get_inventory.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
         [self.tableView reloadData];
+        [ProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
     }];
 }
@@ -143,6 +147,11 @@
 
 - (IBAction)optionsButtonClicked:(id)sender {
     //TODO: add actionsheet here
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

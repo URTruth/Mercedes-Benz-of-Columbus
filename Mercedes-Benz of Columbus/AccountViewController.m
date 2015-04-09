@@ -11,10 +11,12 @@
 #import "UrlViewController.h"
 #import "menuCell.h"
 #import "specialsCell.h"
+#import "User.h"
 #import "Common.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+FlatUI.h"
+#import "ProgressHUD.h"
 
 @interface HomeViewController ()
 
@@ -28,7 +30,6 @@
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
-    self.navigationItem.hidesBackButton = YES;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -61,9 +62,9 @@
      */
     
     menuData = [@[
-                  @{ @"name" : @"My Vehicle", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"myVehicleSegue", @"url" : @"n/a" },
-                  @{ @"name" : @"Service History", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"serviceHistorySegue", @"url" : @"n/a" },
-                  @{ @"name" : @"Share This App", @"icon" : @"specials.png", @"badge" : @"0", @"segue" : @"shareAppSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"My Vehicle", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Service History", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Share This App", @"icon" : @"specials.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
                   @{ @"name" : @"Logout", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"logoutSegue", @"url" : @"n/a" }
                   ] mutableCopy];
     [self.tableView reloadData];
@@ -71,7 +72,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Home page" forKey:kGAIScreenName] build]];
+    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"My Account" forKey:kGAIScreenName] build]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -88,7 +89,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [Common headerOfType:Home withTitle:nil withIcon:nil withBackground:[UIImage imageNamed:@"backgroundD.png"]];
+        return [Common headerOfType:Default withTitle:@"My Account" withIcon:[UIImage imageNamed:@"account.png"] withBackground:[UIImage imageNamed:@"backgroundD.png"]];
     }
     
     if(indexPath.section == 1) {
@@ -132,7 +133,20 @@
     if(indexPath.section == 1) {
         selectedRow = indexPath.row;
         NSDictionary* menuItem = [menuData objectAtIndex:indexPath.row];
-        [self performSegueWithIdentifier:[menuItem objectForKey:@"segue"] sender:self];
+        if([[menuItem objectForKey:@"segue"] isEqualToString:@"logoutSegue"]){
+            [ProgressHUD show:@"Loading..."];
+            [[User sharedInstance] logout:^(BOOL isSuccess) {
+                if(isSuccess) {
+                    [ProgressHUD dismiss];
+                    [self performSegueWithIdentifier:[menuItem objectForKey:@"segue"] sender:self];
+                } else {
+                    [ProgressHUD dismiss];
+                    [Common showErrorMessageWithTitle:@"Failed to logout." message:@"Please try again." cancelButtonTitle:@"OK"];
+                }
+            }];
+        } else {
+            [self performSegueWithIdentifier:[menuItem objectForKey:@"segue"] sender:self];
+        }
     }
 }
 
@@ -148,6 +162,11 @@
 
 - (IBAction)optionsButtonClicked:(id)sender {
     //TODO: actionlist
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

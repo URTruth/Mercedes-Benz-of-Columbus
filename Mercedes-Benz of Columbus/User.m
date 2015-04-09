@@ -9,6 +9,7 @@
 #import "User.h"
 #import "Common.h"
 
+#import <FacebookSDK/FacebookSDK.h>
 #import "ACSimpleKeychain.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
@@ -82,6 +83,47 @@
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
         loginBlock(false);
     }];
+}
+
+- (void)logout:(LogoutCompletionBlock) logoutBlock {
+    FBSession* session = [FBSession activeSession];
+    [session closeAndClearTokenInformation];
+    [session close];
+    [FBSession setActiveSession:nil];
+    
+    NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray* facebookCookies = [cookies cookiesForURL:[NSURL URLWithString:@"https://facebook.com/"]];
+    
+    for (NSHTTPCookie* cookie in facebookCookies) {
+        [cookies deleteCookie:cookie];
+    }
+    ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+    if ([keychain deleteCredentialsForUsername:[User sharedInstance].userId service:@"Mercedes-Benz of Columbus"]) { NSLog(@"DELETED credentials for 'Mercedes-Benz of Columbus'"); }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"iOSdeviceToken": ObjectOrNull([User sharedInstance].deviceToken)};
+    [manager POST:[Common webServiceUrlWithPath:@"logout.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *responseData = (NSDictionary*)responseObject;
+        if ([[responseData objectForKey:@"response"] isEqualToString:@"success"]){
+            // Successfully deleted the device tokens
+            logoutBlock(true);
+        }else{
+            logoutBlock(true);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        logoutBlock(true);
+    }];
+    
+    [User sharedInstance].userId = nil;
+    [User sharedInstance].name = nil;
+    [User sharedInstance].email = nil;
+    [User sharedInstance].phone = nil;
+    [User sharedInstance].photo = nil;
+    [User sharedInstance].vin = nil;
+    [User sharedInstance].facebookId = nil;
+    [User sharedInstance].twitterId = nil;
+    [User sharedInstance].digitsId = nil;
+    [User sharedInstance].isLoggedIn = false;
 }
 
 static id ObjectOrNull(id object)

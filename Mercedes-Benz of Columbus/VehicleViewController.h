@@ -8,14 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VehicleViewController : UITableViewController
+#import "AGPhotoBrowserView.h"
+
+@interface VehicleViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, AGPhotoBrowserDelegate, AGPhotoBrowserDataSource>
 
 @property(nonatomic, strong) NSString *vin;
+@property(nonatomic, strong) NSString *number;
 @property(nonatomic, strong) NSMutableArray *vehicleData;
 @property(nonatomic, strong) NSMutableArray *detailData;
 
 @property(nonatomic, strong) UIImageView *vehicleImageView;
 @property(nonatomic, strong) UILabel *vehicleNameLabel;
 @property(nonatomic, strong) UILabel *vehiclePriceLabel;
+
+@property(nonatomic, strong) AGPhotoBrowserView *_photoBrowser;
+@property(nonatomic, strong) NSArray *imageUrls;
 
 @end

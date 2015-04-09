@@ -16,6 +16,7 @@
 @synthesize photoImageView;
 @synthesize nameLabel;
 @synthesize auxLabel;
+@synthesize arrowLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -48,6 +49,14 @@
         [auxLabel setFont:[UIFont fontWithName:BOLD_FONT size:auxLabelFont]];
         [auxLabel setTextColor:[UIColor darkGrayColor]];
         [self addSubview:auxLabel];
+        
+        int arrowLabelFont = 20;
+        arrowLabel = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - padding - arrowLabelFont, imageSize - padding, arrowLabelFont, arrowLabelFont)];
+        [arrowLabel setFont:[UIFont fontWithName:BOLD_FONT size:auxLabelFont]];
+        [arrowLabel setTextColor:[UIColor darkGrayColor]];
+        [arrowLabel setText:@"❯"];
+        arrowLabel.alpha = 0;
+        [self addSubview:arrowLabel];
         
         self.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     }

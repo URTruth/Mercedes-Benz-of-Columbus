@@ -27,7 +27,7 @@
         [[self layer] setRasterizationScale:[[UIScreen mainScreen] scale]];
         
         int padding = 10;
-        int imageSize = 80;
+        int imageSize = 88;
         
         photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imageSize, imageSize)];
         [photoImageView setContentMode:UIViewContentModeScaleAspectFill];

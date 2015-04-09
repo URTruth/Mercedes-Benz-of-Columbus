@@ -162,23 +162,23 @@
         [[User sharedInstance] login:^(BOOL isSuccess) {
             if(isSuccess) {
                 [ProgressHUD showSuccess:@"Success!"];
-                AccountViewController *accountViewController = [[AccountViewController alloc] init];
+                AccountViewController *accountViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"accountViewController"];
                 [self.navigationController setViewControllers:[NSArray arrayWithObject:accountViewController] animated:YES];
             } else {
-                [ProgressHUD showError:@""];
+                [ProgressHUD dismiss];
                 [Common showErrorMessageWithTitle:@"Login was unsuccessful." message:@"Please try again." cancelButtonTitle:@"OK"];
             }
             [self enableControls];
         }];
     }else{
-        [ProgressHUD showError:@""];
+        [ProgressHUD dismiss];
         [Common showErrorMessageWithTitle:[responseData objectForKey:@"response"] message:@"Please retry." cancelButtonTitle:@"OK"];
         [self enableControls];
     }
 }
 
 - (void)handleSignUpFailure:(AFHTTPRequestOperation *)operation error:(NSError*)error {
-    [ProgressHUD showError:@""];
+    [ProgressHUD dismiss];
     [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
     [self enableControls];
 }
@@ -193,12 +193,12 @@
             vinTextBox.text = [[responseObject objectAtIndex:0] objectForKey:@"vin"];
             [ProgressHUD showSuccess:@"Success! Your VIN number was loaded."];
         } else {
-            [ProgressHUD showError:@""];
+            [ProgressHUD dismiss];
             [Common showErrorMessageWithTitle:@"VIN search was unsuccessful." message:@"Change the search information and try again." cancelButtonTitle:@"OK"];
         }
         [self enableControls];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [ProgressHUD showError:@""];
+        [ProgressHUD dismiss];
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
         [self enableControls];
     }];
@@ -326,6 +326,11 @@
 static id ObjectOrNull(id object)
 {
     return object ?: [NSNull null];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

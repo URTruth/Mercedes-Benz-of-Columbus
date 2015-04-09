@@ -18,6 +18,7 @@
 #import "ACSimpleKeychain.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
+#import "ProgressHUD.h"
 
 @interface SignInViewController ()
 
@@ -28,7 +29,6 @@
 @synthesize fbLoginView;
 @synthesize twitterLoginButton;
 @synthesize digitsButton;
-@synthesize spinner;
 @synthesize credentialsView;
 @synthesize forgotView;
 @synthesize tentView;
@@ -64,13 +64,6 @@
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     self.navigationItem.rightBarButtonItem = optionsButton;
-    
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    CGRect spinnerFrame = spinner.frame;
-    spinnerFrame.origin.x = self.view.frame.size.width / 2 - spinnerFrame.size.width / 2;
-    spinnerFrame.origin.y = self.view.frame.size.height / 2 - spinnerFrame.size.height / 2;
-    spinner.frame = spinnerFrame;
-    [self.view addSubview:spinner];
     
     fbLoginView = [[FBLoginView alloc] initWithFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - 40, 40)];
     fbLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
@@ -139,15 +132,15 @@
 }
 
 - (void)login {
-    [spinner startAnimating];
+    [ProgressHUD show:@"Loading.."];
     [[User sharedInstance] login:^(BOOL isSuccess) {
         if(isSuccess) {
-            AccountViewController *accountViewController = [[AccountViewController alloc] init];
+            AccountViewController *accountViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"accountViewController"];
             [self.navigationController setViewControllers:[NSArray arrayWithObject:accountViewController] animated:YES];
         } else {
             [self performSegueWithIdentifier:@"signUpSegue" sender:self];
         }
-        [spinner stopAnimating];
+        [ProgressHUD dismiss];
     }];
 }
 
@@ -161,6 +154,11 @@
     }else if([segue.identifier isEqualToString:@"accountSegue"]){
         
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

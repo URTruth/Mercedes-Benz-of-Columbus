@@ -117,6 +117,10 @@
 		B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B673C87D1A294BFA00D3D55F /* Images.xcassets */; };
 		B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */; };
 		B673C88D1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */; };
+		B680F7EE1AD663CC00B21879 /* AGPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7E41AD663CC00B21879 /* AGPhotoBrowserCell.m */; };
+		B680F7EF1AD663CC00B21879 /* AGPhotoBrowserOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7E91AD663CC00B21879 /* AGPhotoBrowserOverlayView.m */; };
+		B680F7F01AD663CC00B21879 /* AGPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7EB1AD663CC00B21879 /* AGPhotoBrowserView.m */; };
+		B680F7F11AD663CC00B21879 /* AGPhotoBrowserZoomableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7ED1AD663CC00B21879 /* AGPhotoBrowserZoomableView.m */; };
 		B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D21A8AF4C300928565 /* engine_start_button.png */; };
 		B686B1D61A8B0B2500928565 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B1D51A8B0B2500928565 /* InventoryViewController.m */; };
 		B686B1DA1A8B440800928565 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D91A8B440800928565 /* empty.png */; };
@@ -349,6 +353,17 @@
 		B673C8861A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mercedes-Benz of ColumbusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B673C88B1A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mercedes_Benz_of_ColumbusTests.m; sourceTree = "<group>"; };
+		B680F7E31AD663CC00B21879 /* AGPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserCell.h; sourceTree = "<group>"; };
+		B680F7E41AD663CC00B21879 /* AGPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserCell.m; sourceTree = "<group>"; };
+		B680F7E51AD663CC00B21879 /* AGPhotoBrowserCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserCellProtocol.h; sourceTree = "<group>"; };
+		B680F7E61AD663CC00B21879 /* AGPhotoBrowserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserDataSource.h; sourceTree = "<group>"; };
+		B680F7E71AD663CC00B21879 /* AGPhotoBrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserDelegate.h; sourceTree = "<group>"; };
+		B680F7E81AD663CC00B21879 /* AGPhotoBrowserOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserOverlayView.h; sourceTree = "<group>"; };
+		B680F7E91AD663CC00B21879 /* AGPhotoBrowserOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserOverlayView.m; sourceTree = "<group>"; };
+		B680F7EA1AD663CC00B21879 /* AGPhotoBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserView.h; sourceTree = "<group>"; };
+		B680F7EB1AD663CC00B21879 /* AGPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserView.m; sourceTree = "<group>"; };
+		B680F7EC1AD663CC00B21879 /* AGPhotoBrowserZoomableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserZoomableView.h; sourceTree = "<group>"; };
+		B680F7ED1AD663CC00B21879 /* AGPhotoBrowserZoomableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserZoomableView.m; sourceTree = "<group>"; };
 		B686B1D21A8AF4C300928565 /* engine_start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engine_start_button.png; sourceTree = "<group>"; };
 		B686B1D41A8B0B2500928565 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
 		B686B1D51A8B0B2500928565 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
@@ -690,6 +705,7 @@
 				B62449421A7391D200FEE0D0 /* UIKit+AFNetworking */,
 				B62A84581A2ECC1900B6A799 /* FlatUIKit */,
 				B61CCC6F1AA2BCE900A24F45 /* ProgressHUD */,
+				B680F7E21AD663CC00B21879 /* AGPhotoBrowser */,
 				B62449721A74340D00FEE0D0 /* AddressAnnotation */,
 				B61CCC3D1AA180AB00A24F45 /* ACSimpleKeychain */,
 				B61CCC411AA181AF00A24F45 /* Appirater */,
@@ -725,6 +741,24 @@
 				B673C88B1A294BFA00D3D55F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B680F7E21AD663CC00B21879 /* AGPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				B680F7E31AD663CC00B21879 /* AGPhotoBrowserCell.h */,
+				B680F7E41AD663CC00B21879 /* AGPhotoBrowserCell.m */,
+				B680F7E51AD663CC00B21879 /* AGPhotoBrowserCellProtocol.h */,
+				B680F7E61AD663CC00B21879 /* AGPhotoBrowserDataSource.h */,
+				B680F7E71AD663CC00B21879 /* AGPhotoBrowserDelegate.h */,
+				B680F7E81AD663CC00B21879 /* AGPhotoBrowserOverlayView.h */,
+				B680F7E91AD663CC00B21879 /* AGPhotoBrowserOverlayView.m */,
+				B680F7EA1AD663CC00B21879 /* AGPhotoBrowserView.h */,
+				B680F7EB1AD663CC00B21879 /* AGPhotoBrowserView.m */,
+				B680F7EC1AD663CC00B21879 /* AGPhotoBrowserZoomableView.h */,
+				B680F7ED1AD663CC00B21879 /* AGPhotoBrowserZoomableView.m */,
+			);
+			path = AGPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		B69628441AA3E8C800DC7A50 /* VPImageCropper */ = {
@@ -977,6 +1011,7 @@
 				B62449591A7391D200FEE0D0 /* UIProgressView+AFNetworking.m in Sources */,
 				B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */,
 				B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */,
+				B680F7F11AD663CC00B21879 /* AGPhotoBrowserZoomableView.m in Sources */,
 				2AC9D0761AA5754F007E6228 /* VideoViewController.m in Sources */,
 				B686B1D61A8B0B2500928565 /* InventoryViewController.m in Sources */,
 				B624495A1A7391D200FEE0D0 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -998,9 +1033,11 @@
 				B62449241A738CE200FEE0D0 /* UIColor+Custom.m in Sources */,
 				B69628401AA3CB3500DC7A50 /* FUIButton.m in Sources */,
 				B624493F1A7391C800FEE0D0 /* AFURLRequestSerialization.m in Sources */,
+				B680F7F01AD663CC00B21879 /* AGPhotoBrowserView.m in Sources */,
 				B624493B1A7391C800FEE0D0 /* AFHTTPSessionManager.m in Sources */,
 				B62449391A7391C800FEE0D0 /* AFHTTPRequestOperation.m in Sources */,
 				B61CCC8A1AA2BCE900A24F45 /* ProgressHUD.m in Sources */,
+				B680F7EE1AD663CC00B21879 /* AGPhotoBrowserCell.m in Sources */,
 				B673C8731A294BFA00D3D55F /* main.m in Sources */,
 				2AC9D0221A9C3567007E6228 /* WarrantyViewController.m in Sources */,
 				B62449541A7391D200FEE0D0 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1014,6 +1051,7 @@
 				B624495E1A74047400FEE0D0 /* SpecialsViewController.m in Sources */,
 				B624493C1A7391C800FEE0D0 /* AFNetworkReachabilityManager.m in Sources */,
 				2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */,
+				B680F7EF1AD663CC00B21879 /* AGPhotoBrowserOverlayView.m in Sources */,
 				2AC9D0281A9C3D21007E6228 /* videoCell.m in Sources */,
 				B62449411A7391C800FEE0D0 /* AFURLSessionManager.m in Sources */,
 				B624491B1A737B2600FEE0D0 /* vehicleCell.m in Sources */,

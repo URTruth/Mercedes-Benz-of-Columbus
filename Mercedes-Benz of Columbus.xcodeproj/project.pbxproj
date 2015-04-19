@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A11FC051AE06C5B00507496 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11FC041AE06C5B00507496 /* ServiceViewController.m */; };
+		2A11FC081AE06CAF00507496 /* serviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11FC071AE06CAF00507496 /* serviceCell.m */; };
+		2A11FC0A1AE379C700507496 /* brakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC091AE379C700507496 /* brakes.jpg */; };
+		2A11FC0C1AE379D700507496 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC0B1AE379D700507496 /* filter.png */; };
+		2A11FC0E1AE379EB00507496 /* muffler.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC0D1AE379EB00507496 /* muffler.png */; };
+		2A11FC101AE379F600507496 /* oil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC0F1AE379F600507496 /* oil.png */; };
+		2A11FC131AE37A0A00507496 /* tire.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC111AE37A0A00507496 /* tire.png */; };
+		2A11FC141AE37A0A00507496 /* transmission.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC121AE37A0A00507496 /* transmission.png */; };
+		2A11FC161AE37F1000507496 /* belts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC151AE37F1000507496 /* belts.png */; };
+		2A11FC181AE37F1D00507496 /* heat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC171AE37F1D00507496 /* heat.jpg */; };
+		2A11FC1A1AE37F4E00507496 /* suspension.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC191AE37F4E00507496 /* suspension.png */; };
+		2A11FC1C1AE37F5F00507496 /* wiper.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A11FC1B1AE37F5F00507496 /* wiper.png */; };
 		2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3160261A882EBE0014E19D /* SettingsViewController.m */; };
 		2A3160291A8C4E470014E19D /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3160281A8C4E470014E19D /* arrow.png */; };
 		2A31602F1A8C525E0014E19D /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602E1A8C525E0014E19D /* share.png */; };
@@ -159,6 +171,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A11FC031AE06C5B00507496 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
+		2A11FC041AE06C5B00507496 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
+		2A11FC061AE06CAF00507496 /* serviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serviceCell.h; sourceTree = "<group>"; };
+		2A11FC071AE06CAF00507496 /* serviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = serviceCell.m; sourceTree = "<group>"; };
+		2A11FC091AE379C700507496 /* brakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brakes.jpg; sourceTree = "<group>"; };
+		2A11FC0B1AE379D700507496 /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
+		2A11FC0D1AE379EB00507496 /* muffler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muffler.png; sourceTree = "<group>"; };
+		2A11FC0F1AE379F600507496 /* oil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oil.png; sourceTree = "<group>"; };
+		2A11FC111AE37A0A00507496 /* tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tire.png; sourceTree = "<group>"; };
+		2A11FC121AE37A0A00507496 /* transmission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transmission.png; sourceTree = "<group>"; };
+		2A11FC151AE37F1000507496 /* belts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = belts.png; sourceTree = "<group>"; };
+		2A11FC171AE37F1D00507496 /* heat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = heat.jpg; sourceTree = "<group>"; };
+		2A11FC191AE37F4E00507496 /* suspension.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suspension.png; sourceTree = "<group>"; };
+		2A11FC1B1AE37F5F00507496 /* wiper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wiper.png; sourceTree = "<group>"; };
 		2A3160251A882EBE0014E19D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		2A3160261A882EBE0014E19D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2A3160281A8C4E470014E19D /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -552,6 +578,16 @@
 		B64620D11A2C475900523159 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2A11FC1B1AE37F5F00507496 /* wiper.png */,
+				2A11FC191AE37F4E00507496 /* suspension.png */,
+				2A11FC171AE37F1D00507496 /* heat.jpg */,
+				2A11FC151AE37F1000507496 /* belts.png */,
+				2A11FC111AE37A0A00507496 /* tire.png */,
+				2A11FC121AE37A0A00507496 /* transmission.png */,
+				2A11FC0F1AE379F600507496 /* oil.png */,
+				2A11FC0D1AE379EB00507496 /* muffler.png */,
+				2A11FC0B1AE379D700507496 /* filter.png */,
+				2A11FC091AE379C700507496 /* brakes.jpg */,
 				B60771F91AD51C1600008C9C /* images.png */,
 				B60771FB1AD51C3000008C9C /* year.png */,
 				B60771FD1AD51C7000008C9C /* color.png */,
@@ -681,6 +717,8 @@
 				B686B1D51A8B0B2500928565 /* InventoryViewController.m */,
 				B6A048891A8C4D3B00C0F8D7 /* VehicleViewController.h */,
 				B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */,
+				2A11FC031AE06C5B00507496 /* ServiceViewController.h */,
+				2A11FC041AE06C5B00507496 /* ServiceViewController.m */,
 				B624495C1A74047400FEE0D0 /* SpecialsViewController.h */,
 				B624495D1A74047400FEE0D0 /* SpecialsViewController.m */,
 				B61D6D821A775F0B0065DC4A /* ComingSoonViewController.h */,
@@ -781,6 +819,8 @@
 				B624491A1A737B2600FEE0D0 /* vehicleCell.m */,
 				B60771F61AD50DC400008C9C /* vehicleDetailCell.h */,
 				B60771F71AD50DC400008C9C /* vehicleDetailCell.m */,
+				2A11FC061AE06CAF00507496 /* serviceCell.h */,
+				2A11FC071AE06CAF00507496 /* serviceCell.m */,
 				2AC9D0261A9C3D20007E6228 /* videoCell.h */,
 				2AC9D0271A9C3D21007E6228 /* videoCell.m */,
 			);
@@ -915,6 +955,7 @@
 				2AC9D0121A9A7C7D007E6228 /* lights_blur.jpg in Resources */,
 				2A7AA1E11ACF9EC1000B7FAE /* drum01.mp3 in Resources */,
 				B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */,
+				2A11FC181AE37F1D00507496 /* heat.jpg in Resources */,
 				B62449791A74600A00FEE0D0 /* wavelink.png in Resources */,
 				B6A048991A8C818700C0F8D7 /* backgroundC.png in Resources */,
 				B65C7B1F1AB12DA900B7F36A /* ProgressHUD.bundle in Resources */,
@@ -927,10 +968,13 @@
 				B64620DD1A2C4EF700523159 /* launch.jpg in Resources */,
 				B62A84571A2EC68200B6A799 /* 2015-cls-class.jpg in Resources */,
 				B64620D31A2C479000523159 /* logo-tagline-white.png in Resources */,
+				2A11FC1A1AE37F4E00507496 /* suspension.png in Resources */,
 				B61D6D861A7773010065DC4A /* unchecked.png in Resources */,
 				2A7AA1ED1AD4CFC8000B7FAE /* car_start.mp3 in Resources */,
 				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
 				B60772041AD51CFC00008C9C /* cylinders.png in Resources */,
+				2A11FC1C1AE37F5F00507496 /* wiper.png in Resources */,
+				2A11FC131AE37A0A00507496 /* tire.png in Resources */,
 				B61D6D8A1A7773220065DC4A /* checked.png in Resources */,
 				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B62449201A738A9D00FEE0D0 /* showroom.png in Resources */,
@@ -940,11 +984,14 @@
 				B624497D1A7465D900FEE0D0 /* wavelink-grayscale.png in Resources */,
 				B6DA2F3C1A73555A004D646E /* contact.png in Resources */,
 				2ADE8E731AAE9932005F1EAE /* thumb.png in Resources */,
+				2A11FC141AE37A0A00507496 /* transmission.png in Resources */,
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
+				2A11FC0E1AE379EB00507496 /* muffler.png in Resources */,
 				B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */,
 				B686B1DA1A8B440800928565 /* empty.png in Resources */,
 				2A31602F1A8C525E0014E19D /* share.png in Resources */,
 				B62449831A74736A00FEE0D0 /* specials.png in Resources */,
+				2A11FC0A1AE379C700507496 /* brakes.jpg in Resources */,
 				B65C7B241AB299C400B7F36A /* facebook.png in Resources */,
 				B6A048951A8C810500C0F8D7 /* backgroundA.png in Resources */,
 				B62449891A7475F100FEE0D0 /* phone.png in Resources */,
@@ -963,7 +1010,10 @@
 				2AC9D0781AA57911007E6228 /* video.png in Resources */,
 				B65C7B261AB299C900B7F36A /* twitter.png in Resources */,
 				B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */,
+				2A11FC101AE379F600507496 /* oil.png in Resources */,
 				B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */,
+				2A11FC0C1AE379D700507496 /* filter.png in Resources */,
+				2A11FC161AE37F1000507496 /* belts.png in Resources */,
 				B60771FE1AD51C7000008C9C /* color.png in Resources */,
 				B60772081AD521D600008C9C /* stock.png in Resources */,
 				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
@@ -1024,6 +1074,7 @@
 				2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */,
 				B624493E1A7391C800FEE0D0 /* AFURLConnectionOperation.m in Sources */,
 				2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */,
+				2A11FC051AE06C5B00507496 /* ServiceViewController.m in Sources */,
 				B61CCC911AA2BD6200A24F45 /* WSCoachMarksView.m in Sources */,
 				B65C7B221AB1763900B7F36A /* UrlViewController.m in Sources */,
 				2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */,
@@ -1044,6 +1095,7 @@
 				2ADE8E761AB28217005F1EAE /* YoutubeViewController.m in Sources */,
 				B62449651A740C1900FEE0D0 /* User.m in Sources */,
 				B624493D1A7391C800FEE0D0 /* AFSecurityPolicy.m in Sources */,
+				2A11FC081AE06CAF00507496 /* serviceCell.m in Sources */,
 				B62449751A74343600FEE0D0 /* AddressAnnotation.m in Sources */,
 				2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */,
 				B62449581A7391D200FEE0D0 /* UIImageView+AFNetworking.m in Sources */,

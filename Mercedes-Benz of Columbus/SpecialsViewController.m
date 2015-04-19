@@ -53,10 +53,10 @@
      */
     
     specialsData = [@[
-                      @{ @"title" : @"New Vehicle Offers", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" },
-                      @{ @"title" : @"Certified Pre-Owned Offers", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/specials/pre-owned_car_specials/certified_pre-owned_specials" },
+                      @{ @"title" : @"Mercedes Benz of Columbus", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" },
+//                      @{ @"title" : @"Certified Pre-Owned Offers", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/specials/pre-owned_car_specials/certified_pre-owned_specials" },
                       @{ @"title" : @"U.S. Military Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"flag.jpg", @"segue" : @"urlSegue", @"url" : @"https://usaa2.secure.zag.com/targetedincentives/promo.html?makeGroup=mercedes-benzGroup&makeName=mercedes-benz&referrer_id=ZUSA200092" },
-                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" }
+//                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" }
                       ] mutableCopy];
     [self.tableView reloadData];
 }

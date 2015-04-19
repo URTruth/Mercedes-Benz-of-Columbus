@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Video View Controller-->
@@ -84,6 +84,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eXU-HZ-VfU" id="8Y5-mq-5Xg">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="UBZ-uI-xHm" kind="show" identifier="historySegue" id="5NR-VW-hzA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -319,6 +322,32 @@
             </objects>
             <point key="canvasLocation" x="171" y="70"/>
         </scene>
+        <!--Service View Controller-->
+        <scene sceneID="VLE-X9-Cb2">
+            <objects>
+                <tableViewController id="UBZ-uI-xHm" customClass="ServiceViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fZN-zT-ZPX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mLq-L4-o6Z">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mLq-L4-o6Z" id="ALt-0b-gnF">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UBZ-uI-xHm" id="6xV-9v-XDU"/>
+                            <outlet property="delegate" destination="UBZ-uI-xHm" id="hBI-28-74i"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ztc-LW-yLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1626" y="70"/>
+        </scene>
         <!--Coming Soon View Controller-->
         <scene sceneID="XA2-M9-8Yq">
             <objects>
@@ -493,12 +522,12 @@
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ar9-kF-kUV"/>
         <segue reference="Dri-5F-uCy"/>
         <segue reference="GCh-dz-IkF"/>
-        <segue reference="DIW-CX-lKn"/>
+        <segue reference="ar9-kF-kUV"/>
+        <segue reference="MbM-ac-4wh"/>
         <segue reference="2q8-qA-WWb"/>
         <segue reference="kBa-QG-ckC"/>
-        <segue reference="MbM-ac-4wh"/>
+        <segue reference="1G0-6a-9av"/>
     </inferredMetricsTieBreakers>
 </document>

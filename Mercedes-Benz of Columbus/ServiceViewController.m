@@ -51,17 +51,17 @@
     self.tableView.backgroundColor = [UIColor blackColor];
     
     historyData = [@[
-                    @{ @"name" : @"Oil Change and Fluids", @"icon" : @"oil.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Tires and Tire Repair", @"icon" : @"tire.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Transmission", @"icon" : @"transmission.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Engine", @"icon" : @"engine.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Brakes and Brake Repair", @"icon" : @"brakes.jpg", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Filters", @"icon" : @"filter.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Mufflers and Exhaust", @"icon" : @"muffler.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Belts and Hoses", @"icon" : @"belts.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Lights, Wipers and Accessories Repair", @"icon" : @"wiper.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Steering and Suspension", @"icon" : @"suspension.png", @"key" : @"n/a", @"segue" : @"n/a" },
-                    @{ @"name" : @"Car Heating and A/C", @"icon" : @"heat.jpg", @"key" : @"n/a", @"segue" : @"n/a" },
+                    @{ @"name" : @"Oil Change and Fluids", @"icon" : @"oil.png", @"key" : @"description_1", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Tires and Tire Repair", @"icon" : @"tire.png", @"key" : @"description_2", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Transmission", @"icon" : @"transmission.png", @"key" : @"description_3", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Engine", @"icon" : @"engine.png", @"key" : @"description_4", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Brakes and Brake Repair", @"icon" : @"brakes.jpg", @"key" : @"description_5", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Filters", @"icon" : @"filter.png", @"key" : @"description_6", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Mufflers and Exhaust", @"icon" : @"muffler.png", @"key" : @"description_7", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Belts and Hoses", @"icon" : @"belts.png", @"key" : @"description_8", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Lights, Wipers and Accessories Repair", @"icon" : @"wiper.png", @"key" : @"description_9", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Steering and Suspension", @"icon" : @"suspension.png", @"key" : @"description_10", @"segue" : @"historySegue" },
+                    @{ @"name" : @"Car Heating and A/C", @"icon" : @"heat.jpg", @"key" : @"description_11", @"segue" : @"historySegue" },
                     ] mutableCopy];
     
     [self refresh];

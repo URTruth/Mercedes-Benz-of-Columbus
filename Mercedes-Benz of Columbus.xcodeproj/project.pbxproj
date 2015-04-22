@@ -22,6 +22,8 @@
 		2A3160271A882EBE0014E19D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3160261A882EBE0014E19D /* SettingsViewController.m */; };
 		2A3160291A8C4E470014E19D /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3160281A8C4E470014E19D /* arrow.png */; };
 		2A31602F1A8C525E0014E19D /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A31602E1A8C525E0014E19D /* share.png */; };
+		2A7587091AE74C7200154352 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7587081AE74C7200154352 /* HistoryViewController.m */; };
+		2A75870C1AE74C9800154352 /* historyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A75870B1AE74C9800154352 /* historyCell.m */; };
 		2A7AA1DB1ACF9442000B7FAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */; };
 		2A7AA1E11ACF9EC1000B7FAE /* drum01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E01ACF9EC1000B7FAE /* drum01.mp3 */; };
 		2A7AA1E31AD4C3E6000B7FAE /* barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7AA1E21AD4C3E6000B7FAE /* barcode.png */; };
@@ -189,6 +191,10 @@
 		2A3160261A882EBE0014E19D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2A3160281A8C4E470014E19D /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		2A31602E1A8C525E0014E19D /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		2A7587071AE74C7200154352 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		2A7587081AE74C7200154352 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		2A75870A1AE74C9800154352 /* historyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyCell.h; sourceTree = "<group>"; };
+		2A75870B1AE74C9800154352 /* historyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historyCell.m; sourceTree = "<group>"; };
 		2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2A7AA1E01ACF9EC1000B7FAE /* drum01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drum01.mp3; sourceTree = "<group>"; };
 		2A7AA1E21AD4C3E6000B7FAE /* barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barcode.png; sourceTree = "<group>"; };
@@ -719,6 +725,8 @@
 				B6A0488A1A8C4D3B00C0F8D7 /* VehicleViewController.m */,
 				2A11FC031AE06C5B00507496 /* ServiceViewController.h */,
 				2A11FC041AE06C5B00507496 /* ServiceViewController.m */,
+				2A7587071AE74C7200154352 /* HistoryViewController.h */,
+				2A7587081AE74C7200154352 /* HistoryViewController.m */,
 				B624495C1A74047400FEE0D0 /* SpecialsViewController.h */,
 				B624495D1A74047400FEE0D0 /* SpecialsViewController.m */,
 				B61D6D821A775F0B0065DC4A /* ComingSoonViewController.h */,
@@ -821,6 +829,8 @@
 				B60771F71AD50DC400008C9C /* vehicleDetailCell.m */,
 				2A11FC061AE06CAF00507496 /* serviceCell.h */,
 				2A11FC071AE06CAF00507496 /* serviceCell.m */,
+				2A75870A1AE74C9800154352 /* historyCell.h */,
+				2A75870B1AE74C9800154352 /* historyCell.m */,
 				2AC9D0261A9C3D20007E6228 /* videoCell.h */,
 				2AC9D0271A9C3D21007E6228 /* videoCell.m */,
 			);
@@ -1058,6 +1068,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A75870C1AE74C9800154352 /* historyCell.m in Sources */,
 				B62449591A7391D200FEE0D0 /* UIProgressView+AFNetworking.m in Sources */,
 				B61CCC401AA180AB00A24F45 /* ACSimpleKeychain.m in Sources */,
 				B62449681A7424D600FEE0D0 /* AppointmentViewController.m in Sources */,
@@ -1113,6 +1124,7 @@
 				B6DA2F271A71F75D004D646E /* menuCell.m in Sources */,
 				B61CCC661AA181AF00A24F45 /* Appirater.m in Sources */,
 				B62449401A7391C800FEE0D0 /* AFURLResponseSerialization.m in Sources */,
+				2A7587091AE74C7200154352 /* HistoryViewController.m in Sources */,
 				B69628471AA3E8C800DC7A50 /* VPImageCropperViewController.m in Sources */,
 				B62449571A7391D200FEE0D0 /* UIButton+AFNetworking.m in Sources */,
 				B60771F81AD50DC400008C9C /* vehicleDetailCell.m in Sources */,

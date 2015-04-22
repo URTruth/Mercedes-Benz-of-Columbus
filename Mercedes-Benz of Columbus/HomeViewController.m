@@ -66,7 +66,7 @@
                 @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"showroomSegue", @"url" : @"n/a" },
                 @{ @"name" : @"My Vehicle", @"icon" : @"account.png", @"badge" : @"0", @"segue" : @"signInSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Request Service", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"historySegue", @"url" : @"n/a" },
+                @{ @"name" : @"Request Service", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"serviceSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Genuine Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"4", @"segue" : @"videoSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },

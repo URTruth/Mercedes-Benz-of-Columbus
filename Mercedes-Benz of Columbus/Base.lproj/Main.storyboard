@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -84,9 +84,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eXU-HZ-VfU" id="8Y5-mq-5Xg">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="UBZ-uI-xHm" kind="show" identifier="historySegue" id="5NR-VW-hzA"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -109,11 +106,12 @@
                         <segue destination="waH-bg-SRa" kind="show" identifier="videoSegue" id="lcz-Mf-Lw4"/>
                         <segue destination="ht2-fn-SnX" kind="show" identifier="roadsideSegue" id="Ov5-g3-piX"/>
                         <segue destination="Ugq-Xi-SkO" kind="show" identifier="urlSegue" id="2q8-qA-WWb"/>
+                        <segue destination="UBZ-uI-xHm" kind="show" identifier="serviceSegue" id="k01-Ci-VzG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="794"/>
+            <point key="canvasLocation" x="171" y="758"/>
         </scene>
         <!--Dealership View Controller-->
         <scene sceneID="zOp-gY-i9W">
@@ -343,10 +341,39 @@
                             <outlet property="delegate" destination="UBZ-uI-xHm" id="hBI-28-74i"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="8oE-bz-3RU" kind="show" identifier="historySegue" id="eJA-5y-QM6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztc-LW-yLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626" y="70"/>
+            <point key="canvasLocation" x="1656" y="-56"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="gen-Gi-a1L">
+            <objects>
+                <tableViewController id="8oE-bz-3RU" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h83-0z-fas">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CGV-HX-uv4">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CGV-HX-uv4" id="VyJ-4R-g15">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8oE-bz-3RU" id="AkF-ct-QfZ"/>
+                            <outlet property="delegate" destination="8oE-bz-3RU" id="Wpd-CK-4Gu"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1JU-gq-m3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="-56"/>
         </scene>
         <!--Coming Soon View Controller-->
         <scene sceneID="XA2-M9-8Yq">
@@ -364,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Pn-EVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968" y="62"/>
+            <point key="canvasLocation" x="936" y="-56"/>
         </scene>
         <!--Showroom View Controller-->
         <scene sceneID="Gya-1b-Gvd">
@@ -522,12 +549,12 @@
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dri-5F-uCy"/>
-        <segue reference="GCh-dz-IkF"/>
-        <segue reference="ar9-kF-kUV"/>
+        <segue reference="KMS-yO-wKX"/>
         <segue reference="MbM-ac-4wh"/>
-        <segue reference="2q8-qA-WWb"/>
-        <segue reference="kBa-QG-ckC"/>
+        <segue reference="ar9-kF-kUV"/>
         <segue reference="1G0-6a-9av"/>
+        <segue reference="kBa-QG-ckC"/>
+        <segue reference="wbu-yM-3Cj"/>
+        <segue reference="GCh-dz-IkF"/>
     </inferredMetricsTieBreakers>
 </document>

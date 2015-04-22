@@ -40,7 +40,8 @@
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
-    [self.view addSubview:[Common headerWithTitle:title withIcon:[UIImage imageNamed:image] withBackground:[UIImage imageNamed:@"backgroundC.png"]]];
+    [self.view addSubview:[Common headerWithTitle: title withIcon:[UIImage imageNamed:image]
+            withBackground:[UIImage imageNamed:@"backgroundC.png"]]];
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;

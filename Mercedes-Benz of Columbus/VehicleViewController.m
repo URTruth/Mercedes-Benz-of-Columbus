@@ -94,114 +94,123 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return ([vehicleData count] > 0 ? 3 : 1);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: return 1;
         case 1: return 1;
-        case 2: return [detailData count];
+        case 2: return ([vehicleData count] > 0 ? [detailData count] : 0);
         default: return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary* vehicleItem = [vehicleData objectAtIndex:0];
-    
-    if(indexPath.section == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"presentationCell"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"presentationCell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
-            cell.contentView.clipsToBounds = YES;
-            cell.clipsToBounds = YES;
-            
-            vehicleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
-            [vehicleImageView setContentMode:UIViewContentModeScaleAspectFill];
-            [cell addSubview:vehicleImageView];
-            
-            UIImageView *text_veil = [[UIImageView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.width - [UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
-            [text_veil setContentMode:UIViewContentModeScaleAspectFill];
-            [text_veil setImage:[UIImage imageNamed:@"text-veil.png"]];
-            [cell addSubview:text_veil];
-            
-            int vehicleNameFont = 24;
-            vehicleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, text_veil.frame.size.height/4/1.75, [UIScreen mainScreen].bounds.size.width - 40, vehicleNameFont)];
-            [vehicleNameLabel setFont:[UIFont fontWithName:LIGHT_FONT size:vehicleNameFont]];
-            [vehicleNameLabel setTextColor:[UIColor whiteColor]];
-            [text_veil addSubview:vehicleNameLabel];
-            
-            int vehiclePriceFont = 17;
-            vehiclePriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, vehicleNameLabel.frame.origin.y + vehicleNameLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width/2 - 20, vehiclePriceFont)];
-            [vehiclePriceLabel setFont:[UIFont fontWithName:BOLD_FONT size:vehiclePriceFont]];
-            [vehiclePriceLabel setTextColor:[UIColor greenSeaColor]];
-            [text_veil addSubview:vehiclePriceLabel];
-        }
+    if([vehicleData count] > 0) {
+        NSDictionary* vehicleItem = [vehicleData objectAtIndex:0];
         
-        NSString *stringOfUrls = [vehicleItem objectForKey:@"urls"];
-        imageUrls = (![stringOfUrls isEqual:[NSNull null]]) ? [([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
-        [vehicleImageView setImageWithURL:[NSURL URLWithString:[imageUrls objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
-        
-        [vehicleNameLabel setText:[vehicleItem objectForKey:@"name"]];
-        
-        [vehiclePriceLabel setText:[vehicleItem objectForKey:@"price"]];
-        
-        return cell;
-    }
-    
-    if(indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"buttonCell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
-            cell.contentView.clipsToBounds = YES;
-            cell.clipsToBounds = YES;
+        if(indexPath.section == 0) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"presentationCell"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"presentationCell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
+                cell.contentView.clipsToBounds = YES;
+                cell.clipsToBounds = YES;
+                
+                vehicleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
+                [vehicleImageView setContentMode:UIViewContentModeScaleAspectFill];
+                [cell addSubview:vehicleImageView];
+                
+                UIImageView *text_veil = [[UIImageView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.width - [UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width)];
+                [text_veil setContentMode:UIViewContentModeScaleAspectFill];
+                [text_veil setImage:[UIImage imageNamed:@"text-veil.png"]];
+                [cell addSubview:text_veil];
+                
+                int vehicleNameFont = 24;
+                vehicleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, text_veil.frame.size.height/4/1.75, [UIScreen mainScreen].bounds.size.width - 40, vehicleNameFont)];
+                [vehicleNameLabel setFont:[UIFont fontWithName:LIGHT_FONT size:vehicleNameFont]];
+                [vehicleNameLabel setTextColor:[UIColor whiteColor]];
+                [text_veil addSubview:vehicleNameLabel];
+                
+                int vehiclePriceFont = 17;
+                vehiclePriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, vehicleNameLabel.frame.origin.y + vehicleNameLabel.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width/2 - 20, vehiclePriceFont)];
+                [vehiclePriceLabel setFont:[UIFont fontWithName:BOLD_FONT size:vehiclePriceFont]];
+                [vehiclePriceLabel setTextColor:[UIColor greenSeaColor]];
+                [text_veil addSubview:vehiclePriceLabel];
+            }
             
-            FUIButton * callButton = [Common buttonWithText:@"Call" color:[UIColor greenSeaColor] frame:CGRectMake(15, 10, [UIScreen mainScreen].bounds.size.width/2 - 20, 40)];
-            [callButton addTarget:self action:@selector(callButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:callButton];
-            
-            FUIButton * quoteButton = [Common buttonWithText:@"Request Quote" color:[UIColor asbestosColor] frame:CGRectMake(callButton.frame.origin.x + callButton.frame.size.width + 10, 10, [UIScreen mainScreen].bounds.size.width/2 - 20, 40)];
-            [quoteButton addTarget:self action:@selector(quoteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:quoteButton];
-        }
-        
-        return cell;
-    }
-    
-    if(indexPath.section == 2) {
-        static NSString *vehicleDetailCellIdentifier = @"vehicleDetailCell";
-        vehicleDetailCell *cell = (vehicleDetailCell *)[tableView dequeueReusableCellWithIdentifier:vehicleDetailCellIdentifier];
-        if (cell == nil){ cell = [[vehicleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleDetailCellIdentifier]; }
-      
-        NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
-        [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
-        [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
-        
-        if([[detailItem objectForKey:@"key"] isEqualToString:@"urls"]) {
             NSString *stringOfUrls = [vehicleItem objectForKey:@"urls"];
-            int count = (![stringOfUrls isEqual:[NSNull null]]) ? [[([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] count] : 0;
-            cell.auxLabel.text = [NSString stringWithFormat:@"(%d)", count];
-            cell.arrowLabel.alpha = 1;
-        } else {
-            [cell.auxLabel setText:(![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqual:[NSNull null]] && ![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqualToString:@""]) ? [vehicleItem objectForKey:[detailItem objectForKey:@"key"]] : @"--"];
-            cell.arrowLabel.alpha = 0;
+            imageUrls = (![stringOfUrls isEqual:[NSNull null]]) ? [([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] : [[NSArray alloc] initWithObjects:@"", nil];
+            [vehicleImageView setImageWithURL:[NSURL URLWithString:[imageUrls objectAtIndex: 0]] placeholderImage:[UIImage imageNamed:@"no-vehicle-image.png"]];
+            
+            [vehicleNameLabel setText:[vehicleItem objectForKey:@"name"]];
+            
+            [vehiclePriceLabel setText:[vehicleItem objectForKey:@"price"]];
+            
+            return cell;
         }
+        
+        if(indexPath.section == 1) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"buttonCell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
+                cell.contentView.clipsToBounds = YES;
+                cell.clipsToBounds = YES;
+                
+                FUIButton * callButton = [Common buttonWithText:@"Call" color:[UIColor greenSeaColor] frame:CGRectMake(15, 10, [UIScreen mainScreen].bounds.size.width/2 - 20, 40)];
+                [callButton addTarget:self action:@selector(callButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [cell addSubview:callButton];
+                
+                FUIButton * quoteButton = [Common buttonWithText:@"Request Quote" color:[UIColor asbestosColor] frame:CGRectMake(callButton.frame.origin.x + callButton.frame.size.width + 10, 10, [UIScreen mainScreen].bounds.size.width/2 - 20, 40)];
+                [quoteButton addTarget:self action:@selector(quoteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [cell addSubview:quoteButton];
+            }
+            
+            return cell;
+        }
+        
+        if(indexPath.section == 2) {
+            static NSString *vehicleDetailCellIdentifier = @"vehicleDetailCell";
+            vehicleDetailCell *cell = (vehicleDetailCell *)[tableView dequeueReusableCellWithIdentifier:vehicleDetailCellIdentifier];
+            if (cell == nil){ cell = [[vehicleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleDetailCellIdentifier]; }
+          
+            NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
+            [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
+            [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
+            
+            if([[detailItem objectForKey:@"key"] isEqualToString:@"urls"]) {
+                NSString *stringOfUrls = [vehicleItem objectForKey:@"urls"];
+                int count = (![stringOfUrls isEqual:[NSNull null]]) ? [[([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] count] : 0;
+                cell.auxLabel.text = [NSString stringWithFormat:@"(%d)", count];
+                cell.arrowLabel.alpha = 1;
+            } else {
+                [cell.auxLabel setText:(![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqual:[NSNull null]] && ![[vehicleItem objectForKey:[detailItem objectForKey:@"key"]] isEqualToString:@""]) ? [vehicleItem objectForKey:[detailItem objectForKey:@"key"]] : @"--"];
+                cell.arrowLabel.alpha = 0;
+            }
 
-        return cell;
+            return cell;
+        }
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
-    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+    vehicleDetailCell *cell = [[vehicleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    [cell.photoImageView setImage:[UIImage imageNamed:@"warranty.png"]];
+    CGRect photoFrame = cell.photoImageView.frame;
+    cell.photoImageView.frame = CGRectMake(photoFrame.origin.x, photoFrame.origin.y + 45, photoFrame.size.width, photoFrame.size.height);
+    [cell.nameLabel setText:@"No data found."];
+    CGRect nameFrame = cell.nameLabel.frame;
+    cell.nameLabel.frame = CGRectMake(nameFrame.origin.x, nameFrame.origin.y + 52, nameFrame.size.width, nameFrame.size.height);
+    cell.auxLabel.text = @"";
+    cell.arrowLabel.alpha = 0;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [UIScreen mainScreen].bounds.size.width;
+        return ([vehicleData count] > 0 ? [UIScreen mainScreen].bounds.size.width : 800);
     }
     if(indexPath.section == 1) {
         return 62;

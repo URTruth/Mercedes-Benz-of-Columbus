@@ -7,6 +7,7 @@
 //
 
 #import "ServiceViewController.h"
+#import "HistoryViewController.h"
 #import "serviceCell.h"
 #import "Common.h"
 
@@ -21,11 +22,8 @@
 
 @implementation ServiceViewController
 @synthesize vin;
-@synthesize number;
+@synthesize order_number;
 @synthesize serviceData;
-@synthesize historyData;
-@synthesize _photoBrowser;
-@synthesize imageUrls;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,49 +46,32 @@
     self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
-    self.tableView.backgroundColor = [UIColor blackColor];
-    
-    historyData = [@[
-                    @{ @"name" : @"Oil Change and Fluids", @"icon" : @"oil.png", @"key" : @"description_1", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Tires and Tire Repair", @"icon" : @"tire.png", @"key" : @"description_2", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Transmission", @"icon" : @"transmission.png", @"key" : @"description_3", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Engine", @"icon" : @"engine.png", @"key" : @"description_4", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Brakes and Brake Repair", @"icon" : @"brakes.jpg", @"key" : @"description_5", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Filters", @"icon" : @"filter.png", @"key" : @"description_6", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Mufflers and Exhaust", @"icon" : @"muffler.png", @"key" : @"description_7", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Belts and Hoses", @"icon" : @"belts.png", @"key" : @"description_8", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Lights, Wipers and Accessories Repair", @"icon" : @"wiper.png", @"key" : @"description_9", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Steering and Suspension", @"icon" : @"suspension.png", @"key" : @"description_10", @"segue" : @"historySegue" },
-                    @{ @"name" : @"Car Heating and A/C", @"icon" : @"heat.jpg", @"key" : @"description_11", @"segue" : @"historySegue" },
-                    ] mutableCopy];
+    self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
     [self refresh];
-
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-//    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-//    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Vehicle page" forKey:kGAIScreenName] build]];
+    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Inventory page" forKey:kGAIScreenName] build]];
 }
 
 - (void)refresh {
-//    // Send a asynchronous request for the initial menu data
-//    [ProgressHUD show:@"Loading.."];
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *parameters = @{@"vin": vin};
-//    [manager POST:@"http://www.wavelinkllc.com/mboc/get_vehicle.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        serviceData = responseObject;
-//        [self.tableView reloadData];
-//        [ProgressHUD dismiss];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [ProgressHUD dismiss];
-//        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-//    }];
+    // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading..."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"next": @0, @"vin": vin};
+    [manager POST:@"http://www.wavelinkllc.com/mboc/get_services.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        serviceData = responseObject;
+        [self.tableView reloadData];
+        [ProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 3;
 }
 
@@ -98,15 +79,14 @@
     switch (section) {
         case 0: return 1;
         case 1: return 1;
-        case 2: return [historyData count];
+        case 2: return [serviceData count];
         default: return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary* serviceItem = [serviceData objectAtIndex:0];
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:@"Service History" withIcon:[UIImage imageNamed:@"service.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
+        return [Common headerOfType:Default withTitle:@"Service History" withIcon:[UIImage imageNamed:@"showroom.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
     }
     
     if(indexPath.section == 1) {
@@ -116,30 +96,19 @@
     if(indexPath.section == 2) {
         static NSString *serviceCellIdentifier = @"serviceCell";
         serviceCell *cell = (serviceCell *)[tableView dequeueReusableCellWithIdentifier:serviceCellIdentifier];
-        if (cell == nil){ cell = [[serviceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:serviceCellIdentifier];
-        }
+        if (cell == nil){ cell = [[serviceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:serviceCellIdentifier]; }
         
-        NSDictionary* detailItem = [historyData objectAtIndex:indexPath.row];
-        [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
-        [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
-        
-        if([[detailItem objectForKey:@"key"] isEqualToString:@"urls"]) {
-            NSString *stringOfUrls = [serviceItem objectForKey:@"urls"];
-            int count = (![stringOfUrls isEqual:[NSNull null]]) ? [[([stringOfUrls hasSuffix:@","]) ? [stringOfUrls substringToIndex:[stringOfUrls length] - 1] : stringOfUrls componentsSeparatedByString: @","] count] : 0;
-            cell.auxLabel.text = [NSString stringWithFormat:@"(%d)", count];
-            cell.arrowLabel.alpha = 1;
-        } else {
-            [cell.auxLabel setText:(![[serviceItem objectForKey:[detailItem objectForKey:@"key"]] isEqual:[NSNull null]] && ![[serviceItem objectForKey:[detailItem objectForKey:@"key"]] isEqualToString:@""]) ? [serviceItem objectForKey:[detailItem objectForKey:@"key"]] : @"--"];
-            cell.arrowLabel.alpha = 0;
-        }
-        
+        NSDictionary* serviceItem = [serviceData objectAtIndex:indexPath.row];
+        [cell.descriptionLabel setText:[serviceItem objectForKey:@"description_1"]];
+        [cell.dateLabel setText:[serviceItem objectForKey:@"price"]];
+        [cell.auxLabel setText:[serviceItem objectForKey:@"vin"]];
         return cell;
+    }
     
-    }
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
-        if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
-        return cell;
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
+    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+    return cell;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
@@ -149,73 +118,25 @@
         return 0;
     }
     if(indexPath.section == 2) {
-        return 78;
+        return 88;
     }
     return 0;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(indexPath.section == 1) {
-//        [self.photoBrowser show];
-//    }
-//    if(indexPath.section == 2) {
-//        NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
-//        if([[detailItem objectForKey:@"key"] isEqualToString:@"urls"]) {
-//            [self.photoBrowser show];
-//        }
-//    }
-}
-
-//- (NSInteger)numberOfPhotosForPhotoBrowser:(AGPhotoBrowserView *)photoBrowser {
-//    return [imageUrls count];
-//}
-//
-//- (UIImage *)photoBrowser:(AGPhotoBrowserView *)photoBrowser imageAtIndex:(NSInteger)index {
-//    return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[imageUrls objectAtIndex: index]]]];
-//}
-//
-//- (NSString *)photoBrowser:(AGPhotoBrowserView *)photoBrowser titleForImageAtIndex:(NSInteger)index
-//{
-//    return [NSString stringWithFormat:@"Image %d", index + 1];
-//}
-//
-//- (NSString *)photoBrowser:(AGPhotoBrowserView *)photoBrowser descriptionForImageAtIndex:(NSInteger)index
-//{
-//    return [[vehicleData objectAtIndex:0] objectForKey:@"name"];
-//}
-//
-//- (void)photoBrowser:(AGPhotoBrowserView *)photoBrowser didTapOnDoneButton:(UIButton *)doneButton
-//{
-//    [self.photoBrowser hideWithCompletion:^(BOOL finished){
-//        
-//    }];
-//}
-
-//- (AGPhotoBrowserView *)photoBrowser
-//{
-//    if (!_photoBrowser) {
-//        _photoBrowser = [[AGPhotoBrowserView alloc] initWithFrame:CGRectZero];
-//        _photoBrowser.delegate = self;
-//        _photoBrowser.dataSource = self;
-//    }
-//    
-//    return _photoBrowser;
-//}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"historySegue"]){
-        ServiceViewController *dest = (ServiceViewController *)[segue destinationViewController];
-     //   dest.vin = vin;
+    if(indexPath.section == 2) {
+        NSDictionary* serviceItem = [serviceData objectAtIndex:indexPath.row];
+        order_number = [serviceItem objectForKey:@"order_number"];
+        [self performSegueWithIdentifier:@"historySegue" sender:self];
     }
 }
 
-//- (void) callButtonClicked:(id)sender {
-//    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:number]]];
-//}
-
-- (void) quoteButtonClicked:(id)sender {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"historySegue"]){
+        HistoryViewController *dest = (HistoryViewController *)[segue destinationViewController];
+        dest.order_number = order_number;
+    }
 }
 
 - (IBAction)optionsButtonClicked:(id)sender {

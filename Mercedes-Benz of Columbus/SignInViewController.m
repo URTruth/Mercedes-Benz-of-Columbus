@@ -119,7 +119,7 @@
 - (void)handleDigitsResponse:(DGTSession *)session error:(NSError *)error {
     if (session) {
         NSLog(@"signed in as %@", [session phoneNumber]);
-        if ([[Twitter sharedInstance] session]) {
+        if ([[Digits sharedInstance] session]) {
             [User sharedInstance].digitsId = [session userID];
             [User sharedInstance].phone = [session phoneNumber];
             [self login];

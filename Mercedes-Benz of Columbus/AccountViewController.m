@@ -8,6 +8,8 @@
 
 #import "AccountViewController.h"
 #import "HomeViewController.h"
+#import "VehicleViewController.h"
+#import "ServiceViewController.h"
 #import "UrlViewController.h"
 #import "menuCell.h"
 #import "specialsCell.h"
@@ -62,8 +64,8 @@
      */
     
     menuData = [@[
-                  @{ @"name" : @"My Vehicle", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
-                  @{ @"name" : @"Service History", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"My Vehicle", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"vehicleSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Service History", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"serviceSegue", @"url" : @"n/a" },
                   @{ @"name" : @"Share This App", @"icon" : @"specials.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
                   @{ @"name" : @"Logout", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"logoutSegue", @"url" : @"n/a" }
                   ] mutableCopy];
@@ -157,6 +159,12 @@
         dest.url = [NSURL URLWithString:[menuItem objectForKey:@"url"]];
         dest.title = [menuItem objectForKey:@"name"];
         dest.image = [menuItem objectForKey:@"icon"];
+    } else if([segue.identifier isEqualToString:@"vehicleSegue"]){
+        VehicleViewController *dest = (VehicleViewController *)[segue destinationViewController];
+        dest.vin = [User sharedInstance].vin;
+    } else if([segue.identifier isEqualToString:@"serviceSegue"]){
+        ServiceViewController *dest = (ServiceViewController *)[segue destinationViewController];
+        dest.vin = [User sharedInstance].vin;
     }
 }
 

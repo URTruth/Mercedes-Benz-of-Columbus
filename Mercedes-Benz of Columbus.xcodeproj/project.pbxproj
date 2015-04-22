@@ -51,9 +51,6 @@
 		2ADE8E731AAE9932005F1EAE /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE8E721AAE9932005F1EAE /* thumb.png */; };
 		2ADE8E761AB28217005F1EAE /* YoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8E751AB28217005F1EAE /* YoutubeViewController.m */; };
 		2AE777A01A2D4E5B00BA926D /* startPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */; };
-		2AE777A81A2D4EC200BA926D /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A41A2D4EC200BA926D /* image.jpg */; };
-		2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A51A2D4EC200BA926D /* logo.jpg */; };
-		2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A61A2D4EC200BA926D /* MercedesLogo.png */; };
 		2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE777A71A2D4EC200BA926D /* startBG.png */; };
 		B60771F81AD50DC400008C9C /* vehicleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60771F71AD50DC400008C9C /* vehicleDetailCell.m */; };
 		B60771FA1AD51C1600008C9C /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = B60771F91AD51C1600008C9C /* images.png */; };
@@ -118,8 +115,6 @@
 		B64620DD1A2C4EF700523159 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B64620DC1A2C4EF700523159 /* launch.jpg */; };
 		B64620E11A2C5B1700523159 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = B64620E01A2C5B1700523159 /* nav.png */; };
 		B64620E31A2C5C4B00523159 /* pre-owned-special.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */; };
-		B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211D1A2DA9AA00523159 /* facebook-login.png */; };
-		B64621201A2DA9AD00523159 /* google-login.png in Resources */ = {isa = PBXBuildFile; fileRef = B646211F1A2DA9AD00523159 /* google-login.png */; };
 		B64621221A2DB12F00523159 /* montage.png in Resources */ = {isa = PBXBuildFile; fileRef = B64621211A2DB12F00523159 /* montage.png */; };
 		B65C7B1F1AB12DA900B7F36A /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */; };
 		B65C7B221AB1763900B7F36A /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65C7B211AB1763900B7F36A /* UrlViewController.m */; };
@@ -232,9 +227,6 @@
 		2ADE8E751AB28217005F1EAE /* YoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeViewController.m; sourceTree = "<group>"; };
 		2AE7779E1A2D4E5B00BA926D /* startPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startPageViewController.h; sourceTree = "<group>"; };
 		2AE7779F1A2D4E5B00BA926D /* startPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startPageViewController.m; sourceTree = "<group>"; };
-		2AE777A41A2D4EC200BA926D /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
-		2AE777A51A2D4EC200BA926D /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
-		2AE777A61A2D4EC200BA926D /* MercedesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MercedesLogo.png; sourceTree = "<group>"; };
 		2AE777A71A2D4EC200BA926D /* startBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBG.png; sourceTree = "<group>"; };
 		B60771F61AD50DC400008C9C /* vehicleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vehicleDetailCell.h; sourceTree = "<group>"; };
 		B60771F71AD50DC400008C9C /* vehicleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vehicleDetailCell.m; sourceTree = "<group>"; };
@@ -366,8 +358,6 @@
 		B64620DC1A2C4EF700523159 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		B64620E01A2C5B1700523159 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
 		B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pre-owned-special.jpeg"; sourceTree = "<group>"; };
-		B646211D1A2DA9AA00523159 /* facebook-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-login.png"; sourceTree = "<group>"; };
-		B646211F1A2DA9AD00523159 /* google-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-login.png"; sourceTree = "<group>"; };
 		B64621211A2DB12F00523159 /* montage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montage.png; sourceTree = "<group>"; };
 		B65C7B1E1AB12DA900B7F36A /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		B65C7B201AB1763900B7F36A /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
@@ -646,17 +636,12 @@
 				B62449781A74600A00FEE0D0 /* wavelink.png */,
 				B624497A1A7464E000FEE0D0 /* wavelink-white.png */,
 				B624497C1A7465D900FEE0D0 /* wavelink-grayscale.png */,
-				B646211D1A2DA9AA00523159 /* facebook-login.png */,
 				2ADE8E6D1AAE936F005F1EAE /* flag.jpg */,
-				B646211F1A2DA9AD00523159 /* google-login.png */,
 				2ADE8E721AAE9932005F1EAE /* thumb.png */,
 				B64621211A2DB12F00523159 /* montage.png */,
 				B62A84521A2EBAD000B6A799 /* montage2.png */,
 				B62A84541A2EC68200B6A799 /* winter-event.jpg */,
 				B62A84551A2EC68200B6A799 /* 2015-cls-class.jpg */,
-				2AE777A41A2D4EC200BA926D /* image.jpg */,
-				2AE777A51A2D4EC200BA926D /* logo.jpg */,
-				2AE777A61A2D4EC200BA926D /* MercedesLogo.png */,
 				2AE777A71A2D4EC200BA926D /* startBG.png */,
 				B64620E21A2C5C4B00523159 /* pre-owned-special.jpeg */,
 				B64620E01A2C5B1700523159 /* nav.png */,
@@ -952,7 +937,6 @@
 			files = (
 				2AC9D0111A9A7C7D007E6228 /* inside_blur.jpg in Resources */,
 				B6A0489D1A8C842C00C0F8D7 /* night-road-blurry.png in Resources */,
-				B646211E1A2DA9AA00523159 /* facebook-login.png in Resources */,
 				B6A6C8C21A8CA21300C2802A /* dealership.png in Resources */,
 				B6DA2F3E1A735579004D646E /* service.png in Resources */,
 				2A7AA1E91AD4C681000B7FAE /* exterior.png in Resources */,
@@ -981,12 +965,10 @@
 				2A11FC1A1AE37F4E00507496 /* suspension.png in Resources */,
 				B61D6D861A7773010065DC4A /* unchecked.png in Resources */,
 				2A7AA1ED1AD4CFC8000B7FAE /* car_start.mp3 in Resources */,
-				2AE777A81A2D4EC200BA926D /* image.jpg in Resources */,
 				B60772041AD51CFC00008C9C /* cylinders.png in Resources */,
 				2A11FC1C1AE37F5F00507496 /* wiper.png in Resources */,
 				2A11FC131AE37A0A00507496 /* tire.png in Resources */,
 				B61D6D8A1A7773220065DC4A /* checked.png in Resources */,
-				2AE777A91A2D4EC200BA926D /* logo.jpg in Resources */,
 				B62449201A738A9D00FEE0D0 /* showroom.png in Resources */,
 				B64620E11A2C5B1700523159 /* nav.png in Resources */,
 				2AC9D0191A9A8ADE007E6228 /* g_class_blur.png in Resources */,
@@ -1026,13 +1008,11 @@
 				2A11FC161AE37F1000507496 /* belts.png in Resources */,
 				B60771FE1AD51C7000008C9C /* color.png in Resources */,
 				B60772081AD521D600008C9C /* stock.png in Resources */,
-				2AE777AA1A2D4EC200BA926D /* MercedesLogo.png in Resources */,
 				B60772001AD51CC900008C9C /* trim.png in Resources */,
 				B62A84531A2EBAD000B6A799 /* montage2.png in Resources */,
 				B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */,
 				2A3160291A8C4E470014E19D /* arrow.png in Resources */,
 				B61CCC671AA181AF00A24F45 /* AppiraterLocalizable.strings in Resources */,
-				B64621201A2DA9AD00523159 /* google-login.png in Resources */,
 				B60772021AD51CE200008C9C /* mpg.png in Resources */,
 				2AC9D0151A9A8259007E6228 /* car.png in Resources */,
 			);

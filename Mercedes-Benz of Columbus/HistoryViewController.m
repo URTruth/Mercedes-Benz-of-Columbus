@@ -7,94 +7,182 @@
 //
 
 #import "HistoryViewController.h"
+#import "vehicleDetailCell.h"
+#import "Common.h"
+
+#import "AFHTTPRequestOperationManager.h"
+#import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
+#import "UIColor+FlatUI.h"
+#import "ProgressHUD.h"
 
 @interface HistoryViewController ()
 
 @end
 
 @implementation HistoryViewController
+@synthesize order_number;
+@synthesize number;
+@synthesize serviceData;
+@synthesize detailData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.navigationItem.backBarButtonItem = [Common backButton];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    CGRect frame = self.view.frame;
+    frame.size.height += 65;
+    self.view.frame = frame;
+    self.navigationItem.titleView = nil;
+    self.tabBarController.navigationItem.titleView = nil;
+    
+    UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
+    self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
+    self.navigationItem.rightBarButtonItem = optionsButton;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
+    self.tableView.backgroundColor = [UIColor blackColor];
+    
+    number = @"7062566100";
+    detailData = [@[
+                    @{ @"name" : @"Order Number", @"icon" : @"warranty.png", @"key" : @"order_number", @"segue" : @"n/a" },
+                    @{ @"name" : @"Service Date", @"icon" : @"warranty.png", @"key" : @"open_date", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 1", @"icon" : @"mpg.png", @"key" : @"description_1", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 2", @"icon" : @"mpg.png", @"key" : @"description_2", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 3", @"icon" : @"mpg.png", @"key" : @"description_3", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 4", @"icon" : @"mpg.png", @"key" : @"description_4", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 5", @"icon" : @"mpg.png", @"key" : @"description_5", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 6", @"icon" : @"mpg.png", @"key" : @"description_6", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 7", @"icon" : @"mpg.png", @"key" : @"description_7", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 8", @"icon" : @"mpg.png", @"key" : @"description_8", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 9", @"icon" : @"mpg.png", @"key" : @"description_9", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 10", @"icon" : @"mpg.png", @"key" : @"description_10", @"segue" : @"n/a" },
+                    @{ @"name" : @"VIN #", @"icon" : @"stock.png", @"key" : @"vin", @"segue" : @"n/a" },
+                    @{ @"name" : @"Make", @"icon" : @"showroom.png", @"key" : @"make", @"segue" : @"n/a" },
+                    @{ @"name" : @"Model", @"icon" : @"showroom.png", @"key" : @"model", @"segue" : @"n/a" },
+                    @{ @"name" : @"Year", @"icon" : @"year.png", @"key" : @"year", @"segue" : @"n/a" },
+                    @{ @"name" : @"Mileage", @"icon" : @"mpg.png", @"key" : @"odometer", @"segue" : @"n/a" },
+                    @{ @"name" : @"Color", @"icon" : @"color.png", @"key" : @"color", @"segue" : @"n/a" },
+                    @{ @"name" : @"Stock #", @"icon" : @"stock.png", @"key" : @"stock_number", @"segue" : @"n/a" }
+                    ] mutableCopy];
+    
+    [self refresh];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Service page" forKey:kGAIScreenName] build]];
+}
+
+- (void)refresh {
+    // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading.."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"order_number": order_number};
+    [manager POST:@"http://www.wavelinkllc.com/mboc/get_service.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        serviceData = responseObject;
+        [self.tableView reloadData];
+        [ProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+    }];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if([serviceData count] > 0) {
+        return 2;
+    }
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if([serviceData count] > 0) {
+        switch (section) {
+            case 0: return 1;
+            case 1: return [detailData count];
+            default: return 0;
+        }
+    }
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return [Common headerOfType:Default withTitle:@"Service History" withIcon:[UIImage imageNamed:@"service.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
+    }
+    
+    if([serviceData count] > 0) {
+        NSDictionary* serviceItem = [serviceData objectAtIndex:0];
+        
+        if(indexPath.section == 1) {
+            static NSString *vehicleDetailCellIdentifier = @"vehicleDetailCell";
+            vehicleDetailCell *cell = (vehicleDetailCell *)[tableView dequeueReusableCellWithIdentifier:vehicleDetailCellIdentifier];
+            if (cell == nil){ cell = [[vehicleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vehicleDetailCellIdentifier]; }
+            
+            NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
+            [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
+            [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
+            cell.arrowLabel.alpha = 0;
+            
+            return cell;
+        }
+    } else {
+        vehicleDetailCell *cell = [[vehicleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
+        [cell.photoImageView setImage:[UIImage imageNamed:@"warranty.png"]];
+        CGRect photoFrame = cell.photoImageView.frame;
+        cell.photoImageView.frame = CGRectMake(photoFrame.origin.x, photoFrame.origin.y + 45, photoFrame.size.width, photoFrame.size.height);
+        [cell.nameLabel setText:@"No data found."];
+        CGRect nameFrame = cell.nameLabel.frame;
+        cell.nameLabel.frame = CGRectMake(nameFrame.origin.x, nameFrame.origin.y + 52, nameFrame.size.width, nameFrame.size.height);
+        cell.auxLabel.text = @"";
+        cell.arrowLabel.alpha = 0;
+        return cell;
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
+    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([serviceData count] > 0) {
+        if(indexPath.section == 0) {
+            return [UIScreen mainScreen].bounds.size.width;
+        }
+        if(indexPath.section == 1) {
+            return 78;
+        }
+    }
+    return 800;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  
+}
+
+- (IBAction)optionsButtonClicked:(id)sender {
+    //TODO: add actionsheet here
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

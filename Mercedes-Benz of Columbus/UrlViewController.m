@@ -42,6 +42,7 @@
     
     [self.view addSubview:[Common headerWithTitle: title withIcon:[UIImage imageNamed:image]
             withBackground:[UIImage imageNamed:@"backgroundC.png"]]];
+    self.navigationItem.titleView = [[UIView alloc] init];
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
@@ -60,7 +61,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [ProgressHUD dismiss];
-    [Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
+    //[Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

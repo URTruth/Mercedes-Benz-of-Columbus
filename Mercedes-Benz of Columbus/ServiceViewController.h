@@ -8,16 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AGPhotoBrowserView.h"
-
-@interface ServiceViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, AGPhotoBrowserDelegate, AGPhotoBrowserDataSource>
+@interface ServiceViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 @property(nonatomic, strong) NSString *vin;
-@property(nonatomic, strong) NSString *number;
+@property(nonatomic, strong) NSString *order_number;
 @property(nonatomic, strong) NSMutableArray *serviceData;
-@property(nonatomic, strong) NSMutableArray *historyData;
-
-@property(nonatomic, strong) AGPhotoBrowserView *_photoBrowser;
-@property(nonatomic, strong) NSArray *imageUrls;
 
 @end
+

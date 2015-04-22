@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryViewController : UITableViewController
+@interface HistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property(nonatomic, strong) NSString *order_number;
+@property(nonatomic, strong) NSString *number;
+@property(nonatomic, strong) NSMutableArray *serviceData;
+@property(nonatomic, strong) NSMutableArray *detailData;
 
 @end

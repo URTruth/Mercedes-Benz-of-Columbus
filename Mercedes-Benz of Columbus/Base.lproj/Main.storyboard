@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Video View Controller-->
@@ -553,12 +553,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="KMS-yO-wKX"/>
         <segue reference="MbM-ac-4wh"/>
-        <segue reference="ar9-kF-kUV"/>
         <segue reference="kBa-QG-ckC"/>
-        <segue reference="wbu-yM-3Cj"/>
         <segue reference="GCh-dz-IkF"/>
-        <segue reference="HZf-FT-vUG"/>
         <segue reference="DKd-aX-C4p"/>
+        <segue reference="HZf-FT-vUG"/>
         <segue reference="DIW-CX-lKn"/>
+        <segue reference="dk5-ob-qT2"/>
+        <segue reference="wbu-yM-3Cj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,5 +36,6 @@ extern NSString* const BOLD_FONT;
 + (FUIButton *)buttonWithText:(NSString*)text color:(UIColor*)color frame:(CGRect)frame;
 + (NSString *)webServiceUrlWithPath:(NSString *)path;
 + (UIImage *)scaleAndRotateImage:(UIImage *)image;
++ (UIColor *)navigationBarTintColor;
 
 @end

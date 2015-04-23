@@ -30,7 +30,7 @@
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [Common navigationBarTintColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -51,17 +51,17 @@
     number = @"7062566100";
     detailData = [@[
                     @{ @"name" : @"Order Number", @"icon" : @"warranty.png", @"key" : @"order_number", @"segue" : @"n/a" },
-                    @{ @"name" : @"Service Date", @"icon" : @"warranty.png", @"key" : @"open_date", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 1", @"icon" : @"mpg.png", @"key" : @"description_1", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 2", @"icon" : @"mpg.png", @"key" : @"description_2", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 3", @"icon" : @"mpg.png", @"key" : @"description_3", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 4", @"icon" : @"mpg.png", @"key" : @"description_4", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 5", @"icon" : @"mpg.png", @"key" : @"description_5", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 6", @"icon" : @"mpg.png", @"key" : @"description_6", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 7", @"icon" : @"mpg.png", @"key" : @"description_7", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 8", @"icon" : @"mpg.png", @"key" : @"description_8", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 9", @"icon" : @"mpg.png", @"key" : @"description_9", @"segue" : @"n/a" },
-                    @{ @"name" : @"Description 10", @"icon" : @"mpg.png", @"key" : @"description_10", @"segue" : @"n/a" },
+                    @{ @"name" : @"Service Date", @"icon" : @"year.png", @"key" : @"open_date", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 1", @"icon" : @"warranty.png", @"key" : @"description_1", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 2", @"icon" : @"warranty.png", @"key" : @"description_2", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 3", @"icon" : @"warranty.png", @"key" : @"description_3", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 4", @"icon" : @"warranty.png", @"key" : @"description_4", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 5", @"icon" : @"warranty.png", @"key" : @"description_5", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 6", @"icon" : @"warranty.png", @"key" : @"description_6", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 7", @"icon" : @"warranty.png", @"key" : @"description_7", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 8", @"icon" : @"warranty.png", @"key" : @"description_8", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 9", @"icon" : @"warranty.png", @"key" : @"description_9", @"segue" : @"n/a" },
+                    @{ @"name" : @"Description 10", @"icon" : @"warranty.png", @"key" : @"description_10", @"segue" : @"n/a" },
                     @{ @"name" : @"VIN #", @"icon" : @"stock.png", @"key" : @"vin", @"segue" : @"n/a" },
                     @{ @"name" : @"Make", @"icon" : @"showroom.png", @"key" : @"make", @"segue" : @"n/a" },
                     @{ @"name" : @"Model", @"icon" : @"showroom.png", @"key" : @"model", @"segue" : @"n/a" },
@@ -94,20 +94,19 @@
     }];
 }
 
+- (BOOL)isDataAvailable {
+    return ([serviceData count] > 0 ? YES : NO);
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if([serviceData count] > 0) {
-        return 2;
-    }
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if([serviceData count] > 0) {
-        switch (section) {
-            case 0: return 1;
-            case 1: return [detailData count];
-            default: return 0;
-        }
+    switch (section) {
+        case 0: return 1;
+        case 1: return ([self isDataAvailable] ? [detailData count] : 1);
+        default: return 0;
     }
     return 1;
 }
@@ -117,7 +116,7 @@
         return [Common headerOfType:Default withTitle:@"Service History" withIcon:[UIImage imageNamed:@"service.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
     }
     
-    if([serviceData count] > 0) {
+    if([self isDataAvailable]) {
         NSDictionary* serviceItem = [serviceData objectAtIndex:0];
         
         if(indexPath.section == 1) {
@@ -128,6 +127,7 @@
             NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
             [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
             [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
+            [cell.auxLabel setText:[serviceItem objectForKey:[detailItem objectForKey:@"key"]]];
             cell.arrowLabel.alpha = 0;
             
             return cell;
@@ -138,7 +138,7 @@
         [cell.photoImageView setImage:[UIImage imageNamed:@"warranty.png"]];
         CGRect photoFrame = cell.photoImageView.frame;
         cell.photoImageView.frame = CGRectMake(photoFrame.origin.x, photoFrame.origin.y + 45, photoFrame.size.width, photoFrame.size.height);
-        [cell.nameLabel setText:@"No data found."];
+        [cell.nameLabel setText:@"No data available."];
         CGRect nameFrame = cell.nameLabel.frame;
         cell.nameLabel.frame = CGRectMake(nameFrame.origin.x, nameFrame.origin.y + 52, nameFrame.size.width, nameFrame.size.height);
         cell.auxLabel.text = @"";
@@ -152,15 +152,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if([serviceData count] > 0) {
-        if(indexPath.section == 0) {
-            return [UIScreen mainScreen].bounds.size.width;
-        }
-        if(indexPath.section == 1) {
-            return 78;
-        }
+    if(indexPath.section == 0) {
+        return 122;
     }
-    return 800;
+    if(indexPath.section == 1) {
+        return ([self isDataAvailable] ? 78 : 800);
+    }
+    return 0;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

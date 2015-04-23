@@ -7,6 +7,7 @@
 //
 
 #import "VehicleViewController.h"
+#import "AccountViewController.h"
 #import "vehicleDetailCell.h"
 #import "Common.h"
 
@@ -35,7 +36,7 @@
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [Common navigationBarTintColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -93,21 +94,25 @@
     }];
 }
 
+- (BOOL)isDataAvailable {
+    return ([vehicleData count] > 0 ? YES : NO);
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return ([vehicleData count] > 0 ? 3 : 1);
+    return ([self isDataAvailable] ? 3 : 1);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: return 1;
         case 1: return 1;
-        case 2: return ([vehicleData count] > 0 ? [detailData count] : 0);
+        case 2: return ([self isDataAvailable] ? [detailData count] : 0);
         default: return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if([vehicleData count] > 0) {
+    if([self isDataAvailable]) {
         NSDictionary* vehicleItem = [vehicleData objectAtIndex:0];
         
         if(indexPath.section == 0) {
@@ -200,17 +205,25 @@
     [cell.photoImageView setImage:[UIImage imageNamed:@"warranty.png"]];
     CGRect photoFrame = cell.photoImageView.frame;
     cell.photoImageView.frame = CGRectMake(photoFrame.origin.x, photoFrame.origin.y + 45, photoFrame.size.width, photoFrame.size.height);
-    [cell.nameLabel setText:@"No data found."];
+    if([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2] isKindOfClass:[AccountViewController class]]) {
+        [cell.nameLabel setText:@"No data available."];
+        cell.auxLabel.text = @"Try updating the VIN number in Settings.";
+        CGRect auxFrame = cell.auxLabel.frame;
+        cell.auxLabel.frame = CGRectMake(auxFrame.origin.x, auxFrame.origin.y + 52, auxFrame.size.width, auxFrame.size.height);
+        [cell.auxLabel setFont:[UIFont fontWithName:BOLD_FONT size:12]];
+    } else {
+        [cell.nameLabel setText:@"No data available."];
+        cell.auxLabel.text = @"";
+    }
     CGRect nameFrame = cell.nameLabel.frame;
     cell.nameLabel.frame = CGRectMake(nameFrame.origin.x, nameFrame.origin.y + 52, nameFrame.size.width, nameFrame.size.height);
-    cell.auxLabel.text = @"";
     cell.arrowLabel.alpha = 0;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return ([vehicleData count] > 0 ? [UIScreen mainScreen].bounds.size.width : 800);
+        return ([self isDataAvailable] ? [UIScreen mainScreen].bounds.size.width : 800);
     }
     if(indexPath.section == 1) {
         return 62;

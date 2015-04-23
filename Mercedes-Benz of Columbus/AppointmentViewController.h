@@ -8,23 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppointmentViewController : UIViewController <UIImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIScrollViewDelegate> {
- 
-    BOOL isChecked;
-    UIButton *checkboxButton;
-}
+#import "FUIButton.h"
 
-@property BOOL isChecked;
+@interface AppointmentViewController : UIViewController <UIGestureRecognizerDelegate, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIScrollViewDelegate>
+
 @property(nonatomic, strong) UIView *backgroundView;
-@property (nonatomic, retain) UIButton *checkboxButton;
-@property (nonatomic, strong) UIButton *myButton;
-@property (nonatomic, strong) NSArray *inquiry1;
-@property (nonatomic, strong) UIPickerView *myCustomPicker;
-@property (nonatomic, strong) UIBarButtonItem *doneButton;
-@property (nonatomic, strong) UILabel *myLabel, *phone;
-@property (nonatomic, strong) UITextField *firstname, *lastname, *email, *number;
-
--(void)checkBoxClicked:(id)sender;
+@property(nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UILabel *selectionLabel;
+@property (strong, nonatomic) FUIButton  *chooseButton;
+@property (strong, nonatomic) UITextField *nameTextBox;
+@property (strong, nonatomic) UITextField *emailTextBox;
+@property (strong, nonatomic) UITextField *phoneTextBox;
+@property (strong, nonatomic) UISegmentedControl *contactMethodChooser;
+@property (strong, nonatomic) NSString *contactMethod;
+@property (strong, nonatomic) UITextView *messageTextField;
+@property (nonatomic, strong) NSArray *selectionListItems;
+@property (nonatomic, strong) UIPickerView *selectionPicker;
+@property (nonatomic, strong) FUIButton *submitButton;
 
 @end
 

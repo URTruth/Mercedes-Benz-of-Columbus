@@ -43,7 +43,7 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
 
 + (UIBarButtonItem *)backButton {
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]} forState:UIControlStateNormal];
+    [backButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor darkGrayColor], NSFontAttributeName:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]} forState:UIControlStateNormal];
     return backButton;
 }
 
@@ -248,6 +248,10 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     UIGraphicsEndImageContext();
     
     return imageCopy;
+}
+
++ (UIColor *)navigationBarTintColor {
+    return [UIColor colorFromHexCode:@"#dfdfdf"];
 }
 
 // Private methods

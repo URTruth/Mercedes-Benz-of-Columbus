@@ -30,7 +30,7 @@
     
     self.navigationItem.backBarButtonItem = [Common backButton];
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [Common navigationBarTintColor];
     [self.navigationController.navigationBar setUserInteractionEnabled:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -86,7 +86,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return [Common headerOfType:Default withTitle:@"Service History" withIcon:[UIImage imageNamed:@"showroom.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
+        return [Common headerOfType:Default withTitle:@"Service History" withIcon:[UIImage imageNamed:@"service.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
     }
     
     if(indexPath.section == 1) {
@@ -100,8 +100,8 @@
         
         NSDictionary* serviceItem = [serviceData objectAtIndex:indexPath.row];
         [cell.descriptionLabel setText:[serviceItem objectForKey:@"description_1"]];
-        [cell.dateLabel setText:[serviceItem objectForKey:@"price"]];
-        [cell.auxLabel setText:[serviceItem objectForKey:@"vin"]];
+        [cell.dateLabel setText:[serviceItem objectForKey:@"open_date"]];
+        [cell.auxLabel setText:[serviceItem objectForKey:@"name"]];
         return cell;
     }
     

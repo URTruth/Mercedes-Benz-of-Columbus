@@ -7,12 +7,12 @@
 //
 
 #import "VideoViewController.h"
-#import "YoutubeViewController.h"
 #import "videoCell.h"
 #import "Common.h"
 
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
+#import "ProgressHUD.h"
 #import "UIColor+FlatUI.h"
 
 @interface VideoViewController ()
@@ -20,13 +20,7 @@
 @end
 
 @implementation VideoViewController
-@synthesize type;
 @synthesize videoData;
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    self.view.backgroundColor = [UIColor blackColor];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,29 +40,41 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
+    [self refresh];
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
 //    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-//    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Showroom page" forKey:kGAIScreenName] build]];
-//}
+//    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Video page" forKey:kGAIScreenName] build]];
+}
+
+- (void)refresh {
+    // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading.."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUrXDtehNonQiXqXoIb8E1cA&key=AIzaSyCBZQxAABrkDPOY4rPh0RpdURnp9bzueAw" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        videoData = responseObject;
+        [self.tableView reloadData];
+        [ProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+    }];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: return 1;
-        case 1: return 1;
-        case 2: return 1;
-        case 3: return 1;
-        case 4: return 1;
+        case 1: return [videoData count];
         default: return 0;
     }
 }
@@ -76,47 +82,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
         return [Common headerOfType:Default withTitle:@"Video" withIcon:[UIImage imageNamed:@"video.png"] withBackground:[UIImage imageNamed:@"backgroundA.png"]];
-        
     }
     
     if(indexPath.section == 1) {
         static NSString *videoCellIdentifier = @"vehicleCell";
         videoCell *cell = (videoCell *)[tableView dequeueReusableCellWithIdentifier:videoCellIdentifier];
         if (cell == nil){ cell = [[videoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
-            
-
-            [cell.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.youtube.com/embed/videoseries?list=PLKgHYmJ8Qq3L2D2nQDxWJ6MCvzuBhLfRg&amp;hl=en_US%22"]]];
-            
+            //[cell.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.youtube.com/embed/videoseries?list=PLKgHYmJ8Qq3L2D2nQDxWJ6MCvzuBhLfRg&amp;hl=en_US%22"]]];
         }
-        return cell;
-    }
-    
-    if(indexPath.section == 2) {
-        static NSString *videoCellIdentifier = @"vehicleCell";
-        videoCell *cell = (videoCell *)[tableView dequeueReusableCellWithIdentifier:videoCellIdentifier];
-        if (cell == nil){ cell = [[videoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
-            
-            [cell.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.youtube.com/embed/videoseries?list=PLKgHYmJ8Qq3L3HAFoJH8I1QC_wTg398NW&amp;hl=en_US%22"]]];
-        }
-        return cell;
-    }
-    if(indexPath.section == 3) {
-        static NSString *videoCellIdentifier = @"vehicleCell";
-        videoCell *cell = (videoCell *)[tableView dequeueReusableCellWithIdentifier:videoCellIdentifier];
-        if (cell == nil){ cell = [[videoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
-            
-            [cell.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.youtube.com/embed/videoseries?list=PL07ECE44DD2A5B53E&amp;hl=en_US%22"]]];
-        }
-        return cell;
-    }
-    
-    if(indexPath.section == 4) {
-        static NSString *videoCellIdentifier = @"vehicleCell";
-        videoCell *cell = (videoCell *)[tableView dequeueReusableCellWithIdentifier:videoCellIdentifier];
-        if (cell == nil){ cell = [[videoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
-            
-            [cell.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.youtube.com/embed/videoseries?list=PLKgHYmJ8Qq3L85RgK7_Gtha3e-EjVbGiP&amp;hl=en_US%22"]]];
-        }
+        
+        NSMutableArray* videos = [videoData objectForKey:@"items"];
+        NSDictionary* video = [videos objectAtIndex:indexPath.row];
+        NSDictionary* snippet = [video objectForKey:@"snippet"];
+        NSDictionary* thumbnails = [snippet objectForKey:@"thumbnails"];
+        NSString* title = [snippet objectForKey:@"title"];
+        NSString* description = [snippet objectForKey:@"description"];
+        NSDictionary* image = [thumbnails objectForKey:@"default"];
+        
+        [cell.photoImageView setImageWithURL:[NSURL URLWithString:[image objectForKey:@"url"]] placeholderImage:[UIImage imageNamed:@"video.png"]];
+        [cell.nameLabel setText:title];
+        [cell.descriptionTextView setText:description];
+        
         return cell;
     }
     
@@ -131,31 +117,30 @@
         return 122;
     }
     if(indexPath.section == 1) {
-        return 250;
-    }
-    if(indexPath.section == 2) {
-        return 250;
-    }
-    if(indexPath.section == 3) {
-        return 250;
-    }
-    if(indexPath.section == 4) {
-        return 250;
+        return 88;
     }
     return 0;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(indexPath.section == 1) {
-//        NSDictionary* vehicleItem = [videoData objectAtIndex:indexPath.row];
-//    }
+    if(indexPath.section == 1) {
+        NSMutableArray* videos = [videoData objectForKey:@"items"];
+        NSDictionary* video = [videos objectAtIndex:indexPath.row];
+        NSDictionary* snippet = [video objectForKey:@"snippet"];
+        NSDictionary* resourceId = [snippet objectForKey:@"resourceId"];
+        PBYouTubeVideoViewController *viewController = [[PBYouTubeVideoViewController alloc] initWithVideoId:[resourceId objectForKey:@"videoId"]];
+        viewController.delegate = self;
+        [self presentViewController:viewController animated:YES completion:NULL];
+    }
+}
+
+- (void)youTubeVideoViewController:(PBYouTubeVideoViewController *)viewController didReceiveEventNamed:(NSString *)eventName eventData:(NSString *)eventData {
+    NSLog(eventData);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"youtubeSegue"]){
-        YoutubeViewController *dest = (YoutubeViewController *)[segue destinationViewController];
-    }
+
 }
 
 - (IBAction)optionsButtonClicked:(id)sender {

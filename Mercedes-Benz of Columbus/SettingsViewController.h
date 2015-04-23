@@ -8,22 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+#import "FUIButton.h"
+#import "VPImageCropperViewController.h"
 
-@property(nonatomic, strong) UIImageView *backgroundImage;
-@property(nonatomic, strong) UIImageView *arrowImage;
+@interface SettingsViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, UITextFieldDelegate, VPImageCropperDelegate>
+{
+    UIImagePickerController *picker;
+    UIImagePickerController *picker2;
+    UIImage *image;
+}
 
-@property (nonatomic, strong) UIButton *notifications;
-@property (nonatomic, strong) UIButton *share;
-@property (nonatomic, strong) UIButton *muteSound;
-@property (nonatomic, strong) UIButton *specialOffer;
-@property (nonatomic, strong) UIButton *serviceOffers;
-@property (nonatomic, strong) UIButton *news;
-
-@property (nonatomic, strong) UISwitch *soundSwitch;
-@property (nonatomic, strong) UISwitch *specialSwitch;
-@property (nonatomic, strong) UISwitch *serviceSwitch;
-@property (nonatomic, strong) UISwitch *newsSwitch;
-
+@property(nonatomic, strong) UIView *backgroundView;
+@property(nonatomic, strong) UIScrollView *scrollView;
+@property (strong, nonatomic) UITextField *nameTextBox;
+@property (strong, nonatomic) UITextField *emailTextBox;
+@property (strong, nonatomic) UITextField *phoneTextBox;
+@property (strong, nonatomic) UITextField *vinTextBox;
+@property (strong, nonatomic) UIImageView *photoImageView;
+@property (strong, nonatomic) UIImageView *placeholderImageView;
+@property (strong, nonatomic) FUIButton *searchButton;
+@property (strong, nonatomic) FUIButton *saveButton;
 
 @end

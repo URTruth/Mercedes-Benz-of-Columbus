@@ -50,7 +50,7 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     number = @"1(800) 367-6372";
     

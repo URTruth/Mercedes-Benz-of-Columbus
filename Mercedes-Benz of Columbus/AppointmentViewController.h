@@ -12,13 +12,16 @@
 
 @interface AppointmentViewController : UIViewController <UIGestureRecognizerDelegate, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIScrollViewDelegate>
 
+@property(nonatomic, strong) NSString *vin;
 @property(nonatomic, strong) UIView *backgroundView;
 @property(nonatomic, strong) UIScrollView *scrollView;
+@property (strong, nonatomic) NSString *selection;
 @property (nonatomic, strong) UILabel *selectionLabel;
 @property (strong, nonatomic) FUIButton  *chooseButton;
 @property (strong, nonatomic) UITextField *nameTextBox;
 @property (strong, nonatomic) UITextField *emailTextBox;
 @property (strong, nonatomic) UITextField *phoneTextBox;
+@property (strong, nonatomic) UITextField *vinTextBox;
 @property (strong, nonatomic) UISegmentedControl *contactMethodChooser;
 @property (strong, nonatomic) NSString *contactMethod;
 @property (strong, nonatomic) UITextView *messageTextField;

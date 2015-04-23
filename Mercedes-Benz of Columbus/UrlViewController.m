@@ -46,7 +46,7 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Video View Controller-->
@@ -184,6 +184,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="bD4-jd-Xze" kind="show" identifier="homeSegue" id="ont-eo-PbI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEi-05-2xI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,10 +246,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
                     <connections>
-                        <segue destination="bD4-jd-Xze" kind="show" identifier="logoutSegue" id="Dri-5F-uCy"/>
+                        <segue destination="bD4-jd-Xze" kind="show" identifier="homeSegue" id="Dri-5F-uCy"/>
                         <segue destination="sna-Co-vS2" kind="show" identifier="comingSoonSegue" id="DIW-CX-lKn"/>
                         <segue destination="FsO-Qo-4sp" kind="show" identifier="vehicleSegue" id="HZf-FT-vUG"/>
                         <segue destination="UBZ-uI-xHm" kind="show" identifier="serviceSegue" id="DKd-aX-C4p"/>
+                        <segue destination="kl9-uw-Sze" kind="show" identifier="settingsSegue" id="8Ir-py-o1k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlZ-eo-Sdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,6 +478,9 @@
                             <outlet property="delegate" destination="FsO-Qo-4sp" id="SnV-jV-YGt"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="w4T-0r-dIk" kind="show" identifier="appointmentSegue" id="xIp-cF-jRN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="507-Ay-fA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -551,14 +558,14 @@
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KMS-yO-wKX"/>
-        <segue reference="MbM-ac-4wh"/>
-        <segue reference="kBa-QG-ckC"/>
+        <segue reference="Dri-5F-uCy"/>
         <segue reference="GCh-dz-IkF"/>
         <segue reference="DKd-aX-C4p"/>
         <segue reference="HZf-FT-vUG"/>
         <segue reference="DIW-CX-lKn"/>
-        <segue reference="dk5-ob-qT2"/>
+        <segue reference="xIp-cF-jRN"/>
+        <segue reference="MbM-ac-4wh"/>
+        <segue reference="kBa-QG-ckC"/>
         <segue reference="wbu-yM-3Cj"/>
     </inferredMetricsTieBreakers>
 </document>

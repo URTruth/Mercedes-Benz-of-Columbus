@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoViewController : UITableViewController <UIGestureRecognizerDelegate>
+#import "PBYouTubeVideoViewController.h"
 
-@property(nonatomic, strong) NSString *type;
-@property(nonatomic, strong) NSMutableArray *videoData;
+@interface VideoViewController : UITableViewController <UIGestureRecognizerDelegate, PBYouTubeVideoViewControllerDelegate>
+
+@property(nonatomic, strong) NSMutableDictionary *videoData;
 
 @end

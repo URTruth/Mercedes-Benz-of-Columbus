@@ -45,10 +45,10 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
     type = @"new";
     [self refresh];

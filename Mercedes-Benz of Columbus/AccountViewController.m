@@ -45,10 +45,10 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     self.tableView.separatorColor = [UIColor whiteColor];
     
     /*
@@ -66,8 +66,10 @@
     menuData = [@[
                   @{ @"name" : @"My Vehicle", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"vehicleSegue", @"url" : @"n/a" },
                   @{ @"name" : @"Service History", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"serviceSegue", @"url" : @"n/a" },
-                  @{ @"name" : @"Share This App", @"icon" : @"specials.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
-                  @{ @"name" : @"Logout", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"logoutSegue", @"url" : @"n/a" }
+                  //@{ @"name" : @"Share This App", @"icon" : @"specials.png", @"badge" : @"0", @"segue" : @"comingSoonSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Settings", @"icon" : @"engine.png", @"badge" : @"0", @"segue" : @"settingsSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Back To Home", @"icon" : @"nav.png", @"badge" : @"0", @"segue" : @"homeSegue", @"url" : @"n/a" },
+                  @{ @"name" : @"Logout", @"icon" : @"account.png", @"badge" : @"0", @"segue" : @"homeSegue", @"url" : @"n/a" }
                   ] mutableCopy];
     [self.tableView reloadData];
 }
@@ -135,7 +137,7 @@
     if(indexPath.section == 1) {
         selectedRow = indexPath.row;
         NSDictionary* menuItem = [menuData objectAtIndex:indexPath.row];
-        if([[menuItem objectForKey:@"segue"] isEqualToString:@"logoutSegue"]){
+        if([[menuItem objectForKey:@"name"] isEqualToString:@"Logout"]){
             [ProgressHUD show:@"Loading..."];
             [[User sharedInstance] logout:^(BOOL isSuccess) {
                 if(isSuccess) {

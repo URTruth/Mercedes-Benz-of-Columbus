@@ -34,10 +34,6 @@
 @synthesize searchButton;
 @synthesize signUpButton;
 
-- (void)viewDidAppear:(BOOL)animated {
-    self.view.backgroundColor = [UIColor blackColor];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -70,7 +66,7 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     int buttonHeight = 50;
     int textBoxHeight = 40;
@@ -89,6 +85,7 @@
     [photoTapRecognizer setNumberOfTouchesRequired:1];
     [photoTapRecognizer setDelegate:self];
     [placeholderImageView addGestureRecognizer:photoTapRecognizer];
+    [placeholderImageView setImage:[UIImage imageNamed:@"account.png"]];
     [scrollView addSubview:placeholderImageView];
     
     vinTextBox = [Common textBoxWithPlaceholder:@"Enter VIN number.." frame:CGRectMake(20, photoImageView.frame.origin.y + photoImageView.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
@@ -123,7 +120,12 @@
     vinTextBox.text = [User sharedInstance].vin;
     if([User sharedInstance].photo != nil && [User sharedInstance].photo.length > 0){
         photoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[User sharedInstance].photo]]];
+        [placeholderImageView setImage:nil];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
 }
 
 - (IBAction)signUpButtonClicked:(id)sender {
@@ -285,6 +287,7 @@
 
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     [photoImageView setImage:editedImage];
+    [placeholderImageView setImage:nil];
     [scrollView setScrollEnabled:NO];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }

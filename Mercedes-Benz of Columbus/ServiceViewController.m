@@ -43,7 +43,7 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
@@ -57,7 +57,6 @@
 }
 
 - (void)refresh {
-    // Send a asynchronous request for the initial menu data
     [ProgressHUD show:@"Loading..."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"next": @0, @"vin": vin};

@@ -10,10 +10,10 @@
 
 @interface videoCell : UITableViewCell
 
-
 + (videoCell *)cell;
 
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
-
+@property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
+@property (nonatomic, retain) IBOutlet UILabel *nameLabel;
+@property (nonatomic, retain) IBOutlet UITextView *descriptionTextView;
 
 @end

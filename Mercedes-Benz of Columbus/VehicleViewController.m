@@ -8,6 +8,7 @@
 
 #import "VehicleViewController.h"
 #import "AccountViewController.h"
+#import "AppointmentViewController.h"
 #import "vehicleDetailCell.h"
 #import "Common.h"
 
@@ -49,10 +50,10 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
     number = @"7062566100";
     detailData = [@[
@@ -84,7 +85,7 @@
     [ProgressHUD show:@"Loading.."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"vin": vin};
-    [manager POST:@"http://www.wavelinkllc.com/mboc/get_vehicle.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:[NSString stringWithFormat:@"http://www.wavelinkllc.com/mboc/%@", ([self isSegueFromAccountPage] ? @"get_vehicle.php" : @"get_vehicle_from_inventory.php")] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         vehicleData = responseObject;
         [self.tableView reloadData];
         [ProgressHUD dismiss];
@@ -96,6 +97,10 @@
 
 - (BOOL)isDataAvailable {
     return ([vehicleData count] > 0 ? YES : NO);
+}
+
+- (BOOL)isSegueFromAccountPage {
+    return [[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2] isKindOfClass:[AccountViewController class]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -205,7 +210,7 @@
     [cell.photoImageView setImage:[UIImage imageNamed:@"warranty.png"]];
     CGRect photoFrame = cell.photoImageView.frame;
     cell.photoImageView.frame = CGRectMake(photoFrame.origin.x, photoFrame.origin.y + 45, photoFrame.size.width, photoFrame.size.height);
-    if([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2] isKindOfClass:[AccountViewController class]]) {
+    if([self isSegueFromAccountPage]) {
         [cell.nameLabel setText:@"No data available."];
         cell.auxLabel.text = @"Try updating the VIN number in Settings.";
         CGRect auxFrame = cell.auxLabel.frame;
@@ -288,6 +293,11 @@
         VehicleViewController *dest = (VehicleViewController *)[segue destinationViewController];
         dest.vin = vin;
     }
+    if([segue.identifier isEqualToString:@"appointmentSegue"]){
+        AppointmentViewController *dest = (AppointmentViewController *)[segue destinationViewController];
+        dest.selection = @"Get ePrice";
+        dest.vin = vin;
+    }
 }
 
 - (void) callButtonClicked:(id)sender {
@@ -295,7 +305,7 @@
 }
 
 - (void) quoteButtonClicked:(id)sender {
-
+    [self performSegueWithIdentifier:@"appointmentSegue" sender:self];
 }
 
 - (IBAction)optionsButtonClicked:(id)sender {

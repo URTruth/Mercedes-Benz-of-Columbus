@@ -10,6 +10,7 @@
 #import "Common.h"
 #import "UIColor+Custom.h"
 
+#import "AFHTTPRequestOperationManager.h"
 #import "UIColor+FlatUI.h"
 #import "ProgressHUD.h"
 
@@ -18,25 +19,22 @@
 @end
 
 @implementation AppointmentViewController
+@synthesize vin;
 @synthesize backgroundView;
 @synthesize scrollView;
+@synthesize selection;
 @synthesize selectionPicker;
 @synthesize selectionLabel;
 @synthesize chooseButton;
 @synthesize nameTextBox;
 @synthesize phoneTextBox;
 @synthesize emailTextBox;
+@synthesize vinTextBox;
 @synthesize contactMethodChooser;
 @synthesize contactMethod;
 @synthesize messageTextField;
 @synthesize selectionListItems;
 @synthesize submitButton;
-
-- (void)viewDidAppear:(BOOL)animated {
-    // main view background color
-   // self.view.backgroundColor = [UIColor blackColor];
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,7 +67,7 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    self.navigationItem.rightBarButtonItem = optionsButton;
+    //self.navigationItem.rightBarButtonItem = optionsButton;
     
     int buttonHeight = 40;
     int textBoxHeight = 40;
@@ -79,7 +77,6 @@
     selectionLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 145, [UIScreen mainScreen].bounds.size.width - chooseButtonWidth - 20, selectionLabelFontSize)];
     selectionLabel.backgroundColor = [UIColor clearColor];
     selectionLabel.clipsToBounds = YES;
-    selectionLabel.text = @"*None Selected*";
     [selectionLabel setTextAlignment: UITextAlignmentLeft];
     [selectionLabel setFont:[UIFont fontWithName: BOLD_FONT size: selectionLabelFontSize]];
     selectionLabel.textColor = [UIColor colorFromHexCode:@"#353535"];
@@ -95,14 +92,20 @@
     nameTextBox = [Common textBoxWithPlaceholder:@"Enter name.." frame:CGRectMake(20, chooseButton.frame.origin.y + chooseButton.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
     [scrollView addSubview:nameTextBox];
     
-    emailTextBox = [Common textBoxWithPlaceholder:@"Enter email.." frame:CGRectMake(20, nameTextBox.frame.origin.y + nameTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
+    emailTextBox = [Common textBoxWithPlaceholder:@"Enter email.. (Optional)" frame:CGRectMake(20, nameTextBox.frame.origin.y + nameTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
     [scrollView addSubview:emailTextBox];
     
-    phoneTextBox = [Common textBoxWithPlaceholder:@"Enter phone.." frame:CGRectMake(20, emailTextBox.frame.origin.y + emailTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
+    phoneTextBox = [Common textBoxWithPlaceholder:@"Enter phone..  (Optional)" frame:CGRectMake(20, emailTextBox.frame.origin.y + emailTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
     [scrollView addSubview:phoneTextBox];
     
+    vinTextBox = [Common textBoxWithPlaceholder:@"Enter VIN.. (Optional)" frame:CGRectMake(20, phoneTextBox.frame.origin.y + phoneTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, textBoxHeight) target:self];
+    if(vin && ![vin isEqualToString:@""]) {
+        vinTextBox.text = vin;
+    }
+    [scrollView addSubview:vinTextBox];
+    
     contactMethodChooser = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Phone", @"Email", nil]];
-    contactMethodChooser.frame = CGRectMake(20, phoneTextBox.frame.origin.y + phoneTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 30);
+    contactMethodChooser.frame = CGRectMake(20, vinTextBox.frame.origin.y + vinTextBox.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 30);
     contactMethodChooser.segmentedControlStyle = UISegmentedControlStyleBar;
     contactMethodChooser.selectedSegmentIndex = 0;
     contactMethodChooser.tintColor = [UIColor CustomGrayColor];
@@ -111,7 +114,13 @@
     [contactMethodChooser addTarget:self action:@selector(contactMethodChanged:) forControlEvents: UIControlEventValueChanged];
     [scrollView addSubview:contactMethodChooser];
     
-    messageTextField = [[UITextView alloc] initWithFrame:CGRectMake(20, contactMethodChooser.frame.origin.y + contactMethodChooser.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 200)];
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, contactMethodChooser.frame.origin.y + contactMethodChooser.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 40, 30)];
+    [messageLabel setFont:[UIFont fontWithName:REGULAR_FONT size:14]];
+    [messageLabel setTintColor:[UIColor colorFromHexCode:@"#353535"]];
+    [messageLabel setText:@"What do you need? (Optional)"];
+    [scrollView addSubview:messageLabel];
+    
+    messageTextField = [[UITextView alloc] initWithFrame:CGRectMake(20, messageLabel .frame.origin.y + messageLabel.frame.size.height + 5, [UIScreen mainScreen].bounds.size.width - 40, 200)];
     messageTextField.font = [UIFont fontWithName:@"AvenirNext-Regular" size:15.0];
     messageTextField.layer.cornerRadius=8.0f;
     messageTextField.layer.masksToBounds=YES;
@@ -139,7 +148,17 @@
                      @"Other",
                      nil];
     
-    [selectionLabel setText:[selectionListItems objectAtIndex:0]];
+    [selectionLabel setText:selection];
+    if(!selection || [selection isEqualToString:@""]) {
+        selection = [selectionListItems objectAtIndex:0];
+        [selectionLabel setText:[selectionListItems objectAtIndex:0]];
+    }
+    
+    contactMethod = @"phone";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
 }
 
 - (void) chooseTheInquiry:(UIButton *)paramSender{
@@ -178,11 +197,6 @@
     selectionPicker.hidden=YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-
 - (void)contactMethodChanged:(UISegmentedControl *)segment {
     switch(segment.selectedSegmentIndex) {
         case 0: contactMethod = @"phone"; break;
@@ -192,7 +206,68 @@
 }
 
 - (void)submitButtonClicked:(id)sender {
+    [self disableControls];
+    [ProgressHUD show:@"Hey! We're validating..."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"name": nameTextBox.text, @"email": emailTextBox.text, @"phone": phoneTextBox.text, @"vin": vinTextBox.text, @"contact_method": contactMethod, @"type": selection, @"message": messageTextField.text };
+    [manager POST:[Common webServiceUrlWithPath:@"save_inquiry.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *responseData = (NSDictionary*)responseObject;
+        if ([[responseData objectForKey:@"response"] isEqualToString:@"SUCCESS"]){
+            [ProgressHUD showSuccess:@"Success! You will be contacted shortly!"];
+            [self performSegueWithIdentifier:@"homeSegue" sender:self];
+        }else{
+            [ProgressHUD dismiss];
+            [Common showErrorMessageWithTitle:[responseData objectForKey:@"response"] message:@"Please retry." cancelButtonTitle:@"OK"];
+        }
+        [self enableControls];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ProgressHUD dismiss];
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+        [self enableControls];
+    }];
+}
 
+- (void)disableControls {
+    chooseButton.enabled = NO;
+    vinTextBox.enabled = NO;
+    nameTextBox.enabled = NO;
+    emailTextBox.enabled = NO;
+    phoneTextBox.enabled = NO;
+    submitButton.enabled = NO;
+    contactMethodChooser.enabled = NO;
+    messageTextField.editable = NO;
+}
+
+- (void)enableControls {
+    chooseButton.enabled = YES;
+    vinTextBox.enabled = YES;
+    nameTextBox.enabled = YES;
+    emailTextBox.enabled = YES;
+    phoneTextBox.enabled = YES;
+    submitButton.enabled = YES;
+    contactMethodChooser.enabled = YES;
+    messageTextField.editable = YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)sender
+{
+    if (sender.frame.origin.y > 150)
+    {
+        [scrollView setContentOffset:CGPointMake(0, sender.frame.origin.y-150) animated:YES];
+    }
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)sender
+{
+    if (sender.frame.origin.y > 150)
+    {
+        [scrollView setContentOffset:CGPointMake(0, sender.frame.origin.y-150) animated:YES];
+    }
 }
 
 -(void)tap:(UITapGestureRecognizer *)tapRec{
@@ -205,7 +280,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [ProgressHUD dismiss];
+
 }
 
 - (void)didReceiveMemoryWarning {

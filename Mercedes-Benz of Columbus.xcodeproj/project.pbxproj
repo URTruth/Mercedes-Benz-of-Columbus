@@ -32,6 +32,7 @@
 		2AC9D0761AA5754F007E6228 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9D0751AA5754F007E6228 /* VideoViewController.m */; };
 		2AC9D0781AA57911007E6228 /* video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D0771AA57911007E6228 /* video.png */; };
 		2AC9D07E1AA57ADC007E6228 /* gray-video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC9D07D1AA57ADC007E6228 /* gray-video.png */; };
+		2AD0D53F1AF85A1F00D75B17 /* PartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0D53E1AF85A1F00D75B17 /* PartsViewController.m */; };
 		2AD87E641A82DFA500D7EFA0 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */; };
 		2AD87E671A871CCD00D7EFA0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E661A871CCD00D7EFA0 /* SignUpViewController.m */; };
 		2AD87E6A1A871CEB00D7EFA0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD87E691A871CEB00D7EFA0 /* SignInViewController.m */; };
@@ -191,6 +192,8 @@
 		2AC9D0751AA5754F007E6228 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		2AC9D0771AA57911007E6228 /* video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video.png; sourceTree = "<group>"; };
 		2AC9D07D1AA57ADC007E6228 /* gray-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-video.png"; sourceTree = "<group>"; };
+		2AD0D53D1AF85A1F00D75B17 /* PartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsViewController.h; sourceTree = "<group>"; };
+		2AD0D53E1AF85A1F00D75B17 /* PartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsViewController.m; sourceTree = "<group>"; };
 		2AD87E621A82DFA500D7EFA0 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		2AD87E631A82DFA500D7EFA0 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -668,6 +671,8 @@
 				B673C87A1A294BFA00D3D55F /* Main.storyboard */,
 				B64620CE1A2C432400523159 /* HomeViewController.h */,
 				B64620CF1A2C432400523159 /* HomeViewController.m */,
+				2AD0D53D1AF85A1F00D75B17 /* PartsViewController.h */,
+				2AD0D53E1AF85A1F00D75B17 /* PartsViewController.m */,
 				B65C7B201AB1763900B7F36A /* UrlViewController.h */,
 				B65C7B211AB1763900B7F36A /* UrlViewController.m */,
 				2AD87E651A871CCD00D7EFA0 /* SignUpViewController.h */,
@@ -1023,6 +1028,7 @@
 				B624495B1A7391D200FEE0D0 /* UIWebView+AFNetworking.m in Sources */,
 				B6DA2F451A735927004D646E /* specialsCell.m in Sources */,
 				B673C8761A294BFA00D3D55F /* AppDelegate.m in Sources */,
+				2AD0D53F1AF85A1F00D75B17 /* PartsViewController.m in Sources */,
 				B69628431AA3CFC100DC7A50 /* UIImage+FlatUI.m in Sources */,
 				B624493A1A7391C800FEE0D0 /* AFHTTPRequestOperationManager.m in Sources */,
 				B6DA2F2A1A733874004D646E /* Common.m in Sources */,

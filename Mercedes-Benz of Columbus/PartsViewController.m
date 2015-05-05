@@ -1,21 +1,22 @@
 //
-//  UrlViewController.m
+//  PartsViewController.m
 //  Mercedes-Benz of Columbus
 //
-//  Created by Kelvin Graddick on 3/12/15.
+//  Created by Danielle Williams on 5/1/15.
 //  Copyright (c) 2015 Wave Link, LLC. All rights reserved.
 //
 
-#import "UrlViewController.h"
+#import "PartsViewController.h"
+#import "HomeViewController.h"
 #import "Common.h"
 
 #import "ProgressHUD.h"
 
-@interface UrlViewController ()
+@interface PartsViewController ()
 
 @end
 
-@implementation UrlViewController
+@implementation PartsViewController
 @synthesize webView;
 @synthesize url;
 @synthesize title;
@@ -41,29 +42,32 @@
     self.tabBarController.navigationItem.titleView = nil;
     
     [self.view addSubview:[Common headerWithTitle: title withIcon:[UIImage imageNamed:image]
-            withBackground:[UIImage imageNamed:@"backgroundC.png"]]];
+                                   withBackground:[UIImage imageNamed:@"backgroundC.png"]]];
     self.navigationItem.titleView = [[UIView alloc] init];
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     //self.navigationItem.rightBarButtonItem = optionsButton;
     
-//    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sales", @"Service", nil]];
-//    segmentedControl.frame = CGRectMake(10, 55, [UIScreen mainScreen].bounds.size.width - 20, 30);
-//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-//    segmentedControl.selectedSegmentIndex = 0;
-//    segmentedControl.tintColor = [UIColor lightGrayColor];
-//    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
-//    [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
-//    [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
-//    [self.view addSubview:segmentedControl];
     
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    webView.scalesPageToFit=YES;
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    [webView loadRequest:urlRequest];
-    [webView setDelegate:self];
-    [self.view addSubview:webView];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects: @"Parts", @"Accessories", @"Lifestyle", nil]];
+        segmentedControl.frame = CGRectMake(10, 128, [UIScreen mainScreen].bounds.size.width - 20, 30);
+        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+        segmentedControl.selectedSegmentIndex = 0,1,2;
+        segmentedControl.tintColor = [UIColor lightGrayColor];
+        NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
+        [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+        [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
+        [self.view addSubview:segmentedControl];
+        
+        
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 8, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        webView.scalesPageToFit=YES;
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        [webView loadRequest:urlRequest];
+        [webView setDelegate:self];
+        [self.view addSubview:webView];
+
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -73,6 +77,15 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [ProgressHUD dismiss];
     //[Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
+}
+
+- (void)valueChanged:(UISegmentedControl *)segment {
+    if(segment.selectedSegmentIndex == 1) {
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mbusa.com/mercedes/accessories"]]];
+    } else {
+         [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mercedesbenzofcolumbus.com/service"]]];
+    }
+   // [self refresh];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

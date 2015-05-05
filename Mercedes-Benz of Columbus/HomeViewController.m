@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "UrlViewController.h"
+#import "PartsViewController.h"
 #import "AppointmentViewController.h"
 #import "menuCell.h"
 #import "specialsCell.h"
@@ -68,7 +69,7 @@
                 @{ @"name" : @"My Vehicle", @"icon" : @"account.png", @"badge" : @"0", @"segue" : @"signInSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.mbfs.com/mbfsr/en/misc/index.do" },
                 @{ @"name" : @"Request Service", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"appointmentSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Genuine Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/service" },
+                @{ @"name" : @"Genuine Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"partSegue",  @"url" : @"http://www.mercedesbenzofcolumbus.com/service" },
                 @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"4", @"segue" : @"videoSegue", @"url" : @"n/a" },
                 //@{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },
                 @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.dealerrater.com/dealer/Mercedes-Benz-of-Columbus-review-18279/" },
@@ -189,6 +190,14 @@
         dest.title = [menuItem objectForKey:@"name"];
         dest.image = [menuItem objectForKey:@"icon"];
     }
+    if([segue.identifier isEqualToString:@"partSegue"]){
+        PartsViewController *dest = (PartsViewController *)[segue destinationViewController];
+        NSDictionary* menuItem = [menuData objectAtIndex:selectedRow];
+        dest.url = [NSURL URLWithString:[menuItem objectForKey:@"url"]];
+        dest.title = [menuItem objectForKey:@"name"];
+        dest.image = [menuItem objectForKey:@"icon"];
+    }
+
     if([segue.identifier isEqualToString:@"appointmentSegue"]){
         AppointmentViewController *dest = (AppointmentViewController *)[segue destinationViewController];
         dest.selection = @"Service Appointment";

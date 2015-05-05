@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Video View Controller-->
@@ -107,6 +107,7 @@
                         <segue destination="ht2-fn-SnX" kind="show" identifier="roadsideSegue" id="Ov5-g3-piX"/>
                         <segue destination="Ugq-Xi-SkO" kind="show" identifier="urlSegue" id="2q8-qA-WWb"/>
                         <segue destination="UBZ-uI-xHm" kind="show" identifier="serviceSegue" id="k01-Ci-VzG"/>
+                        <segue destination="9M7-PD-xGD" kind="show" identifier="partSegue" id="sLI-uy-nRC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W11-bN-GnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,7 +287,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Unlimited Luxury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-wV-3Nc">
                                 <rect key="frame" x="132" y="139" width="336" height="47"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="engine_start_button.png" translatesAutoresizingMaskIntoConstraints="NO" id="ddf-C9-Y1c">
@@ -380,6 +381,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JU-gq-m3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2322" y="-56"/>
+        </scene>
+        <!--Parts View Controller-->
+        <scene sceneID="krT-mv-Vj5">
+            <objects>
+                <viewController id="9M7-PD-xGD" customClass="PartsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uEu-VK-tZy"/>
+                        <viewControllerLayoutGuide type="bottom" id="AGd-Nr-fcg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mgO-qX-VB6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ze0-Xx-P7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936" y="-742"/>
         </scene>
         <!--Coming Soon View Controller-->
         <scene sceneID="XA2-M9-8Yq">
@@ -558,14 +577,14 @@
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dri-5F-uCy"/>
         <segue reference="GCh-dz-IkF"/>
-        <segue reference="DKd-aX-C4p"/>
-        <segue reference="HZf-FT-vUG"/>
-        <segue reference="DIW-CX-lKn"/>
-        <segue reference="xIp-cF-jRN"/>
+        <segue reference="Dri-5F-uCy"/>
         <segue reference="MbM-ac-4wh"/>
         <segue reference="kBa-QG-ckC"/>
         <segue reference="wbu-yM-3Cj"/>
+        <segue reference="DIW-CX-lKn"/>
+        <segue reference="HZf-FT-vUG"/>
+        <segue reference="DKd-aX-C4p"/>
+        <segue reference="xIp-cF-jRN"/>
     </inferredMetricsTieBreakers>
 </document>

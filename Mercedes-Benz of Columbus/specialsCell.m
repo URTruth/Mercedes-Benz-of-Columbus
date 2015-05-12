@@ -27,7 +27,7 @@
         
         int padding = 10;
         
-        backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 275)];
+        backgroundImageView = [[UIImageView alloc] init];
         [backgroundImageView setContentMode:UIViewContentModeScaleAspectFill];
         [backgroundImageView setClipsToBounds:YES];
         [self addSubview:backgroundImageView];

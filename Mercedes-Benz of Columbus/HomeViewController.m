@@ -23,6 +23,7 @@
 
 @implementation HomeViewController
 @synthesize menuData;
+@synthesize number;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,7 +44,7 @@
     
     UIBarButtonItem *optionsButton = [Common optionsButtonWithTarget:self andAction:@selector(optionsButtonClicked:)];
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
-    //self.navigationItem.rightBarButtonItem = optionsButton;
+    self.navigationItem.rightBarButtonItem = optionsButton;
 
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor blackColor];
@@ -74,6 +75,9 @@
                 //@{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },
                 @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.dealerrater.com/dealer/Mercedes-Benz-of-Columbus-review-18279/" },
                 ] mutableCopy];
+    
+    number = @"1(706)256-6100";
+    
     [self.tableView reloadData];
 }
 
@@ -205,7 +209,25 @@
 }
 
 - (IBAction)optionsButtonClicked:(id)sender {
-    //TODO: actionlist
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"Would you like to call us now?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex) {
+        case 1: [self call]; break;
+    }
+}
+
+- (void)call
+{
+    NSString *unformattedNumber = [[number componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
 }
 
 - (void)didReceiveMemoryWarning {

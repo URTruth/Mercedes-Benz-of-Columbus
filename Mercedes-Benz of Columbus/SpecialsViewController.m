@@ -40,6 +40,9 @@
     self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     self.tableView.separatorColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
+    self.tableView.alwaysBounceVertical = NO;
+    self.tableView.scrollEnabled = NO;
+    
     /*
      // Send a asynchronous request for the initial menu data
      AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -58,6 +61,9 @@
                       @{ @"title" : @"U.S. Military Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"flag.jpg", @"segue" : @"urlSegue", @"url" : @"https://usaa2.secure.zag.com/targetedincentives/promo.html?makeGroup=mercedes-benzGroup&makeName=mercedes-benz&referrer_id=ZUSA200092" },
 //                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" }
                       ] mutableCopy];
+    
+    headerHeight = 122;
+    
     [self.tableView reloadData];
 }
 
@@ -94,6 +100,7 @@
         if (cell == nil){ cell = [[specialsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:specialsCellIdentifier]; }
         
         NSDictionary* specialsItem = [specialsData objectAtIndex:indexPath.row];
+        [cell.backgroundImageView setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([[UIScreen mainScreen] bounds].size.height - headerHeight) / [specialsData count])];
         [cell.backgroundImageView setImage:[UIImage imageNamed:[specialsItem objectForKey:@"photo"]]];
         [cell.titleLabel setText:[specialsItem objectForKey:@"title"]];
         [cell.descriptionLabel setText:[specialsItem objectForKey:@"description"]];
@@ -107,10 +114,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return 122;
+        return headerHeight;
     }
     if(indexPath.section == 1) {
-        return 275;
+        return ([[UIScreen mainScreen] bounds].size.height - headerHeight) / [specialsData count];
     }
     return 0;
 }

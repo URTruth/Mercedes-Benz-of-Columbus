@@ -48,12 +48,14 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
 }
 
 + (UIBarButtonItem *)optionsButtonWithTarget:(id)target andAction:(SEL)action {
-    UIButton *navBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *navBtnImage = [UIImage imageNamed:@"nav.png"];
-    [navBtn setBackgroundImage:navBtnImage forState:UIControlStateNormal];
-    [navBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    navBtn.frame = CGRectMake(0, 0, 21, 21);
-    return [[UIBarButtonItem alloc] initWithCustomView:navBtn];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"phone2.png"];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(0, 0, 21, 21);
+    UIBarButtonItem *optionsButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [optionsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor darkGrayColor], NSFontAttributeName:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]} forState:UIControlStateNormal];
+    return optionsButton;
 }
 
 + (NSString *)formatPhoneNumber:(NSString*)number {

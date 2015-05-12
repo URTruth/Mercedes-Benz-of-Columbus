@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UITableViewController <UIGestureRecognizerDelegate>
+@interface HomeViewController : UITableViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
     int selectedRow;
 }
 
 @property(nonatomic, strong) NSMutableArray *menuData;
+
+@property (strong, nonatomic) NSString *number;
 
 @end

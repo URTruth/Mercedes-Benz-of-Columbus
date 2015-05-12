@@ -11,6 +11,7 @@
 @interface SpecialsViewController : UITableViewController <UIGestureRecognizerDelegate>
 {
     int selectedRow;
+    int headerHeight;
 }
 
 @property(nonatomic, strong) NSMutableArray *specialsData;

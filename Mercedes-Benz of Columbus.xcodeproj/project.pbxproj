@@ -136,6 +136,7 @@
 		B6A048A71A8C9CAE00C0F8D7 /* no-vehicle-image.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048A61A8C9CAE00C0F8D7 /* no-vehicle-image.png */; };
 		B6A048A91A8C9F4600C0F8D7 /* roadside.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048A81A8C9F4600C0F8D7 /* roadside.png */; };
 		B6A048AB1A8C9F4C00C0F8D7 /* parts.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A048AA1A8C9F4C00C0F8D7 /* parts.png */; };
+		B6A43E351B017BB9008B377D /* phone2.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A43E341B017BB9008B377D /* phone2.png */; };
 		B6A6C8C21A8CA21300C2802A /* dealership.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A6C8C11A8CA21300C2802A /* dealership.png */; };
 		B6DA2F271A71F75D004D646E /* menuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F261A71F75D004D646E /* menuCell.m */; };
 		B6DA2F2A1A733874004D646E /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F291A733874004D646E /* Common.m */; };
@@ -388,6 +389,7 @@
 		B6A048A61A8C9CAE00C0F8D7 /* no-vehicle-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-vehicle-image.png"; sourceTree = "<group>"; };
 		B6A048A81A8C9F4600C0F8D7 /* roadside.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roadside.png; sourceTree = "<group>"; };
 		B6A048AA1A8C9F4C00C0F8D7 /* parts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parts.png; sourceTree = "<group>"; };
+		B6A43E341B017BB9008B377D /* phone2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone2.png; sourceTree = "<group>"; };
 		B6A6C8C11A8CA21300C2802A /* dealership.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealership.png; sourceTree = "<group>"; };
 		B6DA2F251A71F75D004D646E /* menuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuCell.h; sourceTree = "<group>"; };
 		B6DA2F261A71F75D004D646E /* menuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuCell.m; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 				B62449821A74736A00FEE0D0 /* specials.png */,
 				2AC9D07D1AA57ADC007E6228 /* gray-video.png */,
 				B62449881A7475F100FEE0D0 /* phone.png */,
+				B6A43E341B017BB9008B377D /* phone2.png */,
 				2AC9D0771AA57911007E6228 /* video.png */,
 				B624498A1A7479F400FEE0D0 /* email.png */,
 				B62449781A74600A00FEE0D0 /* wavelink.png */,
@@ -950,6 +953,7 @@
 				B6DA2F3C1A73555A004D646E /* contact.png in Resources */,
 				2ADE8E731AAE9932005F1EAE /* thumb.png in Resources */,
 				2A11FC141AE37A0A00507496 /* transmission.png in Resources */,
+				B6A43E351B017BB9008B377D /* phone2.png in Resources */,
 				2AE777AB1A2D4EC200BA926D /* startBG.png in Resources */,
 				B624497B1A7464E000FEE0D0 /* wavelink-white.png in Resources */,
 				B60F66731AE8E612008668AE /* PBYouTubeVideoView.html in Resources */,

@@ -18,7 +18,6 @@
 
 @implementation PartsViewController
 @synthesize webView;
-@synthesize url;
 @synthesize title;
 @synthesize image;
 
@@ -51,41 +50,51 @@
     
     
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects: @"Parts", @"Accessories", @"Lifestyle", nil]];
-        segmentedControl.frame = CGRectMake(10, 128, [UIScreen mainScreen].bounds.size.width - 20, 30);
-        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-        segmentedControl.selectedSegmentIndex = 0,1,2;
-        segmentedControl.tintColor = [UIColor lightGrayColor];
-        NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
-        [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
-        [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
-        [self.view addSubview:segmentedControl];
-        
-        
-        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 8, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        webView.scalesPageToFit=YES;
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-        [webView loadRequest:urlRequest];
-        [webView setDelegate:self];
-        [self.view addSubview:webView];
-
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [ProgressHUD dismiss];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    [ProgressHUD dismiss];
-    //[Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
+    segmentedControl.frame = CGRectMake(10, 128, [UIScreen mainScreen].bounds.size.width - 20, 30);
+    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    segmentedControl.selectedSegmentIndex = 0,1,2;
+    segmentedControl.tintColor = [UIColor lightGrayColor];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f] forKey:NSFontAttributeName];
+    [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
+    [self.view addSubview:segmentedControl];
+    
+    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 8, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    webView.scalesPageToFit=YES;
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mbusa.com/mercedes/service_and_parts/genuine_parts"]];
+    [webView loadRequest:urlRequest];
+    [webView setDelegate:self];
+    [self.view addSubview:webView];
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {
-    if(segment.selectedSegmentIndex == 1) {
+    [ProgressHUD show:@"Loading..."];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]]];
+    
+    if(segment.selectedSegmentIndex == 0) {
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mbusa.com/mercedes/service_and_parts/genuine_parts"]]];
+    } else if(segment.selectedSegmentIndex == 1) {
         [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mbusa.com/mercedes/accessories"]]];
     } else {
-         [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mercedesbenzofcolumbus.com/service"]]];
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://accessories.mbusa.com"]]];
     }
-   // [self refresh];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    if ([self.webView.request.URL.absoluteString isEqualToString:@"about:blank"]) {
+        // Do nothing
+    } else {
+        [ProgressHUD dismiss];
+    }
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    if ([self.webView.request.URL.absoluteString isEqualToString:@"about:blank"]) {
+        // Do nothing
+    } else {
+        [ProgressHUD dismiss];
+        //[Common showErrorMessageWithTitle:@"Failed to load the URL." message:@"Please press the back button and try again." cancelButtonTitle:@"OK"];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

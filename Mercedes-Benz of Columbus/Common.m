@@ -26,6 +26,12 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
         [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
         [logo setContentMode:UIViewContentModeScaleAspectFit];
         [cell addSubview:logo];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(76, 70, 200, 15)];
+        [label setTextColor:[UIColor colorFromHexCode:@"f5f5f5"]];
+        [label setBackgroundColor:[UIColor clearColor]];
+        [label setFont:[UIFont fontWithName: @"AppleSDGothicNeo-Thin" size: 15.0f]];
+        [label setText:@"of Columbus, Georgia"];
+        [cell addSubview:label];
     } else {
         [cell addSubview:[self headerIconImageViewWithImage:iconImage]];
         [cell addSubview:[self headerTitleLabelWithText:title]];

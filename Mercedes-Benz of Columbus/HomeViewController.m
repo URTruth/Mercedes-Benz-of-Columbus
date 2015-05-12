@@ -197,11 +197,9 @@
     if([segue.identifier isEqualToString:@"partSegue"]){
         PartsViewController *dest = (PartsViewController *)[segue destinationViewController];
         NSDictionary* menuItem = [menuData objectAtIndex:selectedRow];
-        dest.url = [NSURL URLWithString:[menuItem objectForKey:@"url"]];
         dest.title = [menuItem objectForKey:@"name"];
         dest.image = [menuItem objectForKey:@"icon"];
     }
-
     if([segue.identifier isEqualToString:@"appointmentSegue"]){
         AppointmentViewController *dest = (AppointmentViewController *)[segue destinationViewController];
         dest.selection = @"Service Appointment";

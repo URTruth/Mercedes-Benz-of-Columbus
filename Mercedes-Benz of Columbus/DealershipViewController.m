@@ -120,11 +120,12 @@
     aboutText.scrollEnabled = NO;
     aboutText.editable = NO;
     aboutText.text = about;
-    [aboutText sizeToFit];
     [aboutText setTextAlignment: UITextAlignmentLeft];
     [aboutText setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     aboutText.textColor = [UIColor colorFromHexCode:@"353535"];
     [centerView addSubview:aboutText];
+    [aboutText sizeToFit];
+    [aboutText layoutIfNeeded];
     
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sales", @"Service", @"Parts", @"Inquire", nil]];
     segmentedControl.frame = CGRectMake(10, aboutText.frame.origin.y + aboutText.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 20, 30);

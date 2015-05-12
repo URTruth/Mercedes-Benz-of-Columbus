@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D2A-cl-ecb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Video View Controller-->
@@ -577,14 +577,14 @@
         <image name="logo-tagline-white.png" width="638" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GCh-dz-IkF"/>
-        <segue reference="Dri-5F-uCy"/>
-        <segue reference="MbM-ac-4wh"/>
         <segue reference="kBa-QG-ckC"/>
+        <segue reference="KMS-yO-wKX"/>
+        <segue reference="MbM-ac-4wh"/>
         <segue reference="wbu-yM-3Cj"/>
+        <segue reference="GCh-dz-IkF"/>
+        <segue reference="DKd-aX-C4p"/>
         <segue reference="DIW-CX-lKn"/>
         <segue reference="HZf-FT-vUG"/>
-        <segue reference="DKd-aX-C4p"/>
         <segue reference="xIp-cF-jRN"/>
     </inferredMetricsTieBreakers>
 </document>

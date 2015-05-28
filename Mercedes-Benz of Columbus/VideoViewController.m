@@ -57,7 +57,7 @@
     // Send a asynchronous request for the initial menu data
     [ProgressHUD show:@"Loading.."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUrXDtehNonQiXqXoIb8E1cA&key=AIzaSyCBZQxAABrkDPOY4rPh0RpdURnp9bzueAw" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKgHYmJ8Qq3L2D2nQDxWJ6MCvzuBhLfRg&maxResults=50&key=AIzaSyCBZQxAABrkDPOY4rPh0RpdURnp9bzueAw" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         videoData = responseObject;
         [self.tableView reloadData];
         [ProgressHUD dismiss];
@@ -74,7 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: return 1;
-        case 1: return [videoData count];
+        case 1: return [[videoData objectForKey:@"items"] count];
         default: return 0;
     }
 }

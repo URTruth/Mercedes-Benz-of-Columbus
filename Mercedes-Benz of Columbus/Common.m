@@ -22,16 +22,10 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell addSubview:[self headerMontageImageViewWithImage:backgroundImage]];
     if((int)type == Home) {
-        UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(10, -22, 200, 150)];
-        [logo setImage:[UIImage imageNamed:@"logo-tagline-white.png"]];
+        UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(5, -35, 225, 175)];
+        [logo setImage:[UIImage imageNamed:@"logo.png"]];
         [logo setContentMode:UIViewContentModeScaleAspectFit];
         [cell addSubview:logo];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(76, 70, 200, 15)];
-        [label setTextColor:[UIColor colorFromHexCode:@"f5f5f5"]];
-        [label setBackgroundColor:[UIColor clearColor]];
-        [label setFont:[UIFont fontWithName: @"AppleSDGothicNeo-Thin" size: 15.0f]];
-        [label setText:@"of Columbus, Georgia"];
-        [cell addSubview:label];
     } else {
         [cell addSubview:[self headerIconImageViewWithImage:iconImage]];
         [cell addSubview:[self headerTitleLabelWithText:title]];

@@ -19,6 +19,11 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "ProgressHUD.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface SignInViewController ()
 
@@ -36,6 +41,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     self.view.backgroundColor = [UIColor blackColor];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Sign In page" forKey:kGAIScreenName] build]];
 }
 
 - (void)viewDidLoad {

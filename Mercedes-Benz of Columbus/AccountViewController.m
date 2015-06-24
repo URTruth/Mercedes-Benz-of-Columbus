@@ -19,6 +19,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+FlatUI.h"
 #import "ProgressHUD.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface HomeViewController ()
 
@@ -75,8 +80,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"My Account" forKey:kGAIScreenName] build]];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Account page" forKey:kGAIScreenName] build]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

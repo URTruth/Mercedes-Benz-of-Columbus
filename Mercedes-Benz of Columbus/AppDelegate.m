@@ -12,8 +12,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
-//#import "Appirater.h"
-//#import "GAI.h"
+#import "Appirater.h"
+#import "GAI.h"
 
 @interface AppDelegate ()
 
@@ -35,17 +35,11 @@
     [FBLoginView class];
     [Fabric with:@[TwitterKit]];
     
-     //GOOGLE ANALYTICS
-     // Optional: automatically send uncaught exceptions to Google Analytics.
-     //[GAI sharedInstance].trackUncaughtExceptions = YES;
-     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-     //[GAI sharedInstance].dispatchInterval = 20;
-     // Optional: set Logger to VERBOSE for debug information.
-     //[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelError];
-     // Initialize tracker. Replace with your tracking ID.
-     //[[GAI sharedInstance] trackerWithTrackingId:@"UA-52889215-1"];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelError];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-52889215-3"];
     
-    /*
     [Appirater setAppId:@"947780293"];
     [Appirater setDaysUntilPrompt:0];
     [Appirater setUsesUntilPrompt:3];
@@ -53,7 +47,6 @@
     [Appirater setTimeBeforeReminding:3];
     [Appirater setDebug:NO];
     [Appirater appLaunched:YES];
-    */
      
     ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
     NSDictionary *credentials = [keychain credentialsForIdentifier:@"account" service:@"Mercedes-Benz of Columbus"];

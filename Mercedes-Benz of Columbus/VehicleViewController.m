@@ -16,6 +16,11 @@
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 #import "UIColor+FlatUI.h"
 #import "ProgressHUD.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface VehicleViewController ()
 
@@ -76,8 +81,8 @@
  }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Vehicle page" forKey:kGAIScreenName] build]];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Vehicle page" forKey:kGAIScreenName] build]];
 }
 
 - (void)refresh {

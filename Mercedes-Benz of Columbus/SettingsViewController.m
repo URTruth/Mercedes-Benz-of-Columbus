@@ -17,6 +17,11 @@
 #import "UIColor+FlatUI.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface SettingsViewController ()
 
@@ -126,7 +131,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Settings page" forKey:kGAIScreenName] build]];
 }
 
 - (IBAction)saveButtonClicked:(id)sender {

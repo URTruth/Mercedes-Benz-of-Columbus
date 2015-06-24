@@ -11,6 +11,11 @@
 #import "Common.h"
 
 #import "ProgressHUD.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface PartsViewController ()
 
@@ -65,6 +70,11 @@
     [webView loadRequest:urlRequest];
     [webView setDelegate:self];
     [self.view addSubview:webView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Parts page" forKey:kGAIScreenName] build]];
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {

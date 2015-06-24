@@ -12,6 +12,11 @@
 #import "Common.h"
 
 #import "UIColor+FlatUI.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @implementation SpecialsViewController
 @synthesize specialsData;
@@ -68,8 +73,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Specials page" forKey:kGAIScreenName] build]];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Specials page" forKey:kGAIScreenName] build]];
 }
 
 - (void)didReceiveMemoryWarning {

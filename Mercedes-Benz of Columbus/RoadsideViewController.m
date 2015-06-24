@@ -10,6 +10,11 @@
 #import "Common.h"
 
 #import "UIColor+FlatUI.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface RoadsideViewController ()
 
@@ -69,6 +74,11 @@
     roadsideLabel.editable = NO;
     [roadsideLabel sizeToFit];
     [scrollView addSubview:roadsideLabel];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Roadside page" forKey:kGAIScreenName] build]];
 }
 
 - (void) roadsideButtonClicked:(id)sender {

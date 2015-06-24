@@ -15,7 +15,14 @@
 #import "Common.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "AFHTTPRequestOperationManager.h"
 #import "UIColor+FlatUI.h"
+#import "ProgressHUD.h"
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
 
 @interface HomeViewController ()
 
@@ -23,6 +30,7 @@
 
 @implementation HomeViewController
 @synthesize menuData;
+@synthesize settingData;
 @synthesize number;
 
 - (void)viewDidLoad {
@@ -50,18 +58,21 @@
     self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor whiteColor];
     
-    /*
-    // Send a asynchronous request for the initial menu data
+    [ProgressHUD show:@"Loading..."];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"userId": self.userId};
-    [manager POST:feedURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        feedData = responseObject;
+    NSDictionary *parameters = @{@"page": @"home"};
+    [manager POST:[Common webServiceUrlWithPath:@"get_settings.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        settingData = [responseObject objectForKey:@"settings"];
+        menuData = [responseObject objectForKey:@"menu_items"];
+        number = [settingData objectForKey:@"phone_number"];
         [self.tableView reloadData];
+        [ProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+        [ProgressHUD dismiss];
     }];
-    */
     
+    /*
     menuData = [@[
                   @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue", @"url" : @"n/a" },
                 @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"roadsideSegue", @"url" : @"n/a" },
@@ -75,15 +86,22 @@
                 //@{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },
                 @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.dealerrater.com/dealer/Mercedes-Benz-of-Columbus-review-18279/" },
                 ] mutableCopy];
-    
     number = @"1(706)256-6100";
+    */
     
     [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //[tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Home page" forKey:kGAIScreenName] build]];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Home page" forKey:kGAIScreenName] build]];
+    /*
+    @try { }
+    @catch (NSException * e) {
+        id tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker send:[[GAIDictionaryBuilder createExceptionWithDescription:[NSString stringWithFormat:@"Feed failure - postType:%@ page:%@ userId:%@ username:%@ exception:%@", [feedItem objectForKey:@"type"], self.navigationItem.title, self.userId, self.username, e] withFatal:@NO] build]];
+    }
+    */
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -226,6 +244,11 @@
 {
     NSString *unformattedNumber = [[number componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [ProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {

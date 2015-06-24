@@ -270,20 +270,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo-tagline-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-gx-rS0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-gx-rS0">
                                 <rect key="frame" x="181" y="51" width="240" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1SZ-O0-y8c"/>
                                     <constraint firstAttribute="width" constant="240" id="Itb-KG-gEb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="        of Columbus, Georgia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-kw-btb">
-                                <rect key="frame" x="181" y="84" width="281" height="47"/>
-                                <color key="backgroundColor" red="0.75523318029999997" green="0.75419240489999995" blue="0.77237215910000001" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <color key="textColor" red="0.63226010099999996" green="0.63226010099999996" blue="0.63226010099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Unlimited Luxury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-wV-3Nc">
                                 <rect key="frame" x="132" y="139" width="336" height="47"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
@@ -310,7 +303,6 @@
                             <constraint firstAttribute="centerX" secondItem="ddf-C9-Y1c" secondAttribute="centerX" id="Igg-dw-btx"/>
                             <constraint firstAttribute="centerX" secondItem="tg8-wV-3Nc" secondAttribute="centerX" id="LaV-mY-5Qt"/>
                             <constraint firstAttribute="centerX" secondItem="geK-LO-lCo" secondAttribute="centerX" id="NF1-TS-rpE"/>
-                            <constraint firstItem="Yq5-gx-rS0" firstAttribute="leading" secondItem="PfX-kw-btb" secondAttribute="leading" id="Ndu-dm-Qic"/>
                             <constraint firstAttribute="centerX" secondItem="Yq5-gx-rS0" secondAttribute="centerX" id="cdI-jA-iGm"/>
                         </constraints>
                     </view>
@@ -574,17 +566,17 @@
     </scenes>
     <resources>
         <image name="engine_start_button.png" width="200" height="202"/>
-        <image name="logo-tagline-white.png" width="638" height="184"/>
+        <image name="logo.png" width="576" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kBa-QG-ckC"/>
         <segue reference="KMS-yO-wKX"/>
         <segue reference="MbM-ac-4wh"/>
-        <segue reference="wbu-yM-3Cj"/>
+        <segue reference="kBa-QG-ckC"/>
         <segue reference="GCh-dz-IkF"/>
         <segue reference="DKd-aX-C4p"/>
         <segue reference="DIW-CX-lKn"/>
         <segue reference="HZf-FT-vUG"/>
-        <segue reference="xIp-cF-jRN"/>
+        <segue reference="wbu-yM-3Cj"/>
+        <segue reference="dk5-ob-qT2"/>
     </inferredMetricsTieBreakers>
 </document>

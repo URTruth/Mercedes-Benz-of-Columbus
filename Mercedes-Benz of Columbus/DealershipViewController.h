@@ -12,6 +12,7 @@
 @interface DealershipViewController : UIViewController <UIGestureRecognizerDelegate, UITextViewDelegate, MKMapViewDelegate>
 
 @property(nonatomic, strong) NSMutableArray *departmentData;
+@property(nonatomic, strong) NSMutableDictionary *settingData;
 
 @property(nonatomic, strong) UILabel *departmentNameLabel;
 @property(nonatomic, strong) UILabel *departmentTelephoneLabel;
@@ -21,7 +22,6 @@
 @property(nonatomic, strong) UILabel *sundayLabel;
 
 @property (nonatomic, strong) UIButton *directionsButton;
-@property(nonatomic, strong) NSString *about;
 @property(nonatomic, strong) NSURL *segueURL;
 @property(nonatomic, strong) NSString *segueTitle;
 @property(nonatomic, strong) NSString *segueImage;

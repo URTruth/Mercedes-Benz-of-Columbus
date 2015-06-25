@@ -11,6 +11,8 @@
 #import "Common.h"
 #import "UIColor+Custom.h"
 
+#import "AFHTTPRequestOperationManager.h"
+#import "ProgressHUD.h"
 #import "UIColor+FlatUI.h"
 #import "AddressAnnotation.h"
 #import "GAI.h"
@@ -25,6 +27,7 @@
 
 @implementation DealershipViewController
 @synthesize departmentData;
+@synthesize settingData;
 @synthesize departmentNameLabel;
 @synthesize departmentTelephoneLabel;
 @synthesize departmentEmail;
@@ -32,7 +35,6 @@
 @synthesize saturdayLabel;
 @synthesize sundayLabel;
 @synthesize directionsButton;
-@synthesize about;
 @synthesize segueURL;
 @synthesize segueTitle;
 @synthesize segueImage;
@@ -48,18 +50,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    departmentData = [@[
-                        @{ @"name" : @"Sales", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"9:00 AM", @"weekday_close_hour" : @"7:00 PM", @"saturday_open_hour" : @"9:00 AM", @"saturday_close_hour" : @"6:00 PM", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
-                        @{ @"name" : @"Service", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"7:30 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
-                        @{ @"name" : @"Parts", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"8:00 AM", @"weekday_close_hour" : @"6:00 PM", @"saturday_open_hour" : @"n/a", @"saturday_close_hour" : @"n/a", @"sunday_open_hour" : @"n/a", @"sunday_close_hour" : @"n/a" },
-                        @{ @"name" : @"Inquire", @"phone" : @"7062566100", @"email" : @"mboc@gmail.com", @"weekday_open_hour" : @"*", @"weekday_close_hour" : @"*", @"saturday_open_hour" : @"*", @"saturday_close_hour" : @"*", @"sunday_open_hour" : @"*", @"sunday_close_hour" : @"*" }
-                        ] mutableCopy];
-    
-    about = @"We are the only authorized Mercedes-Benz dealership in the Columbus, Georgia and Phenix City, Alabama area. We offer a variety of cars and advantages from: New Cars, Pre-Owned, Certified Pre-Owned Vehicles, 24-7 Roadside Assistance, and Genuine Mercedes-Benz Parts and Accessories.";
-    
+    [ProgressHUD show:@"Loading..."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"page": @"dealership"};
+    [manager POST:[Common webServiceUrlWithPath:@"get_settings.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        settingData = [responseObject objectForKey:@"settings"];
+        departmentData = [responseObject objectForKey:@"departments"];
+        [self createView];
+        [ProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+        [ProgressHUD dismiss];
+    }];
+}
+
+- (void)createView {
     int scrollHeight = 1100;
     
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, -65, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 65)];
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 65)];
     scrollview.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, scrollHeight);
     [self.view addSubview:scrollview];
     
@@ -70,9 +78,6 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
-    CGRect frame = self.view.frame;
-    frame.size.height += 65;
-    self.view.frame = frame;
     self.navigationItem.titleView = nil;
     self.tabBarController.navigationItem.titleView = nil;
     
@@ -92,7 +97,7 @@
     UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 23, [UIScreen mainScreen].bounds.size.width - 20, 16)];
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.clipsToBounds = YES;
-    nameLabel.text = @"Mercedes-Benz of Columbus";
+    nameLabel.text = [settingData objectForKey:@"name"];
     [nameLabel setTextAlignment: UITextAlignmentLeft];
     [nameLabel setFont:[UIFont fontWithName: BOLD_FONT size: 16.0f]];
     nameLabel.textColor = [UIColor peterRiverColor];
@@ -125,7 +130,7 @@
     aboutText.clipsToBounds = YES;
     aboutText.scrollEnabled = NO;
     aboutText.editable = NO;
-    aboutText.text = about;
+    aboutText.text = [settingData objectForKey:@"about"];
     [aboutText setTextAlignment: UITextAlignmentLeft];
     [aboutText setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     aboutText.textColor = [UIColor colorFromHexCode:@"353535"];
@@ -186,7 +191,7 @@
     [centerView addSubview:departmentTelephoneLabel];
     
     departmentEmail = [departmentItem objectForKey:@"email"];
-
+    
     UILabel * hoursLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, departmentTelephoneLabel.frame.origin.y + departmentTelephoneLabel.frame.size.height + 20, [UIScreen mainScreen].bounds.size.width - 20, 14)];
     hoursLabel.backgroundColor = [UIColor clearColor]; //2980B9
     hoursLabel.clipsToBounds = YES;
@@ -238,14 +243,14 @@
     directionsButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [directionsButton addTarget:self
                          action:@selector(directionsAction:)
-     forControlEvents:UIControlEventTouchUpInside];
+               forControlEvents:UIControlEventTouchUpInside];
     [directionsButton setTag:1];
     [centerView addSubview:directionsButton];
     
     UILabel * addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, directionsButton.frame.origin.y + directionsButton.frame.size.height + 12, [UIScreen mainScreen].bounds.size.width - 20, 12)];
     addressLabel.backgroundColor = [UIColor clearColor];
     addressLabel.clipsToBounds = YES;
-    addressLabel.text = @"7470 Veterans Parkway · Columbus, GA 31909";
+    addressLabel.text = [NSString stringWithFormat:@"%@ %@ · %@, %@ %@", [settingData objectForKey:@"address1"], [settingData objectForKey:@"address2"], [settingData objectForKey:@"city"], [settingData objectForKey:@"state"], [settingData objectForKey:@"zip"]];
     [addressLabel setTextAlignment: UITextAlignmentLeft];
     [addressLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT size: 12.0f]];
     addressLabel.textColor = [UIColor CustomGrayColor];
@@ -258,7 +263,7 @@
     [map.layer setMasksToBounds:YES];
     map.delegate = self;
     //map.mapType = MKMapTypeHybrid;
-    CLLocationCoordinate2D coord = {.latitude =  32.55346, .longitude =  -84.94564};
+    CLLocationCoordinate2D coord = {.latitude =  [[settingData objectForKey:@"latitude"] floatValue], .longitude =  [[settingData objectForKey:@"longitude"] floatValue]};
     MKCoordinateSpan span = {.latitudeDelta =  0.00725, .longitudeDelta =  0.00725}; // half a mile
     MKCoordinateRegion region = {coord, span};
     [map setRegion:region animated:YES];
@@ -269,7 +274,6 @@
     [mapTapRecognizer setDelegate:self];
     [map addGestureRecognizer:mapTapRecognizer];
     [centerView addSubview:map];
-
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {
@@ -292,14 +296,14 @@
 }
 
 - (void) facebookClicked:(id)sender {
-    segueURL = [NSURL URLWithString:@"https://www.facebook.com/MercedesBenzofColumbus"];
+    segueURL = [NSURL URLWithString:[settingData objectForKey:@"facebook_url"]];
     segueTitle = @"Facebook";
     segueImage = @"facebook.png";
     [self performSegueWithIdentifier:@"urlSegue" sender:self];
 }
 
 - (void) twitterClicked:(id)sender {
-    segueURL = [NSURL URLWithString:@"https://twitter.com/MBColumbusGa"];
+    segueURL = [NSURL URLWithString:[settingData objectForKey:@"twitter_url"]];
     segueTitle = @"Twitter";
     segueImage = @"twitter.png";
     [self performSegueWithIdentifier:@"urlSegue" sender:self];
@@ -315,12 +319,10 @@
 }
 
 - (void) mapClicked:(id)sender {
-    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(32.55346,-84.94564);
-    //NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?center=%f,%f",location.latitude,location.longitude]];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=7470+Veterans+Parkway+Columbus,+GA+31909"]];
+    NSString* address = [NSString stringWithFormat:@"%@ %@ %@, %@ %@", [settingData objectForKey:@"address1"], [settingData objectForKey:@"address2"], [settingData objectForKey:@"city"], [settingData objectForKey:@"state"], [settingData objectForKey:@"zip"]];
+    NSURL *url = [NSURL URLWithString:[@"http://maps.apple.com/?q=" stringByAppendingString:[address stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
     if (![[UIApplication sharedApplication] canOpenURL:url]) {
         NSLog(@"Google Maps app is not installed");
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=7470+Veterans+Parkway+Columbus,+GA+31909"]];
         [[UIApplication sharedApplication] openURL:url];
     } else {
         [[UIApplication sharedApplication] openURL:url];

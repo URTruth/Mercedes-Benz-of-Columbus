@@ -16,6 +16,4 @@
 @property(nonatomic, strong) NSMutableArray *menuData;
 @property(nonatomic, strong) NSMutableDictionary *settingData;
 
-@property (strong, nonatomic) NSString *number;
-
 @end

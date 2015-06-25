@@ -31,7 +31,6 @@
 @implementation HomeViewController
 @synthesize menuData;
 @synthesize settingData;
-@synthesize number;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,32 +63,12 @@
     [manager POST:[Common webServiceUrlWithPath:@"get_settings.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         settingData = [responseObject objectForKey:@"settings"];
         menuData = [responseObject objectForKey:@"menu_items"];
-        number = [settingData objectForKey:@"phone_number"];
         [self.tableView reloadData];
         [ProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
         [ProgressHUD dismiss];
     }];
-    
-    /*
-    menuData = [@[
-                  @{ @"name" : @"Our Dealership", @"icon" : @"dealership.png", @"badge" : @"0", @"segue" : @"dealershipSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Roadside Assistance", @"icon" : @"roadside.png", @"badge" : @"0", @"segue" : @"roadsideSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Special Offers", @"icon" : @"specials.png", @"badge" : @"2", @"segue" : @"specialsSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Showroom", @"icon" : @"showroom.png", @"badge" : @"0", @"segue" : @"showroomSegue", @"url" : @"n/a" },
-                @{ @"name" : @"My Vehicle", @"icon" : @"account.png", @"badge" : @"0", @"segue" : @"signInSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Mercedes-Benz Financial", @"icon" : @"payment.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.mbfs.com/mbfsr/en/misc/index.do" },
-                @{ @"name" : @"Request Service", @"icon" : @"service.png", @"badge" : @"0", @"segue" : @"appointmentSegue", @"url" : @"n/a" },
-                @{ @"name" : @"Genuine Parts", @"icon" : @"parts.png", @"badge" : @"0", @"segue" : @"partSegue",  @"url" : @"http://www.mercedesbenzofcolumbus.com/service" },
-                @{ @"name" : @"Videos", @"icon" : @"gray-video.png", @"badge" : @"0", @"segue" : @"videoSegue", @"url" : @"n/a" },
-                //@{ @"name" : @"Check Warranty Coverage", @"icon" : @"warranty.png", @"badge" : @"0", @"segue" : @"warrantySegue", @"url" : @"n/a" },
-                @{ @"name" : @"Rate Us", @"icon" : @"thumb.png", @"badge" : @"0", @"segue" : @"urlSegue", @"url" : @"https://www.dealerrater.com/dealer/Mercedes-Benz-of-Columbus-review-18279/" },
-                ] mutableCopy];
-    number = @"1(706)256-6100";
-    */
-    
-    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -242,7 +221,7 @@
 
 - (void)call
 {
-    NSString *unformattedNumber = [[number componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    NSString *unformattedNumber = [[[settingData objectForKey:@"phone_number"] componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
 }
 

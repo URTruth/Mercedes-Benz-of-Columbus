@@ -9,6 +9,8 @@
 #import "RoadsideViewController.h"
 #import "Common.h"
 
+#import "AFHTTPRequestOperationManager.h"
+#import "ProgressHUD.h"
 #import "UIColor+FlatUI.h"
 #import "GAI.h"
 #import "GAITracker.h"
@@ -21,10 +23,10 @@
 @end
 
 @implementation RoadsideViewController
+@synthesize settingData;
 @synthesize backgroundView;
 @synthesize scrollView;
 @synthesize numberButton;
-@synthesize number;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,16 +59,33 @@
     self.tabBarController.navigationItem.rightBarButtonItem = optionsButton;
     //self.navigationItem.rightBarButtonItem = optionsButton;
     
-    number = @"1(800) 367-6372";
-    
-    numberButton = [Common buttonWithText:number color:[UIColor turquoiseColor] frame:CGRectMake(20, 143, [UIScreen mainScreen].bounds.size.width - 40, 50)];
+    [ProgressHUD show:@"Loading..."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"page": @"roadside"};
+    [manager POST:[Common webServiceUrlWithPath:@"get_settings.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        settingData = [responseObject objectForKey:@"settings"];
+        [self createView];
+        [ProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+        [ProgressHUD dismiss];
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Roadside page" forKey:kGAIScreenName] build]];
+}
+
+- (void)createView {
+    numberButton = [Common buttonWithText:[settingData objectForKey:@"phone_number"] color:[UIColor turquoiseColor] frame:CGRectMake(20, 143, [UIScreen mainScreen].bounds.size.width - 40, 50)];
     [numberButton addTarget:self action:@selector(roadsideButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:numberButton];
     
     UITextView *roadsideLabel = [[UITextView alloc]initWithFrame:CGRectMake(20, numberButton.frame.origin.y + numberButton.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width - 40, 15)];
     roadsideLabel.backgroundColor = [UIColor clearColor];
     roadsideLabel.clipsToBounds = YES;
-    roadsideLabel.text = @"Click the button above to call Roadside Assistance!";
+    roadsideLabel.text = [settingData objectForKey:@"prompt"];
     [roadsideLabel setFont:[UIFont fontWithName: SEMI_BOLD_FONT  size: 15.0f]];
     roadsideLabel.textColor = [UIColor colorFromHexCode:@"353535"];
     roadsideLabel.clipsToBounds = YES;
@@ -76,13 +95,8 @@
     [scrollView addSubview:roadsideLabel];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Roadside page" forKey:kGAIScreenName] build]];
-}
-
 - (void) roadsideButtonClicked:(id)sender {
-    NSString *unformattedNumber = [[number componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    NSString *unformattedNumber = [[[settingData objectForKey:@"phone_number"] componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
 }
 

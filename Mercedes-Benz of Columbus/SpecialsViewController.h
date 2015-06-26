@@ -15,5 +15,6 @@
 }
 
 @property(nonatomic, strong) NSMutableArray *specialsData;
+@property(nonatomic, strong) NSMutableDictionary *settingData;
 
 @end

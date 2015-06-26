@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Common.h"
 
+#import "AFHTTPRequestOperationManager.h"
 #import "ACSimpleKeychain.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Fabric/Fabric.h>
@@ -61,7 +63,6 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    //[Appirater appEnteredForeground:YES];
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -97,6 +98,13 @@
     // You can send here, for example, an asynchronous HTTP request to your web-server to store this deviceToken remotely.
     NSLog(@"Did register for remote notifications: %@", deviceToken);
     [User sharedInstance].deviceToken = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{ @"iOSdeviceToken":[User sharedInstance].deviceToken ?: [NSNull null] };
+    [manager POST:[Common webServiceUrlWithPath:@"save_device.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Did save device token: %@", [User sharedInstance].deviceToken);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fail to save device token: %@", error);
+    }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

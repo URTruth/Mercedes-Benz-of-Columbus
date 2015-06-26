@@ -12,10 +12,10 @@
 
 @interface RoadsideViewController : UIViewController <UIScrollViewDelegate>
 
+@property(nonatomic, strong) NSMutableDictionary *settingData;
+
 @property(nonatomic, strong) UIView *backgroundView;
 @property(nonatomic, strong) UIScrollView *scrollView;
 @property (strong, nonatomic) FUIButton *numberButton;
-
-@property (strong, nonatomic) NSString *number;
 
 @end

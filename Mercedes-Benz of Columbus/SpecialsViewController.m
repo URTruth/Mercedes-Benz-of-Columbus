@@ -11,6 +11,9 @@
 #import "specialsCell.h"
 #import "Common.h"
 
+#import "AFHTTPRequestOperationManager.h"
+#import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
+#import "ProgressHUD.h"
 #import "UIColor+FlatUI.h"
 #import "GAI.h"
 #import "GAITracker.h"
@@ -20,6 +23,7 @@
 
 @implementation SpecialsViewController
 @synthesize specialsData;
+@synthesize settingData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,28 +52,20 @@
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.scrollEnabled = NO;
     
-    /*
-     // Send a asynchronous request for the initial menu data
-     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-     NSDictionary *parameters = @{@"userId": self.userId};
-     [manager POST:feedURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-     feedData = responseObject;
-     [self.tableView reloadData];
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-     [self showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
-     }];
-     */
-    
-    specialsData = [@[
-                      @{ @"title" : @"Mercedes Benz of Columbus", @"description" : @"Tis the season for new vehicle special offers!", @"photo" : @"winter-event.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" },
-//                      @{ @"title" : @"Certified Pre-Owned Offers", @"description" : @"Learn more about the Certified Pre-Owned Specials!", @"photo" : @"pre-owned-special.jpeg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/specials/pre-owned_car_specials/certified_pre-owned_specials" },
-                      @{ @"title" : @"U.S. Military Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"flag.jpg", @"segue" : @"urlSegue", @"url" : @"https://usaa2.secure.zag.com/targetedincentives/promo.html?makeGroup=mercedes-benzGroup&makeName=mercedes-benz&referrer_id=ZUSA200092" },
-//                      @{ @"title" : @"Service and Parts Offers", @"description" : @"Introducing the latest edition of the 4 door coupe that started it all!", @"photo" : @"2015-cls-class.jpg", @"segue" : @"urlSegue", @"url" : @"http://www.mercedesbenzofcolumbus.com/special-offers" }
-                      ] mutableCopy];
-    
     headerHeight = 122;
     
-    [self.tableView reloadData];
+    [ProgressHUD show:@"Loading..."];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"page": @"specials"};
+    [manager POST:[Common webServiceUrlWithPath:@"get_settings.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        settingData = [responseObject objectForKey:@"settings"];
+        specialsData = [responseObject objectForKey:@"specials"];
+        [self.tableView reloadData];
+        [ProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+        [ProgressHUD dismiss];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -106,7 +102,7 @@
         
         NSDictionary* specialsItem = [specialsData objectAtIndex:indexPath.row];
         [cell.backgroundImageView setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([[UIScreen mainScreen] bounds].size.height - headerHeight) / [specialsData count])];
-        [cell.backgroundImageView setImage:[UIImage imageNamed:[specialsItem objectForKey:@"photo"]]];
+        [cell.backgroundImageView setImageWithURL:[NSURL URLWithString:[Common webServiceUrlWithPath:[specialsItem objectForKey:@"photo"]]] placeholderImage:[UIImage imageNamed:@"startBG.png"]];
         [cell.titleLabel setText:[specialsItem objectForKey:@"title"]];
         [cell.descriptionLabel setText:[specialsItem objectForKey:@"description"]];
         return cell;

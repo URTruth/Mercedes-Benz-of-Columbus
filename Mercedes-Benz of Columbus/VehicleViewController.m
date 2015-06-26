@@ -28,9 +28,9 @@
 
 @implementation VehicleViewController
 @synthesize vin;
-@synthesize number;
 @synthesize vehicleData;
 @synthesize detailData;
+@synthesize settingData;
 @synthesize vehicleImageView;
 @synthesize vehicleNameLabel;
 @synthesize vehiclePriceLabel;
@@ -60,7 +60,6 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-65,0,0,0);
     self.tableView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     
-    number = @"7062566100";
     detailData = [@[
                   @{ @"name" : @"Images", @"icon" : @"images.png", @"key" : @"urls", @"segue" : @"vehicleImagesSegue" },
                   @{ @"name" : @"Type", @"icon" : @"showroom.png", @"key" : @"type", @"segue" : @"n/a" },
@@ -306,7 +305,26 @@
 }
 
 - (void) callButtonClicked:(id)sender {
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:number]]];
+    if(settingData != nil) {
+        [self call];
+    } else {
+        [ProgressHUD show:@"Loading..."];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary *parameters = @{@"page": @"vehicle"};
+        [manager POST:[Common webServiceUrlWithPath:@"get_settings.php"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            settingData = [responseObject objectForKey:@"settings"];
+            [self call];
+            [ProgressHUD dismiss];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [Common showErrorMessageWithTitle:@"Oops! Could not connect." message:@"Please check your internet connection." cancelButtonTitle:@"OK"];
+            [ProgressHUD dismiss];
+        }];
+    }
+}
+
+- (void) call {
+    NSString *unformattedNumber = [[[settingData objectForKey:@"phone_number"] componentsSeparatedByCharactersInSet: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:[@"tel://" stringByAppendingString:unformattedNumber]]];
 }
 
 - (void) quoteButtonClicked:(id)sender {

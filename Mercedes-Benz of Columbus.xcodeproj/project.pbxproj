@@ -120,6 +120,8 @@
 		B680F7EF1AD663CC00B21879 /* AGPhotoBrowserOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7E91AD663CC00B21879 /* AGPhotoBrowserOverlayView.m */; };
 		B680F7F01AD663CC00B21879 /* AGPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7EB1AD663CC00B21879 /* AGPhotoBrowserView.m */; };
 		B680F7F11AD663CC00B21879 /* AGPhotoBrowserZoomableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7ED1AD663CC00B21879 /* AGPhotoBrowserZoomableView.m */; };
+		B6827EA51B3D066D00F94534 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6827EA41B3D066C00F94534 /* CFNetwork.framework */; };
+		B6827EA71B3D067700F94534 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6827EA61B3D067700F94534 /* StoreKit.framework */; };
 		B6862C3D1B1E2D9900F2E563 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B6862C3C1B1E2D9900F2E563 /* logo.png */; };
 		B686B1D31A8AF4C300928565 /* engine_start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B686B1D21A8AF4C300928565 /* engine_start_button.png */; };
 		B686B1D61A8B0B2500928565 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B1D51A8B0B2500928565 /* InventoryViewController.m */; };
@@ -147,7 +149,7 @@
 		B6DA2F3E1A735579004D646E /* service.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F3D1A735579004D646E /* service.png */; };
 		B6DA2F401A7355BC004D646E /* appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DA2F3F1A7355BC004D646E /* appointment.png */; };
 		B6DA2F451A735927004D646E /* specialsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DA2F441A735927004D646E /* specialsCell.m */; };
-		B6F137C01B3A933500DDF729 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137BF1B3A933500DDF729 /* libGoogleAnalyticsServices.a */; };
+		B6F137C01B3A933500DDF729 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137BF1B3A933500DDF729 /* libGoogleAnalyticsServices.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6F137C41B3A93A200DDF729 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137C31B3A93A200DDF729 /* libAdIdAccess.a */; };
 		B6F137C61B3A940E00DDF729 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137C51B3A940E00DDF729 /* libz.dylib */; };
 		B6F137C81B3A944F00DDF729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137C71B3A944F00DDF729 /* CoreData.framework */; };
@@ -375,6 +377,8 @@
 		B680F7EB1AD663CC00B21879 /* AGPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserView.m; sourceTree = "<group>"; };
 		B680F7EC1AD663CC00B21879 /* AGPhotoBrowserZoomableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserZoomableView.h; sourceTree = "<group>"; };
 		B680F7ED1AD663CC00B21879 /* AGPhotoBrowserZoomableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserZoomableView.m; sourceTree = "<group>"; };
+		B6827EA41B3D066C00F94534 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B6827EA61B3D067700F94534 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B6862C3C1B1E2D9900F2E563 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B686B1D21A8AF4C300928565 /* engine_start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engine_start_button.png; sourceTree = "<group>"; };
 		B686B1D41A8B0B2500928565 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6827EA71B3D067700F94534 /* StoreKit.framework in Frameworks */,
+				B6827EA51B3D066D00F94534 /* CFNetwork.framework in Frameworks */,
 				B6F137CC1B3A94AD00DDF729 /* libsqlite3.dylib in Frameworks */,
 				B6F137CA1B3A945A00DDF729 /* SystemConfiguration.framework in Frameworks */,
 				B6F137C81B3A944F00DDF729 /* CoreData.framework in Frameworks */,
@@ -668,7 +674,6 @@
 		B673C8641A294BFA00D3D55F = {
 			isa = PBXGroup;
 			children = (
-				B6F137CB1B3A94AD00DDF729 /* libsqlite3.dylib */,
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
 				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
@@ -677,12 +682,15 @@
 				B6F137C91B3A945A00DDF729 /* SystemConfiguration.framework */,
 				B6F137C71B3A944F00DDF729 /* CoreData.framework */,
 				2A7AA1DA1ACF9442000B7FAE /* AVFoundation.framework */,
+				B6827EA41B3D066C00F94534 /* CFNetwork.framework */,
+				B6827EA61B3D067700F94534 /* StoreKit.framework */,
 				B61CCE9E1AA31D3400A24F45 /* FacebookSDK.framework */,
 				B61CCE981AA31B7800A24F45 /* TwitterKit.framework */,
 				B61CCE991AA31B7800A24F45 /* TwitterKitResources.bundle */,
 				B6F137BF1B3A933500DDF729 /* libGoogleAnalyticsServices.a */,
 				B6F137C31B3A93A200DDF729 /* libAdIdAccess.a */,
 				B6F137C51B3A940E00DDF729 /* libz.dylib */,
+				B6F137CB1B3A94AD00DDF729 /* libsqlite3.dylib */,
 			);
 			sourceTree = "<group>";
 		};

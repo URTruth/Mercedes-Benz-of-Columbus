@@ -49,6 +49,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [ProgressHUD show:@"Loading.."];
+    if([User sharedInstance].isLoggedIn) {
+        AccountViewController *accountViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"accountViewController"];
+        [self.navigationController setViewControllers:[NSArray arrayWithObject:accountViewController] animated:YES];
+    } else {
+        [self createView];
+        [ProgressHUD dismiss];
+    }
+}
+
+- (void)createView {
     backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     backgroundView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     [self.view addSubview:backgroundView];

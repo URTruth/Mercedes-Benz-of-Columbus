@@ -58,7 +58,7 @@
 //    [segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
 //    [self.view addSubview:segmentedControl];
     
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 70)];
     webView.scalesPageToFit=YES;
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [webView loadRequest:urlRequest];

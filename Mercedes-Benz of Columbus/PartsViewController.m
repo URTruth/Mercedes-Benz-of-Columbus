@@ -74,7 +74,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Parts page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Parts page" forKey:kGAIScreenName] build]];
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {

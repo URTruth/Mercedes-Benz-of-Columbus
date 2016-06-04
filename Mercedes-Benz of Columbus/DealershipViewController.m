@@ -43,7 +43,7 @@
     // main view background color
     self.view.backgroundColor = [UIColor blackColor];
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Dealership page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Dealership page" forKey:kGAIScreenName] build]];
 }
 
 - (void)viewDidLoad {

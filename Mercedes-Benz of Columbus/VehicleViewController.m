@@ -81,7 +81,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Vehicle page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Vehicle page" forKey:kGAIScreenName] build]];
 }
 
 - (void)refresh {

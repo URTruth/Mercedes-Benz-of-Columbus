@@ -132,7 +132,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Settings page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Settings page" forKey:kGAIScreenName] build]];
 }
 
 - (IBAction)saveButtonClicked:(id)sender {

@@ -131,7 +131,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Sign Up page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Sign Up page" forKey:kGAIScreenName] build]];
 }
 
 - (IBAction)signUpButtonClicked:(id)sender {

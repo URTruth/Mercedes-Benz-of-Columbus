@@ -43,7 +43,7 @@
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 20;
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelError];
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-52889215-3"];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-78798810-1"];
     
     [Appirater setAppId:@"947780293"];
     [Appirater setDaysUntilPrompt:0];

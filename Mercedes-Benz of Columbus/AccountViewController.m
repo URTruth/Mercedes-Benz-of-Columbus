@@ -82,7 +82,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [ProgressHUD dismiss];
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Account page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Account page" forKey:kGAIScreenName] build]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

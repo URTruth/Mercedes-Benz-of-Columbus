@@ -42,7 +42,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     self.view.backgroundColor = [UIColor blackColor];
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[[GAIDictionaryBuilder createAppView] set:@"Sign In page" forKey:kGAIScreenName] build]];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Sign In page" forKey:kGAIScreenName] build]];
 }
 
 - (void)viewDidLoad {

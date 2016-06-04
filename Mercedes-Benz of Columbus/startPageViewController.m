@@ -9,6 +9,12 @@
 #import "startPageViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
+#import "GAI.h"
+#import "GAITracker.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
+#import "GAIFields.h"
+
 @interface startPageViewController ()
 {
     AVAudioPlayer *_audioPlayer;
@@ -81,6 +87,11 @@
     
     // Create audio player object and initialize with URL to sound
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"Home page" forKey:kGAIScreenName] build]];
 }
 
 - (void)start {

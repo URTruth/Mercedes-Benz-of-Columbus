@@ -132,7 +132,17 @@
             NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
             [cell.photoImageView setImage:[UIImage imageNamed:[detailItem objectForKey:@"icon"]]];
             [cell.nameLabel setText:[detailItem objectForKey:@"name"]];
-            [cell.auxLabel setText:[serviceItem objectForKey:[detailItem objectForKey:@"key"]]];
+            
+            NSString* auxText = [serviceItem objectForKey:[detailItem objectForKey:@"key"]];
+            CGRect auxLabelRect = [auxText boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 80, FLT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:cell.auxLabel.font} context:nil];
+            CGRect auxFrame = cell.auxLabel.frame;
+            auxFrame.size.height = auxLabelRect.size.height;
+            auxFrame.size.width = auxLabelRect.size.width;
+            cell.auxLabel.frame = auxFrame;
+            cell.auxLabel.numberOfLines = FLT_MAX;
+            cell.auxLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            [cell.auxLabel setText:auxText];
+            
             cell.arrowLabel.alpha = 0;
             
             return cell;
@@ -161,7 +171,15 @@
         return 122;
     }
     if(indexPath.section == 1) {
-        return ([self isDataAvailable] ? 78 : 800);
+        if([self isDataAvailable]) {
+            NSDictionary* serviceItem = [serviceData objectAtIndex:0];
+            NSDictionary* detailItem = [detailData objectAtIndex:indexPath.row];
+            NSString* auxText = [serviceItem objectForKey:[detailItem objectForKey:@"key"]];
+            CGRect auxLabelRect = [auxText boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 80, FLT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:BOLD_FONT size:18]} context:nil];
+            return 52 + auxLabelRect.size.height;
+        } else {
+            return 800;
+        }
     }
     return 0;
 }

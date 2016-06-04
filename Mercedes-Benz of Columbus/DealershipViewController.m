@@ -90,7 +90,6 @@
     
     // Gray background
     UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 123, [UIScreen mainScreen].bounds.size.width, scrollHeight)];
-    [centerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     centerView.backgroundColor = [UIColor colorFromHexCode:@"f5f5f5"];
     [scrollview addSubview:centerView];
     

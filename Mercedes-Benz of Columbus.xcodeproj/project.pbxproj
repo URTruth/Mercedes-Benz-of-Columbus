@@ -115,7 +115,6 @@
 		B673C87C1A294BFA00D3D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B673C87A1A294BFA00D3D55F /* Main.storyboard */; };
 		B673C87E1A294BFA00D3D55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B673C87D1A294BFA00D3D55F /* Images.xcassets */; };
 		B673C8811A294BFA00D3D55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B673C87F1A294BFA00D3D55F /* LaunchScreen.xib */; };
-		B673C88D1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */; };
 		B680F7EE1AD663CC00B21879 /* AGPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7E41AD663CC00B21879 /* AGPhotoBrowserCell.m */; };
 		B680F7EF1AD663CC00B21879 /* AGPhotoBrowserOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7E91AD663CC00B21879 /* AGPhotoBrowserOverlayView.m */; };
 		B680F7F01AD663CC00B21879 /* AGPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = B680F7EB1AD663CC00B21879 /* AGPhotoBrowserView.m */; };
@@ -156,16 +155,6 @@
 		B6F137CA1B3A945A00DDF729 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137C91B3A945A00DDF729 /* SystemConfiguration.framework */; };
 		B6F137CC1B3A94AD00DDF729 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F137CB1B3A94AD00DDF729 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B673C8871A294BFA00D3D55F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B673C8651A294BFA00D3D55F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B673C86C1A294BFA00D3D55F;
-			remoteInfo = "Mercedes-Benz of Columbus";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2A11FC031AE06C5B00507496 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
@@ -363,9 +352,6 @@
 		B673C87B1A294BFA00D3D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B673C87D1A294BFA00D3D55F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B673C8801A294BFA00D3D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B673C8861A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mercedes-Benz of ColumbusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B673C88B1A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mercedes_Benz_of_ColumbusTests.m; sourceTree = "<group>"; };
 		B680F7E31AD663CC00B21879 /* AGPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserCell.h; sourceTree = "<group>"; };
 		B680F7E41AD663CC00B21879 /* AGPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoBrowserCell.m; sourceTree = "<group>"; };
 		B680F7E51AD663CC00B21879 /* AGPhotoBrowserCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoBrowserCellProtocol.h; sourceTree = "<group>"; };
@@ -450,13 +436,6 @@
 				B61CCE9B1AA31B7800A24F45 /* TwitterKit.framework in Frameworks */,
 				B61CCE9D1AA31B7800A24F45 /* Fabric.framework in Frameworks */,
 				B6F137C01B3A933500DDF729 /* libGoogleAnalyticsServices.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B673C8831A294BFA00D3D55F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,7 +654,6 @@
 			isa = PBXGroup;
 			children = (
 				B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
-				B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 				B673C86E1A294BFA00D3D55F /* Products */,
 				2AAD6DF51A64D5AB00AC80D4 /* MapKit.framework */,
 				B61CCE9A1AA31B7800A24F45 /* Fabric.framework */,
@@ -698,7 +676,6 @@
 			isa = PBXGroup;
 			children = (
 				B673C86D1A294BFA00D3D55F /* Mercedes-Benz of Columbus.app */,
-				B673C8861A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -782,23 +759,6 @@
 			children = (
 				B673C8711A294BFA00D3D55F /* Info.plist */,
 				B673C8721A294BFA00D3D55F /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B673C8891A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */ = {
-			isa = PBXGroup;
-			children = (
-				B673C88C1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m */,
-				B673C88A1A294BFA00D3D55F /* Supporting Files */,
-			);
-			path = "Mercedes-Benz of ColumbusTests";
-			sourceTree = "<group>";
-		};
-		B673C88A1A294BFA00D3D55F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B673C88B1A294BFA00D3D55F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -897,24 +857,6 @@
 			productReference = B673C86D1A294BFA00D3D55F /* Mercedes-Benz of Columbus.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B673C8851A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B673C8931A294BFA00D3D55F /* Build configuration list for PBXNativeTarget "Mercedes-Benz of ColumbusTests" */;
-			buildPhases = (
-				B673C8821A294BFA00D3D55F /* Sources */,
-				B673C8831A294BFA00D3D55F /* Frameworks */,
-				B673C8841A294BFA00D3D55F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B673C8881A294BFA00D3D55F /* PBXTargetDependency */,
-			);
-			name = "Mercedes-Benz of ColumbusTests";
-			productName = "Mercedes-Benz of ColumbusTests";
-			productReference = B673C8861A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -932,10 +874,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					B673C8851A294BFA00D3D55F = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = B673C86C1A294BFA00D3D55F;
 					};
 				};
 			};
@@ -984,7 +922,6 @@
 			projectRoot = "";
 			targets = (
 				B673C86C1A294BFA00D3D55F /* Mercedes-Benz of Columbus */,
-				B673C8851A294BFA00D3D55F /* Mercedes-Benz of ColumbusTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1065,13 +1002,6 @@
 				B61CCC671AA181AF00A24F45 /* AppiraterLocalizable.strings in Resources */,
 				B60772021AD51CE200008C9C /* mpg.png in Resources */,
 				2AC9D0151A9A8259007E6228 /* car.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B673C8841A294BFA00D3D55F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,23 +1094,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B673C8821A294BFA00D3D55F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B673C88D1A294BFA00D3D55F /* Mercedes_Benz_of_ColumbusTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B673C8881A294BFA00D3D55F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B673C86C1A294BFA00D3D55F /* Mercedes-Benz of Columbus */;
-			targetProxy = B673C8871A294BFA00D3D55F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B61CCC451AA181AF00A24F45 /* AppiraterLocalizable.strings */ = {
@@ -1279,7 +1193,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "d883bada-5160-4d16-ae78-0eb5681ac8c1";
+				PROVISIONING_PROFILE = "67d31b7f-e222-4d97-9768-0e8405800557";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1303,7 +1217,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1316,7 +1230,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "d883bada-5160-4d16-ae78-0eb5681ac8c1";
+				PROVISIONING_PROFILE = "2078171e-1271-4621-af1a-d57b0a8d5378";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1328,8 +1242,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kelvin Graddick (AJ9V2TFVLP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kelvin Graddick (AJ9V2TFVLP)";
+				DEVELOPMENT_TEAM = HCQ2A438C7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1343,7 +1258,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d883bada-5160-4d16-ae78-0eb5681ac8c1";
+				PROVISIONING_PROFILE = "fd9068e9-758f-453c-bfaa-927939c75053";
+				PROVISIONING_PROFILE_SPECIFIER = "Mercedes-Benz of Columbus Dev Provisioning Profile";
 			};
 			name = Debug;
 		};
@@ -1354,6 +1270,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
+				DEVELOPMENT_TEAM = HCQ2A438C7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1367,41 +1284,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d883bada-5160-4d16-ae78-0eb5681ac8c1";
-			};
-			name = Release;
-		};
-		B673C8941A294BFA00D3D55F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Mercedes-Benz of ColumbusTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mercedes-Benz of Columbus.app/Mercedes-Benz of Columbus";
-			};
-			name = Debug;
-		};
-		B673C8951A294BFA00D3D55F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Mercedes-Benz of ColumbusTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mercedes-Benz of Columbus.app/Mercedes-Benz of Columbus";
+				PROVISIONING_PROFILE = "2078171e-1271-4621-af1a-d57b0a8d5378";
+				PROVISIONING_PROFILE_SPECIFIER = "Mercedes-Benz of Columbus Prod Provisioning Profile";
 			};
 			name = Release;
 		};
@@ -1422,15 +1306,6 @@
 			buildConfigurations = (
 				B673C8911A294BFA00D3D55F /* Debug */,
 				B673C8921A294BFA00D3D55F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B673C8931A294BFA00D3D55F /* Build configuration list for PBXNativeTarget "Mercedes-Benz of ColumbusTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B673C8941A294BFA00D3D55F /* Debug */,
-				B673C8951A294BFA00D3D55F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -202,7 +202,7 @@
             [ProgressHUD showSuccess:@"Success! Your VIN number was loaded."];
         } else {
             [ProgressHUD dismiss];
-            [Common showErrorMessageWithTitle:@"VIN search was unsuccessful." message:@"Change the search information and try again." cancelButtonTitle:@"OK"];
+            [Common showErrorMessageWithTitle:@"VIN search was unsuccessful." message:@"Change the search information and try again. Only VIN numbers of vehicles sold at Mercedes-Benz of Columbus, Georgia are available." cancelButtonTitle:@"OK"];
         }
         [self enableControls];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

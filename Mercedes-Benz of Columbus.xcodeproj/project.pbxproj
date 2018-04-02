@@ -344,6 +344,7 @@
 		B65C7B211AB1763900B7F36A /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
 		B65C7B231AB299C400B7F36A /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		B65C7B251AB299C900B7F36A /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		B66EC9DE2072870200EB188A /* Mercedes-Benz of Columbus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mercedes-Benz of Columbus.entitlements"; sourceTree = "<group>"; };
 		B673C86D1A294BFA00D3D55F /* Mercedes-Benz of Columbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mercedes-Benz of Columbus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B673C8711A294BFA00D3D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B673C8721A294BFA00D3D55F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -683,6 +684,7 @@
 		B673C86F1A294BFA00D3D55F /* Mercedes-Benz of Columbus */ = {
 			isa = PBXGroup;
 			children = (
+				B66EC9DE2072870200EB188A /* Mercedes-Benz of Columbus.entitlements */,
 				B64620D11A2C475900523159 /* Images */,
 				B673C8741A294BFA00D3D55F /* AppDelegate.h */,
 				B673C8751A294BFA00D3D55F /* AppDelegate.m */,
@@ -1172,8 +1174,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kelvin Graddick (AJ9V2TFVLP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kelvin Graddick (AJ9V2TFVLP)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1193,7 +1195,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "67d31b7f-e222-4d97-9768-0e8405800557";
+				PROVISIONING_PROFILE = "fd9068e9-758f-453c-bfaa-927939c75053";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1242,6 +1244,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Mercedes-Benz of Columbus/Mercedes-Benz of Columbus.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kelvin Graddick (AJ9V2TFVLP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kelvin Graddick (AJ9V2TFVLP)";
 				DEVELOPMENT_TEAM = HCQ2A438C7;
@@ -1268,6 +1271,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Mercedes-Benz of Columbus/Mercedes-Benz of Columbus.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wave Link, LLC (HCQ2A438C7)";
 				DEVELOPMENT_TEAM = HCQ2A438C7;

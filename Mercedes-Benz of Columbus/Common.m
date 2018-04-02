@@ -49,10 +49,11 @@ NSString* const BOLD_FONT = @"AppleSDGothicNeo-Bold";
 
 + (UIBarButtonItem *)optionsButtonWithTarget:(id)target andAction:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [UIImage imageNamed:@"phone2.png"];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    [button setImage:[UIImage imageNamed:@"phone2.png"] forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    button.frame = CGRectMake(0, 0, 21, 21);
+    button.imageView.frame = CGRectMake(0, 0, 21, 21);
     UIBarButtonItem *optionsButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     [optionsButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor darkGrayColor], NSFontAttributeName:[UIFont fontWithName: SEMI_BOLD_FONT size: 14.0f]} forState:UIControlStateNormal];
     return optionsButton;

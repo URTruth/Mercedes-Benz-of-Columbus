@@ -57,15 +57,22 @@
     NSDictionary *credentials = [keychain credentialsForIdentifier:@"account" service:@"Mercedes-Benz of Columbus"];
     [User sharedInstance].userId = [credentials valueForKey:ACKeychainUsername];
     
+    UIAlertView *discontinueAlert = [[UIAlertView alloc] initWithTitle:@"ATTENTION"
+                                                    message:@"The Mercedes-Benz of Columbus app will be discontinued on July 31st, 2018. Thank you for downloaded and using the app."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [discontinueAlert show];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL isWarned = [userDefaults boolForKey:@"isWarned"];
     if (!isWarned) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Disclaimer"
+        UIAlertView *locationAlert = [[UIAlertView alloc] initWithTitle:@"Disclaimer"
                                                         message:@"This app is for current and potential customers of the Mercedes-Benz of COLUMBUS, GEORGIA dealership. If you need services for a different dealership, please find their specific website or app on the App Store."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
+        [locationAlert show];
         [userDefaults setObject:@YES forKey:@"isWarned"];
         [userDefaults synchronize];
     }
